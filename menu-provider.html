@@ -1,0 +1,105 @@
+<? require_once "preference-fns.php";
+
+?><div class="nav"> <!-- provider menu -->
+    	<ul class="menu">
+    		<li><a href="index.php" class="{ActiveItem}"><span><span>HOME</span></span></a></li>
+    		<!-- li><a href="#"><span><span <?= $LIGHTER_INACTIVE ?>>PENDING REQUESTS</span></span></a -->
+    		</li>
+    		<li><a href="#"><span><span>SCHEDULE</span></span></a>
+    		    <ul class="menu">
+    			    <!-- li><a href="index.php">View Visits</a></li -->
+    			    <? if(!dbTEST('careypet')) { ?>
+    			    <li><a href="prov-job-completion.php">Mark Visits Completed</a></li>
+    			    <? } ?>
+							<? if($_SESSION['preferences']['enableUnassignedVisitsBoard']) { ?>
+    			    <li><a href="unassigned-visits-board-sitter.php">Unassigned Visits Board</a></li>
+    			    <? } ?>
+							<? if(mattOnlyTEST()) { ?>
+    			    <li><a href="provider-own-confirmations.php">Confirmations</a></li>
+    			    <? } ?>
+							<? if(staffOnlyTEST() || dbtest('pawlosophy')) { ?>
+    			    <li><a href="provider-map.php?date=<?= date('Y-m-d') ?>">Map</a></li>
+    			    <? } ?>
+    		    </ul>
+    		</li>
+    		<li><a href="#"><span><span>PAY</span></span></a>
+    		    <ul class="menu">
+    			    <li><a href="prov-current-pay.php">Current Pay</a></li>
+    			    <li><a href="prov-pay-history.php">Pay History</a></li>
+							<? if((dbTEST('dogslife') || loginidsOnlyTEST('SherwoodM')) && getPreference('sittersCanSendICInvoices')) { ?>
+    			    <li><a href="ic-own-invoices.php">Submitted Invoices</a></li>
+    			    <? } ?>
+    		    </ul>
+    		</li>
+    		<li><a href="#"><span><span>CLIENTS</span></span></a>
+    		    <ul class="menu">
+    			    <li><a href="client-list.php">Client List</a></li>
+    			    <? if($_SESSION['preferences']['providerCanPrintIntakeForms']) { ?>
+    			    <li><a href="intake-form-launcher.php" target=clientintake>Client Intake Form</a></li>
+    			    <? } ?>
+    		    </ul>
+    		</li>
+				<li><a href="#"><span><span>ADMIN</span></span></a>
+    		    <ul class="menu">
+    		    	<? if($_SESSION['preferences']['allowProvidertoProviderEmail']) { ?>
+    		    	<li><a href="prov-email-composer.php">Send Email</a></li>
+    		    	<? } ?>
+    		    	<li><a href="password-change-page.php">Change Password</a></li>
+    		    	<? if($_SESSION['preferences']['offerTimeOffProviderUI']) { ?>
+    		    	<li><a href="prov-time-off-page.php">Schedule Time Off</a></li>
+    		    	<? } ?>
+    		    	<? if($_SESSION['preferences']['enableSitterDocuments']) { ?>
+    		    	<li><? fauxLink('My Documents', "openConsoleWindow(\"sitterdocs\", \"provider-files.php\",700,700);"); ?></li>
+    		    	<? } ?>
+							<? 
+								if(getPreference('allowSittersToUseGoogleCalendar') &&
+									($allowed = getPreference('googleCalendarEnabledSitters')) &&
+									in_array($_SESSION['auth_user_id'], explode(',', $allowed))
+									) { ?>
+							<li><a href='google-cal-prov.php'>Google Calendar Prefs</a></li>
+							<? } ?>
+							<? 
+								if(isMobileUserAgent()) { // $_SESSION["mobiledevice"]
+									if(getUserPreference($_SESSION['auth_user_id'], 'mobileVersionPreferred'))  { ?>
+							<li><a href='prov-switch-interface.php?mode=mobile'>Switch to Mobile App</a></li>
+							<? }} ?>
+							<? if(getUserPreference($_SESSION['auth_user_id'], 'mobileVersionPreferred') && !dbTEST('careypet'))  { ?>
+									<li><a href='http://training.leashtime.com/MobileSitterAppManual.pdf' target='mobileappmanual'>Mobile Sitter App Manual</a></li>
+
+							<? } ?>
+							<li><a href='http://training.leashtime.com/LeashTimeSitterManual.pdf' target='mobileappmanual'>LeashTime Sitter&apos;s Guide</a></li>
+    		    </ul>
+    		</li>
+    		<? if($_SESSION['secureKeyEnabled']) { 
+							$right = strpos($_SESSION["rights"], 'ka') ? 'ka' : (strpos($_SESSION["rights"], 'ki') ? 'ki' : '');
+							if($right) {
+					?>
+    		<li><a href="#"><span><span>KEYS</span></span></a>
+    		    <ul class="menu">
+    			    <li><a href="key-check-in.php">Check In</a></li>
+    			    <li><a href="key-check-out.php">Check Out</a></li>
+    			    <li><a href="key-lost.php">Report Key Lost</a></li>
+    			    <li><a href="provider-keys.php">Sitter Keys</a></li>
+    			    <? if($right == 'ka') { ?>
+    			    <li><a href="key-report.php">Key Location Report</a></li>
+    			    <!-- <li><a href="key-safe-editor.php">Key Safe Manager</a></li> -->
+    			    <? } ?>
+    		    </ul>
+    		</li>
+    		
+    		<? } } ?>   		    		
+    		
+    		<li><a <?= $INACTIVE ?> href="login-page.php?logout=1"><span><span>LOGOUT</span></span></a></li>
+    		<? $greetingName = $_SESSION["auth_userfname"] ? $_SESSION["auth_userfname"] : $_SESSION["auth_login_id"];
+    				if(strpos($greetingName, 'corp_') === 0 || strpos($greetingName, 'disp_') === 0)
+    					$greetingName = userRole() == 'd' ? 'Dispatcher' : 'Boss';
+    				$dateDisplay = $_SESSION['preferences']['showCalendarPageInBanner'] 
+    													? '' 
+    													: ' Today is: '.date('l, ', getLocalTime()).month3Date(getLocalTime());
+    		?>
+    		
+    		<li><span><span style='font-size:1.1em;color:yellow;vertical-align:bottom;'><img src="art/spacer.gif" width=40 height=1>Hi <?= $greetingName ?>.<?= $dateDisplay ?></span></span></li>
+    	</ul>
+    	<div class="l"></div>
+    	<div class="r"><div></div></div>
+    </div>

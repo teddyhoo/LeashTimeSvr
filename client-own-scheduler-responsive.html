@@ -1,0 +1,55 @@
+<? // client-own-scheduler-responsive.html
+
+// {"start":"07/24/2019","end":"07/27/2019","servicecode":"29","prettypets":"Apple, Bubbles","pets":"Apple,Bubbles","visits":[{"date":"07/24/2019","servicecode":"29","timeofday":"5:00 pm-7:00 pm","pets":"Apple,Bubbles"},{"date":"7/25/2019","servicecode":"29","timeofday":"9:00 am-11:00 am","pets":"Apple,Bubbles"},{"date":"7/25/2019","servicecode":"29","timeofday":"3:00 pm-5:00 pm","pets":"Apple,Bubbles"},{"date":"7/25/2019","servicecode":"29","timeofday":"7:00 pm-9:00 pm","pets":"Apple,Bubbles"},{"date":"7/26/2019","servicecode":"29","timeofday":"9:00 am-11:00 am","pets":"Apple,Bubbles"},{"date":"7/26/2019","servicecode":"29","timeofday":"3:00 pm-5:00 pm","pets":"Apple,Bubbles"},{"date":"7/26/2019","servicecode":"29","timeofday":"7:00 pm-9:00 pm","pets":"Apple,Bubbles"},{"date":"07/27/2019","servicecode":"29","timeofday":"6:00 am-9:00 am","pets":"Apple,Bubbles"}],"note":"Please be on time.","totaldays":4,"visitdays":4}
+?>
+<head> 
+<script src="client-own-scheduler-responsive-cal.js"></script> 
+</head> 
+ 
+<body> 
+ 
+<div id="calendar"></div> 
+</body> 
+<style> 
+.monthPre{
+ color: gray;
+ text-align: center;
+}
+.monthNow{
+ color: blue;
+ text-align: center;
+ background-color: #FFFFFF;
+
+}
+.dayNow{
+ //border: 2px solid black;
+ color: #FF0000;
+ text-align: center;
+ background-color: #FFFFFF;
+}
+
+.visitsDay {
+	background: #C0FFC0;
+}
+
+.calendar td{
+ htmlContent: 2px;
+ width: 100px;
+ height: 100px;
+}
+.monthNow th{
+ background-color: #000000;
+ color: #FFFFFF;
+ text-align: center;
+}
+.dayNames{
+ background: #0FF000;
+ color: #FFFFFF;
+ text-align: center;
+}
+ 
+</style> 	 
+
+<script> 
+displayCalendarForPacket(testdata);
+</script> 

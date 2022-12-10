@@ -1,0 +1,88 @@
+<? // login-form-mobile.html
+$delayPageContent = 0;
+$noOptions = 1;
+$bizName = 'LeashTime!';
+if(!$noFrame) require_once "mobile-frame.php";
+?>
+
+<? //< div class='pagecontentdiv'> ?>
+
+
+<? $topLevelDirectory = file_exists("check-form.js") ? '' : '../';
+
+if(isIPad()) {
+	echo
+"<style>
+#logintable td {font-size:1.4em;}
+#logintable input {font-size:1.4em;}
+</style>";
+}
+
+if(!$noFrame) echo $message ? "<p>$message<p>" : '';
+
+?>
+<form name='leashtimelogin' method="POST" action="<?= $topLevelDirectory ?>login.php">
+<table id='logintable'>
+<tr>
+				<td>Username</td>
+				<td align="left"><input type="text" name="user_name" size="25" maxlength="65" /></td>
+</tr>
+<tr>
+				<td>Password</td>
+				<td align="left"><input type="password" name="user_pass" size="25" maxlength="30" onKeyup='autoSubmit(event)' onchange='submitIfValid()'/></td>
+</tr>
+<tr>
+				<td>&nbsp;</td>
+				<td align="left">
+					 <? echoButton('', "Login", 'submitIfValid();', 'Button'); 
+					 		hiddenElement('bizid', $_REQUEST['bizid']);
+					 		hiddenElement('clienttime', '');
+					 		hiddenElement('jsuseragent', '');
+					 ?>
+				</td>
+</tr>
+<tr>
+		<td colspan="2" align="center"><br /><hr />Click <a href="temp-password-assignment.php?bizid=<?= $_REQUEST['bizid'] ?>"><b>here</b></a> if you have forgotten your password.
+		<? if($homepage) echo "<p>or visit <a href='$homepage'>$bizname</a> for help." ?>
+		</td>
+<!-- tr><td colspan="2" align="center">Questions? <a href="#">email us</a></td -->
+</tr>
+<? if($_REQUEST['b']) { // biz id: show client login self-start link ?>
+<tr>
+		<td colspan="2" align="center"><br />Don&apos;t have a username yet? Click here to
+		<a href="login-creds-application.php?b=<?= $_REQUEST['b'] ?>"><b>set one up</b></a>.</td>
+</tr>
+<? } ?>
+<!-- tr><td colspan="2" align="center">Questions? <a href="#">email us</a></td -->
+	
+</table>
+<?
+if(!isset($noRedirect) && !$noRedirect && !$_REQUEST['logout']) hiddenElement('redirect', $_SERVER['REQUEST_URI']);
+?>
+</form>
+<!-- marquee>*** NOTICE *** This site will be down for maintenance between the hours of 11:00 PM ET Thurdsday, September 14 and 3:00 AM ET Friday, September 15</marquee-->
+<SCRIPT LANGUAGE="JavaScript" SRC="<?= $topLevelDirectory ?>check-form.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+document.forms[0].user_name.focus();
+
+setPrettynames('user_name','Username','user_pass','Password');
+
+function autoSubmit(event) {
+  if(event.keyCode == 13) submitIfValid();
+}
+function submitIfValid(){
+	document.getElementById('jsuseragent').value = navigator.userAgent;
+  if(MM_validateForm('user_name','','R','user_pass','','R')) {
+	var d = new Date().getTime();//Date.parse(new Date().toLocaleString());
+	document.getElementById('clienttime').value=d/1000;
+    document.leashtimelogin.submit();
+	}
+}
+</SCRIPT>
+
+
+</div> <!-- pagecontentdiv -->
+
+<? if(!$isMobile) { ?>
+</div><!-- TESTFRAME -->
+<? } ?>

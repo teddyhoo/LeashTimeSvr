@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html><!-- html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" -->
+
+<head> 
+
+  <!--
+
+    Created by Artisteer v{Version}
+
+    Base template (without user's data) checked by http://validator.w3.org : "This page is valid XHTML 1.0 Transitional"
+
+  -->
+
+  <title> LT HTML Editor </title>
+
+ <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" >
+
+  
+
+  <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />  
+
+  
+
+  
+
+  
+
+  
+
+  <link rel="stylesheet" href="style.css" type="text/css" /> 
+
+  <link rel="stylesheet" href="pet.css" type="text/css" /> 
+
+      
+
+  <link rel="icon" href="/art/favicon16.ico" type="image/x-icon" />
+
+  <link rel="shortcut icon" href="/art/favicon16.ico" type="image/x-icon" />
+
+  <link rel="stylesheet" href="colorbox/example1/colorbox.css" type="text/css" /> 
+
+	
+
+	<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+
+			 <script type="text/javascript" src="colorbox/version1.3.19/jquery.colorbox-min.js"></script>		
+<script type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript">
+	tinyMCE.init({
+		mode : "textareas",
+		theme : "advanced",
+		theme_advanced_toolbar_location : "top"
+	});
+</script>
+
+	</head> 
+
+<body>
+
+<noscript>
+
+<center><div style='position:absolute;z-index:999;padding:100px;text-align:center;top:10px;left:10px;width:800px;height:600px;background:yellow;border: solid black 2px;font: bold 12pt Tahoma,Arial,Verdana;'>Javascript is disabled in your browser.  It must be enabled for you to use this site.
+
+</div></center>
+
+</noscript>
+
+  <div class="PageBackgroundGradient"></div>
+
+  <div class="Main">
+
+    <div class="Sheet">
+
+      <div class="Sheet-body">
+
+    
+
+    <div class="Header">
+
+    
+
+      <div>
+
+	 
+
+					<table class='logo'>
+
+						<tr><td class='bizlogo'>
+
+								<span style='font:bold 18px arial,sans-serif;'>&nbsp;<br>Software for Your<br>Pet Sitting Business</span></td>
+
+						</tr>
+
+					</table>
+
+     
+
+    
+
+      </div>
+
+    </div>
+
+    
+
+            <div class="contentLayout" style='Xbackground:lightgreen;' id='ContentDiv'>
+
+    
+
+          <div class="content" Xstyle='background:green;'>
+
+          
+
+            
+
+            <div class="Block" Xstyle='background:orange'>
+
+              <div class="Block-body" Xstyle='background:purple'>
+
+            
+
+                
+
+                <div class="BlockContent" Xstyle='background:yellow'>
+
+                  <div class="BlockContent-body" Xstyle='background:red;'>
+
+                
+
+                    
+
+                    <div style='padding-bottom:20px;' id='InnerMostFrame'> <!-- background:lightblue -->
+
+
+                    	  
+                    	  
+                     <h2>HTML Editor</h2>
+			<span class='pagenote' style='font-size:1.2em;display:none;'><p id='framemsg'>XYZ</p></span>											
+			<!-- div class="entry" -->
+<p>
+<form name='htmled' method='POST'>
+<input type='button' id='' name='' 
+	value='Show HTML Code' class='Button' onClick='showHTML()' 
+	onMouseOver='this.className="ButtonDown"' onMouseOut='this.className="Button"'>
+<input type='button' id='' name='' 
+	value='Save as a File' class='Button' onClick='saveHTML()' 
+	onMouseOver='this.className="ButtonDown"' onMouseOut='this.className="Button"'>
+<td colspan=2><label  for='terms'>Paste your text here: </label><br><textarea class='standardInput' rows=100 cols=104 id='terms' name='terms' ></textarea>
+
+</form>
+<script language='javascript'>
+function showHTML() {
+	tinymce.triggerSave();	
+	//alert($('#terms')[0].value);
+	$(document).ready(function(){$.fn.colorbox({html:$('#terms').val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;"), width:"750", height:"470", scrolling: true, opacity: "0.3"});});
+}
+
+function saveHTML() {
+	var htmldata = tinyMCE.get('terms').getContent()
+	//alert(htmldata);
+	download(htmldata, 'name.html', 'string');
+}
+
+function download(data, filename, type) {
+    var file = new Blob([data], {type: type});
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else { // Others
+        var a = document.createElement("a"),
+                url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);  
+        }, 0); 
+    }
+}
+
+</script>
+                                  </div> <!-- lightblue -->
+                  </div> <!-- red -->
+                </div> <!-- yellow -->
+                
+            
+              </div> <!-- purple -->
+            </div> <!-- orange -->
+            
+            
+
+          
+    
+    </div><!-- green -->
+    
+    
+    
+      </div>
+      <div class="Sheet-tl"></div>
+      <div class="Sheet-tr"><div></div></div>
+      <div class="Sheet-bl"><div></div></div>
+      <div class="Sheet-br"><div></div></div>
+      <div class="Sheet-tc"><div></div></div>
+      <div class="Sheet-bc"><div></div></div>
+      <div class="Sheet-cl"><div></div></div>
+      <div class="Sheet-cr"><div></div></div>
+      <div class="Sheet-cc"></div>
+    </div>
+    
+
+  </div>
+<script language='javascript'>
+</script>
+		
+</body>
+</html>
+
+

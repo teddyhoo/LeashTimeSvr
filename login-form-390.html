@@ -1,0 +1,87 @@
+<? $topLevelDirectory = file_exists("check-form.js") ? '' : '../';
+
+?>
+<form name='leashtimelogin' method="POST" action="<?= $topLevelDirectory ?>login.php">
+<?
+$screenIsIPad = strpos($_SERVER["HTTP_USER_AGENT"], 'iPad') !== FALSE;
+if($screenIsIPad) echo "<table><tr><td>";
+?>
+<table style="width:390px" >
+<tr>
+				<td>Username</td>
+				<td align="left"><input type="text" name="user_name" size="25" maxlength="65" /></td>
+<? if($qrcode || !$_REQUEST['bizid']) { 
+			$qrcode = $qrcode ? $qrcode : "<img src='art/qrcode-login-plasticwrap.jpg' 
+																						plain='art/qrcode-login.png' 
+																						fancy='art/qrcode-login-plasticwrap.jpg' 
+																						onclick=\"this.src = this.src.indexOf('art/qrcode-login.png') != -1 ? 'art/qrcode-login-plasticwrap.jpg' : 'art/qrcode-login.png'\">";
+?>				
+				<td align="right" valign="top" rowspan=3  title="Scan this code with your smart phone for a link to this page"><?= $qrcode ?></td>
+<? } ?>
+</tr>
+<tr>
+				<td>Password</td>
+				<td align="left"><input type="password" name="user_pass" size="25" maxlength="45" onKeyup='autoSubmit(event)'/></td>
+</tr>
+<tr>
+				<td>&nbsp;</td>
+				<td align="left">
+					 <? echoButton('', "Login", 'submitIfValid();', 'Button'); 
+					 		hiddenElement('bizid', $_REQUEST['bizid']);
+					 		hiddenElement('clienttime', '');
+					 		hiddenElement('jsuseragent', '');
+					 ?>
+				</td>
+</tr>
+<tr>
+		<td colspan="2" align="center"><br /><hr />Click <a href="temp-password-assignment.php?bizid=<?= $_REQUEST['bizid'] ?>"><b>here</b></a> if you have forgotten your password.
+		<? if($homepage) echo "<p>or visit <a href='$homepage'>$bizname</a> for help." ?>
+		</td>
+<!-- tr><td colspan="2" align="center">Questions? <a href="#">email us</a></td -->
+</tr>
+<? if($_REQUEST['b']) { // biz id: show client login self-start link ?>
+<tr>
+		<td colspan="2" align="center"><br />Don&apos;t have a username yet? Click here to
+		<a href="login-creds-application.php?b=<?= $_REQUEST['b'] ?>"><b>set one up</b></a>.</td>
+</tr>
+<? }
+
+if($_SERVER['REMOTE_ADDR'] == '68.225.89.173' || $_REQUEST['mobile']) {
+	echo "<tr><td><a href='/login-page.php?mobile=1'>Mobile Login (matt only)</a></td></tr>";
+}
+
+?>
+<!-- tr><td colspan="2" align="center">Questions? <a href="#">email us</a></td -->
+	
+</table>
+<?
+if($screenIsIPad) {
+	echo "</td><td valign='middle' align='center' style='padding-left:30px'>";
+	if(TRUE/*mattOnlyTEST() || tedOnlyTEST()*/) 
+		echo "<div style='text-align:center;font-weight:bold;font-size:2em;width:200px;background:lightblue;padding-top:30px;padding-bottom:30px;'>
+					<a href='login-page-mini.php' style=';text-decoration:none'>Tap Here if this<br>is an iPad Mini</a></div>";
+	echo "</td></tr></table>";
+}
+
+
+if(!isset($noRedirect) && !$noRedirect && !$_REQUEST['logout']) hiddenElement('redirect', $_SERVER['REQUEST_URI']);
+?>
+</form>
+<!-- marquee>*** NOTICE *** This site will be down for maintenance between the hours of 11:00 PM ET Thurdsday, September 14 and 3:00 AM ET Friday, September 15</marquee-->
+<SCRIPT LANGUAGE="JavaScript" SRC="<?= $topLevelDirectory ?>check-form.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+document.forms[0].user_name.focus();
+
+setPrettynames('user_name','Username','user_pass','Password');
+
+function autoSubmit(event) {
+  if(event.keyCode == 13) submitIfValid();
+}
+function submitIfValid(){
+	document.getElementById('jsuseragent').value = navigator.userAgent;
+	var d = new Date().getTime();
+	document.getElementById('clienttime').value=d/1000; // used in mobile sitter app to calculate counter timeout
+  if(MM_validateForm('user_name','','R','user_pass','','R'))
+    document.leashtimelogin.submit();
+}
+</SCRIPT>

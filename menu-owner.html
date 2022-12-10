@@ -1,0 +1,234 @@
+    <div class="nav"> <!-- owner menu -->
+    	<ul class="menu">
+    		<li><a href="index.php" class="{ActiveItem}"><span><span>HOME</span></span></a></li>
+    		<!-- li><a href="#"><span><span <?= $LIGHTER_INACTIVE ?>>PENDING REQUESTS</span></span></a></li -->
+    		
+				<? if(userRole() != 'd' || strpos($_SESSION['rights'], '#av')) { ?>
+    		<li><a href="#"><span><span>SCHEDULE</span></span></a>
+    		    <ul class="menu">
+    			    <li><a href="index.php?shrink=custrequests">View Visits</a></li>
+    			    <li><a href="prov-schedule-list.php?provider=-1&thisweek=1">View Unassigned Visits</a></li>
+							<? if(userRole() != 'd' || strpos($_SESSION['rights'], '#ev')) { ?>
+    			    <li><a href="job-reassignment.php">Reassign Visits</a></li>
+    			    <!-- li><a <?= $INACTIVE ?> href="#">Unassigned Jobs</a></li -->
+    			    <li><a href="package-create.php">Schedule Visits</a></li>
+    			    <li><a href="holidays-recurring.php">Holiday Visits</a></li>
+							<? } ?>
+    			     <? /*<li><a href="#" onClick='var rsurl= "package-create.php";var w = window.open(rsurl,"clientPicker","toolbar=0,location=0,directories=0,status=0,resizable=yes,menubar=0,scrollbars=yes,width=450,height=600");w.document.location.href=rsurl;if(w) w.focus();'
+    			           >Create New Package</a></li>
+    			   <li style='text-align:center;'><a>----------</a></li>
+    			    <li><a href="#" onClick='var rsurl= "client-picker-destination.php?dest=service-repeating&recurring=1";var w = window.open(rsurl,"clientPicker","toolbar=0,location=0,directories=0,status=0,resizable=yes,menubar=0,scrollbars=yes,width=450,height=500");w.document.location.href=rsurl;if(w) w.focus();'
+    			           >New Weekly Package</a></li>
+    			    <li><a href="#" onClick='var rsurl= "client-picker-destination.php?dest=service-monthly&recurring=1";var w = window.open(rsurl,"clientPicker","toolbar=0,location=0,directories=0,status=0,resizable=yes,menubar=0,scrollbars=yes,width=450,height=500");w.document.location.href=rsurl;if(w) w.focus();'
+    			    			 >New Monthly Package</a></li>
+    			    <li><a href="#" onClick='var rsurl= "client-picker-destination.php?dest=service-nonrepeating";var w = window.open(rsurl,"clientPicker","toolbar=0,location=0,directories=0,status=0,resizable=yes,menubar=0,scrollbars=yes,width=450,height=500");w.document.location.href=rsurl;if(w) w.focus();'
+    			           >New Service Package</a></li>
+    			    <li><a <?= $INACTIVE ?> href="#">New One-Day Schedule</a></li > */ ?>
+    			    
+    		    </ul>
+    		</li>
+				<? } ?>
+				<? if(userRole() != 'd' || strpos($_SESSION['rights'], '#as')) { ?>
+    		<li><a href="#"><span><span>SITTERS</span></span></a>
+    		    <ul class="menu">
+    			    <li><a href="prov-schedule-cal.php?starting=<?= date('Y-m-d') ?>">Sitter Schedules</a></li>
+    			    <? if(userRole() != 'd' || strpos($_SESSION['rights'], '#pl')) { ?>
+    			    <li><a href="provider-list.php">Sitter List</a></li>
+    			    <? } ?>
+    			    <? if(userRole() != 'd' || strpos($_SESSION['rights'], '#es')) { ?>
+    			    <li><a href="#" onclick="openConsoleWindow('timeoffcalendar', 'timeoff-sitter-calendar.php?editable=1',750,650)">Time Off Calendar...</a></li>
+    			    <? } ?>
+
+    			    <? if(staffOnlyTEST() || dbTEST('crittersitterlinganore')) { ?>
+    			    <li><a href="#" onclick="openConsoleWindow('availabilitycalendar', 'availability-sitter-calendar.php?editable=1',750,650)">Availability Calendar...</a></li>
+    			    <? } ?>
+
+
+
+    			    <? if(userRole() != 'd' || strpos($_SESSION['rights'], '#pa')) { ?>
+    			    <li><a href="provider-payment.php">Payroll / Commissions</a></li>
+    			    <? } ?>
+    			    <li><a href="email-broadcast.php?targetType=provider">Email / Alerts</a></li>
+    			    <? // see also comm-prfs.php
+    			    	if($_SESSION['preferences']['optionEnabledGoogleCalendarSitterVisits'] /* || dbTEST('savinggrace,auntieemspetsitting,queeniespets,menlyspetcare,wagspropetservices,osbornfamilyfarm,bestfitpetsit,wagznkissesllc') */) { ?>
+    			    <li><a href="google-cal-broadcast.php">Update Google Calendars</a></li>
+    			    <? } ?>
+    			    <? if(adequateRights('#es')) { ?>
+    			    <li><a href="emails-recent-provider.php">Recent Sitter Email</a></li>
+    			    <? } ?>
+							<? if($_SESSION['preferences']['enableUnassignedVisitsBoard']) { ?>
+    			    <li><a href="unassigned-visits-board-manager.php">Unassigned Visits Bulletin Board</a></li>
+    			    <? } ?>
+    		    </ul>
+    		</li>
+				<? } ?>
+    		<li><a href="#"><span><span>CLIENTS</span></span></a>
+    		    <ul class="menu">
+    			    <? if(userRole() != 'd' || strpos($_SESSION['rights'], '#ec')) { ?>
+    			    <li><a href="client-edit.php">New Client</a></li>
+    			    <? } ?>
+    			    <? if(userRole() != 'd' || strpos($_SESSION['rights'], '#cl')) { ?>
+    			    <li><a href="client-list.php">Client List</a></li>
+    			    <? } ?>
+    			    <? if(userRole() != 'd' || strpos($_SESSION['rights'], '#ac')) { ?>
+      			    <? if($_SESSION['preferences']['invoicingEnabled']) { // in_array(staffOnlyTEST(), array(173,357)) ||  ?>
+  			    	<li><a href="invoices-all.php">Invoices</a></li>
+								<? } ?>
+								
+							<? if($_SESSION['preferences']['betaBilling2Enabled']) {
+								$yearLabel = date('Y');
+								?>
+    			    <li><a href="billingBETA2015.php">Billing <?= $yearLabel ?></a></li>
+							<? } else {?>
+    			    <li><a href="prepayments.php">Billing</a></li>
+							<? } ?>
+							<? if(($betaBillingEnabled = 
+										$_SESSION['preferences']['betaBillingEnabled'] ) 
+										|| staffOnlyTEST()) { ?>
+    			    <li><a href="billing.php">BETA Billing</a></li>
+							<? } ?>
+    			    <li><a href="payments.php">Payments</a></li>
+    			    <? } ?>
+    			    <li><a href="email-broadcast.php?targetType=client">Email / Alerts</a></li>
+    			    <? //li><a < ?= $INACTIVE ? > href="#">Prospects</a></li ?>
+    			    <? if(staffOnlyTEST()) { ?>
+    			    <li><a href="payment-history.php" target=globalpaymenthistory>Payment History</a></li>
+    			    <? } ?>
+    			    <li><a href="intake-form-launcher.php" target=clientintake>Client Intake Form</a></li>
+    		    </ul>
+    		</li>
+    		
+    		<? if($_SESSION['secureKeyEnabled'] && (userRole() != 'd' || strpos($_SESSION['rights'], '#km'))) { ?>
+    		<li><a href="#"><span><span>KEYS</span></span></a>
+    		    <ul class="menu">
+    			    <li><a href="key-check-in.php">Check In</a></li>
+    			    <li><a href="key-check-out.php">Check Out</a></li>
+    			    <li><a href="key-launch-edit.php">Edit Key</a></li>
+    			    <li><a href="key-lost.php">Report Key Lost</a></li>
+    			    <li><a href="provider-keys.php">Sitter Keys</a></li>
+    			    <li><a href="key-audit.php">Key Audit</a></li>
+    			    <li><a href="key-report.php">Key Location Report</a></li>
+    			    <li><a href="key-safe-editor.php">Key Safe Manager</a></li>
+    		    </ul>
+    		</li>
+    		
+    		<? } ?>   		
+				<? if(userRole() != 'd' || strpos($_SESSION['rights'], '#aa')) { ?>
+    		<li><a href="#"><span><span>ADMIN</span></span></a>
+    		    <ul class="menu">
+				<? if(staffOnlyTEST()) {
+							if(dbTEST('leashtimecustomers'))
+								$issueEditorOption = "<li><a href='#' "
+								."onclick='$.fn.colorbox({href:\"lt-issue-editor.php\", width:\"750\", height:\"750\", iframe: true, scrolling: true, opacity: \"0.3\"});'"
+								.">Create a Support Request</a></li>";
+							if(!dbTEST('leashtimecustomers'))
+								$issueEditorOption = "<li><a href='#' "
+								."onclick='openConsoleWindow(\"supportemail\", \"comm-composer-support.php?editable=1\",750,650)'"
+								."> 	<span style='font-weight:bold;font-size:1.1em;color:yellow;'>&#x2709;</span> Support Email to Manager</a></li>";
+							$notificationLink = fauxLink('<span style="font-weight:bold;font-size:1.1em;color:yellow;">&#x2709;</span> Issue a System Notification', "openConsoleWindow(\"systemnotificationeditor\", \"request-system-adhoc-system-notification.php\", 450,450)", 'noEcho');
+							//$notificationButton = str_replace("\r", ' ', str_replace("\n", ' ', $notificationButton));
+
+				?>
+    			    <li><a>LeashTime Staff</a>
+    			        <ul class="menu">
+										<li><a style='color:white;'>LeashTime Staff</a></li>
+										<?= $issueEditorOption  ?>
+										<?= "<li>".$notificationLink  ?>
+										<li><a href='#' onclick="$.fn.colorbox({href:'biz-capsule.php', width:'750', height:'750', iframe: true, scrolling: true, opacity: '0.3'})">Business Details</a></li>
+										<li><a href="optional-business-features.php">Optional Business Features</a></li>
+										<li><a href="rate-change.php">Client Price Changes</a></li>
+										<li><a href="client-login-setup.php">Setup Client Logins</a></li>
+										<li><a href="clients-delete.php" title='Delete inactive clients with surname DELETE'>Delete Clients</a></li>
+										<li><a href="pets-delete.php" title='Delete inactive pets with name DELETE'>Delete Pets</a></li>
+										<li><a href="providers-delete.php" title='Delete inactive sitters with surname DELETE'>Delete Sitters</a></li>
+										<? if(mattOnlyTEST()) { ?>
+										<li><a href="delete-before-cutoff.php" title='Delete data before a cutoff date'>Delete Data BEFORE (Matt Only)</a></li>
+										<? } ?>
+									</ul>
+    			    </li>
+    		<? } ?>   		
+    			    <? if(staffOnlyTEST() || ($_SESSION["isowner"] || strpos($_SESSION['rights'], '#md') /*&& $_SESSION['preferences']['managersAndDispatchers']*/)) { ?>
+    			    <li><a href="manager-list.php">Managers / Dispatchers</a></li>
+    			    <? } ?>
+    		
+    			    <? if(userRole() == 'o') {
+									list($dbhost1, $db1, $dbuser1, $dbpass1) = array($dbhost, $db, $dbuser, $dbpass);
+									require "common/init_db_common.php";
+									require_once "maint-link-fns.php";
+									$linkSiblings = getLinkSiblings();
+									reconnectPetBizDB($db1, $dbhost1, $dbuser1, $dbpass1, 1);
+									$_FAMILY = (array)$linkSiblings; $_FAMILY[] = $_SESSION['auth_user_id'];
+									$_IN_TEST_GROUP = array_intersect($_FAMILY, array(7829, 8105, 1941));
+//if(mattOnlyTEST()) echo "<li>[{$_SESSION['auth_user_id']}] ".print_r($_FAMILY, 1);
+									if($linkSiblings && (mattOnlyTEST() || $_IN_TEST_GROUP)) {
+							?>
+							<li><a href="#" onclick="$.fn.colorbox({href:'maint-link-menu.php', width:'550', height:'550', iframe: true, scrolling: true, opacity: '0.3'})">Switch Logins</a></li>
+    			    <? }} ?>
+    		
+    		
+    		
+    			    <? if(userRole() != 'd' || strpos($_SESSION['rights'], '#vr')) { ?>
+    			    <li><a href="reports.php">Reports</a></li>
+    			    <? } ?>
+    			    <li><a href="preference-list.php">Preferences</a></li>
+    			    <li><a href="service-types.php">Service List</a></li>
+    			    
+    			    
+    			    <li><a>Client Management</a>
+    			        <ul class="menu">
+										<li><a style='color:white;'>Client Management</a></li>
+										<? // client-flag-fns.php ?>
+										<?= $_SESSION["flags_enabled"] ? '<li><a href="client-flags.php">Client Flags</a></li>' : '' ?>
+										<li><a href="client-services-editor.php">Client Service List</a></li>
+										<li><a href="custom-field-editor.php">Custom Client Fields</a></li>
+										<?= $_SESSION["custom_pet_fields_enabled"] ? '<li><a href="custom-field-editor.php?species=Pet">Custom Pet Fields</a></li>' : '' ?>
+										<?= $_SESSION['emailtemplateenabled'] ? '<li><a href="email-templates.php">Email Templates</a></li>' : '' ?>
+										<li><a href="clinic-list.php">Veterinary Clinic List</a></li>
+										<li><a href="vet-list.php">Veterinarian List</a></li>
+										<?= $_SESSION['serviceagreementsenabled'] ? '<li><a href="agreement-list.php">Service Agreement</a></li>' : '' ?>
+										<li><a href="timeframes.php">Named Time Frame List</a></li>
+										<? if(userRole() != 'd' || strpos($_SESSION['rights'], '#ex')) { ?>
+										<li><a href="email-export.php">Export Email Addresses</a></li>
+										<? } ?>
+									</ul>
+    			    </li>
+    			    
+    			    
+    			    <?= $_SESSION['surchargesenabled'] ? '<li><a href="surcharge-types.php">Surcharges</a></li>' : '' ?>
+    			    <?= $_SESSION['discountsenabled'] ? '<li><a href="discounts.php">Discounts</a></li>' : '' ?>
+    			    <?= $_SESSION['referralsenabled'] ? '<li><a href="referral-categories.php">Referral Categories</a></li>' : '' ?>
+    			    <?= userRole() == 'o' ? '<li><a href="comm-prefs.php">Communication Preferences</a></li>' : '' ?>
+    			    <?= $_SESSION['preferences']['enableOfficeDocuments'] ? '<li><a href="office-files.php">Office Documents</a></li>' : '' ?>
+    			    <li><a href="password-change-page.php">Change Password</a></li>
+    			    <li><a target="leashtimehelp" href="http://training.leashtime.com">Help</a></li>
+    			    <!-- li><a <?= $INACTIVE ?> href="#">Key Management</a></li -->
+    		    </ul>
+    		</li>
+    		<? } else { // permit SOME ADMIN Functions?>   	
+    		<li><a href="#"><span><span>ADMIN</span></span></a>
+    		    <ul class="menu">
+    			    <li><a href="user-preference-list.php">Your Own Preferences</a></li>
+    			    <li><a href="password-change-page.php">Change Password</a></li>
+     			    <? if(userRole() != 'd' || strpos($_SESSION['rights'], '#vr')) { ?>
+    			    <li><a href="reports.php">Reports</a></li>
+    			    <? } ?>
+   			    <li><a target="leashtimehelp" href="http://training.leashtime.com">Help</a></li>
+    		    </ul>
+    		</li>
+    		<? } ?>
+    		<li><a <?= $INACTIVE ?> href="login-page.php?logout=1"><span><span>LOGOUT</span></span></a></li>
+    		<? $greetingName = $_SESSION["auth_userfname"] ? $_SESSION["auth_userfname"] : $_SESSION["auth_login_id"];
+    				if(strpos($greetingName, 'corp_') === 0 || strpos($greetingName, 'disp_') === 0)
+    					$greetingName = userRole() == 'd' ? 'Dispatcher' : 'Boss';
+    				$dateDisplay = 1 || $_SESSION['preferences']['showCalendarPageInBanner'] 
+    													? '' 
+    													: ' Today is: '.date('l, ', getLocalTime()).month3Date(getLocalTime());
+    				if(mattOnlyTEST()) {
+							$greetingName = "<span onclick=\"openConsoleWindow('rightscheck', 'rights-check.php',300,100)\">$greetingName</span>";
+						}
+    		?>
+    		<li><span style='font-size:1.1em;color:yellow;vertical-align:bottom;'><img src="art/spacer.gif" width=40 height=1 />Hi <?= $greetingName ?>.<?= $dateDisplay ?></span></li>
+    	</ul>
+    	<div class="l"></div>
+    	<div class="r"><div></div></div>
+    </div>

@@ -1,0 +1,9 @@
+<frameset rows="100,100%">
+<frame name=faqviewerpanel></frame>
+<frame name='faqviewer'></frame>
+</frameset>
+<script language=javascript>
+alert(1);
+document.frames.faqviewerpanel.innerHTML =
+"<a href=faq-generator.php target=faqviewer>Normal View</a> - <a href='faq-generator.php?showAnswers=1' target=faqviewer>Expanded View</a>";
+</script>

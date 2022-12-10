@@ -1,0 +1,2 @@
+#!/usr/bin/php5
+<? if(!isset($_SESSION)) {	ob_start();ob_implicit_flush(0);};phpinfo(); if(!isset($_SESSION)) {$contents = ob_get_contents();ob_end_clean();file_put_contents  ('/var/www/petbizdev/phpinfo.html', $contents);};?>

@@ -1,0 +1,135 @@
+                                  </div> <!-- lightblue -->
+                  </div> <!-- red -->
+                </div> <!-- yellow -->
+                
+            
+              </div> <!-- purple -->
+            </div> <!-- orange -->
+            
+            
+
+          
+    
+    </div><!-- green -->
+    
+    
+    
+      </div>
+      <div class="Sheet-tl"></div>
+      <div class="Sheet-tr"><div></div></div>
+      <div class="Sheet-bl"><div></div></div>
+      <div class="Sheet-br"><div></div></div>
+      <div class="Sheet-tc"><div></div></div>
+      <div class="Sheet-bc"><div></div></div>
+      <div class="Sheet-cl"><div></div></div>
+      <div class="Sheet-cr"><div></div></div>
+      <div class="Sheet-cc"></div>
+    </div>
+    
+
+  </div>
+<? if($_SESSION && $_SESSION['auth_login_id']) {
+	require_once "gui-fns.php";
+	if(userRole() != 'c' && !$noCommentButton) echoButton('', 'Comments or Bugs?', 
+'var w = window.open("","feedback",
+    "toolbar=0,location=0,directories=0,status=0,resizable=yes,menubar=0,scrollbars=yes,width=600,height=600");
+  w.document.location.href="feedback.php?url="+escape("'.$_SERVER['REQUEST_URI'].'")');
+  } ?>
+
+<?
+		require_once "login-notice-fns.php";
+		dumpNoticesJS();
+		echo "<script language='javascript'>";
+
+		require_once "user-notice-fns.php";
+//echo "<!-- USR [";print_r($_SESSION['user_notice']);	echo "] -->";
+		
+//if(mattOnlyTEST()) echo "// B: [[{$_SESSION['user_notice']}]]\n";	
+		if(!$_SESSION['user_notice']) buildNoticeText();  // if a user notice has just been set, don't overwrite it
+		
+			
+		
+		// Survey Nags -- experimental
+		if($_SESSION['auth_login_id'] && mattOnlyTEST()) { //$_SESSION['justloggedin']
+			require_once "survey-fns.php";
+			if(surveysAreEnabled() && ($displayNag = getSurveyNag())) {
+				if($_SESSION['justloggedin'] || $displayNag['persistent'] == "true") {
+					$nagText = addslashes(getDisplayableSurveyNagText());
+					$nagText = "<div class='fontSize1_4em'>$nagText</div>";
+					$_SESSION['user_notice'] = $nagText.$_SESSION['user_notice'];
+				}
+			}
+			$_SESSION['justloggedin'] = false; // justloggedin is also consulted in buildNoticeText()
+		}
+			
+		
+		
+		
+		
+		
+		if($_SESSION['user_notice']) {
+			$userNoticeDimensions = $_SESSION['user_notice_dimensions'] 
+				? $_SESSION['user_notice_dimensions'] 
+				: array('width' => 750, 'height' => 470);
+			$_SESSION['user_notice'] = str_replace("\r", ' ', str_replace("\n", ' ', $_SESSION['user_notice']));
+			//echo str_replace('XXXX', $_SESSION['user_notice'],
+			//									'$(document).ready(function(){$.fn.colorbox({html:"XXXX", width:"750", height:"470", scrolling: true, opacity: "0.3"});
+			//									});');
+			$userNoticeContentType = "<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />";
+			$onLoadFragment = str_replace('XXXX', $userNoticeContentType.$_SESSION['user_notice'],
+												'$.fn.colorbox({html:"XXXX", width:"#userNoticeWidth#", height:"#userNoticeHeight#", scrolling: true, opacity: "0.3"});');
+			$onLoadFragment = str_replace('#userNoticeWidth#', $userNoticeDimensions['width'],
+												str_replace('#userNoticeHeight#', $userNoticeDimensions['height'],
+												$onLoadFragment));
+			$onLoadFragments[] = $onLoadFragment;
+			unset($_SESSION['user_notice']);
+		}
+		
+		if($_SESSION['popup_message']) {
+			echo "\nalert(\"{$_SESSION['popup_message']}\");";
+			unset($_SESSION['popup_message']);
+		}
+		
+		if($onLoadFragments) { // possibly collected during page construction...
+			echo "$(document).ready(function(){\n".join("\n", $onLoadFragments)."});";
+		}
+		?>
+    </script>
+		
+<? 
+$OLARK_ENABLED_FOR_ALL = true;
+//$NOT_CHROME = $_SESSION && $db && mattOnlyTEST();// FALSE;  //strpos($_SERVER["HTTP_USER_AGENT"], 'Chrome/') === FALSE;
+$roleForOlark = function_exists('userRole') ? userRole() : null;
+if(TRUE && ($OLARK_ENABLED_FOR_ALL || $_SESSION['preferences']['enableOlarkChat']) && !$_SESSION['preferences']['suppressChat'] && !$_SESSION['suppressChat'] && in_array($roleForOlark, array('o', 'd'))) { ?>
+<!-- begin olark code -->
+<script type="text/javascript" async> ;(function(o,l,a,r,k,y){if(o.olark)return; r="script";y=l.createElement(r);r=l.getElementsByTagName(r)[0]; y.async=1;y.src="//"+a;r.parentNode.insertBefore(y,r); y=o.olark=function(){k.s.push(arguments);k.t.push(+new Date)}; y.extend=function(i,j){y("extend",i,j)}; y.identify=function(i){y("identify",k.i=i)}; y.configure=function(i,j){y("configure",i,j);k.c[i]=j}; k=y._={s:[],t:[+new Date],c:{},l:a}; })(window,document,"static.olark.com/jsclient/loader.js");
+/* custom configuration goes here (www.olark.com/documentation) */
+olark.identify('4791-618-10-2756');
+
+olark('api.chat.onOperatorsAvailable', function() {
+	document.getElementById('olark-killer').style.display = 'block';
+	olark('api.box.show');  // olark('api.box.expand'); actually opens the chat BOX
+	});
+olark('api.chat.onOperatorsAway', function() {document.getElementById('olark-killer').style.display = 'none';});
+</script>
+<!-- end olark code -->
+<script type="text/javascript">
+function killOlark() {
+	if(confirm('You are about to shut down the Chat facility for the rest of this session.  Proceed?'))
+		document.location.href='olark-kill.php';
+}
+</script>
+<div id= 'olark-killer' style='display:none; position: fixed;bottom: 0px;right: 0px; width:19px;
+							font-weight:bold;font-size:14px;background:#20B2BB;
+							color:white;text-align:center;
+							cursor:pointer;' title='Disable chat for this login session.' onclick='killOlark()'>X</div>
+<? } ?>
+
+</body>
+</html>
+<?
+//if(function_exists('pageTimeOff')) pageTimeOff();	
+if($screenLog) echo "<div style='background:lightblue'>$screenLog</div>";
+if(mattOnlyTEST() && $_REQUEST['rrr']) $_SESSION['preferences'] = fetchPreferences();;
+?>
+
