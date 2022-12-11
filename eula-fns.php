@@ -4,7 +4,7 @@ function getBizEULA($biz=null) {  // get EULA signed (or to be signed) by compan
 	//require include "common/init_db_common.php";
 	if($biz) $eula = array('eulaversion'=>$biz['eulaversion'], 'eulasigned'=>$biz['eulasigned'], 'eulasigner'=>$biz['eulasigner']);
 	else $eula = fetchFirstAssoc("SELECT eulaversion, eulasigned, eulasigner FROM tblpetbiz WHERE bizid = {$_SESSION['bizptr']} LIMIT 1");
-//if(mattOnlyTEST()) {global $db; echo "<hr>getBizEULA(".print_r($biz,1).")<hr>EULA: ".print_r($eula,1).")<hr>$db";	}
+	}
 	if(!$eula['eulaversion']) $eula = getCurrentEULA();
 	else {
 		$signed = $eula['eulasigned'];

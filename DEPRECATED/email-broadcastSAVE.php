@@ -328,7 +328,7 @@ function preprocessMessage($message, $dearName, $target, $template, $clientptr=n
 		if($visitSheetTokenFound)
 			$message = mergeVisitSheet($message, $target);
 			if(!$message) return null;
-		//if(mattOnlyTEST()) {echo "visitSheetTokenFound ($visitSheetTokenFound). ".print_r($message);exit;}
+		}
 	}
 	return $message;
 }
@@ -349,7 +349,7 @@ function mergeVisitSheet($message, $target) {
 	//echo 'XXX: '.ob_get_contents();exit;
 	ob_end_clean();
 	if(!$visitSheet) return null;
-//if(mattOnlyTEST()) {echo "<hr>$visitSheet<hr>"; exit;}
+}
 	$message = $saveMessage;
 	
 	//$visitSheet = file_get_contents("https://leashtime.com/visit-sheets.php?provider={$target['providerid']}&date=$start");
@@ -415,7 +415,7 @@ function mergeUpcomingSchedule($message, $target, $targettype) {
 	$schedule = $targettype == 'client' 
 		? getClientSchedule($target['clientid'],$start, $end)
 		: getProviderSchedule($target['providerid'],$start, $end);
-//if(mattOnlyTEST()) {echo "$schedule";exit;}	
+}	
 		
 	$message = str_replace("\r", "", $message);
 	$message = str_replace("\n\n", "<p>", $message);
@@ -486,8 +486,8 @@ body {background:white;font-size:9pt;padding-left:5px;padding-top:5px;}
 	$schedule['clientptr'] = $clientid;
 	$schedule['startdate'] = $start;
 	$schedule['enddate'] = date('Y-m-d', strtotime($end));
-//if(mattOnlyTEST()) {echo "$start - $end";exit;}	
-//if(mattOnlyTEST()) {echo "end: $end<br>".print_r($schedule, 1);exit;}	
+}	
+}	
 	
 	$userRole = 'c';
 	$suppressNoVisits = 1;
@@ -833,7 +833,7 @@ function templateChosen() {
 	toggleClientChooserDisplay(id);
 	if(id == 0) return;
 	
-<? //if(mattOnlyTEST()) echo "alert('email-template-fetch.php?id='+id);"; ?>
+<?  ?>
 	ajaxGetAndCallWith('email-template-fetch.php?id='+id, updateMessage, null);
 }
 

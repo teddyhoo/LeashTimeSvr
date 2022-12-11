@@ -11,13 +11,13 @@ $locked = locked('o-');
 extract(extractVars('fname,lname,justNames', $_REQUEST));  
 
 $orderClause = "ORDER BY lname, fname";
-$dbFname = mysql_real_escape_string($fname);
-$dbLname = mysql_real_escape_string($lname);
+$dbFname = mysqli_real_escape_string($fname);
+$dbLname = mysqli_real_escape_string($lname);
 $exact = fetchAssociationsKeyedBy("SELECT * FROM tblclient WHERE fname = '$dbFname' AND lname = '$dbLname' $orderClause", 'clientid');
 
 $allKeys = array_keys($exact);
 
-$fInitial = mysql_real_escape_string($fname) ? $fname[0] : null;
+$fInitial = mysqli_real_escape_string($fname) ? $fname[0] : null;
 if($fInitial) {
 	$close = fetchAssociationsKeyedBy("SELECT * FROM tblclient WHERE fname like '$fInitial%' AND lname = '$dbLname' $orderClause", 'clientid');
 	$keep = array_diff(array_keys($close), $allKeys);

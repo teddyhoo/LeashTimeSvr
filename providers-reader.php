@@ -44,9 +44,9 @@ else if($rawdata) {
 		}
 
 		if(!fetchRow0Col0("SELECT providerid FROM tblprovider WHERE fname = '"
-				.mysql_real_escape_string($fname)
+				.mysqli_real_escape_string($fname)
 				."' AND lname = '"
-				.mysql_real_escape_string($lname)."' LIMIT 1")) {
+				.mysqli_real_escape_string($lname)."' LIMIT 1")) {
 			$sitter = array('lname'=>($lname ? $lname : 'UNKNOWN'), 'fname'=>($fname ? $fname : 'UNKNOWN'), 'active'=>1);
 			if($_POST['nicknames']) $sitter['nickname'] = $fname;
 			insertTable('tblprovider', $sitter, 1);

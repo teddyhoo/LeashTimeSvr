@@ -43,7 +43,7 @@ $ending = shortDate(strtotime("+$days days"));*/
 
 $pageTitle = "<i class=\"md md-home\"></i> Schedule"; // {$_SESSION["clientname"]}'s
 
-//if(mattOnlyTEST()) {echo "{$_SESSION['user_notice']}<hr>";}
+}
 
 $clientLoginNotice = fetchRow0Col0("SELECT value FROM tblpreference WHERE property = 'clientLoginNotice'");
 $alreadyDelivered = $_SESSION['clientLoginNoticeDelivered'];
@@ -60,10 +60,10 @@ if($clientLoginNotice && !$alreadyDelivered) {
 			$template = "<h2>{$clientLoginNotice['title']}</h2>$message";
 		}
 	}
-//if(mattOnlyTEST()) {echo "$template<hr><hr>";exit;}
+}
 	$_SESSION['user_notice'] = $template;
 }	
-//if(mattOnlyTEST()) {echo "{$_SESSION['user_notice']}<hr><hr>";exit;}
+}
 
 $extraHeadContent = "
 <script src='responsiveclient/assets/js/libs/fullcalendar-4.3.1/packages/core/main.js'></script>

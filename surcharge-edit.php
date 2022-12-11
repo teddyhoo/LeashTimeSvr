@@ -76,7 +76,7 @@ if($_POST) {
 		else if($surcharge['canceled'] && !$source['canceled'])
 			supersedeSurchargeBillable($surchargeid);
 		else if($surcharge['charge'] != $source['charge']) {
-//if(mattOnlyTEST()) logChange($surcharge['charge'], 'tblsurcharge', 'm', "charge {$source['charge']} => {$surcharge['charge']}");			
+			
 			supersedeSurchargeBillable($surchargeid);
 		}
 */		

@@ -33,7 +33,7 @@ $colKeys = array_keys($columns);
 $columnSorts = array('name'=>'asc','email'=>null);
 extract($_REQUEST);
 
-$pattern = mysql_escape_string($pattern);
+$pattern = mysqli_escape_string($pattern);
 $patternParam = !isset($pattern) ? '' : $pattern;
 $pattern = !isset($pattern) ? '' : 
            (strpos($pattern, '*') !== FALSE ? str_replace('*', '%', $pattern) : "%$pattern%");
@@ -83,7 +83,7 @@ else {
   else $clientIds = findClientIdsForPetsMatching($pattern, $inactive);
   $numClients = count($clientIds);
 }
-//if(mattOnlyTEST()) echo "clientListIDString size: ".count(explode(',', "".$_SESSION['clientListIDString']))."SELECT clientid FROM tblclient $whereClause  [$numClients]<hr>";
+
 
 if($freshsearch) {
 	$offset = 0;
@@ -131,7 +131,7 @@ if($numClients) {
 else $clients = array();
 
 if(TRUE && !$petnames) $numClients = fetchRow0Col0("SELECT COUNT(*) FROM tblclient $whereClause $patternClause");
-//if(mattOnlyTEST()) {echo "numClients: $numClients";exit;}
+}
 
 $data = array();
 $packageSummaries = getPackageSummaries($clients, 'excludePast');
@@ -227,7 +227,7 @@ if($numClients > $max_rows) {
   $baseUrl = thisURLMinusParams(null, array('newClient','deletedClient','offset', 'petnames', 'showflags', 'inactive'));
   if($patternParam) 
   	$baseUrl .= (substr($baseUrl, -1) == '?' ? "pattern=".urlencode($patternParam) : "&pattern=".urlencode($patternParam)).'&';
-//if(mattOnlyTEST()) echo "$baseUrl";
+
   $andInactive = "&inactive=$inactive&petnames=$petnames&showflags=$showflags";
   
 	if($prevButton) {

@@ -2,14 +2,14 @@
 require_once "common/init_session.php";
 require_once "common/init_db_petbiz.php";
 
-//if(mattOnlyTEST()) {echo "user: [{$_SESSION["auth_user_id"]}] adequate? [".adequateRights('c-')."]<hr><pre>".print_r($_SESSION,1)."</pre>";exit;}
+}
 
 require_once "client-profile-request-fns.php";
 require_once "request-fns.php";
 $segmentedClientEditableProfile = $_REQUEST['segmentedClientEditableProfile'];
 set_time_limit(5 * 60);
 
-//if(mattOnlyTEST()) {/*$_SESSION=null; bootUpSession();*/ echo "user: [{$_SESSION["auth_user_id"]}] adequate? [".adequateRights('c-')."]<hr><pre>".print_r($_SESSION,1)."</pre>";}
+}
 
 
 $locked = locked('c-');//locked('o-'); 
@@ -101,7 +101,7 @@ if($_POST && isset($_POST['continueEditing'])) {
 		if($changes) foreach($changes as $key => $val) {
 //if($db == 'dogslife') {
 			require_once "field-utils.php";
-//if(mattOnlyTEST()) {echo "$val<br>"; }		
+ }		
 if(!mattOnlyTEST()) 
 			$val = cleanseString((string)$val);
 //}			
@@ -109,7 +109,7 @@ if(!mattOnlyTEST())
 			insertTable('tblclientprofilerequest',
 									array('clientptr'=>$_SESSION["clientid"], 'requestptr'=>$requestId, 'field'=>$key, 'value'=>$val), 1);
 		}
-//if(mattOnlyTEST()) { exit; }			
+ }			
 		$request['requestid'] = $requestId;
 		notifyStaffOfClientRequest($request);
 	}
@@ -123,8 +123,8 @@ if(!mattOnlyTEST())
 		exit;
 	}
 }
-//if(mattOnlyTEST()) mysql_set_charset('utf8');
-//if(mattOnlyTEST()) { print_r(fetchAssociations("show variables like 'char%';")) ; exit; }
+
+ }
 
 
 //tblclientprofilerequest
@@ -151,7 +151,7 @@ else {
 
 	$pageTitle = "Home: {$_SESSION["clientname"]}'s Profile";
 
-//if(mattOnlyTEST()) {unset($_SESSION); bootUpSession(); echo "user: [{$_SESSION["auth_user_id"]}] adequate? [".adequateRights('c-')."]<hr><pre>".print_r($_SESSION,1)."</pre>";}
+}
 	if($_SESSION["responsiveClient"]) {
 		$pageTitle = "<i class=\"fa fa-paw\"></i> Profile";
 		$floaterTopOffset = "-105";

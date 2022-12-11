@@ -496,11 +496,11 @@ function decompose($str, $delim) {
 }
 
 function findVetByName($nm) {
-	return fetchRow0Col0("SELECT vetid FROM tblvet WHERE CONCAT_WS(' ', fname, lname)  = '".mysql_real_escape_string($nm ? $nm : '')."' LIMIT 1");
+	return fetchRow0Col0("SELECT vetid FROM tblvet WHERE CONCAT_WS(' ', fname, lname)  = '".mysqli_real_escape_string($nm ? $nm : '')."' LIMIT 1");
 }
 
 function findClinicByName($nm) {
-	return fetchRow0Col0("SELECT clinicid FROM tblclinic WHERE clinicname = '".mysql_real_escape_string($nm ? $nm : '')."' LIMIT 1");
+	return fetchRow0Col0("SELECT clinicid FROM tblclinic WHERE clinicname = '".mysqli_real_escape_string($nm ? $nm : '')."' LIMIT 1");
 }
 
 function myfgetcsv($strm) {

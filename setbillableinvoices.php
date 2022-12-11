@@ -8,7 +8,7 @@ foreach(array('doggiewalkerdotcom','dogslife','fetch210','petaholics','petbiz','
 	require_once "common/init_db_petbiz.php";
 	echo "$db<p>";
 	$result = doQuery("SELECT * FROM relinvoiceitem");
-	while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		doQuery("UPDATE tblbillable SET invoiceptr={$row['invoiceptr']} WHERE billableid = {$row['billableptr']}");
 	}
 }

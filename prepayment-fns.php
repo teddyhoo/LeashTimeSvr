@@ -380,7 +380,7 @@ function getPriorUnpaidLineItems($clientid, $firstDay, $lastDay) {
 						$billable['itemtable'] == 'tblsurcharge' ? $unpaidSurcharges[$billable['itemptr']] : (
 						$billable['itemtable'] == 'tblothercharge' ? $unpaidCharges[$billable['itemptr']] 
 						: $unpaidMonthlies[$billable['itemptr']]));
-//if(mattOnlyTEST()) echo print_r($item, 1).'<p>';
+
 		$missingItemTypes = explodePairsLine('tblappointment|Visit||tblsurcharge|Surcharge||tblothercharge|Misc Charge||tblrecurringpackage|Monthly Package');
 						
 		$line['service'] = $item['appointmentid'] ? $serviceTypes[$item['servicecode']] : (
@@ -612,7 +612,7 @@ function getPrepaidInvoiceLineItems($clientid, $firstDay, $lookahead, $scope=nul
 						LEFT JOIN tblclient ON clientid = clientptr
 						WHERE clientptr = $clientid AND current=1 $prepaidFilter $NRDateFilter $scopeFilter
 						ORDER BY startdate";
-//if(mattOnlyTEST()) echo $sql;						
+						
 		/// ...so...
 /*if(FALSE && mattOnlyTEST()) {
 		$clientDetails =
@@ -620,10 +620,10 @@ function getPrepaidInvoiceLineItems($clientid, $firstDay, $lookahead, $scope=nul
 												FROM tblclient
 												WHERE clientid = $clientid
 												LIMIT 1");
-		$clientDetails['clientname'] = mysql_real_escape_string((string)$clientDetails['clientname']);
-		$clientDetails['fname'] = mysql_real_escape_string((string)$clientDetails['fname']);
-		$clientDetails['lname'] = mysql_real_escape_string((string)$clientDetails['lname']);
-		$clientDetails['email'] = mysql_real_escape_string((string)$clientDetails['email']);
+		$clientDetails['clientname'] = mysqli_real_escape_string((string)$clientDetails['clientname']);
+		$clientDetails['fname'] = mysqli_real_escape_string((string)$clientDetails['fname']);
+		$clientDetails['lname'] = mysqli_real_escape_string((string)$clientDetails['lname']);
+		$clientDetails['email'] = mysqli_real_escape_string((string)$clientDetails['email']);
 		$clientDetails['invoiceby'] = $clientDetails['invoiceby'] ? $clientDetails['invoiceby'] : '0';
 		$sql = "SELECT 'tblservicepackage', onedaypackage, startdate, enddate, packageid, clientptr, packageid, 
 							'{$clientDetails['clientname']}' as clientname,
@@ -1027,7 +1027,7 @@ function dumpRecentPayments($invoice, $clientid) {
 		 	AND hide = 0
 		 GROUP BY creditid
 		 ORDER BY tblcredit.issuedate");
-//if(mattOnlyTEST()) {echo "<p>".print_r($credits, 1)."<p>";	 exit; }
+ }
 		 
 		  //AND issuedate < FROM_DAYS(TO_DAYS('{$invoice['firstDay']}')+{$invoice['lookahead']})
 	dumpInvoiceCreditTable($credits, $invoice['firstDay']);
@@ -1329,7 +1329,7 @@ function dumpBusinessLogoDiv($amountDue, $html=null, $preview=false, $clientid) 
 			: ($preview ? generateDefaultBusinessLogoDivContentsForInvoicePreview($headerBizLogo)
 					:generateDefaultBusinessLogoDivContents($headerBizLogo));
 	}
-//if(mattOnlyTEST()) { echo "HTML[{$html}] headerIndex[$headerIndex] [[".generateDefaultBusinessLogoDivContentsForInvoicePreview($headerBizLogo)."]]<hr><hr>";}	
+}	
 	$html = str_replace('#LOGO#', $headerBizLogo, $html);
 	$html = str_replace('#PHONE#', $preferences['bizPhone'], $html);
 	$html = str_replace('#FAX#', $preferences['bizFax'], $html);

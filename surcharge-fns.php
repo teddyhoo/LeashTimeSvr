@@ -397,7 +397,7 @@ function dropSurcharges($surchargeIds) {  // Covers billables.
 // usage: if($_SESSION['surchargesenabled']) dropAutoSurchargesWhere($filter);								
 function updateAppointmentAutoSurchargesWhere($condition) {
 	$appts = fetchAssociations($sql = "SELECT * FROM tblappointment WHERE $condition");
-//if(mattOnlyTEST()) {echo $sql.'<hr>'.print_r($appts,1);exit;}
+}
 	foreach($appts as $appt) updateAppointmentAutoSurcharges($appt);
 }
 

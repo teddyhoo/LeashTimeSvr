@@ -15,7 +15,7 @@ else if($bizdb && !$delete && ($prop || $new)) {
 	$success = null;
 	if($new) {
 		insertTable("$bizdb.tblpreference", array('property'=>$new, 'value'=>$val), "property = '$new'", 1);
-		$success = !mysql_error();
+		$success = !mysqli_error();
 	}
 	else $success = updateTable("$bizdb.tblpreference", array('value'=>$val), "property = '$prop'", 1);
 	if($success) {
@@ -49,7 +49,7 @@ selectElement('Business:', 'bizdb', $bizdb, $dbs, "document.location.href=\"main
 <br><input type='button' value='New' onclick='newProp()'> Property: <input id='new' value='' size=30> Value: <input id='newval' value='' size=30><p>
 <?
 echo "<p><table>";
-if(($result)) while($line = mysql_fetch_assoc($result))
+if(($result)) while($line = mysqli_fetch_assoc($result))
 	echo "<tr><td>{$line['property']}: <td><input id='{$line['property']}' value='".safeValue($line['value'])."' size=30><td><input type='button' onClick='save(\"{$line['property']}\")' value='Save'> <input type='button' onClick='drop(\"{$line['property']}\")' value='Drop'>";
 echo "</table>";
 include "refresh.inc";

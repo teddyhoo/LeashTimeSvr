@@ -271,7 +271,7 @@ function displaySortableListEditor($prefix, $values, $delimiter=null, $show) {
 	$itemList = array();
 	foreach((array)$values as $val) {
 		$elName = "pref_$prefix".count($itemList);
-//if(mattOnlyTEST()) $itemList[$val] = "<img src='art/drag.gif' width=10 height=10> $val"; else 
+ else 
 		$itemList[$val] = "<img src='art/drag.gif' width=10 height=10> <input class='standardInput' id='$elName' name='$elName' value='$val' size=30 autocomplete='off'>";
   }
 if(TRUE) require_once "dragsortJQ.php"; 

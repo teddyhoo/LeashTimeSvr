@@ -45,7 +45,7 @@ $thisBiz = $_REQUEST['bizid'] ? $_REQUEST['bizid'] : $_COOKIE['LEASHTIMEBIZPTR']
 
 //if(!mattOnlyTEST()) 
 if("".(int)"$thisBiz" != $thisBiz) $thisBiz = 0; // against injection attacks 7/22/2020
-//if(mattOnlyTEST()) echo "OOK! [$thisBiz]<hr>";
+
 
 $mobilepattern = '/Alcatel|iPhone|iPod|SIE-|BlackBerry|Android|IEMobile|Obigo|Windows CE|LG\/|LG-|CLDC|Nokia|SymbianOS|PalmSource\|Pre\/|Palm webOS|SEC-SGH|SAMSUNG-SGH/i';
 $isMobile = $_REQUEST['mobile'] || preg_match($mobilepattern, $_SERVER['HTTP_USER_AGENT']);
@@ -65,7 +65,7 @@ if($thisBiz) {
 	$biz = fetchFirstAssoc("SELECT * FROM tblpetbiz WHERE bizid = '$thisBiz' LIMIT 1");
 	if(!$biz) include "frame.html";
 	else {
-//if(mattOnlyTEST()) print_r($thisBiz);
+
 		if($_REQUEST['qrcode']) {
 			require_once "qrcode-fns.php";
 			$qrcode = getQRCode(globalURL("login-page.php?bizid={$_REQUEST['bizid']}&qrcode=1"));
@@ -87,7 +87,7 @@ if($thisBiz) {
 				else if(file_exists($_SESSION["uidirectory"].'../logo.gif')) $headerBizLogo .= '../logo.gif';
 				else if(file_exists($_SESSION["uidirectory"].'../logo.png')) $headerBizLogo .= '../logo.png';
 				else $headerBizLogo = '';
-			//if(mattOnlyTEST()) {echo $headerBizLogo;	exit;}
+			}
 
 			//echo "BANG!BANG!fuckingBANG!  $headerBizLogo".print_r($_SESSION,1);exit;	
 

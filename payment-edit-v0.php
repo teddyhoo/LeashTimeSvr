@@ -43,8 +43,8 @@ extract(extractVars($fields, $_REQUEST));  // saveCredit, chargeCard, id, client
 if($preserveSuccessDestination && !$successDestination) $successDestination = $preserveSuccessDestination;
 if($_REQUEST['suppressSavePaymentButton']) $suppressSavePaymentButton = $_REQUEST['suppressSavePaymentButton'];
 
-//if(mattOnlyTEST()) {print_r($successDestination); exit;}
-//if(mattOnlyTEST()) {echo "4: ".print_r($successDestination, 1).'<br>----'.print_r($_REQUEST, 1).'<br>----'; }
+}
+ }
 
 $error = false;
 // User has hit the "Charge Credit Card" button
@@ -55,7 +55,7 @@ if($saveCredit && $client && $_SESSION['PaymentEditorDblClickToken'] != $_REQUES
 		$error = "Button was clicked twice.  Please do not double-click buttons in LeashTime.<p>";
 		$stopOnError = true;
 }
-//if(mattOnlyTEST()) {echo "<br>3: ".print_r($successDestination, 1); }
+ }
 
 if(!$error && $saveCredit && $chargeCard && $client) {
 
@@ -93,7 +93,7 @@ if(!$error && $saveCredit && $chargeCard && $client) {
 
 unset($_SESSION['PaymentEditorDblClickToken']);
 //if($_POST) {echo "ItemNote: [$itemnote] ID: $id ERROR: $error saveCredit: [$saveCredit]";exit;}
-//if(mattOnlyTEST()) {echo "<br>2: ".print_r($successDestination, 1); }
+ }
 
 if(!$error && $saveCredit) {
 	if($id) {
@@ -119,10 +119,10 @@ if(!$error && $saveCredit) {
 print_r($_REQUEST);
 exit;
 }*/
-//if(mattOnlyTEST()) {echo "<br>1: ".print_r($successDestination, 1); exit;}
-//if(mattOnlyTEST()) {echo "amount: $amount<br>gratuity: $gratuity"; exit;}
+}
+}
 				$success = payElectronically($client, null, $amount, $reason, null, null, ($gratuity ? $gratuity : 0));
-//if(mattOnlyTEST()) {echo "<br>success: [".print_r($success, 1)."]"; }
+ }
 				$newPaymentId = $latestPaymentId; //$latestPaymentId is globally set in payElectronically
 				if(is_array($success)) {
 					if($success['FAILURE']) $error = $success['FAILURE'];
@@ -449,7 +449,7 @@ else {
 			echo "<img src='art/spacer.gif' width=30 height=1>";
 		}
 		$ePaySource = getPrimaryPaySourceTypeAndID($client);
-		//if(mattOnlyTEST()) print_r($ePaySource);	
+			
 		if($sourceProblem = primaryPaySourceProblem($client))
 			echo "$sourceProblem<img src='art/spacer.gif' width=30 height=1>";
 		else if(!$id && $_SESSION['ccenabled'] && adequateRights('*cc') && $ePaySource) {
@@ -732,7 +732,7 @@ function findClients() {
 		if(strpos($pattern, '*') !== FALSE) $pattern = str_replace  ('*', '%', $pattern);
 		else $pattern = "%$pattern%";
 		$baseQuery = "$baseQuery AND CONCAT_WS(' ',fname,lname) like '$pattern'";
-		$numFound = mysql_num_rows(mysql_query($baseQuery));
+		$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 		if($numFound)
 			$clients = fetchAssociations("$baseQuery ORDER BY lname, fname LIMIT 15");
 	}
@@ -742,7 +742,7 @@ function findClients() {
 		$numFound = count($clients);
 	}
 	else {
-		$numFound = mysql_num_rows(mysql_query($baseQuery));
+		$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 		$baseQuery = "$baseQuery ORDER BY lname, fname LIMIT 15";
 		$clients = fetchAssociations("$baseQuery");
 	}

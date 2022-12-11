@@ -55,7 +55,7 @@ if($confirm) {
 function sayAndDo($sql) {
 	doQuery($sql);
 	echo "<p>$sql<br>";
-  printf("Records deleted: %d<p>\n", mysql_affected_rows());
+  printf("Records deleted: %d<p>\n", mysqli_affected_rows());
 }
 /*
 delete from tblappointment where clientptr = 611;

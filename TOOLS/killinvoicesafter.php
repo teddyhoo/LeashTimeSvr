@@ -44,28 +44,28 @@ echo "PROVIDER PAYMENTS [".count($providerpayments)."]: ".join(',',$providerpaym
 
 //CLIENT
 doQuery("DELETE FROM tblinvoice WHERE invoiceid IN (".join(',',$invoices).')');
-echo mysql_affected_rows()." rows deleted from tblinvoice<p>";
+echo mysqli_affected_rows()." rows deleted from tblinvoice<p>";
 
 doQuery("DELETE FROM relinvoiceitem WHERE invoiceptr IN (".join(',',$invoices).')');
-echo mysql_affected_rows()." rows deleted from relinvoiceitem<p>";
+echo mysqli_affected_rows()." rows deleted from relinvoiceitem<p>";
 
 doQuery("DELETE FROM relinvoicecredit WHERE invoiceptr IN (".join(',',$invoices).')');
-echo mysql_affected_rows()." rows deleted from relinvoicecredit<p>";
+echo mysqli_affected_rows()." rows deleted from relinvoicecredit<p>";
 
 doQuery("DELETE FROM relpastdueinvoice WHERE  currinvoiceptr IN (".join(',',$invoices).')');
-echo mysql_affected_rows()." rows deleted from relpastdueinvoice<p>";
+echo mysqli_affected_rows()." rows deleted from relpastdueinvoice<p>";
 
 doQuery("DELETE FROM relbillablepayment WHERE billableptr IN (".join(',',$billables).')');
-echo mysql_affected_rows()." rows deleted from relbillablepayment<p>";
+echo mysqli_affected_rows()." rows deleted from relbillablepayment<p>";
 
 foreach($billableDecrements as $billableptr => $decrement)
 	doQuery("UPDATE tblbillable set paid = paid - $decrement WHERE billableid = $billableptr");
 	
 //PROVIDER
 if($providerpayments) doQuery("DELETE FROM tblproviderpayment WHERE paymentid IN (".join(',',$providerpayments).')');
-echo mysql_affected_rows()." rows deleted from tblproviderpayment<p>";
+echo mysqli_affected_rows()." rows deleted from tblproviderpayment<p>";
 
 if($payables) doQuery("UPDATE tblpayable SET paid = '0.0' WHERE payableid IN (".join(',',$payables).')');
-echo mysql_affected_rows()." rows deleted from tblpayable<p>";
+echo mysqli_affected_rows()." rows deleted from tblpayable<p>";
 
 

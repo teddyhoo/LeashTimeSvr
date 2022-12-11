@@ -224,8 +224,8 @@ function clientCalendarTable($rows) {
 			$rows[$r]['primaryname'] = "<span style='color:red;font-style:italic;'>{$rows[$r]['primaryname']}</span>";
 		$rows[$r]['service'] = serviceLink($row, appointmentFuturity($row), 'noInPlaceEditor');
 	}
-//if(mattOnlyTEST()) {echo "<pre>";echo "<hr>timesOfDay<br>".print_r($timesOfDay, 1)."<hr>timeStarts<br>".print_r($timeStarts, 1);echo "</pre>";}
-//if(mattOnlyTEST()) {echo "<pre>";echo "<hr>rows<br>".print_r($rows, 1);echo "</pre>";}
+}
+}
 	
 //drawDayCalendar($objects, $timesOfDay, $timeOfDayKey, $dateKey, $objectDisplayFn, $subSectionKey=null, $sortSubsections=true) {
 	foreach($timesOfDay as $label) $todLabels[$label] = $label;

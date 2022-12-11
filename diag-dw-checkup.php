@@ -48,7 +48,7 @@ $n=0;
 if(!$csv) echo "<table><tr><th>appt id<th>service<th>client<th>correct<th>incorrect<th>provider<th>date<th>created";
 else echo "appt id,service,client,correct,incorrect,provider,date,created\n";
 $diffs = array();
-while($appt = mysql_fetch_assoc($q)) {
+while($appt = mysqli_fetch_assoc($q)) {
 	if(!isset($clientPets[$appt['clientptr']])) $clientPets[$appt['clientptr']] = getClientPetNames($appt['clientptr']);
 	$clientPets = $clientPets[$appt['clientptr']];
 	if(!isset($allRates[$appt['providerptr']])) $allRates[$appt['providerptr']] = getProviderRates($appt['providerptr']);

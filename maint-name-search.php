@@ -79,12 +79,12 @@ foreach($dbs as $biz) {
 	$dbpass = $biz['dbpass'];
 	$db = $biz['db'];
 	$bizptr = $biz['bizid'];
-	$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+	$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 	if ($lnk < 1) {
 		echo "Not able to connect: invalid database username and/or password.\n";
 	}
-	$lnk1 = mysql_select_db($db);
-	if(mysql_error()) echo mysql_error();
+	$lnk1 = mysqli_select_db($db);
+	if(mysqli_error()) echo mysqli_error();
 	$tables = fetchCol0("SHOW TABLES");
 	if(!in_array('tblpreference', $tables)) continue;
 	$bizName = fetchRow0Col0("SELECT value FROM tblpreference WHERE property = 'bizName' LIMIT 1");
@@ -177,7 +177,7 @@ function findClients($pat){
 			if(strpos($pat, '*') !== FALSE) $pat = str_replace  ('*', '%', $pat);
 			else $pat = "%$pat%";
 			$baseQuery = "$baseQuery AND tblpet.name like '$pat'";
-			//$numFound = mysql_num_rows(mysql_query($baseQuery));
+			//$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 			//if($numFound)
 				$pets = fetchAssociationsKeyedBy("$baseQuery $orderBy $limit", 'clientid');
 		}
@@ -212,7 +212,7 @@ function findClients($pat){
 
 		
 		
-		//$numFound = mysql_num_rows(mysql_query($baseQuery));
+		//$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 		//if($numFound)
 		$clients = fetchAssociationsKeyedBy("$baseQuery $orderBy $limit", 'clientid');
 		if($clients) {
@@ -264,7 +264,7 @@ function searchProviders($pat) {
 		if(strpos($pat, '*') !== FALSE) $pat = str_replace  ('*', '%', $pat);
 		else $pat = "%$pat%";
 		$baseQuery = "$baseQuery AND (CONCAT_WS(' ',fname,lname) like '$pat' OR nickname like '$pat' OR email like '$pat')";
-		//$numFound = mysql_num_rows(mysql_query($baseQuery));
+		//$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 		//if($numFound)
 		$providers = fetchAssociationsKeyedBy("$baseQuery $orderBy $limit", 'providerid');
 		foreach($providers as $provider) {

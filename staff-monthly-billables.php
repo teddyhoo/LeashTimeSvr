@@ -34,7 +34,7 @@ if($_POST['action'] == 'delete') {
 		$details = fetchAssociations("SELECT * FROM tblbillable WHERE billableid IN (".join(',', $doomed).")");
 		deleteTable('tblbillable', "billableid IN (".join(',', $doomed).")", 1);
 		$message = "Billables Deleted:<ul>";
-		if(mysql_error()) $error = "ERROR: No billables deleted.";
+		if(mysqli_error()) $error = "ERROR: No billables deleted.";
 		foreach($details as $d) 
 			$message .= "<li>[{$d['billableid']}] {$d['monthyear']} Charge: {$d['charge']} Paid: {$d['paid']}";
 		$message .= "</ul>";

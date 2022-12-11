@@ -396,7 +396,7 @@ function originalPhoneNumber(fieldname) {
 
 
 function eqivalentString(a, b) {
-<? //if(mattOnlyTEST()) echo 'alert("["+a+"] : ["+b+"]\n==>"+(comparisonString(a) == comparisonString(b)));'; ?>
+<?  ?>
 	return comparisonString(a) == comparisonString(b);
 }
 

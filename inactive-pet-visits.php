@@ -33,7 +33,7 @@ $petResults = doQuery(
 	 LEFT JOIN tblclient on clientid = ownerptr
 	 WHERE p.active = 0 AND tblclient.active = 1", 1);
 $today = date('Y-m-d');
-while($pet = mysql_fetch_array($petResults, MYSQL_ASSOC)) {
+while($pet = mysqli_fetch_array($petResults, MYSQL_ASSOC)) {
 	$client = $pet['client'];
 	$petname = $pet['name'];
 	$futureVisits = fetchAssociations(

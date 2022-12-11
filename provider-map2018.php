@@ -292,7 +292,7 @@ $mapId = 'singlemap';
 
 <?    
 if($tracks) $tracks = clusterTracks($tracks, $map);  // sets up $appointmentTracks
-//if(mattOnlyTEST()) {echo "<hr>";foreach($tracks as $track) echo print_r($track, 1).'<p>';exit;}
+}
 
 
 $label = "<span class=maplabel>$googleAddress</span>";
@@ -375,8 +375,8 @@ foreach($clients as $clientid => $client) {
 		foreach($appts as $appt) if($appt['clientptr'] == $client['clientid']) {
 			if(appointmentFuturity($appt) == -1 && !$appt['completed']) $overdue = true;
 			else if(!$appt['completed']) $someIncomplete = true;
-//if(mattOnlyTEST()) 		$html .= "<tr><td colspan=3>".print_r(array_keys($appointmentTracks),1);	
-//if(mattOnlyTEST()) 		$html .= "<tr><td colspan=3>".print_r($appointmentTracks,1);	
+	
+	
 			$arrival = $appointmentTracks[$appt['appointmentid']]['arrived'];
 			if(!$arrival && $prov) {
 				$arrival = fetchFirstAssoc($sql = "SELECT * FROM tblgeotrack 
@@ -420,7 +420,7 @@ foreach($clients as $clientid => $client) {
 					}
 				}
 			}
-//if(mattOnlyTEST()) echo "({$appt['appointmentid']}) arrived: $arrived<br>$arrivalDelta<br>"/*.print_r($arrival, 1)*/."<br> completed: $completed completionDelta: $completionDelta<br><hr>"; //.print_r($appointmentTracks,1);
+
 			$mapLink = $showVisitMaps ? "<td><a href='visit-map.php?id={$appt['appointmentid']}'>Map</a></td>" : "";
 			$timeofdayTip = $multisitters ? "title=\"".safeValue($providerNames[$appt['providerptr']])."\"" : '';
 			$timeOfDayContent = $appt['timeofday'];
@@ -484,7 +484,7 @@ if(mattOnlyTEST()) echo "tracks: ".print_r(count($tracks), 1);
 
 if(!$isProvider) foreach($tracks as $track) {
 	if($track['error']) continue;
-//if(mattOnlyTEST()) {print_r($track);exit;}
+}
 	$title = ($br = strpos($track['time'], '<br>')) ? substr($track['time'], 0, $br).'...' : $track['time'];
 	
 	$marker = array('lat'=>$track['lat'], 'lon'=>$track['lon']);
@@ -496,7 +496,7 @@ if(!$isProvider) foreach($tracks as $track) {
 	$marker['infotext'] = str_replace("'", "&apos;", $title);
 	$markers[] = $marker;
 }
-//if(mattOnlyTEST()) {print_r($markers);exit;}
+}
 if($notes) {
 	echo "<p>Note:<ul>";
 	foreach($notes as $note) echo "<li>$note\n";
@@ -528,14 +528,14 @@ function clusterTracks($tracks, $map) {
 				$googleAdd = googleAddress($appt);
 				/*if($googleAdd) $clientHomes[$appt['clientptr']] = 
 					fetchFirstAssoc("SELECT lat, lon FROM geocodes WHERE address = '"
-						.mysql_real_escape_string($googleAdd)."' LIMIT 1");*/
+						.mysqli_real_escape_string($googleAdd)."' LIMIT 1");*/
 
 //if(TRUE || !isset($clientHomes[$appt['clientptr']])) 
 				if($googleAdd) $clientHomes[$appt['clientptr']] = getLatLon($googleAdd);
-//if(mattOnlyTEST()) echo "<hr>CLIENT[{$appt['clientptr']}] ($googleAdd)".print_r($clientHomes[$appt['clientptr']], 1)."<p>";			
+			
 
 			}
-//if(mattOnlyTEST()) echo print_r()."<p>";			
+			
 			if(($homeLoc = $clientHomes[$appt['clientptr']])
 					&& !$track['error']
 					&& (($delta = distance($track,$homeLoc,$unit='ft')) > $radius)) {
@@ -549,7 +549,7 @@ function clusterTracks($tracks, $map) {
 			else if(!$homeLoc) $permaTrack['clientdeltafeet'] = '-';
 			else if($track['error']) $permaTrack['clientdeltafeet'] = '-';
 			$permaTrack['visits'][$track['date']] = " - {$appt['name']} ({$appt['pets']}) {$appt['timeofday']} {$track['event']}";
-//if(mattOnlyTEST()) echo "<hr>CLIENT: {$appt['clientptr']}<p>HOME: ".print_r($homeLoc,1)."<p> DELTA: {$permaTrack['clientdeltafeet']} / $radius<br>\n".print_r($permaTrack, 1);
+
 			$track['clientdeltafeet'] = $permaTrack['clientdeltafeet'];
 			if(array_key_exists('accuracy', $track))
 				$track['clientdeltaerror'] = " +/- ".convertMeters($track['accuracy'], $preciseAlso=true);
@@ -573,7 +573,7 @@ function clusterTracks($tracks, $map) {
 }
 
 function dumpControlJavascript() {
-	//if(mattOnlyTEST()) $DEBUG ="alert(showsitters);";
+	
 	$scriptName = substr($_SERVER["SCRIPT_NAME"], 1);
 	echo <<<JS
 <script src='popcalendar.js' language='javascript'></script>
@@ -641,7 +641,7 @@ $roDispatcher = userRole() == 'd' && !strpos($_SESSION['rights'], '#ev');
 $editScript = $roDispatcher ? "appointment-view.php?id=" : "appointment-edit.php?id=";
 
 
-//if(mattOnlyTEST()) {print_r($markers);exit;}
+}
 
 ?>
 

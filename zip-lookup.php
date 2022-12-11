@@ -25,7 +25,7 @@ function zipFromCoords($latitude, $longitude, $multiple=null, $radius=null)  {
 		$rows = array();
 		$result = doQuery($qry);
 //echo "Q: $qry<br>";
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 //echo "D: {$row['distance']}<br>";
 		 	if($row['distance'] <= $radius)
 		 		$rows[] = $row;

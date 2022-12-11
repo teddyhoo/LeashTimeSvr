@@ -157,8 +157,8 @@ function discountAppointment($appt) {
 		if($discountTemplate['start'] && ($discountTemplate['start'] > $appt['date'])) return null;
 		else if($discountTemplate['end'] && ($discountTemplate['end']< $appt['date'])) return null;
 	}
-//if(mattOnlyTEST()) echo "discountTemplate: ".print_r($discountTemplate,1)."<p>";		
-//if(mattOnlyTEST()) {echo print_r($started, 1);exit;}	
+		
+}	
 	if($started && $discountTemplate['end'] && ($discountTemplate['end']< $appt['date']) // if appt date is past end and it is not duration limited
 			&& (!$discountTemplate['durationlimited'] ||
 						date('Y-m-d', strtotime("+ {$discountTemplate['duration']} days", strtotime($started))) < $appt['date'])) // discount is expired

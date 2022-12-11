@@ -25,7 +25,7 @@ if(userRole() == 'p') {
 		// ensure client belongs to provider
 		require_once "provider-fns.php";
 		$activeClients = getActiveClientIdsForProvider($_SESSION["providerid"]);
-//if(mattOnlyTEST()) echo "<h2>".join(', ', $activeClients)."</h2>";		
+		
 		//$id = $_SESSION["clientid"];
 		if(!in_array($_REQUEST['client'], $activeClients)) {
 			$proceed = false;

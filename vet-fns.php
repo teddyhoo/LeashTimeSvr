@@ -92,12 +92,12 @@ function getClinic($clinicId) {
 function deleteClinicAndVets($clinicId) {
 	doQuery("DELETE FROM tblclinic WHERE clinicid = $clinicId");
 	doQuery("DELETE FROM tblvet WHERE clinicptr = $clinicId");
-	return mysql_affected_rows();
+	return mysqli_affected_rows();
 }
 
 function deleteVet($vetId) {
 	doQuery("DELETE FROM tblvet WHERE vetid = $vetId");
-	return mysql_affected_rows();
+	return mysqli_affected_rows();
 }
 
 function saveNewVet() { // use $_POST

@@ -83,7 +83,7 @@ function addSystemLogin($data, $clientOrProviderOnly=false) {
   $data['active'] = isset($data['active']) &&  $data['active'] ? 1 : 0;
 
   insertTable('tbluser', $data, 1);
-  $data['userid'] = mysql_insert_id();
+  $data['userid'] = mysqli_insert_id();
   $src = $_SESSION["bizptr"] ? "BIZ" : "LT";
   $pass = $data['password'] ? 'PASS' : 'NOPASS';
   logChange($data['userid'], 'tbluser', 'c', "$src|{$data['loginid']}|{$data['lname']}|{$data['fname']}|{$data['email']}|$pass|{$data['temppassword']}");
@@ -189,7 +189,7 @@ function suggestedLogins($userid=0, $lname='', $fname='', $nickname='', $email='
 		$nickname = str_replace(' ', '', $nickname);
 		$names[] = $nickname;
 	}
-	foreach($names as $i => $name) $names[$i] = mysql_real_escape_string($names[$i]);
+	foreach($names as $i => $name) $names[$i] = mysqli_real_escape_string($names[$i]);
 	$namesStr = "'".join("','", $names)."'";
 
 	$userid = $userid ? $userid : '0';

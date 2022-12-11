@@ -27,12 +27,12 @@ foreach(fetchAssociations("SELECT * FROM tblpetbiz WHERE activebiz=1") as $biz) 
 		echo "DB: {$biz['db']} not found.\n";
 		continue;
 	}
-	$lnk = mysql_connect($biz['dbhost'], $biz['dbuser'], $biz['dbpass']);
+	$lnk = mysqli_connect($biz['dbhost'], $biz['dbuser'], $biz['dbpass']);
 	if ($lnk < 1) {
 		$errMessage="Not able to connect: invalid database username and/or password.";
 	}
-	$lnk1 = mysql_select_db($biz['db']);
-	if(mysql_error()) echo mysql_error();
+	$lnk1 = mysqli_select_db($biz['db']);
+	if(mysqli_error()) echo mysqli_error();
 	$CRON_DiscountsAreEnabled = in_array('tbldiscount', fetchCol0("SHOW TABLES"));
 	$NO_SESSION['i18n'] = getI18NProperties($biz['country']);				
 	setLocalTimeZone($biz['timeZone']);

@@ -97,7 +97,7 @@ if($go) {
 		$unavailableNames[] = "{$providers[$prov]} ($reason)";
 		unset($actuallyAvailableProviders[$prov]);
 	}
-//if(mattOnlyTEST()) {print_r($actuallyAvailableProviders);exit;}
+}
 	$attendees = array_keys($actuallyAvailableProviders);
 	foreach($attendees as $i=>$prov) if(!$prov) unset($attendees[$i]);
 	if(!$attendees) {

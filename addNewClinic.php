@@ -68,9 +68,7 @@ echoButton('', "Quit", 'confirmAndClose()');
 <script language='javascript' src='ajax_fns.js'></script>
 <script language='javascript' src='common.js'></script>
 <script language='javascript'>
-<? dumpClinicValidationJS(); 
-if(mattOnlyTEST()) echo "var debug = 1;\n";
-?>
+<? dumpClinicValidationJS(); ?>
 <? if(function_exists('dumpZipLookupJS'))  dumpZipLookupJS(); ?>
 function confirmAndClose() {
 	if(confirm("Ok to close without saving a new veterinary clinic?")) {

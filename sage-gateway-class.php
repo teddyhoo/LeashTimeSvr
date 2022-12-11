@@ -245,7 +245,7 @@ ARF;
 								'response' => ($result ? $result : sqlVal("''")))
 
 							);
-		$this->lastCCErrorId = mysql_insert_id();
+		$this->lastCCErrorId = mysqli_insert_id();
 	}						
 	
 	function ccErrorLogMessage($result, $amount=null) {  // SAGE result does not include amount

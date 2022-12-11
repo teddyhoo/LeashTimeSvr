@@ -93,7 +93,7 @@ if($coords) {
 			// wipe any appt events that happen to be in the db
 			deleteTable('tblgeotrack', "appointmentptr = {$coord['appointmentptr']} AND date < '{$datetime}'", 1);
 			// if any appt events deleted, log the fact
-			if($deleted = mysql_affected_rows())
+			if($deleted = mysqli_affected_rows())
 				logChange($coord['appointmentptr'], 'tblgeotrack', 'd', "arrived again.deleted $deleted coords");
 		}
 		$coord['lat'] = $coord['lat'] ? $coord['lat'] : '0';
@@ -124,7 +124,7 @@ if($coords) {
 				|| ($operation == 'completed' &&	allowNativeClientCompletionNotification($appt['clientptr']));
 			if($notifyClientCompletionDetails) {
 			//function notifyClient($source, $event, $note) 
-//if(mattOnlyTEST()) echo "BANG!";			
+			
 				// earlyArrivalMarkingLimit - minutes default: 240 minutes
 				$earlyArrivalMarkingLimit =
 					fetchRow0Col0("SELECT value FROM tblpreference where property= 'earlyArrivalMarkingLimit' LIMIT 1", 1);

@@ -37,7 +37,7 @@ if(isset($pattern)) {
   if($clientIdsForMatchingPets) {
   	$patternQuery .= " OR clientid IN (".join(',', $clientIdsForMatchingPets).")";
 	}
-  $numFound = mysql_num_rows(mysql_query($patternQuery));
+  $numFound = mysqli_num_rows(mysqli_query($patternQuery));
   if($numFound)
     $clients = fetchAssociations("$patternQuery $orderBy $limit");  
 }

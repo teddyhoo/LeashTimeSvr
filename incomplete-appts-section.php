@@ -85,12 +85,12 @@ for($i=1; $i<=2; $i++) {
 		$result = findIncompleteSurchargesResultSet($starting, $ending, null, $sort, $client, $maxRows, $futurealso);
 //if($i != 1)	{echo "findIncompleteSurchargesResultSet($starting, $ending, null, $sort, $client, $maxRows)";exit;}
 	if($result) 
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 			$resultCount++;
 			$newResultCount++;
 			$newClientIds[] = $row['clientptr'];
 		}
-	if($newResultCount) mysql_data_seek($result, 0);
+	if($newResultCount) mysqli_data_seek($result, 0);
 
 	//$appts = array();
 	//foreach($appts as $appt) $clientIds[] = $appt['clientptr'];
@@ -106,7 +106,7 @@ for($i=1; $i<=2; $i++) {
 	$sortableColsString = 'client|date|timeofday|service|provider';
 	foreach(explode('|', $sortableColsString) as $col) $sortableCols[$col] = null;
 
-	while($result && $appt = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while($result && $appt = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		// return -1 if appointment is completely past, 0 if now is in appointment's timeframe, or 1 if appointment timeframe is totally in the future
 		$id = $appt['appointmentid'] ? 'appt_'.$appt['appointmentid'] : 'sur_'.$appt['surchargeid'];
 		$row = $appt;

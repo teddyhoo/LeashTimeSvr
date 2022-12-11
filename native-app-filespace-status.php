@@ -45,7 +45,7 @@ if($_GET['dumpLocalCopiesForInactiveClientsforALLbusinesses']) {
 	require_once "remote-file-storage-fns.php";
 	foreach(fetchAssociations("SELECT * FROM tblpetbiz") as $biz) {
 		reconnectPetBizDB($biz['db'], $biz['dbhost'], $biz['dbuser'], $biz['dbpass'], 1);
-		if(mysql_error()) continue;
+		if(mysqli_error()) continue;
 		if(!remoteCacheAvailable()) { echo "{$_SESSION['preferences']['bizName']} is not yet outboarded."; exit; }
 //echo $db.print_r(fetchCol0("SELECT localPath FROM tblfilecache"),1);
 //foreach(fetchCol0("SELECT localPath FROM tblfilecache") as $f) {echo "$f: ".(file_exists($f) ? filesize($f) : 0).'<br>';}
@@ -256,12 +256,12 @@ foreach($allBizzesLeashTimeFirst as $bizCount => $biz) {
 	$dbpass = $biz['dbpass'];
 	$db = $biz['db'];
 	$bizptr = $biz['bizid'];
-	$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+	$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 	if ($lnk < 1) {
 		echo "Not able to connect: invalid database username and/or password.\n";
 	}
-	$lnk1 = mysql_select_db($db);
-	if(mysql_error()) echo mysql_error();
+	$lnk1 = mysqli_select_db($db);
+	if(mysqli_error()) echo mysqli_error();
 	$tables = fetchCol0("SHOW TABLES");
 	$prefs = fetchKeyValuePairs("SELECT value FROM tblpreference");
 	$bizName = $baseBizName = $prefs['bizName'] ? $prefs['bizName'] : $db;

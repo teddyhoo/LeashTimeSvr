@@ -77,18 +77,18 @@ function spendDedicatedPayment($client, $paymentid) {  //called when a credit/pa
 	$targets = fetchAssociations("SELECT * FROM reldedicatedpayment WHERE paymentptr = $paymentid ORDER BY dedicatedpaymentid", 1);
 
 	$availCredits = fetchAssociations("SELECT *, amount - amountused as amountleft FROM tblcredit WHERE creditid = $paymentid");
-//if(mattOnlyTEST()) logChange(9999, 'availCredits', 'f', print_r($availCredits, 1));
+
 	$paidBillables = array();
 $staffTest = $_SESSION['staffuser'];
 //if($staffTest) logChange(9999, 'payOffClientBillables', 'f', 'check #10');
-//if(mattOnlyTEST()) logChange(9999, 'spendDedTARGETS', 'f', print_r($targets, 1));
+
 //print_r($availCredits);
 
 	// Taking the items in order we must:
 	foreach($targets as $target) {
 		$expensetable = $target['expensetable'];
 		$expenseptr = $target['expenseptr'];
-//if(mattOnlyTEST()) logChange(9999, 'spendDedTARGET N', 'f', print_r($target, 1));
+
 
 		// 1. pay the billable if it is a billable and is unpaid
 		if($expensetable == 'tblbillable') {
@@ -115,20 +115,20 @@ $staffTest = $_SESSION['staffuser'];
 //echo "<hr><hr>target: ".print_r($target,1)."<br>[$expensetable] [$expenseptr]";
 			$items = getNRPackageExpenses($expenseptr, $client);
 			foreach($items as $item) {
-//if(mattOnlyTEST()) logChange(9999, 'spendDed item', 'f', print_r($item, 1));
+
 //echo "<hr>item: ".print_r($item,1);
 				// 3.a. find a billable for the item and pay it if it is unpaid
 				$billable = getCurrentExpenseBillable($item['itemtable'], $item['itemptr']);
 				$billableId = $billable['billableid'];
 				// 3.b. or create a billable for the item and pay it
-//if(mattOnlyTEST()) logChange(9999, 'spendDed billable 1', 'f', "X".print_r($billable, 1));
+
 				if(!$billable) {
 					if($item['itemtable'] == 'tblappointment') {
 						$discountAmount = fetchRow0Col0("SELECT amount FROM relapptdiscount WHERE appointmentptr = {$item['appointmentid']} LIMIT 1");
 						$appt = fetchFirstAssoc("SELECT * FROM tblappointment WHERE appointmentid = {$item['appointmentid']} LIMIT 1");
 						$billable = createApptBillableObject($appt, $discountAmount);
 						$billableId = insertTable('tblbillable', $billable, 1);
-//if(mattOnlyTEST()) logChange(9999, 'spendDed billable 2', 'f', "X".print_r($billable, 1));
+
 					}
 					else {
 						//$surch = fetchFirstAssoc("SELECT * FROM tblsurcharge WHERE surchargeid = {$item['surchargeid']} LIMIT 1");
@@ -136,7 +136,7 @@ $staffTest = $_SESSION['staffuser'];
 						$billableId = insertTable('tblbillable', $billable, 1);
 					}
 				}
-//if(mattOnlyTEST()) logChange(9999, 'spendDed creds', 'f', "X".print_r($availCredits, 1)."billableid: $billableid");
+
 				spendDedicatedPaymentOnBillable($availCredits, $billableId, $paidBillables);
 			}
 		}

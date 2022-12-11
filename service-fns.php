@@ -519,7 +519,7 @@ function recurringPackageSummary($packageid, $showCharges=null) {
 		}
 	}
 	tableFrom($columns, $rows, "width=100%'");
-//if(mattOnlyTEST()) print_r($rows);	
+	
 }
 
 
@@ -603,7 +603,7 @@ function getAllActiveProviderRateDollars() {
   if(!($result = doQuery("SELECT * FROM relproviderrate"))) return array(); //providerptr, servicetypeptr, rate, ispercentage, note
 	$standardRates = getStandardRates(); 
   $rates = array();
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$row['value'] = $row['rate'];
 		$rates[$row['providerptr']][$row['servicetypeptr']] = $row;
 	}
@@ -1951,14 +1951,14 @@ function rolloverRecurringSchedules() {
 	$bizdb = $biz ? $biz['db'] : 'unspecified database';
 	$prefs = isset($_SESSION['preferences']) ? $_SESSION['preferences']
 				: fetchKeyValuePairs("SELECT property, value FROM tblpreference");  // will not be set for cron job
-//if(mattOnlyTEST()) echo "fetched ".count($prefs)." prefs.<br>";
+
 	if($prefs['rolloverdisabled']) return;
 	$schedules = fetchAssociations(tzAdjustedSql("SELECT * FROM tblrecurringpackage WHERE current = 1 
 																			AND (cancellationdate IS NULL || cancellationdate > CURDATE())
 																			AND startdate <= CURDATE()"));
-//if(mattOnlyTEST()) {echo "fetched ".count($schedules)." schedules.<p>";foreach($schedules as $sc) echo print_r($sc['clientptr'],1).'<br>';exit;}
+}
 	$histories = findPackageHistories(null, 'R');
-//if(mattOnlyTEST()) echo "fetched ".count($histories)." histories.<br>";				
+				
 	$recurringLookaheadDays = $prefs['recurringScheduleWindow'] ? $prefs['recurringScheduleWindow'] : 30;
 //$recurringLookaheadDays += 2; 	
 	$lastDay = date('Y-m-d', strtotime("+ $recurringLookaheadDays days"));
@@ -1972,9 +1972,9 @@ function rolloverRecurringSchedules() {
 		
 		$sql = "SELECT birthmark, date, timeofday, clientptr, servicecode FROM tblappointment 
 							WHERE date >= '$today' AND date <= '$lastDay' AND packageptr IN ($ids)";
-//if(mattOnlyTEST()) echo "found ".count($ids)." versions of package $packageid.<br>";				
+				
 		if($appts = fetchAssociations($sql))
-//if(mattOnlyTEST()) echo "fetched ".count($appts)." appts.<br>";				
+				
 			$apptSignatures = array_map('getAppointmentSignature', $appts);
 //if($schedule['packageid'] == 430) {print_r($apptSignatures);exit;}		
 		/*$existingAppointmentInterval[] = 
@@ -1985,7 +1985,7 @@ function rolloverRecurringSchedules() {
 				createScheduleAppointments($schedule, getPackageServices($packageid), true, 
 																		$existingAppointmentInterval, null, null, $apptSignatures)
 			);
-//if(mattOnlyTEST()) echo "total created ".count($createdAppts)." appts.<br>";				
+				
 	}		
 	
 	/* TBD: Replace much of this with:	
@@ -2418,7 +2418,7 @@ function saveRepeatingPackage($packageid) {
   global $conflicts;
 	if($outData['effectivedate']) {
 		$findConflictsStarting = date('Y-m-d', max(time(), strtotime($outData['effectivedate'])));
-		//if(mattOnlyTEST()) {echo "findConflictsStarting: $findConflictsStarting<br>";print_r($outData); exit;}
+		}
 	}
 
   $conflicts = findConflicts($_POST['client'], $newpackageid, $recurring=1, $findConflictsStarting);
@@ -2517,7 +2517,7 @@ function findLatestPackageVersion($packageid, $histories) {
 		if(in_array($packageid, $history))
 			$versions[$version] = count($history);
 	asort($versions);
-//if(mattOnlyTEST()) echo "[$packageid] ".print_r($versions,1);	
+	
 	return array_pop(array_keys($versions));
 }
 	
@@ -2539,10 +2539,10 @@ function findPackageHistories($clientptr, $RorNorNull=null, $currentOnly=false) 
 	foreach($packs as $package) 
 		$pairs[$package['packageid']] = $package['previousversionptr'];
 	$history = array();
-//if(mattOnlyTEST()) {print_r($test); exit;}
+}
 	foreach((array)$pairs as $pack =>$prev) {
 		if($currentOnly && !$packs[$pack]['current']) continue;
-//if(mattOnlyTEST()) {echo "<p><font color=red>[$RorNorNull] pack: [$pack]<hr>SQL: ".str_replace('XXX', 'tblservicepackage', $sql)."<hr></font>".print_r($pairs, 1);}
+}
 		$history[$pack] = buildPackageHistory($pairs, $pack);
 	}
 	return $history;
@@ -2552,7 +2552,7 @@ function findPackageHistories($clientptr, $RorNorNull=null, $currentOnly=false) 
 function buildPackageHistory(&$pairs, $pack) {
 	if(!($prev = $pairs[$pack])) return array($pack);
 	else {
-//if(mattOnlyTEST()) {echo "<hr><hr>pack: [$pack]<hr>prev: [$prev]".print_r($pairs, 1);}
+}
 		return array_merge(buildPackageHistory($pairs, $prev), array($pack));
 	}
 }
@@ -2583,7 +2583,7 @@ function findTimeConflicts($packageid, $clientptr) {  // TBD: Test this
 	  "SELECT * FROM tblappointment 
 	    WHERE completed IS NULL AND clientptr = $clientptr
 	      AND(date > CURDATE() OR (date = CURDATE() AND starttime > CURTIME()))"));
-  while($row = mysql_fetch_assoc($result))
+  while($row = mysqli_fetch_assoc($result))
 		$futureAppointments[$row['date']][$row['packageptr']][] = $row;
 
 //if($futureAppointments['2010-01-26']) print_r($futureAppointments['2010-01-26']);exit;
@@ -2703,7 +2703,7 @@ function saveService($number, $clientId, $packageid, $recurring, $prefix, $simul
 	//if(!$service['daysofweek']) $service['daysofweek'] = '';  // non-recurring
   if(!$simulation) {
 		insertTable('tblservice', $service, 1);
-	  $service['serviceid'] = mysql_insert_id();
+	  $service['serviceid'] = mysqli_insert_id();
 	}
 	return $service;
 	// SERVICES ARE NEVER UPDATED
@@ -3191,7 +3191,7 @@ function dumpRecurringSchedule($schedule=null, $clientid=null, $noEdit=false) {
 		if(dbTEST('sarahsits')) $editNoteButton = "<img title=\"Edit the schedule note.$staffOnlyTitle\"  src=\"art/note-edit.png\" style=\"cursor:pointer;margin-left:7px;\" onclick=\"editRecurringNote({$schedule['packageid']})\">";
 
 	}
-/* for video prep puposes only */ //if(mattOnlyTEST()) $editButton = echoButton('', 'Edit Schedule', "document.location.href=\"$page?packageid={$schedule['packageid']}\"", null, null, 'noEcho');
+/* for video prep puposes only */ 
 	if(!$readOnlyVisits && !$noEdit) {
 		if(strpos($other,'Monthly') == FALSE || $_SESSION['preferences']['monthlyServicesPrepaid'])
 			$convertButton = echoButton('', "Convert to $other", "saveAndRedirect(\"$conversionPage?convert=1&packageid={$schedule['packageid']}\")"
@@ -3227,13 +3227,13 @@ function dumpStaffAnalysisLink($packageid) {
 function dumpNonRecurringSchedules2($clientid, $maxnumber=20) {
 $time0 = microtime(true);
 	$schedules = getCurrentClientPackages($clientid, 'tblservicepackage');
-//if(mattOnlyTEST()) screenLog("schedules: ".print_r($schedules,1));
+
 //screenLog("getPackages: ".(microtime(true) - $time0));
 	$schedules = array_reverse($schedules);
 	if($schedules) {
 		$allServiceNames = getAllServiceNamesById();
 //$time = microtime(true);
-//if(mattOnlyTEST()) {print_r($client);exit;}
+}
 		//  WTF?? $histories = findPackageHistories($client['clientid']);
 		$histories = findPackageHistories($clientid);
 $ACCELERATED = true; //mattOnlyTEST();
@@ -3637,11 +3637,11 @@ function getCurrentNRPackage($packageid, $clientptr=null) {
 	}
 	if(!$thisPackage['current']) {
 		$packageid = findCurrentPackageVersion($packageid, $clientptr, false);
-//if(mattOnlyTEST()) echo "Current packageid: ($packageid)<br>";	
+	
 		if($packageid) $thisPackage = getNonrecurringPackage($packageid);
 		else $thisPackage = null;
 		//$thisPackage = $packageid ? null : getNonrecurringPackage($packageid); // DID NOT WORK WITH NULL packageid!
-//if(mattOnlyTEST()) echo "Current thisPackage: ($packageid)".print_r($thisPackage,1);	
+	
 	}
 	return $thisPackage;
 }
@@ -3760,7 +3760,7 @@ function saveRecurringServiceJSON($clientId, $packageid, $service, $simulation=n
 	if(!$service['pets']) $service['pets'] = '--';
   if(!$simulation) {
 		insertTable('tblservice', $service, 1);
-	  $service['serviceid'] = mysql_insert_id();
+	  $service['serviceid'] = mysqli_insert_id();
 	}
 	return $service;
 }

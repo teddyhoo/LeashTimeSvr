@@ -34,23 +34,23 @@ function yearToDateMonthlyRevenue($lastYear=false, $baseYear=null, $options=null
 		$days = 366;
 	}
 	$result = collectVisits($start, $days, $lastYear, $returnHandle=true);
-  while($appt = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($appt = mysqli_fetch_array($result, MYSQL_ASSOC)) {
   	$monthIndex = (int)substr($appt['date'], 5, 2) - 1;
   	$revs[$monthIndex] += $appt['charge']+$appt['adjstment'];
   }
 
 	$result = collectSurcharges($start, $days, $lastYear, $returnHandle=true);
-  while($surch = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($surch = mysqli_fetch_array($result, MYSQL_ASSOC)) {
   	$monthIndex = (int)substr($surch['date'], 5, 2) - 1;
   	$revs[$monthIndex] += $surch['charge'];
   }
  	$result = collectMiscCharges($start, $days, $lastYear, $returnHandle=true);
-  while($misc = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($misc = mysqli_fetch_array($result, MYSQL_ASSOC)) {
    	$monthIndex = (int)substr($misc['issuedate'], 5, 2) - 1;
 		$revs[$monthIndex] += $misc['amount'];
 	}
  	$result = collectMonthlyCharges($start, $days, $lastYear, $returnHandle=true);
-  while($mnth = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($mnth = mysqli_fetch_array($result, MYSQL_ASSOC)) {
    	$monthIndex = (int)substr($mnth['itemdate'], 5, 2) - 1;
 		$revs[$monthIndex] += $mnth['charge']-$mnth['tax'];
 	}
@@ -82,7 +82,7 @@ function yearToDateMonthlyVisitCounts($lastYear=false, $baseYear=null, $options=
 		$days = 366;
 	}
 	$result = collectVisits($start, $days, $lastYear, $returnHandle=true);
-  while($appt = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($appt = mysqli_fetch_array($result, MYSQL_ASSOC)) {
   	$monthIndex = (int)substr($appt['date'], 5, 2) - 1;
   	$counts[$monthIndex] += 1;
   }
@@ -165,7 +165,7 @@ if($showPackageCount) {
 	foreach((array)($stats[$yearKey]['nonrecurring']) as $month => $clients)
 		foreach($clients as $clientptr => $flag)
 			if($flag) $stats[$yearKey]['nonrecurring']['total'][$clientptr] = 1;
-	//if(mattOnlyTEST()) echo "$yearKey<br>recurring<br>".print_r($stats[$yearKey]['recurring'], 1)."<br>nonrecurring<br>".print_r($stats[$yearKey]['nonrecurring'], 1)."<hr>";;
+	
 	$surcharges = collectSurcharges($start, $days, $lastYear);
 	foreach($surcharges as $surch) {
 		$charge = $surch['charge'];

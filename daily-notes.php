@@ -31,7 +31,7 @@ function showNote($note, $showProvider=true) {
 	$clientLink = fauxLink($appt['client'], "parent.location.href=\"client-edit.php?id={$appt['clientptr']}\"", 1, 'Edit client in main window');
 	$visitLink = fauxLink($services[$appt['servicecode']], "openConsoleWindow(\"visiteditor\", \"$visitEditScript?id={$appt['appointmentid']}\", 600,500)", 1, 'Edit Visit');
 //print_r($note);
-	//if(mattOnlyTEST()) $noteid = "({$note['noteid']})";
+	
 	echo "<table width=75%><tr>\n";
 	echo "<td>Visit$noteid: $clientLink</td><td>$visitLink</td><td>{$appt['pets']}</td><td>{$appt['timeofday']}</td>\n";
 	echo "</tr></table>\n";

@@ -306,7 +306,7 @@ if(/*mattOnlyTEST() || */$_SESSION['preferences']['enableProviderTeamSchedule'])
 //$maxServiceNameLength = 12;
 //$columnDataLine = 'client|Client||phone|Phone||address|Address||service|Service||starttime|Start||rate|Pay';
 
-//if(mattOnlyTEST()) echo strtotime(dbDate($starting))." <> ".;
+
 
 if($tooEarly) {
 	echo "Visits from before ".shortNaturalDate($earliestDateAllowed)." are not viewable.<br>";

@@ -4,7 +4,7 @@ require_once "common/init_session.php";
 require_once "common/init_db_petbiz.php";
 require "client-services-fns.php";
 require "service-fns.php";
-//if(mattOnlyTEST()) {echo helpString();exit;}
+}
 // Determine access privs
 $locked = locked('o-');
 

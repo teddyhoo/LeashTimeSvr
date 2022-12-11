@@ -514,7 +514,7 @@ function getAllActiveProviderRateDollars() {
   if(!($result = doQuery("SELECT * FROM relproviderrate"))) return array(); //providerptr, servicetypeptr, rate, ispercentage, note
 	$standardRates = getStandardRates(); 
   $rates = array();
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$row['value'] = $row['rate'];
 		$rates[$row['providerptr']][$row['servicetypeptr']] = $row;
 	}
@@ -1810,7 +1810,7 @@ function findTimeConflicts($packageid, $clientptr) {  // TBD: Test this
 	  "SELECT * FROM tblappointment 
 	    WHERE completed IS NULL AND clientptr = $clientptr
 	      AND(date > CURDATE() OR (date = CURDATE() AND starttime > CURTIME()))"));
-  while($row = mysql_fetch_assoc($result))
+  while($row = mysqli_fetch_assoc($result))
 		$futureAppointments[$row['date']][$row['packageptr']][] = $row;
 
 //if($futureAppointments['2010-01-26']) print_r($futureAppointments['2010-01-26']);exit;
@@ -1927,7 +1927,7 @@ function saveService($number, $clientId, $packageid, $recurring, $prefix, $simul
 	//if(!$service['daysofweek']) $service['daysofweek'] = '';  // non-recurring
   if(!$simulation) {
 		insertTable('tblservice', $service, 1);
-	  $service['serviceid'] = mysql_insert_id();
+	  $service['serviceid'] = mysqli_insert_id();
 	}
 	return $service;
 	// SERVICES ARE NEVER UPDATED

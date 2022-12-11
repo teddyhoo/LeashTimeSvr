@@ -43,7 +43,7 @@ function clientsByFlag($flags, $useflags='and', $active='active') {
 	foreach(fetchAssociations($sql,1) as $row) 
 		if($row['flag']) $allClientFlags[$row['clientptr']][] = $row['flag'];
 if(mattOnlyTEST()) echo "active with flags[[[".count($allClientFlags)."]]]<p>";	
-//if(mattOnlyTEST()) echo "[[[".count($clientIds)."]]]$sql<p><pre>".print_r($allClientFlags, 1);	
+	
 	$clientIds = $clientIds ? $clientIds : fetchCol0("SELECT clientid FROM tblclient");
 	if($useflags == 'none') {
 		$clientIds = array_diff($clientIds, array_keys($allClientFlags));
@@ -61,7 +61,7 @@ if(mattOnlyTEST()) echo "active with flags[[[".count($allClientFlags)."]]]<p>";
 		}
 		$clientIds = array_unique(array_intersect((array)$clientIds, array_keys($allClientFlags)));
 	}
-//if(mattOnlyTEST()) echo "<p>GOLD: $goldstars<p>";
+
 	return $clientIds;
 }
 

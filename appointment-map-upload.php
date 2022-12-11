@@ -95,23 +95,19 @@ function jsonPair($key, $val) {
 function getAllowedImageTypes() { return array('JPG','JPEG','PNG'); }
 function getAllowedTypesDescr() { return "JPEG (.jpg or .jpeg) or PNG image"; }
 function uploadPhoto($formFieldName, $destFileName, $makeDisplayVersion=true) {
-  $allowedTypes = getAllowedImageTypes();
-  $allowedTypesDescr = getAllowedTypesDescr();
+	$allowedTypes = getAllowedImageTypes();
+	$allowedTypesDescr = getAllowedTypesDescr();
 	
 	$dot = strrpos($_FILES[$formFieldName]['name'], '.');
 	if($dot === FALSE) return "Uploaded file MUST be a $allowedTypesDescr.";
 	$originalName = $_FILES[$formFieldName]['name'];
-  $extension = strtoupper(substr($_FILES[$formFieldName]['name'], $dot+1));
-  if(!in_array($extension, $allowedTypes))
-    return "Photo Not uploaded!  Uploaded file MUST be a $allowedTypesDescr.<br>[$originalName] does not qualify.";
-
+	$extension = strtoupper(substr($_FILES[$formFieldName]['name'], $dot+1));
+	if(!in_array($extension, $allowedTypes))
+		return "Photo Not uploaded!  Uploaded file MUST be a $allowedTypesDescr.<br>[$originalName] does not qualify.";
 	$target_path = $destFileName;
-//if(mattOnlyTEST() && $failure) {echo $target_path;exit;}  
-
 	if($reason = invalidUpload($formFieldName, $target_path)) return "The file $originalName could not be used because $reason";
 	if(file_exists($target_path)) unlink($target_path);
 	ensureDirectory(dirname($target_path), 0775); // x is necessary for group
-//echo substr(sprintf('%o', fileperms(dirname($target_path))), -4);
 	if(!move_uploaded_file($_FILES[$formFieldName]['tmp_name'], $target_path)) {
 		return "There was an error uploading the file, please try again!";
 	}
@@ -246,7 +242,6 @@ function invalidUpload($formFieldName, $file) {
 		}
   }
   error_reporting($oldError);
-//if(mattOnlyTEST() && $failure) {echo $failure;exit;}  
   return $failure;
 }
 
@@ -260,12 +255,6 @@ if($_GET['geturl']) echo getAppointmentMapPublicURL($_GET['geturl']);
 ?>
 <hr>
 Local:<br>
-<? /*foreach(fetchAssociations("SELECT * FROM tblfilecache") as $cache) {
-		if($cache['existslocally'])
-			echo "<img src='{$cache['localpath']}' width=30>	[{$cache['filecacheid']}] {$cache['localpath']}";//print_r($cache, 1).
-		else echo "[{$cache['filecacheid']}] {$cache['localpath']}";
-		echo " (remote: {$cache['existsremotely']}]<br>";
-	}*/?>
 <hr>
 Visit photos:<br>
 <? foreach(fetchCol0("SELECT appointmentptr FROM tblappointmentprop WHERE property = 'visitmapcacheid'") as $id) 

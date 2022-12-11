@@ -40,9 +40,9 @@ foreach($oldnewmap as $old => $new) {
 	updateTable('tblappointment', 
 		array('servicecode'=>$new, 'birthmark'=>sqlVal("CONCATENATE(LEFT(birthmark, LOCATE('_', birthmark)), $new)"), 
 		"servicecode=$old AND $datetest", 1);
-	echo mysql_affected_rows()." rows changed in tblappointment.<br>";
+	echo mysqli_affected_rows()." rows changed in tblappointment.<br>";
 	updateTable('tblservice', array('servicecode'=>$new), "servicecode=$old", 1);
-	echo mysql_affected_rows()." rows changed in tblservice.<br>";
+	echo mysqli_affected_rows()." rows changed in tblservice.<br>";
 	
 	$rows = fetchAssociations("SELECT * FROM relclientcharge WHERE servicetypeptr=$old");
 	foreach($rows as $row) {

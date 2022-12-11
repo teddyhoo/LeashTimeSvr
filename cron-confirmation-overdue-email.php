@@ -18,19 +18,19 @@ if($biz['db'] == 'dogslife') continue; // for testing cron-daily-tasks.php
 		continue;
 	}
 	/*if($lastHost != $biz['dbhost']) {
-		mysql_close();
-		$lnk = mysql_connect($biz['dbhost'], $biz['dbuser'], $biz['dbpass']);
+		mysqli_close();
+		$lnk = mysqli_connect($biz['dbhost'], $biz['dbuser'], $biz['dbpass']);
 		if ($lnk < 1) {
 			$errMessage="Not able to connect: invalid database username and/or password.";
 		}
 	}
 	$lastHost = $biz['dbhost'];
-	mysql_select_db($biz['db']);
+	mysqli_select_db($biz['db']);
 	*/
 	reconnectPetBizDB($biz['db'], $biz['dbhost'], $biz['dbuser'], $biz['dbpass'], $force=true);
 
 	//echo "Selected {$biz['db']}...\n";
-	if(mysql_error()) echo mysql_error();
+	if(mysqli_error()) echo mysqli_error();
 	$NO_SESSION['i18n'] = getI18NProperties($biz['country']);				
 	sendOverdueConfirmationsEmails();
   //file_put_contents('/home/jweirger/cron-result.txt', "Result [$now]:\n[$result]");S

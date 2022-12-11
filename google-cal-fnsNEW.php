@@ -240,7 +240,7 @@ function clearAllGoogleItems($start, $end, $provIds=null) {
 		foreach($items as $item) {
 			deleteTable('tblusergooglevisit', "userptr = $userptr AND visitptr = {$item['visitptr']}", 1);
 			if($item['visitptr'] > 0) // do not include "cancel" notices in the count
-				$deletions += mysql_affected_rows();
+				$deletions += mysqli_affected_rows();
 		}
 		if($items) logChange($userptr, 'tblusergooglevisit', 'd', "$deletions visits");
 	}

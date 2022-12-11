@@ -88,7 +88,7 @@ if($_POST) {
 
 	}
 
-if(mysql_error()) exit;
+if(mysqli_error()) exit;
 
 	if($destination) {
 		globalRedirect($destination);

@@ -17,7 +17,7 @@ if($_POST) {
 		}
 	}
 	updateTable('tblcreditcard', array('active'=>'0'), join(' OR ', $conditions), 1);
-	echo "Deactivated ".mysql_affected_rows()." credit cards.<hr>";
+	echo "Deactivated ".mysqli_affected_rows()." credit cards.<hr>";
 	//echo "updateTable('tblcreditcard', array('active'=>'0'), ".join(' OR ', $conditions).", 1)<br>";
 }
 

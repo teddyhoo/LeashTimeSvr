@@ -62,9 +62,9 @@ foreach((array)$clients as $client => $groups) {
 		$doomedCount += 1;
 		if($go) {
 			sanitize($doomed['creditid']);
-			echo "DELETED credit ID ({$doomed['creditid']}): ".mysql_affected_rows()." row.";
-			$totalDeletions += mysql_affected_rows();
-			if(mysql_affected_rows()) $totalDeletedAmount += $doomed['amount'];
+			echo "DELETED credit ID ({$doomed['creditid']}): ".mysqli_affected_rows()." row.";
+			$totalDeletions += mysqli_affected_rows();
+			if(mysqli_affected_rows()) $totalDeletedAmount += $doomed['amount'];
 		}
 	}
 }

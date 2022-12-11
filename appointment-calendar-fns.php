@@ -80,7 +80,7 @@ function appointmentTable($appts, $packageDetails = null, $editable=false, $allo
 		$currentPackages = array_unique($currentPackages);
 		if(count($representedPackages) == 1 && !$recurringpackage) {
 			$packageDetails = getPackage($currentPackages[0]);
-//if(mattOnlyTEST()) echo "<hr>".print_r($packageDetails	, 1);	
+	
 			$start = $packageDetails['startdate'];
 			$end = (int)date('Y', strtotime($packageDetails['enddate'])) > 2000 
 							? $packageDetails['enddate'] 
@@ -108,7 +108,7 @@ function appointmentTable($appts, $packageDetails = null, $editable=false, $allo
 		$packageDetails = getPackage($packid);
 	}
 	*/
-//if(mattOnlyTEST()) {print_r($appts);exit;}
+}
 	$numAppointments = count($appts);
 	$visitDays = array();
 	//$scheduleDays = (int)((strtotime("$end 12:00:00") - strtotime("$start 12:00:00")) / $dayLength) + 1;
@@ -116,7 +116,7 @@ function appointmentTable($appts, $packageDetails = null, $editable=false, $allo
 
 
 
-//if(mattOnlyTEST()) echo "x: ".floor(((strtotime("$end 12:00:00") - strtotime("$start 12:00:00")) / $dayLength))."scheduleDays: $scheduleDays - start: $start, end: $end (dayLength: $dayLength)";	
+	
 	$dayNum = 1;
 	$time = null;
 	$price = 0;
@@ -124,7 +124,7 @@ function appointmentTable($appts, $packageDetails = null, $editable=false, $allo
 
 	$allScheduleApptsAndSurcharges = array_merge($appts, (array)$surcharges);
 	if($allScheduleApptsAndSurcharges) usort($allScheduleApptsAndSurcharges, 'dateSort');
-//if(mattOnlyTEST()) {echo "<pre>".print_r($allScheduleApptsAndSurcharges,1)."</pre>";exit;}	
+}	
 	foreach($allScheduleApptsAndSurcharges as $appt) {
 		$itsAVisit = $appt['appointmentid'];
 		if($time != strtotime("{$appt['date']} 03:00:00")) {
@@ -152,7 +152,7 @@ function appointmentTable($appts, $packageDetails = null, $editable=false, $allo
 	$discounts = getAppointmentDiscounts($apptIds, 1);
 	foreach($discounts as $discount) $price -= $discount['amount'];
 	$noVisitDays = $scheduleDays - count($visitDays);
-//if(mattOnlyTEST()) { echo "$noVisitDays = $scheduleDays - ".print_r($visitDays,1);exit;}	
+}	
 	if($apptdays) foreach($apptdays as $i => $apptsAndSurcharges) {
 		if($apptsAndSurcharges) usort($apptsAndSurcharges, 'dateSort');
 		$apptdays[$i] = $apptsAndSurcharges;
@@ -278,7 +278,7 @@ for($day = $start; $day <= $end; $day = date('Y-m-d', strtotime('+1 day', strtot
 		for($i=0; $i < $dow; $i++) echo "<td>&nbsp;</td>";
 	}
 	if(!$dow) echo "</tr><tr>";
-//if(mattOnlyTEST()) {echo "start[$start] apptdays[0][0][date] = {$apptdays[0][0]['date']} dayN: $dayN: <pre>".print_r($apptdays,1)."</pre>";exit;}	
+}	
 	
 	if($editable) echoEditableDayBox($day, $apptdays[$dayN], $clientptr, $provider, $packageDetails['packageid'], $includeApptLinks);
 	else echoDayBox($day, $apptdays[$dayN], $includeApptLinks, $packageDetails, $allowSurchargeEdit, $otherItems);
@@ -290,7 +290,7 @@ if($dow && $month) {  // finish prior month, if any
 }
 
 echo "</table>";
-//if(mattOnlyTEST()) exit;
+
 return true;
 } //appointmentTable
 
@@ -341,7 +341,7 @@ function appointmentTableOLD($appts, $packageDetails = null, $editable=false, $a
 		$currentPackages = array_unique($currentPackages);
 		if(count($representedPackages) == 1 && !$recurringpackage) {
 			$packageDetails = getPackage($currentPackages[0]);
-//if(mattOnlyTEST()) echo "<hr>".print_r($packageDetails	, 1);	
+	
 			$start = $packageDetails['startdate'];
 			$end = (int)date('Y', strtotime($packageDetails['enddate'])) > 2000 
 							? $packageDetails['enddate'] 
@@ -369,16 +369,16 @@ function appointmentTableOLD($appts, $packageDetails = null, $editable=false, $a
 		$packageDetails = getPackage($packid);
 	}
 	*/
-//if(mattOnlyTEST()) {print_r($appts);exit;}
+}
 	$numAppointments = count($appts);
 	$visitDays = 0;
 	$scheduleDays = (int)((strtotime("$end 12:00:00") - strtotime("$start 12:00:00")) / $dayLength) + 1;
-//if(mattOnlyTEST()) echo "x: ".floor(((strtotime("$end 12:00:00") - strtotime("$start 12:00:00")) / $dayLength))."scheduleDays: $scheduleDays - start: $start, end: $end (dayLength: $dayLength)";	
+	
 	$dayNum = 1;
 	$time = null;
 	$price = 0;
 	$apptProviders = array();
-//if(mattOnlyTEST()) {echo "<pre>".print_r($appts,1)."</pre>";exit;}	
+}	
 
 	foreach($appts as $appt) {
 		if($time != strtotime("{$appt['date']} 03:00:00")) {
@@ -520,7 +520,7 @@ for($day = $start; $day <= $end; $day = date('Y-m-d', strtotime('+1 day', strtot
 		for($i=0; $i < $dow; $i++) echo "<td>&nbsp;</td>";
 	}
 	if(!$dow) echo "</tr><tr>";
-//if(mattOnlyTEST()) {echo "start[$start] apptdays[0][0][date] = {$apptdays[0][0]['date']} dayN: $dayN: <pre>".print_r($apptdays,1)."</pre>";exit;}	
+}	
 	
 	if($editable) echoEditableDayBox($day, $apptdays[$dayN], $clientptr, $provider, $packageDetails['packageid'], $includeApptLinks);
 	else echoDayBox($day, $apptdays[$dayN], $includeApptLinks, $packageDetails, $allowSurchargeEdit);
@@ -730,7 +730,7 @@ function appointmentLink($appt)  {
 	$pname = $appt['providerptr'] ? $providerNames[$appt['providerptr']] : 'Unassigned' ;
 	$servicesByType = $_SESSION['servicenames'];
 	$title = "Sitter: $pname - Pets: {$appt['pets']}{$appt['title']}";
-//if(mattOnlyTEST()) $title .= " ".safeValue(print_r($appt, 1));
+
 	$unassignedWarning = !$appt['providerptr'] ? "<span style='color:red'>UNASSIGNED</span>" : '';
 	$roDispatcher = userRole() == 'd' && !strpos($_SESSION['rights'], '#ev');
 
@@ -791,7 +791,7 @@ function billableLink($appt) {
 			? "<b title='Discount: {$discounts[$appt['appointmentid']]['label']}'>[D]</b> "
 			: '';
 		$serviceLabel = htmlentities($labels[$appt['servicecode']]);
-//if(mattOnlyTEST()) $serviceLabel = print_r($labels,1);	
+	
 		return 
 			deleteButton($appt).' '.$discountTag.fauxLink("$tod{$serviceLabel}<br>$pname",
 										"if(typeof cacheSelections == \"function\") cacheSelections();$editScript",

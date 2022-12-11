@@ -20,7 +20,7 @@ if($_REQUEST['preview']) {
 
 
 
-if(!mysql_select_db('LeashTimeDocs')) echo "Failed to select ['LeashTimeDocs']: ".mysql_error();
+if(!mysqli_select_db('LeashTimeDocs')) echo "Failed to select ['LeashTimeDocs']: ".mysqli_error();
 
 
 $faqs = fetchAssociations("SELECT * FROM faq ORDER BY sectionptr, sequence");

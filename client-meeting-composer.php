@@ -19,7 +19,7 @@ if($providers) {
 	$sitters = $sitters ? join(', ', $sitters)." and $lastSitter" : $lastSitter;
 }
 
-$label = mysql_real_escape_string("#STANDARD - Meeting Set Up");
+$label = mysqli_real_escape_string("#STANDARD - Meeting Set Up");
 $template = fetchFirstAssoc("SELECT * FROM tblemailtemplate WHERE label = '$label' LIMIT 1");
 if($template) {
 	$messageBody = $template['body'];

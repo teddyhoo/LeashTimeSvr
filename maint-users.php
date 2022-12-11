@@ -18,7 +18,7 @@ if(strpos($status, 'status_') === 0) $status = substr($status, strlen('status_')
 if($status) $filter[] = "active = ".($status == 'active' ? 1 : '0');
 //echo $filter;
 	
-$safeBizPat = mysql_real_escape_string((string)$bizPat);
+$safeBizPat = mysqli_real_escape_string((string)$bizPat);
 if(mattOnlyTEST()) ;
 else if($safeBizPat) {
 	$filter[] = "bizptr != 0";
@@ -28,7 +28,7 @@ else if($safeBizPat) {
 	if($bizIds) $filter[] = "bizptr IN (".join(',', $bizIds).")";
 }
 else $filter[] = "bizptr != 0";
-$safeNamePat = mysql_real_escape_string((string)$namePat);
+$safeNamePat = mysqli_real_escape_string((string)$namePat);
 if($namePat) $filter[] = "(loginid LIKE '%$safeNamePat%' 
 OR email LIKE '%$safeNamePat%' 
 OR lname LIKE '%$safeNamePat%' 

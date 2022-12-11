@@ -124,7 +124,7 @@ if(/*$_SESSION['preferences']['enableIncompleteScheduleNotifications'] &&*/ $_SE
 		$request = array('note'=>$payload, 'requesttype'=>$requesttype, 'clientptr'=>$client);
 		
 		if(!($requestID = saveNewClientRequest($request, true))) {
-			$error = mysql_error();
+			$error = mysqli_error();
 			logChange($client, 'clientScheduler', 'm', "Step 3: $error");
 
 		}
@@ -147,7 +147,7 @@ if(TRUE || $_SESSION['preferences']['enableIncompleteScheduleNotifications']) {
 		//$successMessage = "$successMessage".print_r(findIncompleteScheduleRequestClients($returnAll=FALSE), 1);
 		clearLatestScheduleStep2Time(); // see client-sched-request-fns.php
 }
-		if(mysql_error()) $error = mysql_error();
+		if(mysqli_error()) $error = mysqli_error();
 		else $finalMessage = $successMessage;
 	}
 }

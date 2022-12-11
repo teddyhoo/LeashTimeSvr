@@ -14,7 +14,7 @@ if($_GET['conflictid']) {
 	require_once "common/init_db_petbiz.php";
 	require_once "service-fns.php";
 	require_once "appointment-calendar-fns.php";
-//if(mattOnlyTEST()) { print_r($_REQUEST); exit;}	
+}	
 	$packageid = $_GET['conflictid'];
 	$conflicts = findConflicts($_GET['client'], $_GET['conflictid'], 1);
 }
@@ -47,7 +47,7 @@ foreach($conflicts as $conftype => $group) {
 			}
   }
 }
-//if(mattOnlyTEST()) print_r($problems);
+
 ksort($problems);
 $displayDates = $_REQUEST['dates'] ? $_REQUEST['dates'] : ($dates ? join(',', $dates) : '');
 //print_r($problems);exit;
@@ -148,7 +148,7 @@ function dispayProblemsInCalendarForm($problems, $newAppointments, $dates=null) 
 		if($newAppointments[$date]) $appts = array_merge($appts, $newAppointments[$date]);
 		uasort($appts, 'datetimeSort');
 	}
-//if(mattOnlyTEST()) print_r($problems);
+
 	foreach((array)$problems as $problem) {
 		if(!$problem['title']) continue;
 		foreach((array)$appts as $i=>$appt) {

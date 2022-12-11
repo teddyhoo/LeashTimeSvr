@@ -352,7 +352,7 @@ function calendarRow($label, $name, $value=null, $labelClass=null, $inputClass=n
 	$inputClass = $inputClass ? "class=\"$inputClass$inputIsTheCalendarWidget\"" : "class=\"dateInput$inputIsTheCalendarWidget\"";
 	echo "<tr $rowId $rowStyle>
     <td $labelClass><label for='$name'>$label</label>$TIME</td><td><input $inputClass id='$name' name='$name' value='$value' $onBlur autocomplete='off'> ";
-//if(mattOnlyTEST()) echo "jqueryVersion [$jqueryVersion]";
+
   if(!$jqueryVersion) makeCalendarWidget($name, null, $jqueryVersion);
   //makeCalendarWidget($name); 
   echo " ";

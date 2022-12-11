@@ -61,7 +61,7 @@ if(mattOnlyTEST()) screenLog( $sql);
 $t0 = microtime(true);
 $provs = fetchAssociations($sql, 1);
 
-$error = mysql_error();
+$error = mysqli_error();
 //if(mattOnlyTEST() && $error) bagText($sql, $referringtable='provider-list');  
 if(mattOnlyTEST()) screenLog("query time: ".(microtime(true)-$t0).' secs.');  
 if($error) screenLog("ERROR: $error");  

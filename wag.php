@@ -98,7 +98,7 @@ if($currentNRPackageIds) {
 		 "SELECT packageid, startdate as start, enddate as end 
 			FROM tblservicepackage 
 			WHERE packageid IN (".join(',', $currentNRPackageIds).")";
-//if(mattOnlyTEST()) {foreach($currentNRPackageIds as $old=>$new) if(!$new) echo "$old: [$old] new: [$new]<br>";}																
+}																
 	$nonRecurringRanges = !$nonRecPackageIds ? array() 
 														 : fetchAssociationsKeyedBy($sql, 'packageid');
 	foreach($currentNRPackageIds as $old => $curr) {

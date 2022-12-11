@@ -225,7 +225,7 @@ function findClients() {
 		if(strpos($pattern, '*') !== FALSE) $pattern = str_replace  ('*', '%', $pattern);
 		else $pattern = "%$pattern%";
 		$baseQuery = "$baseQuery AND CONCAT_WS(' ',fname,lname) like '$pattern'";
-		$numFound = mysql_num_rows(mysql_query($baseQuery));
+		$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 		if($numFound)
 			$clients = fetchAssociations("$baseQuery ORDER BY lname, fname LIMIT 15");
 	}
@@ -235,7 +235,7 @@ function findClients() {
 		$numFound = count($clients);
 	}
 	else {
-		$numFound = mysql_num_rows(mysql_query($baseQuery));
+		$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 		$baseQuery = "$baseQuery ORDER BY lname, fname LIMIT 15";
 		$clients = fetchAssociations("$baseQuery");
 	}

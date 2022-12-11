@@ -25,7 +25,7 @@ while($row = fgetcsv($strm, 0, ",")) {
 	if(!$clientid) echo "<font color=gray>No client found for ID: [{$row[0]}]</font><br>";
 	else {
 		$name = fetchRow0Col0("SELECT CONCAT_WS(' ', fname, lname) FROM tblclient WHERE clientid = $clientid");
-		$x = mysql_real_escape_string($row[14]);
+		$x = mysqli_real_escape_string($row[14]);
 		if($x) {
 			echo "ID: [{$row[0]}] ClientID: [$clientid] -- $name [{$row[14]}]<br>";
 			//insertTable('tblclientpref', array('clientptr'=>$clientid, 'property'=>"flag_1", "value"=>"1|$x"), 1);

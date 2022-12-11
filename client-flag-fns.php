@@ -388,7 +388,7 @@ function updateBillingFlags() {
 function NEWbillingFlagTable() {
 	global $maxBillingFlags;
 	$billingFlags = getBillingFlagList();
-//if(mattOnlyTEST()) print_r($billingFlags);
+
 	$flagCounts = fetchKeyValuePairs(
 		"SELECT SUBSTRING(property, CHAR_LENGTH('billing_flag_')+1) as flagid, count(*) FROM tblclientpref WHERE property LIKE 'billing_flag_%' GROUP BY flagid");
 	echo "<table width=50%><tr><th>&nbsp;</th><th>Flag</th><th>Title</th></tr>";
@@ -466,10 +466,10 @@ function getBillingFlagList() {
 			$nums[] = substr($key, strlen('billing_flag_'));
 	sort($nums);
 	for($i = 1; $i <= $maxBillingFlags; $i++) {
-//if(mattOnlyTEST()) echo "{$prefs["billing_flag_$i"]} ==> ".billFlagSrc($i)."<br>";	
+	
 		$flag = $prefs["billing_flag_$i"] ? $prefs["billing_flag_$i"] : billFlagSrc($i)."|";
 		if(strlen($flag) < 2) $flag = billFlagSrc($i);  // how did the billing flags get f*cked up for tonkatest?
-//if(mattOnlyTEST()) {echo "<hr>billing_flag_$i: [{$prefs["billing_flag_$i"]}]".print_r($flag,1);exit;}	
+}	
 		$titleStart = strpos($flag, '|', 2) !== false ? strpos($flag, '|', 2)+2 : strlen($flag);
 		$flags[$i] = array('flagid'=>$i,
 												'src'=>substr($flag, 0, $titleStart-2),
@@ -564,7 +564,7 @@ function flagReport(flagid) {
 }
 
 function bizBillingFlagPicker($i, $imgs, $src) {
-//if(mattOnlyTEST()) print_r();	
+	
 	$allFlags = getBillingFlagList();
 	
 	$inuse = array_map('strtolower', explode('|', $imgs));
@@ -599,7 +599,7 @@ function drop(i) {
 
 	
 function bizFlagPicker($i, $imgs, $src) {
-//if(mattOnlyTEST()) print_r();	
+	
 	$allFlags = getBizFlagList();
 	$inuse = array_map('strtolower', explode('|', $imgs));
 	$currentIcon = $src == 'art/emptyFlagIcon.jpg' ? "(None)" : "<img src='$src'>";
@@ -687,7 +687,7 @@ JS;
 }
 
 function flagReportTableWithDelete($flagid, $billing=false) {
-	//if(mattOnlyTEST()) return flagReportTable($flagid, $billing);
+	
 	if($billing) {
 		$flag = $_SESSION['preferences']["billing_flag_$flagid"];
 		if($flag) $src = substr($flag, 0, ($titleStart = strpos($flag, '|', 2)));

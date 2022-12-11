@@ -47,7 +47,7 @@ function lt_decrypt($str) {
 	     exit;
  	}
  	
-//if(mattOnlyTEST()) {print_r($str);exit;}
+}
 
 	return str_replace("\x0", '', $bf->decrypt(base64_decode($str)));
 }
@@ -72,7 +72,7 @@ function lt_decryptB($str) {
 	     exit;
  	}
  	
-//if(mattOnlyTEST()) {print_r($str);exit;}
+}
 
 	return str_replace("\x0", '', $bf->decrypt($str));
 }

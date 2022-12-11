@@ -9,7 +9,7 @@ require_once "provider-fns.php";
 locked('o-');
 extract(extractVars('pattern,instance', $_REQUEST));
 echo "pattern: $pattern, instance: $instance";
-//if(mattOnlyTEST()) {echo "$delete $firstDayToDelete ".print_r($patternrow, 1); exit;}
+}
 if($pattern) {
 	$doomed = fetchFirstAssoc("SELECT * FROM tbltimeoffpattern WHERE patternid = $pattern LIMIT 1", 1);
 	if($doomed) {

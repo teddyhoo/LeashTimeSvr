@@ -139,9 +139,9 @@ if($_POST && isset($clientid)) {
 		}
 	}
 	else {
-//if(mattOnlyTEST()) {print_r($_POST);exit;}		
+}		
 		saveNewClient();
-		$newClientId = mysql_insert_id();
+		$newClientId = mysqli_insert_id();
 		logChange($newClientId, 'tblclient', 'c', 'Created');
 		saveClientKey($newClientId);
 		saveClientPets($newClientId);
@@ -1419,7 +1419,7 @@ var activeOnOpen = <?= $inactive ? 0 : 1 ?>;
 
 setPrettynames(<?= $prettyNames ?>);	
 function checkAndSubmit(continueEditing) {
-	<? //if(mattOnlyTEST()) echo "alert(continueEditing);\n"; ?>
+	<?  ?>
 	<? if($_SESSION['referralsenabled']) echo "var referralMessage = referralIsIncomplete(true);\n"; ?>
 	
 	var zipRequired = '';;

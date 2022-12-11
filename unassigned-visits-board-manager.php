@@ -65,7 +65,7 @@ if($_POST) {
 	deleteTable('tblunassignedboard', $checkedUVBIDs);
 	$checkedAppts = "appointmentptr IS NOT NULL".($checkedAppts ? " AND appointmentptr NOT IN (".join(',', $checkedAppts).")" : '');
 	deleteTable('tblunassignedboard', $checkedAppts);
-//if(mattOnlyTEST()) {echo print_r($_POST,1).'<p>'.print_r($checkedAppts,1);	exit;}
+}
 	
 	setPreference('unassignedboarddetails', join(',', (array)$details));
 	setPreference('unassignedBoardSitterSort', $sortBy);

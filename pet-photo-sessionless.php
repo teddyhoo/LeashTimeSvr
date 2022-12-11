@@ -54,7 +54,7 @@ else {
 						 '{$_SESSION['bizfiledirectory']}photos/pets/$version$id.jpeg',
 						 '{$_SESSION['bizfiledirectory']}photos/pets/$version$id.png')
 					LIMIT 1")) {
-//if(mattOnlyTEST()) {print_r($cache);exit;}
+}
 				getCachedFileAndUpdateExpiration($cache);
 				$file = $cache['localpath'];
 			}
@@ -66,7 +66,7 @@ else {
 endRequestSession();
 $ctypes = array('jpg'=>'jpeg', 'png'=>'png');
 $extension = substr($file, strrpos($file, '.')+1);
-//if(mattOnlyTEST()) {echo "$file: Content-Type: image/{$ctypes[$extension]}";} else
+} else
 header("Content-Type: image/{$ctypes[$extension]}");
 header("Pragma: public"); // required
 header("Expires: 0");

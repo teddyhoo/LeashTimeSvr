@@ -149,7 +149,7 @@ function populateClient($clientid) {
 	// client custom fields [all w/sitter rights] 	
 	if(($fields = customClientFields($fields)) != -999) {
 		// 0-label, 1-active, 2-type, 3-showOnVisitSheet, 4-clientvisible
-//if(mattOnlyTEST()) {print_r($fields);exit;}		
+}		
 		$fieldCounter = 0;
 		foreach($fields as $fkey => $field) {
 			if(!$field[1]) continue;
@@ -219,7 +219,7 @@ function nativeCustomFieldValue($field, $fieldvalue) {
 					);
 				if($clientdocs == 'complete') $fieldvalue = $json; //json_encode();
 				else $fieldvalue = $json['label'];
-//if(mattOnlyTEST()) {echo print_r($clientdocs,1).": ".print_r($fieldvalue,1);exit;}	
+}	
 			}
 		}
 	return $fieldvalue;
@@ -273,7 +273,7 @@ function fetchClientVisits($start, $end, $includecanceledvisits=null, $includeno
 					LEFT JOIN tblappointmentprop vr ON vr.appointmentptr = appointmentid AND property = 'reportIsPublic'
 					WHERE a.date >= '$start' AND a.date <= '$end' $filter
 					ORDER BY date, starttime";
-//if(mattOnlyTEST()) {echo $sql;exit;}					
+}					
 
 // ADD: sitter, servicelabel, clientservicelabel
 

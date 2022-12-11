@@ -226,7 +226,7 @@ function saveInboundSMSMessage($descr, $originator) {
 	$metadata['msgptr'] = $msgptr;
 	$metadataID = insertTable('tblmessagemetadata', $metadata, 1);
 //echo "INSERTING: ".print_r($metadata,1)."<hr>";
-//if(mysql_error()) logError('sv inbound sms: '.mysql_error());
+//if(mysqli_error()) logError('sv inbound sms: '.mysqli_error());
 	return $msgptr;
 }
 
@@ -273,7 +273,7 @@ function clearEmailQueueIfDisabled() {
 		$deleteAfterHours = 48;  // 48 hours 
 		if(time() - $mailQueueDisabled > $deleteAfterHours * 60 * 60) {
 			deleteTable('tblqueuedemail', "1=1");
-			if($count = mysql_affected_rows()) logError("Email queue cleared ($count msgs deleted after at least $deleteAfterHours hours).");
+			if($count = mysqli_affected_rows()) logError("Email queue cleared ($count msgs deleted after at least $deleteAfterHours hours).");
 			return true;
 		}
 	}
@@ -302,7 +302,7 @@ if($TESTEMAILOVERRIDE) $person['email'] = $TESTEMAILOVERRIDE;
 									'addedtime'=>date('Y-m-d H:i:s'),
 									'html'=>($html ? 1 : 0),
 									'tblmsgfields'=>queuedMessageDescription($mgrname, $correspid, $correstable, $originatorid, $originatortable, $tags, $attachments)), 1);
-	return $newId ? $newId : array(mysql_errno());
+	return $newId ? $newId : array(mysqli_errno());
 }
 
 function enqueueMassEmailNotification($toPersons, $subject, $body, $cc=null, $bccPersons=null, $mgrname, $html=false, $originator=null) {
@@ -339,7 +339,7 @@ function enqueueMassEmailNotification($toPersons, $subject, $body, $cc=null, $bc
 									'addedtime'=>date('Y-m-d H:i:s'),
 									'html'=>($html ? 1 : 0),
 									'tblmsgfields'=>queuedMassMessageDescription($mgrname, $correspondents, $originatorid, $originatortable)), 1);
-	return $newId ? $newId : array(mysql_errno());
+	return $newId ? $newId : array(mysqli_errno());
 }
 
 
@@ -711,7 +711,7 @@ function getMessage($id) {
 function getArchivedMessage($id, $raw=false) {
 	if(!$_SESSION["hasmessagearchive"]) return;
 	$body = $raw ? 'body' : 'UNCOMPRESS(body) as body';
-	//if(mattOnlyTEST()) {print_r(join(', ', fetchCol0("DESC tblmessagearchive")));}
+	}
 	return fetchFirstAssoc(
 		"SELECT msgid, inbound, correspid, correstable, mgrname, subject, 
 						$body, datetime, transcribed, tags, correspaddr, originatortable, originatorid, 
@@ -743,7 +743,7 @@ function getSMSCommsFor($correspondent, $filter=null, $clientflg=true, $totalMsg
 										OR (originatorid = $correspondentId AND originatortable = '$cTable'))".($filter ? "AND $filter" : '');
 	}
 	else $filter = $filter; // :)
-//if(mattOnlyTEST()) {echo "SELECT * FROM tblmessage WHERE $filter";exit;} if(TRUE) { // if(FALSE) { //
+} if(TRUE) { // if(FALSE) { //
 if(TRUE) { //if(staffOnlyTEST() || dbTEST('tonkapetsitters')) { // improvement: don't collect all messages into memory; just the ones with metas
 	$msgids = array();
 	$messages = array();
@@ -754,7 +754,7 @@ screenLogPageTime("getSMSCommsFor about to fetch messages: ");
 			LEFT JOIN tblmessagemetadata ON msgptr = msgid
 			WHERE $filter AND msgptr IS NOT NULL
 			ORDER BY datetime");
-  /*while($msg = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  /*while($msg = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$msgids[] = $msg['msgid'];
 		$meta = fetchFirstAssoc("SELECT * FROM tblmessagemetadata WHERE msgptr = {$msg['msgid']} AND type = 'sms' LIMIT 1", 'msgptr', 1);
 		if($meta) {
@@ -932,7 +932,7 @@ function getCommsFor($correspondent, $filter, $clientflg=true, $totalMsg=false, 
 		$sql = "SELECT * FROM tblclientrequest WHERE ($requestWhere $reqfilter ) $timeOffReqClause $postFilterClause";
 
 		$sql = str_replace('datetime', 'received', $sql);
-//if(mattOnlyTEST()) echo "[[[".print_r(fetchAssociations($sql), 1)."]]]<br>";			
+			
 		foreach(fetchAssociations($sql) as $req) {
 			if($correspondentGroup) $correspondentName = null;
 			$sender = join(' ',array($req['fname'], $req['lname']));
@@ -1032,7 +1032,7 @@ function getCommsFor($correspondent, $filter, $clientflg=true, $totalMsg=false, 
 									OR (originatorid = $correspondentId AND originatortable = '$corresTable'))".($filter ? "AND $filter" : '');
 	if($inboundOnly) $filter .= " AND inbound = 1 ";
 	if($excludeHidden) $filter .=" AND hidefromcorresp = 0";
-//if(mattOnlyTEST()) {echo "SELECT * FROM tblmessage WHERE $filter";exit;}
+}
 	$messages = fetchAssociations($sql = "SELECT * FROM tblmessage WHERE $filter");
 	
 	if($prospectMsgs) foreach($prospectMsgs as $pm) $messages[] = $pm; // added 10/19/2020

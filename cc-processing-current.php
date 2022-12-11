@@ -62,12 +62,12 @@ function makeERefund($x_amount, $cc, $transactionid, $paymentAmount=null) {
 		$result = executeCCTransaction($x_amount, $cc, 'VOID', $transactionid);
 if(mattOnlyTEST()) logChange(999, 'test', 'z', "VOID result for transaction: {$transactionid}[{$paymentAmount} - {$x_amount}]");
 	}
-//if(mattOnlyTEST()) { logLongError("VOID [$x_amount == $paymentAmount] result: ".print_r($result, 1)); }
+ }
 	$gatewayObject = getGatewayObject($_SESSION['preferences']['ccGateway']);
 	if((!$result || is_array($result)) && $gatewayObject->supportsRefund($cc['ccid'] ? 'cc' : 'ach')) {
 		//logChange(999, 'test', 'z', print_r($result,1));
 		$result = executeCCTransaction($x_amount, $cc, 'CREDIT', $transactionid);
-//if(mattOnlyTEST()) { logLongError("CREDIT [$transactionid] result: ".print_r($result, 1)); }
+ }
 		return $result;
 	}
 	else return $result;
@@ -439,7 +439,7 @@ function getClearACH($clientid, $primaryToo=false) {
 
 function gatewayConflict($paymentSource) {
 	if($paymentSource['acctid']) {  // ach info stored in Solveras is no longer accessible
-//if(mattOnlyTEST()) echo "BANGBANG!";	
+	
 		return $paymentSource['vaultid'];
 	}
 	$nmiGateways = gatewayIsNMI($_SESSION['preferences']['ccGateway']) ? 1 : 0;
@@ -630,7 +630,7 @@ function saveCCInfo($data) {
 
 function saveACHInfo($data) {
 	$data['acctptr'] = $data['acctid'];
-//if(mattOnlyTEST()) {print_r($data);	exit;}
+}
 	$fields = explode(',', 'acctptr,x_company,x_address,x_city,x_state,x_zip,x_country,x_phone');
 	foreach($data as $k => $v)
 		if(!in_array($k, $fields)) 

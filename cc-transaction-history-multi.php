@@ -32,7 +32,7 @@ $messages =  fetchAssociations($sql =
 	 	AND `time` >= '$date 00:00:00'
 	 ORDER BY time DESC");
 
-//if(mattOnlyTEST()) {print_r($messages);exit;}
+}
 
 $users = array();
 foreach($messages as $i => $m) {

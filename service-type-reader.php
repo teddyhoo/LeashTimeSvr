@@ -62,7 +62,7 @@ else if($rawdata) {
 		if($row[3]) $rate = getDollarOrPercent($row[3]);
 		if(!$rate) $rate = array('0', '0');
 		$rate = (array)$rate;
-		if(!fetchRow0Col0("SELECT label FROM tblservicetype WHERE label = '".mysql_real_escape_string($label)."' LIMIT 1")) {
+		if(!fetchRow0Col0("SELECT label FROM tblservicetype WHERE label = '".mysqli_real_escape_string($label)."' LIMIT 1")) {
 			insertTable('tblservicetype', 
 				array('label'=>$label, 'defaultrate'=>$rate[0], 'ispercentage'=>$rate[1], 'defaultcharge'=>$charge, 'taxable'=>0,
 								'active'=>1, 'hoursexclusive'=>0, 'menuorder'=>$created), 1);

@@ -81,7 +81,7 @@ function fullSheet_PDF() {
   return $pdf;
 }
 function specDymoHalfInch(&$pdf, $key, $left, $top, $spec=null) {
-//if(mattOnlyTEST()) {print_r($spec);exit;}	
+}	
 	// left margin (beyond label) is .75cm
 	//if(!$spec) $spec = array('units'=>'cm','borderwidth'=>4.2, 'borderheight'=>2.3, 'fontsize'=>'10,12');
 	$originalSpec = $spec;
@@ -143,7 +143,7 @@ function specDymoHalfInch(&$pdf, $key, $left, $top, $spec=null) {
 	$bottom = $top-cm($spec['borderheight']);
 	//$pdf->line($left+cm(0.0) , $top, $left+cm(0.0) , $top-cm(.15) );
 	//$pdf->line($left+cm(0.0) , $top, $left+cm(0.15) , $top );
-//if(mattOnlyTEST()) {echo "bottom: $bottom"; exit;}
+}
 	//$pdf->line($left+cm(0.0) , $bottom, $left+cm(0.0) , $bottom+cm(0.15) );
 	//$pdf->line($left+cm(0.0) , $bottom, $left+cm(0.15) , $bottom );
 	
@@ -198,7 +198,7 @@ function specSheetFormat(&$pdf, $key, $left, $top, $spec=null) {
 	$bottom = $top-cm($spec['borderheight']);
 	$pdf->line($left+cm(0.0) , $top, $left+cm(0.0) , $top-cm(.15) );
 	$pdf->line($left+cm(0.0) , $top, $left+cm(0.15) , $top );
-//if(mattOnlyTEST()) {echo "bottom: $bottom"; exit;}
+}
 	$pdf->line($left+cm(0.0) , $bottom, $left+cm(0.0) , $bottom+cm(0.15) );
 	$pdf->line($left+cm(0.0) , $bottom, $left+cm(0.15) , $bottom );
 	
@@ -245,7 +245,7 @@ function printPageLabels($pdf, $labelFunction, $keys, $rows, $cols, $spec) {
 	else $horizontalLeap = cm(5.0);
 	
 	foreach($keys as $index => $key) {
-//if(mattOnlyTEST()) {echo "$labelFunction ($index): ";print_r($key);}
+}
 		call_user_func_array($labelFunction, array(&$pdf, $key, 
 																								$pdf->ez['leftMargin'], 
 																								$pdf->ez['pageHeight']
@@ -283,7 +283,7 @@ function label(&$key, &$pdf, $top, $left, $spec=null, $fontSize=null) {
 		$width = $width ? cm($width*$factor)  : null;
 		if($spec['barheight']) $height = cm($spec['barheight']*$factor);
 		else if($spec['borderheight']) $height = cm($spec['borderheight']*$factor *.9);
-//if(mattOnlyTEST()) { echo "H: $height ".print_r($spec, 1);exit;}		
+}		
 		//$height = $spec ? cm($spec['borderheight']*$factor *.9)  : null;
 		$barcodeTopPadding = $spec['verticalseparation'] ? $spec['verticalseparation'] * $factor : cm(1.20);
 		$fontOffsets = array(12 => .6, 10=>.6, 9=>.3, 8=>.3);

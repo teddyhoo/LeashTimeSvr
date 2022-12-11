@@ -30,7 +30,7 @@ function enqueueProviderMemos($provptr=null) {
 	$filter = $provptr ? "WHERE providerptr = $provptr" : '';
 	$memos = array();
 	$result = doQuery("SELECT * FROM tblprovidermemo $filter ORDER BY memoid");
-	while($row = mysql_fetch_assoc($result)) {
+	while($row = mysqli_fetch_assoc($result)) {
 		$memos[$row['providerptr']][] = $row;  // use md5 key to eliminate dups
 	}
 //echo "MEMOS: ";print_r($memos);	
@@ -61,7 +61,7 @@ function enqueueProviderMemos($provptr=null) {
 					logError("Problem working with memo fragment: ".print_r($memo, 1));
 					continue;
 				}
-//if(mattOnlyTEST()) { echo "<pre>"; print_r($memo);echo "</pre><hr>";if($mm==0) exit;}				
+}				
 				if(in_array($uniqueKey, $uniqueKeys)) continue;
 				else $uniqueKeys[] = $uniqueKey;
 				$memoNumber++;
@@ -86,7 +86,7 @@ function enqueueProviderMemos($provptr=null) {
 			$subject = memoMessageSubjectLine($memos, $bizName, $clientsAndPets, $clientLastNames);  //"Memo from ".($bizName ? $bizName : 'Leashtime');
 			$messagePtr = enqueueEmailNotification($provider, $subject, $messageBody, null, null, 'html');  // returns array on fail
 			if(is_array($messagePtr)) {
-				logError("enqueueProviderMemos($provptr): ".mysql_error());
+				logError("enqueueProviderMemos($provptr): ".mysqli_error());
 				$memoIds = array();
 				foreach($items as $memo) $memoIds = $memo['memoid'];
 				$memosProcessed = array_diff($memosProcessed, $memoIds);
@@ -147,7 +147,7 @@ function uniqueMemoKey($memo) {
 		require_once "service-fns.php";
 		$package = getPackage(substr($note, strpos($note, '|')+1));
 		if(!$package) return null;
-//if(mattOnlyTEST()) { echo "<pre>"; print_r($note);echo "</pre><hr>";if($mm==0) exit;}				
+}				
 		$history = findPackageIdHistory($package['packageid'], $package['clientptr'], $package['recurring']);
 //echo "PACK: ".print_r($package, 1)." HIST: ".print_r($history, 1);exit;
 		$memo['note'] = 'schedule|'.$history[0];
@@ -214,7 +214,7 @@ if(FALSE && mattOnlyTEST()) $appts = fetchAllAppointmentsForNRPackage($package);
 
 function memoConfirmationLinks($memo, $memoNumber, $provider, $dueDate, $tokenExpirationDate, &$confirmationIds) {
 	// may return null if provider lacks email address or is not set to receive confirmation links
-//if(mattOnlyTEST()) echo "PROVIDER: {$memo['providerptr']} ACCEPTS confirmation of {$memo['note']}: ".providerAcceptsMemosAbout($memo['providerptr'], $memo['note'], $confirmation=true)."\n";
+
 if(dbTEST('comfycreatures')) logError("PROVIDER: {$memo['providerptr']} ACCEPTS confirmation of {$memo['note']}: ".providerAcceptsMemosAbout($memo['providerptr'], $memo['note'], $confirmation=true));
 	if(!providerAcceptsMemosAbout($memo['providerptr'], $memo['note'], $confirmation=true))
 			return;
@@ -279,7 +279,7 @@ function providerAcceptsMemosAbout($provider, $note, $confirmation=false) {
 
 	if(isset($relevantProperties[$notificationType]))	{
 		require_once 'preference-fns.php';		
-//if(mattOnlyTEST()) echo "notificationType: $notificationType => {$relevantProperties[$notificationType]}<br>[".getProviderPreference($provider, $relevantProperties[$notificationType]).']<br>';
+
 		if(!getProviderPreference($provider, $relevantProperties[$notificationType]))
 			return false;
 	}

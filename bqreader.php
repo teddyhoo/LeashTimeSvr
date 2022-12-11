@@ -59,7 +59,7 @@ while(($row = fgetcsv($strm)) && count($row)>0) {
 			$encr = localEncrypt($row[1]);
 			if($update) {
 				replaceTable($thisTable, array('property'=>$row[0], 'value'=>$encr), 1);// update the table
-				if(!mysql_error()) echo "Updated property {$row[0]} with $encr<br>";
+				if(!mysqli_error()) echo "Updated property {$row[0]} with $encr<br>";
 			}
 			else { // validate
 				if(count($row) != 2) echo "<font color=red>Bad $thisTable row: $n</n><br>";
@@ -73,7 +73,7 @@ while(($row = fgetcsv($strm)) && count($row)>0) {
 			if($update) {
 				// update the table
 				updateTable($thisTable, array('x_card_num'=>$encr1, 'x_card_code'=>$encr2), "ccid='$cardid'", 1);
-				if(!mysql_error()) echo "Updated card $cardid<br>";
+				if(!mysqli_error()) echo "Updated card $cardid<br>";
 			}
 			else { // validate
 				if(count($row) != 3) echo "<font color=red>Bad $thisTable row: $n</n><br>";
@@ -89,7 +89,7 @@ while(($row = fgetcsv($strm)) && count($row)>0) {
 			if($update) {
 				// update the table
 				updateTable($thisTable, array('value'=>$encr1), "userptr='$userid' AND property='$prop'", 1);
-				if(!mysql_error()) echo "Updated $prop for $userid<br>";
+				if(!mysqli_error()) echo "Updated $prop for $userid<br>";
 			}
 			else { // validate
 				if(count($row) != 3) echo "<font color=red>Bad $thisTable row: $n</n><br>";
@@ -119,12 +119,12 @@ function connectIfNecessary($thisBiz) {
 	$dbuser = $thisBiz['dbuser'];
 	$dbpass = $thisBiz['dbpass'];
 	$db = $thisBiz['db'];
-	$lnk = $lnk ? $lnk : mysql_connect($dbhost, $dbuser, $dbpass);
+	$lnk = $lnk ? $lnk : mysqli_connect($dbhost, $dbuser, $dbpass);
 	if ($lnk < 1) {
 		echo "Not able to connect: invalid database username and/or password.\n";
 	}
-	$lnk1 = mysql_select_db($db);
-	if(mysql_error()) echo mysql_error();
+	$lnk1 = mysqli_select_db($db);
+	if(mysqli_error()) echo mysqli_error();
 	echo "<font color=blue>Connected to {$biz['bizname']} ($db)</font><br>";
 }	
 

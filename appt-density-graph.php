@@ -34,18 +34,18 @@ foreach($allBizzesLeashTimeFirst as $bizCount => $biz) {
 	$dbpass = $biz['dbpass'];
 	$db = $biz['db'];
 	$bizptr = $biz['bizid'];
-	$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+	$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 	if ($lnk < 1) {
 		echo "Not able to connect: invalid database username and/or password.\n";
 	}
-	$lnk1 = mysql_select_db($db);
-	if(mysql_error()) echo mysql_error();
+	$lnk1 = mysqli_select_db($db);
+	if(mysqli_error()) echo mysqli_error();
 	$tables = fetchCol0("SHOW TABLES");
 	$bizName = fetchRow0Col0("SELECT value FROM tblpreference WHERE property = 'bizName' LIMIT 1");
 	
 	
-	/*$result = mysql_query("SELECT description from relinvoiceitem limit 1");
-	$field = mysql_fetch_field($result, 0);
+	/*$result = mysqli_query("SELECT description from relinvoiceitem limit 1");
+	$field = mysqli_fetch_field($result, 0);
 		echo "$db<br><pre>
 	max_length:   $field->max_length
 	name:         $field->name
@@ -260,7 +260,7 @@ function countVisits(&$counts, $range, $intervals = 300) {
 		"SELECT date, starttime FROM tblappointment 
 			WHERE canceled IS NULL
 				AND date >= '{$range[0]}' AND date <= '{$range[1]}'");
-	while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$starttime = strtotime($row['starttime'])-$baseTime;
 //		$lastindex = 0;
 		foreach(array_keys($counts[$row['date']]) as $i) {

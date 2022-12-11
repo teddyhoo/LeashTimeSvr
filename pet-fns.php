@@ -75,7 +75,7 @@ function getPetNamesForClients($ids, $inactiveAlso=false, $englishList=false) {
 	$filter = $inactiveAlso ? '' : 'active = 1 AND ';
   if(!($result = doQuery("SELECT ownerptr, name FROM tblpet WHERE $filter ownerptr IN ($ids) ORDER BY ownerptr, name"))) return null;
   $pets = array();
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC))
    $pets[$row['ownerptr']][] = $row['name'];
 	
 	foreach($pets as $owner => $names) {
@@ -151,7 +151,7 @@ function petTable($pets, $client, $allowExtraPets=true, $finalSectionMessage=nul
 		echo fauxLink("<span id='hideinactivepets' style='display:none'>Hide the $inactivePets inactive or deceased pets</span>", 'showInactive(0)', 1)."</td></tr>";
 	}
 	$allowedAdditionalPets = $allowExtraPets ? $numExtraPets : 0;
-//if(mattOnlyTEST()) {echo "pets: ".count($pets)."<p>allowedAdditionalPets: $allowedAdditionalPets";}
+}
 	// add a section for each pet + five extra sections
 	for($i=1; $i <= count($pets)+$allowedAdditionalPets; $i++) {
 		$pet = $i <= count($pets) ? $pets[$i-1] : array('active'=>1, 'fixed'=>1);
@@ -421,7 +421,7 @@ function saveClientPetChanges($index, $changes, $clientId, $petId=null) {
 		if(!file_exists($uploadedPhoto)) $uploadedPhoto = "{$_SESSION['bizfiledirectory']}photos/pets/fromClient/{$changes['photo']}"."_".($index+1).".jpeg";
 		if(!file_exists($uploadedPhoto)) $uploadedPhoto = "{$_SESSION['bizfiledirectory']}photos/pets/fromClient/{$changes['photo']}"."_".($index+1).".png";
 		$extension = strtolower(substr($uploadedPhoto, strrpos($uploadedPhoto, '.')+1));
-//if(mattOnlyTEST()) {echo "[$uploadedPhoto] [$extension]";exit;}		
+}		
 	}
 	if(!$petId && $changes['name']) {
 		//		create new pet as necessary
@@ -508,7 +508,7 @@ function saveClientPet($number, $clientId) {
 	$pet['active'] = !$petId || $pet['active'] ? 1 : 0; // do not allow new pets to be marked inactive
 	$pet['fixed'] = $pet['fixed'] ? 1 : 0;
 	
-//if(mattOnlyTEST()) {print_r($_FILES);exit;	}	
+	}	
 	$photo = $_FILES["photo_$number"] && $_FILES["photo_$number"]['error'] != 4;
 	$extension = strtolower(substr($_FILES["photo_$number"]['name'], strrpos($_FILES["photo_$number"]['name'], '.')+1));
 	
@@ -542,7 +542,7 @@ function saveClientPet($number, $clientId) {
 			dropPhoto($oldPhotoName);
 	}
 	else if($photo) {
-//if(mattOnlyTEST()) {echo "uploadPhoto('photo_$number', $photoName)";exit;	}	
+	}	
 		return uploadPhoto("photo_$number", $photoName);
 		// return errormsg if necessary
 	}

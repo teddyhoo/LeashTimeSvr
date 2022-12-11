@@ -96,20 +96,20 @@ foreach($allBizzesLeashTimeFirst as $bizCount => $biz) {
 	$dbpass = $biz['dbpass'];
 	$db = $biz['db'];
 	$bizptr = $biz['bizid'];
-	$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+	$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 	if ($lnk < 1) {
 		echo "Not able to connect: invalid database username and/or password.\n";
 	}
-	$lnk1 = mysql_select_db($db);
-	if(mysql_error()) echo mysql_error();
+	$lnk1 = mysqli_select_db($db);
+	if(mysqli_error()) echo mysqli_error();
 	$tables = fetchCol0("SHOW TABLES");
 	$bizName = fetchRow0Col0("SELECT value FROM tblpreference WHERE property = 'bizName' LIMIT 1");
 	$ltclientid = $clientsByBizptr[$bizptr];
 	
 	// #########################################################################################################
 	
-	/*$result = mysql_query("SELECT description from relinvoiceitem limit 1");
-	$field = mysql_fetch_field($result, 0);
+	/*$result = mysqli_query("SELECT description from relinvoiceitem limit 1");
+	$field = mysqli_fetch_field($result, 0);
 		echo "$db<br><pre>
 	max_length:   $field->max_length
 	name:         $field->name
@@ -692,7 +692,7 @@ Warm Regards,
 		$oldValue = "#STANDARD - Send Client Request to Sitter";
 		$newValue = "#STANDARD - Send Client Schedule Request to Sitter";
 		updateTable('tblemailtemplate', array('label'=>$newValue), "label = '$oldValue'", 1);
-		if(mysql_affected_rows()) echo "$db: updated.<br>";
+		if(mysqli_affected_rows()) echo "$db: updated.<br>";
 		echo "$db: NO CHANGE.<br>";
 	}
 
@@ -866,7 +866,7 @@ Warm Regards,
 														AND loginid IN ('".join("','", array_keys($loginids))."')
 														GROUP BY loginid", 1);
 //echo "$sql<br>";														
-				while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+				while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 					$bizptr = $reverseuserids[$loginids[trim($row['loginid'])]];
 //echo "{$row['loginid']} ({$loginids[trim($row['loginid'])]}) biz: $bizptr LOGINS: {$row['logins']}<br>";					
 					$bizstats[$bizptr]["logins since $startdate"] += $row['logins'];
@@ -1481,7 +1481,7 @@ if(FALSE) { // find all spoofers
 		if(0 && /*$errorsizeKB > 5000*/!$biz['activebiz']) {
 			//doQuery("DELETE FROM tblerrorlog WHERE time < '$newMessagesStart'");
 			doQuery("DELETE FROM tblerrorlog");			
-			$dropped = mysql_affected_rows();
+			$dropped = mysqli_affected_rows();
 			$dropped = ",(dropped $dropped of $errorcount rows)";
 			doQuery(" OPTIMIZE TABLE `tblerrorlog`");
 			$errorsizeKB = fetchRow0Col0(str_replace('#TAB#', 'tblerrorlog', $sql));
@@ -1974,7 +1974,7 @@ if(FALSE) { // find all spoofers
 		if(0 && /*$errorsizeKB > 5000*/!$biz['activebiz']) {
 			//doQuery("DELETE FROM tblerrorlog WHERE time < '$newMessagesStart'");
 			doQuery("DELETE FROM tblerrorlog");			
-			$dropped = mysql_affected_rows();
+			$dropped = mysqli_affected_rows();
 			$dropped = ",(dropped $dropped of $errorcount rows)";
 			doQuery(" OPTIMIZE TABLE `tblerrorlog`");
 			$errorsizeKB = fetchRow0Col0(str_replace('#TAB#', 'tblerrorlog', $sql));
@@ -2027,10 +2027,10 @@ if(FALSE) {
 		}
 		if($vs) echo "<hr>$bizname ($db):<br>".join(', ', $vs)."<br>".join(', ', $rs);
 		foreach($vs as $k=>$v) {
-			$sql = "UPDATE tblpreference SET value = '".mysql_real_escape_string($rs[$k])."' WHERE property = '$k'";
+			$sql = "UPDATE tblpreference SET value = '".mysqli_real_escape_string($rs[$k])."' WHERE property = '$k'";
 			echo "<br>".$sql;
 			doQuery($sql, 1);
-			echo " : ".(mysql_error() ? mysql_error() : 'OK');
+			echo " : ".(mysqli_error() ? mysqli_error() : 'OK');
 		}
 	}
 	
@@ -2376,7 +2376,7 @@ if(FALSE) {  // Report Today's Rollover numbers
 if(FALSE) {  // Aggregated gratuities by month
 		if($biz['test'] || !in_array('tblgratuity', $tables)) continue;
 		$result = doQuery("SELECT issuedate, amount FROM tblgratuity ORDER BY issuedate");
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 			$monthYear = date('Y-m-01', strtotime($row['issuedate']));
 			//$dbtotals[$monthYear][$row['requesttype']] += 1;
 			//if(!$completeFound && strpos($row['requesttype'], 'omplete')) {$completeFound = 1; echo "$db has ({$row['requesttype']}) requests.<br>";}
@@ -2798,12 +2798,12 @@ if(FALSE) {
 			require "common/init_db_common.php";
 			$dispatchersWithGI = 
 				fetchAssociationsIntoHierarchy("SELECT bizptr, userid  FROM `tbluser` WHERE active = 1 AND `rights` LIKE 'd%#gi%' AND `rights` LIKE '%#ac%'", array('bizptr', 'userid'));
-			$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+			$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 			if ($lnk < 1) {
 				echo "Not able to connect: invalid database username and/or password.\n";
 			}
-			$lnk1 = mysql_select_db($db);
-			if(mysql_error()) echo mysql_error();
+			$lnk1 = mysqli_select_db($db);
+			if(mysqli_error()) echo mysqli_error();
 			//print_r($dispatchersWithGI); exit;
 			foreach($dispatchersWithGI as $bbizptr => $users) {
 				$dispatchersWithGI[$bbizptr] = array_keys($users);;
@@ -2937,7 +2937,7 @@ if(FALSE) {
 if(FALSE) { 
 		if(!in_array('tblclientrequest', $tables)) continue;
 		deleteTable('tblstaleappointment', "1=1");
-		if(mysql_affected_rows()) echo "DB: $db -- ".mysql_affected_rows()." rows deleted.<br>";
+		if(mysqli_affected_rows()) echo "DB: $db -- ".mysqli_affected_rows()." rows deleted.<br>";
 }
 
 if(FALSE) { 
@@ -3049,7 +3049,7 @@ if(FALSE) {
 if(FALSE) { // Aggregated Request Counts
 		if($biz['test'] || !in_array('tblclientrequest', $tables)) continue;
 		$result = doQuery("SELECT received, requesttype FROM tblclientrequest ORDER BY received");
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 			$monthYear = date('Y-m-1', strtotime($row['received']));
 			//$dbtotals[$monthYear][$row['requesttype']] += 1;
 			if(!$completeFound && strpos($row['requesttype'], 'omplete')) {$completeFound = 1; echo "$db has ({$row['requesttype']}) requests.<br>";}
@@ -3314,7 +3314,7 @@ if(FALSE) {
 if(FALSE) {
 	if($biz['test'] || !$biz['activebiz']) continue;
 	if(!function_exists('cmpcounts')) {function cmpcounts($x, $y) { return $x['num'] < $y['num'] ? 1 : ($x['num'] > $y['num'] ? -1 : 0); }}
-	$nm = mysql_real_escape_string($bizName);
+	$nm = mysqli_real_escape_string($bizName);
 	$confcounts[] = fetchFirstAssoc("SELECT '$nm' as nm, count(*) as num FROM tblconfirmation");
 	if($lastBiz) {
 		usort($confcounts, 'cmpcounts');
@@ -3368,7 +3368,7 @@ if(FALSE) {// email usage
 		foreach(fetchAssociations($sql) as $row) echo "{$row['email']} - {$row['eventtypes']}<br>";
 		$sql = "UPDATE relstaffnotification SET eventtypes=CONCAT(eventtypes, ',t') WHERE eventtypes LIKE '%r%' AND eventtypes NOT LIKE '%t%'" ;
 		doQuery($sql);
-		echo mysql_affected_rows()." rows updated.<hr>";*/
+		echo mysqli_affected_rows()." rows updated.<hr>";*/
 }
 if(FALSE) {// email usage
 		require_once "preference-fns.php";
@@ -3483,7 +3483,7 @@ if(FALSE) {  // updating database table keys
 					if(!$rows[$indName]) {
 						$sql = "ALTER TABLE `$table` ADD INDEX `$indName` ($cols)";
 						$notes[] = "$sql";
-						if(!doQuery($sql)) $notes[count($notes)-1] .= ' <font color=red>'.mysql_error().'</font>';
+						if(!doQuery($sql)) $notes[count($notes)-1] .= ' <font color=red>'.mysqli_error().'</font>';
 						$modsMade = 1;
 					}
 					else $notes[] =  "<font color='green'>has $table.$indName</font>";
@@ -3573,7 +3573,7 @@ if(FALSE) {  // updating database table keys
 			foreach($lines as $line) echo $line;
 			$sql = "DELETE FROM `tblappointment` WHERE appointmentid IN(".join(',', $dups).")";
 			doQuery($sql, 1);
-			echo "Deleted ".mysql_affected_rows()." visits.<br>";
+			echo "Deleted ".mysqli_affected_rows()." visits.<br>";
 		}
 	}
 	if(FALSE) {  // clear email queues
@@ -3583,7 +3583,7 @@ if(FALSE) {  // updating database table keys
 	}
 	if(FALSE) {  // clear email queues
 		deleteTable("tblqueuedemail", "1=1", 1);
-		echo "$db: deleted ".mysql_affected_rows()." messages.<br>";
+		echo "$db: deleted ".mysqli_affected_rows()." messages.<br>";
 	}
 	if(FALSE) {
 		$errorCount[$db] = fetchRow0Col0("SELECT count(*) FROM tblerrorlog");
@@ -3810,7 +3810,7 @@ if(FALSE) {  // updating database table keys
 		if(!in_array('tblcreditcard', $tables)) continue;
 		$arr = array("New Year's Day"=>"New Years Day","Martin Luther King Day"=>"MLK Day","New Year's Eve"=>"New Years Eve");
 		foreach($arr as $old => $new) {
-			$old = mysql_real_escape_string($old);
+			$old = mysqli_real_escape_string($old);
 			if($key = fetchRow0Col0("SELECT label FROM tblsurchargetype WHERE label LIKE '$old' LIMIT 1")) {
 				echo "<p><b>$bizName ($db)</b> has $key".'<br>';
 				updateTable('tblsurchargetype', array('label'=>$new), "label = '$old'", 1);
@@ -3828,9 +3828,9 @@ if(FALSE) {  // updating database table keys
 	
 	if(FALSE) {
 		if(!in_array('tblcreditcard', $tables)) continue;
-		$badVersionFrag = mysql_real_escape_string("%<table bgcolor=lightblue cellspacing=10 align=center>\n<tr><td>Username:</td><td bgcolor=white%");
-		$badVersion = mysql_real_escape_string("#LOGO#\n\nHi #RECIPIENT#,\n\nHere are your username and password for logging in to view your account with #BIZNAME#.  The password is temporary; the very next time you try to login (whether using this password or not), this password will be erased.  If you login with this password, you will be asked to supply a new permanent password.\n<table bgcolor=lightblue cellspacing=10 align=center>\n<tr><td>Username:</td><td bgcolor=white><b>#LOGINID#</b></td</tr>\n<tr><td>Temp Password:</td><td bgcolor=white><b>#TEMPPASSWORD#</b></td</tr>\n</table>\nIf your login attempt is not successful for any reason, you can obtain a new temporary password at our login page: <a href='https://leashtime.com/login-page.php?bizid=#BIZID#'>https://leashtime.com/login-page.php?bizid=#BIZID#</a> using the forgotten password link.\n\nTo obtain a new password, you will need to supply your username (#LOGINID#) and this email address (#EMAIL#).  Once you do, a new temporary password will be emailed immediately to that email address.\n\nPlease contact us at #BIZEMAIL# or #BIZPHONE# if you have any questions.\n\nThank you,\n\n#MANAGER#");
-		$correction = mysql_real_escape_string("#LOGO#\n\nHi #RECIPIENT#,\n\nHere are your username and password for logging in to view your account with #BIZNAME#.  The password is temporary; the very next time you try to login (whether using this password or not), this password will be erased.  If you login with this password, you will be asked to supply a new permanent password.\n<table bgcolor=lightblue cellspacing=10 align=center>\n<tr><td>Username:</td><td bgcolor=white><b>#LOGINID#</b></td></tr>\n<tr><td>Temp Password:</td><td bgcolor=white><b>#TEMPPASSWORD#</b></td></tr>\n</table>\nIf your login attempt is not successful for any reason, you can obtain a new temporary password at our login page: <a href='https://leashtime.com/login-page.php?bizid=#BIZID#'>https://leashtime.com/login-page.php?bizid=#BIZID#</a> using the forgotten password link.\n\nTo obtain a new password, you will need to supply your username (#LOGINID#) and this email address (#EMAIL#).  Once you do, a new temporary password will be emailed immediately to that email address.\n\nPlease contact us at #BIZEMAIL# or #BIZPHONE# if you have any questions.\n\nThank you,\n\n#MANAGER#");
+		$badVersionFrag = mysqli_real_escape_string("%<table bgcolor=lightblue cellspacing=10 align=center>\n<tr><td>Username:</td><td bgcolor=white%");
+		$badVersion = mysqli_real_escape_string("#LOGO#\n\nHi #RECIPIENT#,\n\nHere are your username and password for logging in to view your account with #BIZNAME#.  The password is temporary; the very next time you try to login (whether using this password or not), this password will be erased.  If you login with this password, you will be asked to supply a new permanent password.\n<table bgcolor=lightblue cellspacing=10 align=center>\n<tr><td>Username:</td><td bgcolor=white><b>#LOGINID#</b></td</tr>\n<tr><td>Temp Password:</td><td bgcolor=white><b>#TEMPPASSWORD#</b></td</tr>\n</table>\nIf your login attempt is not successful for any reason, you can obtain a new temporary password at our login page: <a href='https://leashtime.com/login-page.php?bizid=#BIZID#'>https://leashtime.com/login-page.php?bizid=#BIZID#</a> using the forgotten password link.\n\nTo obtain a new password, you will need to supply your username (#LOGINID#) and this email address (#EMAIL#).  Once you do, a new temporary password will be emailed immediately to that email address.\n\nPlease contact us at #BIZEMAIL# or #BIZPHONE# if you have any questions.\n\nThank you,\n\n#MANAGER#");
+		$correction = mysqli_real_escape_string("#LOGO#\n\nHi #RECIPIENT#,\n\nHere are your username and password for logging in to view your account with #BIZNAME#.  The password is temporary; the very next time you try to login (whether using this password or not), this password will be erased.  If you login with this password, you will be asked to supply a new permanent password.\n<table bgcolor=lightblue cellspacing=10 align=center>\n<tr><td>Username:</td><td bgcolor=white><b>#LOGINID#</b></td></tr>\n<tr><td>Temp Password:</td><td bgcolor=white><b>#TEMPPASSWORD#</b></td></tr>\n</table>\nIf your login attempt is not successful for any reason, you can obtain a new temporary password at our login page: <a href='https://leashtime.com/login-page.php?bizid=#BIZID#'>https://leashtime.com/login-page.php?bizid=#BIZID#</a> using the forgotten password link.\n\nTo obtain a new password, you will need to supply your username (#LOGINID#) and this email address (#EMAIL#).  Once you do, a new temporary password will be emailed immediately to that email address.\n\nPlease contact us at #BIZEMAIL# or #BIZPHONE# if you have any questions.\n\nThank you,\n\n#MANAGER#");
 		$key = fetchRow0Col0("SELECT label FROM tblemailtemplate WHERE body LIKE '$badVersionFrag' LIMIT 1");
 		if($key) {
 			echo "<p><b>$bizName ($db)</b> has it".'<br>';
@@ -4409,13 +4409,13 @@ if(FALSE) {  // updating database table keys
 		$desc = fetchAssociationsKeyedBy("DESC tblgeotrack", 'Field');
 		if(!$desc['accuracy']) doQuery("ALTER TABLE `tblgeotrack` ADD `accuracy` DOUBLE NOT NULL DEFAULT '999999' AFTER `heading` ;");
 		if(!$desc['event']) doQuery("ALTER TABLE `tblgeotrack` ADD `event` VARCHAR(10) NULL;");
-		echo "tblgeotrack changed in $db: ".mysql_affected_rows()."<br>";
+		echo "tblgeotrack changed in $db: ".mysqli_affected_rows()."<br>";
 	}
 
 	if(FALSE) {
 		if(!in_array('tblgeotrack', $tables)) continue;
 		doQuery("UPDATE `tblgeotrack` SET event = 'completed' WHERE event IS NULL;");
-		echo "tblgeotrack changed in $db: ".mysql_affected_rows()."<br>";
+		echo "tblgeotrack changed in $db: ".mysqli_affected_rows()."<br>";
 	}
 
 	if(FALSE) {
@@ -4755,7 +4755,7 @@ if(FALSE) {  // updating database table keys
 		echo "$db: ";
 		if($desc['primarypaysource']) {
 			doQuery("UPDATE `tblcreditcard` SET `primarypaysource` = 1 WHERE active=1 ;");
-			echo "<p>Turned primarypaysource on in <b>$bizName</b>: ".mysql_affected_rows().".";
+			echo "<p>Turned primarypaysource on in <b>$bizName</b>: ".mysqli_affected_rows().".";
 		}
 	}
 

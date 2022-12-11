@@ -30,7 +30,7 @@ if($_GET['kill']) {
 		echo "Deleted $clientname's invoice LT$id<br>";
 		foreach(explode(',', 'relinvoicecan,relinvoicecredit,relinvoiceitem,relinvoicerefund') as $table) {
 			deleteTable($table, "invoiceptr=$id", 1);
-			echo "Deleted ".mysql_affected_rows()." $table rows<br>";
+			echo "Deleted ".mysqli_affected_rows()." $table rows<br>";
 		}
 		update('tblbillable', array('invoiceptr'=>null), "invoiceptr = $id", 1);
 	}

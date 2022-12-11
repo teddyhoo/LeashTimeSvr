@@ -170,16 +170,16 @@ function refreshPreferences() {
 function fetchPreferences() {
 	global $db, $dbhost, $dbuser, $dbpass;
 	if(isset($_SESSION) && $_SESSION['dbhost']) {
-		mysql_close();
-		mysql_connect($_SESSION["dbhost"], $_SESSION["dbuser"], $_SESSION["dbpass"]);
-		mysql_select_db($_SESSION["db"]);
+		mysqli_close();
+		mysqli_connect($_SESSION["dbhost"], $_SESSION["dbuser"], $_SESSION["dbpass"]);
+		mysqli_select_db($_SESSION["db"]);
 	}
 	$prefs = fetchKeyValuePairs("SELECT property, value FROM tblpreference");
 	foreach($prefs as $k => $v) $prefs[$k] = stripslashes($v);
 	if(isset($_SESSION) && $_SESSION['dbhost']) {
-		mysql_close();
-		mysql_connect($dbhost, $dbuser, $dbpass);
-		mysql_select_db($db);  // select previously-selected db
+		mysqli_close();
+		mysqli_connect($dbhost, $dbuser, $dbpass);
+		mysqli_select_db($db);  // select previously-selected db
 	}
 	// do NOT return CC merchant info
 	unset($prefs['x_login']);
@@ -302,7 +302,7 @@ function preferencesTable($sections, &$help, $showSections, $userprefs=false, $e
 		startAShrinkSection($label, "section$n", 
 														($showSections != 'all' && !in_array($n, (array)$showSections)));
 		$n++;
-//if(mattOnlyTEST()) print_r($explanations[$label]);
+
 		preferencesEditorLauncher($section, $help, $userprefs, $explanations[$label], $sectionParams[$label]['applyToAll']);
 		endAShrinkSection();
 		//echo "<h3>$label</h3>\n";

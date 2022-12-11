@@ -321,7 +321,7 @@ function clusterTracks($tracks, $map) {
 				if($track['event'] == 'arrived') $permaTrack['event'] = 'arrived';
 				if($track['event'] == 'completed') $permaTrack['event'] = 'completed';
 				$allTracks[] = $permaTrack;
-//if(mattOnlyTEST()) {print_r($permaTrack);exit;}				
+}				
 				$added = true;
 				break;
 			}
@@ -342,7 +342,7 @@ function clusterTracks($tracks, $map) {
 			}
 			
 			
-//if(mattOnlyTEST()) echo print_r()."<p>";			
+			
 			if(($homeLoc = $clientHomes[$appt['clientptr']])
 					&& !$track['error']
 					&& ($delta = distance($track, $homeLoc)) > $radius) {
@@ -351,7 +351,7 @@ function clusterTracks($tracks, $map) {
 			else if(!$homeLoc) $permaTrack['clientdeltafeet'] = '-';
 			else if($track['error']) $permaTrack['clientdeltafeet'] = '-';
 			$permaTrack['visits'][$track['date']] = ($track['event'] == 'mv' ? ' route' : " {$track['event']}");
-//if(mattOnlyTEST()) echo "<hr>CLIENT: {$appt['clientptr']}<p>HOME: ".print_r($homeLoc,1)."<p> DELTA: {$permaTrack['clientdeltafeet']} / $radius<br>\n".print_r($permaTrack, 1);
+
 			$track['clientdeltafeet'] = $permaTrack['clientdeltafeet'];
 			if(array_key_exists('accuracy', $track))
 				$track['clientdeltaerror'] = " +/- ".convertMeters($track['accuracy'], $preciseAlso=true);
@@ -365,7 +365,7 @@ function clusterTracks($tracks, $map) {
 		$appointmentTracks[$track['appointmentptr']][$track['event']] = $track;
 //if($_SERVER['REMOTE_ADDR'] == '68.225.89.173') {print_r($track['visits']); echo "<br>"; }																
 	}
-//if(mattOnlyTEST()) {print_r($allTracks); }
+ }
 if(TRUE || mattOnlyTEST()) $newTracks = $allTracks;
 	foreach($newTracks as $i => $track) {
 		sort($track['time']);

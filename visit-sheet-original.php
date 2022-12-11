@@ -84,7 +84,7 @@ if(!$secureMode && $keys && $keys[0]['bin']) {
 	$client['key'] = "$keyLabel Hook: {$keys[0]['bin']}";
 }
 $data = array_merge($client);
-//if(mattOnlyTEST()) echo "CLIENT: ".print_r($client,1)."<hr>DATA: ".print_r($data,1).'<hr>';
+
 
 $othername = safeValue(trim("{$client['fname2']} {$client['lname2']}"));
 if($othername) $data['othername'] = $othername;
@@ -239,7 +239,7 @@ $fields = explodePairsLine('othername|Alt Name||email2|Alt Email||cellphone2|Alt
 	               'emergency|Emergency Contact||neighbor|Trusted Neighbor');
 	               
 dumpFields($fields, $oneCol=0, $data);
-//if(mattOnlyTEST()) {echo /*"CLIENT: ".print_r($client,1)."*/"<hr>DATA: ".print_r($data,1).'</font><hr>';exit;}
+}
 ?>
 </table></td>
 <td><table width=100%>
@@ -252,9 +252,9 @@ $fields = 'homeaddress|Home Address||mailaddress|Mailing Address||directions|Dir
 								 'leashloc|Leash Location||foodloc|Food Location||parkinginfo|Parking Info';
 if(!$secureMode) $fields .= '||garagegatecode|Garage/Gate Code';
 $fields = explodePairsLine($fields);
-//if(mattOnlyTEST()) echo "secureMode: $secureMode<p>";
+
 dumpFields($fields, $oneCol=0, $data);
-//if(mattOnlyTEST()) echo "<TR><TD>BANG!".print_r($fields,1).'<hr>'.print_r($data,1);
+
 
 if(!$secureMode) dumpAlarmTable();
 else if(!$_SESSION['preferences']['secureClientInfoNoAlarmDetailsAtAll']) {

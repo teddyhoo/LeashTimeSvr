@@ -33,7 +33,7 @@ $colKeys = array_keys($columns);
 $columnSorts = array('name'=>'asc','email'=>null);
 extract($_REQUEST);
 
-$pattern = mysql_escape_string($pattern);
+$pattern = mysqli_escape_string($pattern);
 $patternParam = !isset($pattern) ? '' : $pattern;
 $pattern = !isset($pattern) ? '' : 
            (strpos($pattern, '*') !== FALSE ? str_replace('*', '%', $pattern) : "%$pattern%");
@@ -83,7 +83,7 @@ else {
   else $clientIds = findClientIdsForPetsMatching($pattern, $inactive);
   $numClients = count($clientIds);
 }
-//if(mattOnlyTEST()) echo "clientListIDString size: ".count(explode(',', "".$_SESSION['clientListIDString']))."SELECT clientid FROM tblclient $whereClause  [$numClients]<hr>";
+
 
 if($freshsearch) {
 	$offset = 0;
@@ -125,7 +125,7 @@ if($numClients) {
     FROM tblclient $whereClause $patternClause $orderClause $limitClause", 'clientid');
   $pets = getPetNamesForClients(array_keys($clients));
 	$providerNames = getProviderShortNames();
-//if(mattOnlyTEST()) {echo "$sql size: ".count($clients)."<hr>";exit;}
+}
 
 }
 else $clients = array();
@@ -217,7 +217,7 @@ function findClientIdsForPetsMatching($pattern, $inactive) {
 	return fetchCol0($sql);
 }
 
-//if(mattOnlyTEST()) {echo "$sql size: ".count($clients)." numClients: $numClients<hr>";exit;}
+}
 $numClients = count($clients);
 $searchResults = ($numClients ? $numClients : 'No')." client".($numClients == 1 ? '' : 's')." found.  ";    
 if($numClients > $max_rows) $searchResults .= min($numClients - $offset, $max_rows).' clients shown. ';
@@ -225,7 +225,7 @@ if($numClients > $max_rows) {
   $baseUrl = thisURLMinusParams(null, array('newClient','deletedClient','offset', 'petnames', 'showflags', 'inactive'));
   if($patternParam) 
   	$baseUrl .= (substr($baseUrl, -1) == '?' ? "pattern=".urlencode($patternParam) : "&pattern=".urlencode($patternParam)).'&';
-//if(mattOnlyTEST()) echo "$baseUrl";
+
   $andInactive = "&inactive=$inactive&petnames=$petnames&showflags=$showflags";
   
 	if($prevButton) {

@@ -349,7 +349,7 @@ while($row = myfgetcsv($strm, 0, $delimiter)) {
 			}
 			else if(!$addNewClientsOnly || ($addNewClientsOnly && !$oldClientMap[$mapID]))  {
 				saveNewClient($client);
-				$newClientId = mysql_insert_id();
+				$newClientId = mysqli_insert_id();
 				$clientsCreated++;
 				if($mapID) $clientMap[$mapID] = $newClientId;
 				echo "<p>Created CLIENT #$newClientId {$client['fname']} {$client['lname']}<br>";
@@ -398,7 +398,7 @@ while($row = myfgetcsv($strm, 0, $delimiter)) {
 		}
 		if($client['custom'] && !$clientIgnored) {
 			foreach($client['custom'] as $field => $val) {
-				$val = mysql_real_escape_string($val);
+				$val = mysqli_real_escape_string($val);
 				if(!$customFields[$field]) {
 					if(!$TEST) echo "<font color=red>Bad custom field [$field].  Could not populate this field with [$val] for {$client['lname']} [{$client['mapID']}]</font>";
 					else {echo "<font color=orange>Unregistered custom field [$field].</font><br>";}
@@ -638,6 +638,6 @@ function saveOtherContact($label, $newClientId, $otherContact) {
 	if($noteToAdd)
 		$noteToAdd[] = "has".($otherContact['haskey'] ? '' : ' no')." key";
 	if(!$noteToAdd) return;
-	$noteToAdd = "\n".mysql_real_escape_string(join(' ', $noteToAdd));
+	$noteToAdd = "\n".mysqli_real_escape_string(join(' ', $noteToAdd));
 	updateTable('tblclient', array('notes'=>sqlVal("CONCAT(notes, '$noteToAdd')")), "clientid = $newClientId", 1);
 }

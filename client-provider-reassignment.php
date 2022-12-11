@@ -44,7 +44,7 @@ if($go==1) {
 			$specificMods = array_merge($mods);
 
 			if(TRUE || $appt['providerptr']) {
-//if(mattOnlyTEST()) echo "providerIsOff({$appt['providerptr']}, {$appt['date']}, {$appt['timeofday']}): ".providerIsOff($appt['providerptr'], $appt['date'], $appt['timeofday']).'<br>';
+
 				if($newProvider && providerIsOff($newProvider, $appt['date'], $appt['timeofday'])) {
 					$specificMods['providerptr'] = 0;
 					$timeoffConflicts[] = $appt;
@@ -72,7 +72,7 @@ $doNotRedirect = 1;
 			//}
 		}
 			
-//if(mattOnlyTEST()) {exit;}
+}
 			
 		if($eligibleIds) {
 			//updateTable('tblappointment', $mods, "appointmentid IN (".join(',', $eligibleIds).")", 1);

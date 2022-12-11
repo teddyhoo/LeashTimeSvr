@@ -38,7 +38,7 @@ if($_POST) {
 											'hiredate'=>$hiredate, 'terminationdate'=>$terminationdate, 'email'=>$email);
 	if($id) {
 		updateTable('tbldispatcher', $dispatcher, "dispatcherid = $id", 1); 
-		if(mysql_error()) $errors[] = mysql_error();
+		if(mysqli_error()) $errors[] = mysqli_error();
 		else {
 			logChange($id, 'tbldispatcher', 'm' , '.');
 			$message = "{$dispatcher['fname']} {$dispatcher['lname']} saved successfully.";
@@ -58,7 +58,7 @@ if($_POST) {
 		$dispatcher['creationdate'] = date('Y-m-d H:i:s');
 		$id = insertTable('tbldispatcher', $dispatcher, 1);
 		if($id) logChange($id, 'tbldispatcher', 'c' , '.');
-		else $errors[] = mysql_error();
+		else $errors[] = mysqli_error();
 		$message = "{$dispatcher['fname']} {$dispatcher['lname']} saved successfully.";
 	}
 }

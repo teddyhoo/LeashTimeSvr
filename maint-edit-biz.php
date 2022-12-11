@@ -206,7 +206,7 @@ foreach($users as $i => $user) {
 		}
 	}
 }
-//if(mattOnlyTEST()) print_r($users);
+
 
 if(strpos($sort, 'name') === 0) {
 	usort($users, 'namesortX');

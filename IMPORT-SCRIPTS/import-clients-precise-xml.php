@@ -84,7 +84,7 @@ function convert_useskeys($trimval, &$target) {
 function convert_clinic($trimval, &$target) {
 	$clinicname = explode("\n", $trimval);
 	$clinicname = $clinicname[0];
-	$clinicid = fetchRow0Col0("SELECT clinicid FROM tblclinic WHERE clinicname = '".mysql_real_escape_string($clinicname)."' LIMIT 1");
+	$clinicid = fetchRow0Col0("SELECT clinicid FROM tblclinic WHERE clinicname = '".mysqli_real_escape_string($clinicname)."' LIMIT 1");
 	if($clinicid) $target['clinicptr'] = $clinicid;
 	else echo "Clinic [$clinicname] not found for {$target['fname']} {$target['lname']}.<br>";
 	return $target;
@@ -150,11 +150,11 @@ function decompose($str, $delim) {
 }
 
 function findSitterByName($nm) {
-	return fetchRow0Col0("SELECT providerid FROM tblprovider WHERE CONCAT_WS(' ', fname, lname) = '".mysql_real_escape_string($nm ? $nm : '')."' LIMIT 1");
+	return fetchRow0Col0("SELECT providerid FROM tblprovider WHERE CONCAT_WS(' ', fname, lname) = '".mysqli_real_escape_string($nm ? $nm : '')."' LIMIT 1");
 }
 
 function findSitterByNickname($nn) {
-	return fetchRow0Col0("SELECT providerid FROM tblprovider WHERE nickname = '".mysql_real_escape_string($nn ? $nn : '')."' LIMIT 1");
+	return fetchRow0Col0("SELECT providerid FROM tblprovider WHERE nickname = '".mysqli_real_escape_string($nn ? $nn : '')."' LIMIT 1");
 }
 
 
@@ -418,7 +418,7 @@ while($row = myfgetcsv($strm, 0, $delimiter)) {
 					$client['zip'] = sprintf("%05d", $client['zip']);
 			}
 			saveNewClient($client);
-			$newClientId = mysql_insert_id();
+			$newClientId = mysqli_insert_id();
 			$clientsByName["{$client['lname']}, {$client['fname']}"] = $newClientId;
 			$clientsCreated++;
 			echo "<p>Created CLIENT #$newClientId {$client['fname']} {$client['lname']}<br>";
@@ -461,7 +461,7 @@ while($row = myfgetcsv($strm, 0, $delimiter)) {
 		}
 		if($client['custom']) {
 			foreach($client['custom'] as $field => $val) {
-				$val = mysql_real_escape_string($val);
+				$val = mysqli_real_escape_string($val);
 				if(!$customFields[$field]) {
 					if(!$TEST) echo "<font color=red>Bad custom field [$field].  Could not populate this field with [$val] for {$client['lname']}</font>";
 					else {echo "<font color=orange>Unregistered custom field [$field].</font><br>";}
@@ -561,7 +561,7 @@ if($petSectionHasBegun) {
 			}
 			if($custom) {
 				foreach($custom as $field => $val) {
-					$val = mysql_real_escape_string($val);
+					$val = mysqli_real_escape_string($val);
 					if(!$customFields[$field]) {
 						if(!$TEST) echo "<font color=red>Bad custom pet field [$field].  Could not populate this field with [$val] for {$client['lname']}</font>";
 						else {echo "<font color=orange>Unregistered pet custom field [$field].</font><br>";}
@@ -797,7 +797,7 @@ function saveOtherContact($label, $newClientId, $otherContact) {
 	if($noteToAdd)
 		$noteToAdd[] = "has".($otherContact['haskey'] ? '' : ' no')." key";
 	if(!$noteToAdd) return;
-	$noteToAdd = "\n".mysql_real_escape_string(join(' ', $noteToAdd));
+	$noteToAdd = "\n".mysqli_real_escape_string(join(' ', $noteToAdd));
 	updateTable('tblclient', array('notes'=>sqlVal("CONCAT(notes, '$noteToAdd')")), "clientid = $newClientId", 1);
 }
 

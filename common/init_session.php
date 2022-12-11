@@ -37,7 +37,7 @@ function bootUpSession() {
 	//	: "ABQIAAAAK5DZh3ZV8WE3KqE3qwLoOBRTd7GOr-Pj_JdPg_LHg_41MAgVahQ0k8jOTF9nSngAVbLuLRvC8HT0ew"; // leashtime.com
 
 	if(!isset($_SESSION)) {
-		//if(mattOnlyTEST()) echo "BANG!";		
+				
 		$settings = ensureInstallationSettings();
 		$sessName = $settings['sessionName'] ? $settings['sessionName'] : 'leashtime2';
 		//$sessName = "pet";
@@ -178,7 +178,7 @@ function adequateRights($needed) {
 		//if($right[0] == '#' && $userRole != 'd') continue;
 		if($right[0] == '@') continue; // checked below
 
-//if(mattOnlyTEST()) {echo "check: ".print_r($check,1).": $right ($userRole)<p>";}	 //$_SERVER['REMOTE_ADDR'] == '68.225.89.173'
+}	 //$_SERVER['REMOTE_ADDR'] == '68.225.89.173'
 			
 		$genericOwnerAllowed = !$isSpecial && $isOwner;
 		if(strpos($right[0], '+') !== FALSE) {
@@ -189,7 +189,7 @@ function adequateRights($needed) {
 	  	return false;
 	}
 	if(strpos($needed, '+')) return $onePlusFound;
-//if(mattOnlyTEST()) echo print_r($atLeastOne,1).'<br>'.$userRights.'<hr>';
+
 	foreach($atLeastOne as $checkOne) if(in_array($checkOne, $userRights)) $atLeastOneFound = true;
 	return !$atLeastOne ? true : $atLeastOneFound;
 }

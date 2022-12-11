@@ -115,7 +115,7 @@ else  {
 //print_r($showCoords); exit;	
 	
 	
-//if(mattOnlyTEST()) print_r(googleAddress($client));	
+	
 	$sitters = fetchAssociationsKeyedBy("SELECT * FROM tblprovider WHERE active =  1 ORDER BY lname, fname", 'providerid');
 
 	if(!$showCoords) $_SESSION['frame_message'] = "No recent sitter location information was found.";
@@ -184,7 +184,7 @@ $markers = array();
 
 $client['address'] = personsHTMLAddress($client); //htmlFormattedAddress($add);
 if($clientGoogleAddress = googleAddress($client)) {
-//if(mattOnlyTEST()) echo "<hr>Client:".print_r($add,1)."<br>";	
+	
 	$marker = getLatLon($clientGoogleAddress);
 	$clientGeocode = $marker;
 	$marker['address'] = $client['address'];

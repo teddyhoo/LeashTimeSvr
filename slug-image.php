@@ -12,7 +12,7 @@ if($slug = $_GET['slug']) {
 	
 	$ctypes = array('jpg'=>'jpeg', 'png'=>'png', 'jpeg'=>'jpeg', 'gif'=>'gif');
 	$extension = strtolower(substr($fname, strrpos($fname, '.')+1));
-	//if(mattOnlyTEST()) {echo "$file: Content-Type: image/{$ctypes[$extension]}";} else
+	} else
 	header("Content-Type: image/{$ctypes[$extension]}");
 	header("Pragma: public"); // required
 	header("Expires: 0");

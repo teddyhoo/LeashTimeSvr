@@ -40,7 +40,7 @@ else  {
 	
 	
 	
-//if(mattOnlyTEST()) print_r(googleAddress($client));	
+	
 	$sitters = fetchAssociationsKeyedBy("SELECT * FROM tblprovider WHERE active =  1 ORDER BY lname, fname", 'providerid');
 
 	if(!$sitterLocs) $_SESSION['frame_message'] = "No recent sitter location information was found.";

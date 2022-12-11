@@ -373,7 +373,7 @@ function printSelectedInvoices() {
 
 function emailSelectedInvoices() {
 	var sels = getSelections('Please select one or more invoices to email.');
-<? //if(mattOnlyTEST()) echo "alert(sels);return;"; ?>
+<?  ?>
 	if(sels.length == 0) return;
 	var lookahead = document.getElementById('lookahead').value;
 	var args = '&firstDay='+firstDayArg()+'&lookahead='+lookahead;

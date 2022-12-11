@@ -136,7 +136,7 @@ function preProcessInvoicePreviewEmails() {
 	// find all queued emails with embedded InvoicePreview tokens
 	global $invoicePreviewEmails;
   if(!($result = doQuery("SELECT emailid, body FROM tblqueuedemail"))) return null;
-  while($row = mysql_fetch_row($result)) {
+  while($row = mysqli_fetch_row($result)) {
     if(strpos($row[1], '_InvoicePreview_'))
 		if($start = strpos($row[1], '_InvoicePreview_')) {
 			$start += strlen('_InvoicePreview_');
@@ -1097,7 +1097,7 @@ function getInvoiceLineItems($invoiceid, $clientid) {
 					WHERE monthly = 1 AND clientptr = $clientid
 					ORDER BY packageid DESC LIMIT 1"; //current = 1 AND 
 	$stripe = monthlyPackageRows($sql, $stripe);
-//if(mattOnlyTEST()) {print_r($lineitems); exit;}
+}
 	uasort($lineitems, 'lineItemsByTimestamp');
 	$stripe = 'white';
 	for($i=0; $i < count($lineitems); $i++) {

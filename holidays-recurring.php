@@ -40,7 +40,7 @@ if($_POST) {  // AND... 'action' is set
 	}
 }
 $appts = upcomingHolidayRecurringAppts(false, $lookahead); // show all upcoming
-//if(mattOnlyTEST()) echo count($appts)." visits.";
+
 $pageTitle = "Upcoming Holiday Recurring Visits";
 
 //$breadcrumbs = "<a href='comm-prefs.php'>Communication Preferences</a> ";

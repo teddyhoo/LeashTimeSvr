@@ -51,11 +51,11 @@ else $sql = "SELECT tblkey.*, CONCAT_WS(' ',fname, lname, IF(active=0,'(inactive
 				AND $activeOnlyPhrase 
 	ORDER BY $sort";
 
-//if(mattOnlyTEST()) echo $sql;	
+	
 $providerNames = getProviderShortNames();
 
 //$result = doQuery($sql, 1);
-//if(!mysql_num_rows($result)) $out .= "No keys found.";
+//if(!mysqli_num_rows($result)) $out .= "No keys found.";
 $keys = fetchAssociations($sql, 1);
 if(!$keys) $out .= "No keys found.";
 else {
@@ -68,7 +68,7 @@ else {
 	$keyLocs = array();
 	$clientIds = array();
 	$columns = explodePairsLine("client|Client||locklocation|Key Location||description|Key Description");
-	//while($key = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	//while($key = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 	foreach($keys as $key) {
 		$clientIds[] = $key['client'];
 		if(!$key['keyid']) {

@@ -240,7 +240,7 @@ function refunds($start, $end, $byZips=null, $byCities=null) {
 						$clientFilter";
   $refunds = array();
   if($result = doQuery($sql)) {
-		while($refund = mysql_fetch_assoc($result)) {
+		while($refund = mysqli_fetch_assoc($result)) {
 		 $monthYear = substr($refund['date'], 0, 7);
 		 if($byZips) $refunds[$monthYear][$zips[$refund['clientptr']]] = $refund['amount'];
 		 if($byCities) $refunds[$monthYear][$cityStates[$refund['clientptr']]] = $refund['amount'];
@@ -270,7 +270,7 @@ function refundsForClients($start, $end) {
   $refunds = array();
   $refundTotal = 0;
   if($result = doQuery($sql)) {
-		while($refund = mysql_fetch_assoc($result)) {
+		while($refund = mysqli_fetch_assoc($result)) {
 		 $monthYear = substr($refund['date'], 0, 7);
 		 $refunds[$monthYear][$refund['clientptr']] = $refund['amount'];
 		 $totalActualRevenue -= $refund['amount'];
@@ -296,7 +296,7 @@ function revenuesAndCommissions($start, $end) {
 	if($end >= $firstProjectionDay) {
 		$projectionStartTime = strtotime($firstProjectionDay);
 		$projectionEndTime = strtotime("$end 11:59:59");
-//if(mattOnlyTEST()) echo "ABOUT TO rolloverProjections.<p>";
+
 		rolloverProjections($projectionEnd);
 	}
 	
@@ -338,7 +338,7 @@ function revenuesAndCommissions($start, $end) {
 						.($monthlyPackages ? "AND packageptr NOT IN ($monthlyPackages)" : '')
 						." $ORDERbyDATE";
 						
-//if(mattOnlyTEST()) {$ass = fetchAssociations($sql);echo "<pre>";foreach($ass as $a) if($a['servicecode'] == 52) echo "\n".print_r($a,1);}
+}
 	revenueAndCommissionsForAppts($sql, false);			
 	if($includeRevenueFromSurcharges) {
 		$sql = "SELECT date, surchargecode, tblsurcharge.charge, rate, paid, tax as billabletax 
@@ -776,7 +776,7 @@ function revenueAndCommissionsForAppts_ZIP($sql, $omitRevenues) {
 	$zips = $zips ? $zips : getClientZips();
 //echo $sql.'<p>'.print_r(fetchAssociations($sql), 1)	;
 	$result = doQuery($sql);
-  while($appt = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($appt = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$zip = $zips[$appt['clientptr']];
 //if(!$zip) echo "NO ZIP! ".print_r($appt, 1);
 		$totalCommission += ($comm = $appt['rate']+$appt['bonus']);
@@ -817,15 +817,15 @@ function revenueForFixedPriceMonthlies($start, $end) {
 			$pkCancelMonth = $pck['cancellationdate'] ? date('Y-m-01',strtotime($pck['cancellationdate'])) : null;
 			
 			if($date < $pkStartMonth) {
-				//if(mattOnlyTEST()) echo "{$pck['clientptr']} [$pkStartMonth]<br>";
+				
 				continue;
 			}
 			if($pck['suspenddate'] && $date > $pck['suspenddate'] && $date < $pck['resumedate']) {
-				//if(mattOnlyTEST()) echo "{$pck['clientptr']} [$pkStartMonth]<br>";
+				
 				continue;
 			}
 			if($pkCancelMonth && $date > $pkCancelMonth) {
-				//if(mattOnlyTEST()) echo "{$pck['clientptr']} [$pkCancelMonth]<br>";
+				
 				continue;
 			}
 			if((TRUE || staffOnlyTEST()) && $pkStartMonth < $thisMonthYear) { // KEEP THIS!
@@ -850,7 +850,7 @@ function revenueForFixedPriceMonthlies($start, $end) {
 			FROM tblbillable 
 			WHERE monthyear IS NOT NULL AND superseded = 0 AND monthyear >= '$start' AND monthyear < '$end'
 			GROUP BY monthyear");
-//if(mattOnlyTEST()) echo $sql;			
+			
 	foreach($actualRevs as $monthyear => $actrev) {
 		$actrev = max(0, $actrev);
 		$totalActualRevenue += $actrev;
@@ -915,7 +915,7 @@ function revenueForFixedPriceMonthlies_ZIP($start, $end) {
 		"SELECT monthyear, charge, clientptr, tax as billabletax, paid
 			FROM tblbillable 
 			WHERE monthyear IS NOT NULL AND superseded = 0 AND monthyear >= '$start' AND monthyear < '$end'", 1);
-  while($actrev = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($actrev = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$untaxedPaidRev = max(0, $actrev['paid'] - $actrev['billabletax']);
 		$totalActualRevenue += $untaxedPaidRev;
 		$actualRevenues[substr($actrev['monthyear'], 0, 7)][$zips[$actrev['clientptr']]] += $untaxedPaidRev;
@@ -928,7 +928,7 @@ function revenueAndCommissionsForAppts($sql, $omitRevenues) {
 	if(!$serviceNames) $serviceNames = getAllServiceNamesById($refresh=1, $noInactiveLabel=true, $setGlobalVar=false) ;
 //echo $sql.'<p>'.print_r(fetchAssociations($sql), 1)	;
 	$result = doQuery($sql);
-  while($appt = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($appt = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$serviceName = isset($appt['servicename']) ? $appt['servicename'] : $serviceNames[$appt['servicecode']];
 		$totalCommission += ($comm = $appt['rate']+$appt['bonus']);
 		$commissions[$monthYear = substr($appt['date'], 0, 7)][$serviceName] += $comm;
@@ -939,7 +939,7 @@ function revenueAndCommissionsForAppts($sql, $omitRevenues) {
 				 FROM relapptdiscount 
 				 LEFT JOIN tblbillable ON itemtable = 'tblappointment' AND itemptr = '{$appt['appointmentid']}' AND superseded = 0
 				 WHERE appointmentptr = '{$appt['appointmentid']}' AND billableid IS NULL LIMIT 1"); 
-//if(mattOnlyTEST()) echo "$discsql<hr>";				 
+				 
 			$totalRevenue += $rev;
 			$untaxedPaidRev = max(0, $appt['paid'] - $appt['billabletax']);
 //if(mattOnlyTEST() && $appt['paid'] < ($appt['charge']+$appt['adjustment']) && $appt['servicecode'] == 52) print_r($appt);
@@ -959,7 +959,7 @@ function revenueAndCommissionsForSurcharges($sql, $omitRevenues) {
 		fetchKeyValuePairs("SELECT surchargetypeid, CONCAT('Surcharge: ', label) FROM tblsurchargetype");
 //echo $sql.'<p>'.print_r(fetchAssociations($sql), 1)	;
 	$result = doQuery($sql);
-  while($surch = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($surch = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$surchargeName = $surchargeNames[$surch['surchargecode']];
 		$totalCommission += ($comm = $surch['rate']);
 		$commissions[$monthYear = substr($surch['date'], 0, 7)][$surchargeName] += $comm;
@@ -982,7 +982,7 @@ function revenueAndCommissionsForSurchargesByDateClientAndProvider($sql, $omitRe
 		fetchKeyValuePairs("SELECT surchargetypeid, CONCAT('Surcharge: ', label) FROM tblsurchargetype");
 //echo $sql.'<p>'.print_r(fetchAssociations($sql), 1)	;
 	$result = doQuery($sql);
-  while($surch = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($surch = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$surchargeName = $surchargeNames[$surch['surchargecode']];
 		$totalCommission += ($comm = $surch['rate']);
 		$commissions[$monthYear = substr($surch['date'], 0, 7)][$surchargeName] += $comm;
@@ -1016,7 +1016,7 @@ function revenueAndCommissionsForMiscChargesByDateAndClient($sql, $includeTaxes=
 	global $revenues, $actualRevenues, $totalActualRevenue, $totalRevenue;
 //echo $sql.'<p>'.print_r(fetchAssociations($sql), 1)	;
 	$result = doQuery($sql);
-  while($charge = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($charge = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$monthYear = substr($charge['issuedate'], 0, 7);
 		$client = $charge['clientptr'];
 		$untaxedPaidRev = max(0, $charge['paid'] - $charge['billabletax']);
@@ -1039,8 +1039,8 @@ function revenueForMiscCharges_ZIP($sql, $includeTaxes=true) { // <== NOT NEEDED
 //echo $sql.'<p>'.print_r(fetchAssociations($sql), 1)	;
 	$result = doQuery($sql);
 	$chargeCount = 0;
-  while($charge = mysql_fetch_array($result, MYSQL_ASSOC)) {
-//if(mattOnlyTEST()) echo "ZIP: $zip MONTH: $monthYear REV: $rev - ".print_r($charge, 1)."<br>";		
+  while($charge = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+		
 		$chargeCount += 1;
 		$monthYear = substr($charge['issuedate'], 0, 7);
 		$client = $charge['clientptr'];
@@ -1051,7 +1051,7 @@ function revenueForMiscCharges_ZIP($sql, $includeTaxes=true) { // <== NOT NEEDED
 		$totalActualRevenue += $untaxedPaidRev;
 
 		$monthYear = substr($charge['date'], 0, 7);
-//if(mattOnlyTEST()) echo "ZIP: $zip MONTH: $monthYear REV: $rev<br>";		
+		
 		$revenues[$monthYear][$zip] += $rev;
 		$actualRevenues[$monthYear][$zip] += $untaxedPaidRev;
 		
@@ -1070,7 +1070,7 @@ function revenueForMiscCharges($sql, $includeTaxes=true) {
 	$miscChargeLabel = 'Miscellaneous Charges';
 	$result = doQuery($sql);
 	$chargeCount = 0;
-  while($charge = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($charge = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$chargeCount += 1;
 		$monthYear = substr($charge['date'], 0, 7);
 		$client = $charge['clientptr'];
@@ -1162,7 +1162,7 @@ function convertRevenueAndCommissionsForApptsByReferral() { //
 				}
 			}
 	$revenues = $reorg_revenues;
-	//if(mattOnlyTEST()) print_r($revenues);	
+		
 }
 	
 $clientVisits = array();
@@ -1175,7 +1175,7 @@ function revenueAndCommissionsForApptsByDateClientAndProvider($sql, $omitRevenue
 	//echo $sql.'<p>'.print_r(fetchAssociations($sql), 1)	;
 	$result = doQuery($sql);
 	
-  while($appt = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($appt = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$client = $appt['clientptr'];
 		$clientVisits[$client] += 1;
 		$provider = $appt['providerptr'];
@@ -1258,8 +1258,8 @@ function commissionsAndRevenuesByMonthData($start, $end, $subCategory, $addRefun
 								'net' => $totalRevenue - $totalCommission);
 	$row['#ROW_EXTRAS#'] = "style='background:lightgreen;'";
 	$rows[] = $row;
-//if(mattOnlyTEST()) { print_r(join('<br>', array_keys($visitCounts)));}
-//if(mattOnlyTEST()) {print_r (array_values($revenues));exit;}
+}
+}
 	ksort($revenues);
 	foreach($revenues as $monthYear => $revenue) {
 		$totalMonthServiceCount = 0;
@@ -1793,7 +1793,7 @@ function commissionsAndRevenuesByZIPTable($start, $end, $emptyLabel='No ZIP Code
 		}
 		if(mattOnlyTEST()) $rows[$i]['category'] = "<span title='[{$row['category']}]'>{$row['category']}</span>";
 	}
-	//if(mattOnlyTEST()) print_r($rows);
+	
 	tableFrom($columns, $rows, 'width=100%', $class=null, $headerClass, $headerRowClass=null, $dataCellClass='sortableListCell', $columnSorts=null, $rowClasses=null, $colClasses, $sortClickAction=null);
 }
 
@@ -1993,7 +1993,7 @@ function revenueAndCommissionsForAppts_CityState($sql, $omitRevenues) {
 //print_r($cityStates);	
 //echo $sql.'<p>'.print_r(fetchAssociations($sql), 1)	;
 	$result = doQuery($sql);
-  while($appt = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($appt = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$cityState = $cityStates[$appt['clientptr']];
 		$totalCommission += ($comm = $appt['rate']+$appt['bonus']);
 		$commissions[substr($appt['date'], 0, 7)][$cityState] += $comm;
@@ -2041,7 +2041,7 @@ function revenueForFixedPriceMonthlies_CityState($start, $end) {
 		"SELECT monthyear, charge, clientptr, tax as billabletax, paid
 			FROM tblbillable 
 			WHERE monthyear IS NOT NULL AND superseded = 0 AND monthyear >= '$start' AND monthyear < '$end'", 1);
-  while($actrev = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($actrev = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$untaxedPaidRev = max(0, $actrev['paid'] - $actrev['billabletax']);
 		$totalActualRevenue += $untaxedPaidRev;
 		$actualRevenues[substr($actrev['monthyear'], 0, 7)][$cityStates[$actrev['clientptr']]] += $untaxedPaidRev;

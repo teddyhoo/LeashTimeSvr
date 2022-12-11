@@ -134,8 +134,8 @@ if($line && !$done) {for($ii=0;$ii<strlen($line);$ii++)echo ord($line[$ii]).',';
 			//$client = getClient($clientid);
 		}
 		else {
-			$fname = mysql_real_escape_string($newClient['fname']);
-			$lname = mysql_real_escape_string($newClient['lname']);
+			$fname = mysqli_real_escape_string($newClient['fname']);
+			$lname = mysqli_real_escape_string($newClient['lname']);
 			if($clientid) {
 				$matches = fetchAssociations("SELECT * FROM tblclient WHERE clientid = $clientid");
 				$how = 'by BW ID';
@@ -276,7 +276,7 @@ function convertBluewaveStatus($field, &$details, &$client) {
 }
 
 function convertBluewaveSitter($field, &$details, &$client) {
-	$client['defaultproviderptr'] = fetchRow0Col0("SELECT providerid FROM tblprovider WHERE CONCAT_WS(', ', lname, fname) = '".mysql_real_escape_string($details[$field])."' LIMIT 1");
+	$client['defaultproviderptr'] = fetchRow0Col0("SELECT providerid FROM tblprovider WHERE CONCAT_WS(', ', lname, fname) = '".mysqli_real_escape_string($details[$field])."' LIMIT 1");
 	return $client;
 }
 
@@ -794,7 +794,7 @@ while($row = fgetcsv($strm, 0, $delimiter)) {
 		$mapID = $client['mapID'];
 		if(!$client['activeHasBeenSet']) $client['active'] = 1;  // see convert_setClientActive
 		saveNewClient($client);
-		$newClientId = mysql_insert_id();
+		$newClientId = mysqli_insert_id();
 		if($mapID) $clientMap[$mapID] = $newClientId;
 		echo "<p>Created CLIENT #$newClientId {$client['fname']} {$client['lname']}<br>";
 		if($key) {
@@ -814,7 +814,7 @@ while($row = fgetcsv($strm, 0, $delimiter)) {
 		}
 		if($client['custom']) {
 			foreach($client['custom'] as $field => $val) {
-				$val = mysql_real_escape_string($val);
+				$val = mysqli_real_escape_string($val);
 				if(!$customFields[$field])
 					echo "Bad custom field [$field].  Could not populate this field with [$val] for {$client['lname']} [{$client['mapID']}]";
 				else doQuery("REPLACE relclientcustomfield (clientptr, fieldname, value) VALUES ($newClientId, '$field', '$val')");

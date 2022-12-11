@@ -31,7 +31,7 @@ if($nextStart < $count) echo "<a href='kramers-invoices.php?start=$nextStart'>Sh
 
 $result = doQuery($sql);
 
-while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 	echo substr($row['body'], strpos($row['body'], '</style>')+strlen('</style>'));
 	echo "<p class='newpage'>";
 }

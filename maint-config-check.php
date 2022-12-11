@@ -10,7 +10,7 @@ if($bizdb && ($prop || $new)) {
 	$success = null;
 	if($new) {
 		insertTable("$bizdb.tblpreference", array('property'=>$new, 'value'=>$val), "property = '$new'", 1);
-		$success = !mysql_error();
+		$success = !mysqli_error();
 	}
 	else $success = updateTable("$bizdb.tblpreference", array('value'=>$val), "property = '$prop'", 1);
 	if($success) {

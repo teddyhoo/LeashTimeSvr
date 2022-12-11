@@ -44,7 +44,7 @@ function findBillingTotalsWithPriorUnpaids($firstDay, $lookahead, $clientids, $r
 	// ·	All non-canceled visits in timeframe.
 minilogResetUTime();
 	$allAppts = (array)sumAppointments($prepayments, $inTimeFrameFilter, 'returnapptids');
-//if(mattOnlyTEST()) print_r($prepayments[1018]);			
+			
 minilog("sumAppointments: #TIME# secs.");
 // ·	All surcharges in timeframe.
 	$allSurcharges = (array)sumSurcharges($prepayments, $inTimeFrameFilter, 'returnSurchargeIds');
@@ -59,7 +59,7 @@ $monthlyZeroTEST = TRUE;//staffOnlyTEST();  //TRUE;
 // THIS IS A NO-OP! 
 //if($monthly) sumMonthlyBillables($prepayments, $clientTest, $firstDayDB, $lookaheadLastDay);
 
-//if(mattOnlyTEST()) print_r($prepayments[1018]);
+
 // markPrepayementsWithMonthlyBillables sets monthlyBillablesFound=1
 if($monthlyZeroTEST && $monthly) $monthlyBillables = markPrepayementsWithMonthlyBillables($prepayments, $clientTest, $firstDayDB, $lookaheadLastDay);
 if(TRUE || staffOnlyTEST()) {
@@ -71,7 +71,7 @@ if(TRUE || staffOnlyTEST()) {
 		$prepayments[$clientptr]['paidprior'] += $mbTotals['paidprior'];  // amount paid toward items prior to start date
 	}
 }
-//if(mattOnlyTEST()) print_r($prepayments[1018]);
+
 	
 	
 minilog("sumMonthlyBillables: #TIME# secs.");
@@ -98,11 +98,11 @@ minilog("sumCharges (prior): #TIME# secs.");
 	$billableClientidsFound = array();
 	$billablesByType = (array)sumUnpaidBillables($prepayments, $clientTest,	$firstDayDB, $lookaheadLastDay, $billableClientidsFound);
 minilog("sumUnpaidBillables: #TIME# secs.");
-//if(mattOnlyTEST()) print_r($prepayments[21153]);
-//if(mattOnlyTEST()) print_r($billableClientidsFound);
 
-//if(mattOnlyTEST()) echo  "client 905 prepayment: {$prepayments[905]['prepayment']}";
-//if(mattOnlyTEST()) echo  "<br>client 905 billablesByType: ".print_r($billablesByType['tblappointment'], 1);
+
+
+
+
 //echo "STOP 3 (930): {$prepayments[930]['prepayment']}<p>";echo "ALL APPTS: ".ad($allAppts)."<p>"; 
 	$allAppts = array_unique(array_merge($allAppts, (array)$billablesByType['tblappointment']));
 //echo "ALL APPTS(2): ".ad($allAppts)."<p>";		
@@ -128,22 +128,22 @@ minilog("sumAllVisitsAndSurchargesForNRPackages: #TIME# secs.", 0, $SAVASTIME);
 			$priorClients = array();
 			if($priorAppts) $priorClients = 
 				fetchCol0("SELECT distinct clientptr FROM tblappointment WHERE appointmentid IN (".join(',', $priorAppts).")");
-//if(mattOnlyTEST()) echo "priorClients (app): ".print_r($priorClients,1).'<br>';
+
 			if($priorSurch) $priorClients = array_merge($priorClients, 
 				fetchCol0("SELECT distinct clientptr FROM tblappointment WHERE appointmentid IN (".join(',', $priorSurch).")"));
-//if(mattOnlyTEST()) echo "priorClients (surch): ".print_r($priorClients,1).'<br>';
+
 			if($billablesByType) $priorClients = array_merge($priorClients, $billableClientidsFound);
 			if($priorBillableClientidsFound) $priorClients = array_merge($priorClients, $priorBillableClientidsFound);
-//if(mattOnlyTEST()) echo "priorClients (bill): ".print_r($priorClients,1).'<br>';
+
 			foreach($priorClients as $priorclientid)
 				if($prepayments[$priorclientid])
 					$prepayments[$priorclientid]['includesPriors'] = 1;
-//if(mattOnlyTEST()) echo "subsequentBillableClientidsFound: ".print_r($subsequentBillableClientidsFound, 1);
+
 			foreach($subsequentBillableClientidsFound as $subsclientid)
 				if($prepayments[$subsclientid])
 					$prepayments[$subsclientid]['includesSubsequents'] = 1;
 
-			//if(mattOnlyTEST()) echo "priorClients: ".print_r($priorClients,1)." pp[{$priorClients[0]}] = ".print_r($prepayments[$priorClients[0]], 1)."<br>";
+			
 //echo "STOP 4 (930): sumAllVisitsAndSurchargesForNRPackages($prepayments, $firstDayDB, $lookaheadLastDay, $clientids, ".ad($allAppts).", ".ad($allSurcharges).")<p>";	
 //echo "STOP 4 (930): {$prepayments[930]['prepayment']}<p>";	
 		}
@@ -168,8 +168,8 @@ minilog("sumCharges (prior): #TIME# secs.");
 	$billablesByType = (array)sumUnpaidBillables($prepayments, $clientTest,	$firstDayDB, $lookaheadLastDay, $billableClientidsFound);
 minilog("sumUnpaidBillables: #TIME# secs.");
 
-//if(mattOnlyTEST()) echo  "client 905 prepayment: {$prepayments[905]['prepayment']}";
-//if(mattOnlyTEST()) echo  "<br>client 905 billablesByType: ".print_r($billablesByType['tblappointment'], 1);
+
+
 //echo "STOP 3 (930): {$prepayments[930]['prepayment']}<p>";echo "ALL APPTS: ".ad($allAppts)."<p>"; 
 	$allAppts = array_unique(array_merge($allAppts, (array)$billablesByType['tblappointment']));
 //echo "ALL APPTS(2): ".ad($allAppts)."<p>";		
@@ -262,7 +262,7 @@ $monthlyZeroTEST = TRUE;//staffOnlyTEST();  //TRUE;
 
 // markPrepayementsWithMonthlyBillables sets monthlyBillablesFound=1
 if($monthlyZeroTEST && $monthly) markPrepayementsWithMonthlyBillables($prepayments, $clientTest, $firstDayDB, $lookaheadLastDay);
-//if(mattOnlyTEST()) print_r($prepayments[903]);
+
 	
 	
 minilog("sumMonthlyBillables: #TIME# secs.");
@@ -288,24 +288,24 @@ minilog("sumAllVisitsAndSurchargesForNRPackages: #TIME# secs.", 0, $SAVASTIME);
 			$priorClients = array();
 			if($priorAppts) $priorClients = 
 				fetchCol0("SELECT distinct clientptr FROM tblappointment WHERE appointmentid IN (".join(',', $priorAppts).")");
-//if(mattOnlyTEST()) echo "priorClients (app): ".print_r($priorClients,1).'<br>';
+
 			if($priorSurch) $priorClients = array_merge($priorClients, 
 				fetchCol0("SELECT distinct clientptr FROM tblappointment WHERE appointmentid IN (".join(',', $priorSurch).")"));
-//if(mattOnlyTEST()) echo "priorClients (surch): ".print_r($priorClients,1).'<br>';
+
 			if($billablesByType) $priorClients = array_merge($priorClients, $billableClientidsFound);
 			if($priorBillableClientidsFound) $priorClients = array_merge($priorClients, $priorBillableClientidsFound);
-//if(mattOnlyTEST()) echo "priorClients (bill): ".print_r($priorClients,1).'<br>';
+
 			foreach($priorClients as $priorclientid)
 				if($prepayments[$priorclientid])
 					$prepayments[$priorclientid]['includesPriors'] = 1;
-//if(mattOnlyTEST()) echo "subsequentBillableClientidsFound: ".print_r($subsequentBillableClientidsFound, 1);
+
 			foreach($subsequentBillableClientidsFound as $subsclientid)
 				if($prepayments[$subsclientid])
 					$prepayments[$subsclientid]['includesSubsequents'] = 1;
 			foreach($prepayments as $aClientId => $pp)
 				if(!$pp['clientid']) $prepayments[$aClientId]['clientid'] = $aClientId;
 
-			//if(mattOnlyTEST()) echo "priorClients: ".print_r($priorClients,1)." pp[{$priorClients[0]}] = ".print_r($prepayments[$priorClients[0]], 1)."<br>";
+			
 //echo "STOP 4 (930): sumAllVisitsAndSurchargesForNRPackages($prepayments, $firstDayDB, $lookaheadLastDay, $clientids, ".ad($allAppts).", ".ad($allSurcharges).")<p>";	
 //echo "STOP 4 (930): {$prepayments[930]['prepayment']}<p>";	
 		}

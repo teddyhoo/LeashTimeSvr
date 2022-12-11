@@ -146,7 +146,7 @@ include "frame-end.html";
 
 function rightsSummary($rights) {
 //	require_once "survey-fns.php";
-//if(mattOnlyTEST()) echo "surveysAreEnabled: [".print_r(surveysAreEnabled(), 1)."]";
+
 	global $surveysAreEnabled;
 	static $allRights;
 	$allRights = $allRights ? $allRights :
@@ -326,7 +326,7 @@ function saveChanges() {
 		}
 	}		
 		updateTable('tbluser', $mods, "userid = {$_REQUEST["save"]}");
-		$error = mysql_error();
+		$error = mysqli_error();
 		if(!$error) {
 			$biz = fetchFirstAssoc("SELECT * FROM tblpetbiz WHERE bizid = '{$saveuser["bizptr"]}' LIMIT 1");
 			reconnectPetBizDB($biz['db'], $biz['dbhost'], $biz['dbuser'], $biz['dbpass']);
@@ -362,7 +362,7 @@ function saveChanges() {
 			logChange($saveuser['userid'], 'tbluser', 'm', $note=($changeDescr ? join('|', $changeDescr) : 'no change'));
 			
 			require "common/init_db_common.php";
-			$error = mysql_error();
+			$error = mysqli_error();
 		}
 	}
 	if($error) $_SESSION['frame_message'] = "<span style=color:red'>ERROR: $error</span>";

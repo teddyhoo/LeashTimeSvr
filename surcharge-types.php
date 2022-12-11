@@ -24,7 +24,7 @@ if($_POST) {
 	if($idsToDelete) {
 		$idsToDelete = join(',', $idsToDelete);
 		doQuery("DELETE FROM tblsurchargetype WHERE surchargetypeid IN ($idsToDelete)");
-		if(mysql_error()) $dbFaults[] = mysql_error();
+		if(mysqli_error()) $dbFaults[] = mysqli_error();
 	}
 	getSurchargeTypesById('refresh');
 	
@@ -591,7 +591,7 @@ function saveSurcharges($prefix) {
 			$surcharge['descr'] = $_POST[$prefix."descr_$i"];
 			if(!$surcharge['surchargetypeid']) insertTable('tblsurchargetype', $surcharge, 1);
 			else updateTable('tblsurchargetype', $surcharge, "surchargetypeid = {$surcharge['surchargetypeid']}", 1);
-			if(mysql_error()) $dbFaults[] = mysql_error();
+			if(mysqli_error()) $dbFaults[] = mysqli_error();
 		}
 	}
 }

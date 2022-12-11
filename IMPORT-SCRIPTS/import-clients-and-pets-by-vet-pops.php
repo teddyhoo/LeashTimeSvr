@@ -34,7 +34,7 @@ while(getLine($strm)) {
 	   || strpos($line, ($pat = 'vets.aspx?id=')) !== FALSE) {
 		$vetLabel = getContents($line, $pat);
 		if($vetLabel) {
-			$clinics = fetchAssociations("SELECT * FROM tblclinic WHERE clinicname = '".mysql_real_escape_string($vetLabel)."'");
+			$clinics = fetchAssociations("SELECT * FROM tblclinic WHERE clinicname = '".mysqli_real_escape_string($vetLabel)."'");
 			if(!$clinics) echo "<font color=red>Clinic [$vetLabel] not found.<br></font>";
 			else if(count($clinics) > 1)  echo "<font color=red>Clinic name [$vetLabel] refers to ".count($clinics)." clinics.<br></font>";
 			if(count($clinics) == 1) {
@@ -48,7 +48,7 @@ while(getLine($strm)) {
 		 || strpos($line, ($pat = 'clients_addedit.aspx')) !== FALSE) {
 		$clientLabel = getContents($line, $pat);
 		if($clientLabel) {
-			$clients = fetchAssociations("SELECT * FROM tblclient WHERE CONCAT_WS(' ', fname, lname) = '".mysql_real_escape_string($clientLabel)."'");
+			$clients = fetchAssociations("SELECT * FROM tblclient WHERE CONCAT_WS(' ', fname, lname) = '".mysqli_real_escape_string($clientLabel)."'");
 			if(!$clients) echo "<font color=red>Client [$clientLabel] not found.<br></font>";
 			else if(count($clients) > 1) echo "<font color=red>Client name [$clientLabel] refers to ".count($clients)." clients.<br></font>";
 			$currentClient = count($clients) == 1 ? $clients[0] : null;
@@ -98,7 +98,7 @@ while(getLine($strm)) {
 					"SELECT name 
 						FROM tblpet 
 						WHERE ownerptr = {$currentPet['ownerptr']}
-							AND name = '".mysql_real_escape_string($currentPet['name'])."'"))
+							AND name = '".mysqli_real_escape_string($currentPet['name'])."'"))
 				  $created = "<font color=red>ALREADY EXISTS</font>";
 				else {
 					insertTable('tblpet', $currentPet, 1);
@@ -128,8 +128,8 @@ foreach($vets as $i => $vet) {
 									'state'=>$vet['state'],
 									'zip'=>$vet['zip']);
 	insertTable('tblclinic', $clinic, 1);
-	if(!mysql_error()) {
-		echo "Vet #".mysql_insert_id()." [{$vet['name']}] added.<br>";
+	if(!mysqli_error()) {
+		echo "Vet #".mysqli_insert_id()." [{$vet['name']}] added.<br>";
 		$n++;
 	}
 }

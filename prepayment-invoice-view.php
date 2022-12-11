@@ -76,7 +76,7 @@ if($lastDay && !$lookahead)
 $includePriorUnpaidBillables = !$excludePriorUnpaidBillables;
 
 //NEWdisplayPrepaymentInvoice($invoiceOrClientId, $firstDay, $lookahead, $firstInvoicePrinted=true, $includePriorUnpaidBillables=false, $showOnlyCountableItems=false, $scope=null)
-//if(mattOnlyTEST()) echo "NEWdisplayPrepaymentInvoice($id, $firstDay, $lookahead, $firstInvoicePrinted=true, $includePriorUnpaidBillables, $showOnlyCountableItems=false, $scope);";
+
 if(TRUE) NEWdisplayPrepaymentInvoice($id, $firstDay, $lookahead, $firstInvoicePrinted=true, $includePriorUnpaidBillables, $showOnlyCountableItems=false, $scope); // $scope is passed in for BillingReminders
 //else displayPrepaymentInvoice($id, $firstDay, $lookahead);
 

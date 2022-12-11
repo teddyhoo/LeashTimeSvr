@@ -14,7 +14,5 @@
 require_once "common/init_session.php";
 require_once "common/init_db_petbiz.php";
 
-/*if(mattOnlyTEST()) require "appointment-editSAVEMATT.php";
-else if($_SESSION['preferences']['useNewRateCalculations'] || dbTEST('careypet')) require "appointment-editCANDIDATE.php";*/
 if(TRUE) require "appointment-editCANDIDATE.php";
 else require "appointment-editSAVE.php";

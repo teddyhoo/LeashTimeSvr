@@ -105,7 +105,7 @@ function postSurchargeChange() {
 	else { // create new surcharge
 		$canceled = null;
 		$completed = $cancellation == 2 ? date("Y-m-d H:i:a") : null;
-//if(mattOnlyTEST()) { echo print_r($_POST, 1)."<hr>$completed"	;exit;}
+}
 		$newSurchargeId = createSurcharge($clientptr, $packageptr, $surchargecode, $date, $automatic, $providerptr, $appt, $note, $completed);
 		require_once "invoice-fns.php";
 		if($completed) createSurchargeBillable($newSurchargeId);
@@ -169,7 +169,7 @@ function postAppointmentChange() {
 		$task['completed'] = $_POST['cancellation'] == 2 ? date("Y-m-d H:i") : null;
 		$task['date'] = $_POST['date']; // for conflict detection
 
-//if(mattOnlyTEST()) {echo print_r($task, 1)."<p>{$_POST['date']}<p>[".detectVisitCollision($task, $task['providerptr']).']';exit;}
+}
 		$appt = createAppointment(false, null, $task, strtotime($date));
 		$appointmentid = $appt['appointmentid'];
 		

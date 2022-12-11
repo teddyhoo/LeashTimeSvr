@@ -119,7 +119,7 @@ foreach($names as $name => $vc) {
 	$client = fetchFirstAssoc($sql = "SELECT tblclient.* 
 															FROM relclientcustomfield
 															LEFT JOIN tblclient ON clientid = clientptr
-															WHERE fieldname = 'custom9' and value = '".mysql_real_escape_string($vc['X-ABUID'])."'
+															WHERE fieldname = 'custom9' and value = '".mysqli_real_escape_string($vc['X-ABUID'])."'
 															LIMIT 1");
 //echo $sql;exit;															
 	if(!$client) continue;

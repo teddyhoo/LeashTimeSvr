@@ -67,7 +67,7 @@ $searchFor = $notprov ? $notprov : $provid;
 $JSONTEST = true; //mattOnlyTEST() ? false : true;
 $visits = multidaysVisits($searchFor, $start, $end, $keys=null, $json=FALSE);
 
-//if(mattOnlyTEST()) {print_r($visits); exit;}
+}
 
 if(TRUE || dbTEST('careypet')) {
 // for visits with no note, get package notes
@@ -98,14 +98,14 @@ if($visits && fetchRow0Col0("SELECT value FROM tblpreference WHERE property = 'm
 	$packnotes = array();
 	foreach((array)$packs as $packageptr => $appt) {
 		$curr = findCurrentPackageVersion($packageptr, $appt['clientptr'], $appt['recurringpackage']);
-//if(mattOnlyTEST()) {print_r("($packageptr), ({$appt['clientptr']}), ({$appt['recurringpackage']}) == $curr");echo "<br>";}
+}
 		$latest[$packageptr] = $curr;
 		if($curr && !isset($packnotes[$curr])) {
 			$table = $appt['recurringpackage'] ? 'tblrecurringpackage' : 'tblservicepackage';
 			$packnotes[$curr] = fetchRow0Col0("SELECT notes FROM $table WHERE packageid = $curr LIMIT 1");
 		}
 	}
-//if(mattOnlyTEST()) print_r($packnotes);
+
 	foreach($visits as $i => $appt) {
 		if(!$appt['note']) 
 			$visits[$i]['note'] = $packnotes[$latest[$appt['packageptr']]];
@@ -113,7 +113,7 @@ if($visits && fetchRow0Col0("SELECT value FROM tblpreference WHERE property = 'm
 		unset($visits[$i]['recurringpackage']);
 	}
 	timing("Pack notes fetch");
-//if(mattOnlyTEST()) {echo "<pre>";print_r($visits);}
+}
 }
 } // if TRUE
 
@@ -192,7 +192,7 @@ function recursiveReplace($pattern, $replacement, &$target, $level=0) { // clien
 // KLUDGE End
 
 
-//if(mattOnlyTEST()) { echo "<hr><hr>";print_r($visits);}
+}
 if(mattOnlyTEST()) $times['TOTAL BEFORE json_encode'] = "$prefix: _".(microtime(1)-$scripStart)."_ sec.";
 if($times) $output['times'] = $times;
 
@@ -358,7 +358,7 @@ function populateClient($clientid) {
 	
 	
 	if(($fields = customClientFields($fields)) != -999) {
-//if(mattOnlyTEST()) {print_r($fields);exit;}		
+}		
 		//$fieldCounter = 0;
 		foreach($fields as $fkey => $field) {
 			$fieldvalue = getClientCustomField($client['clientid'], $fkey);
@@ -437,7 +437,7 @@ function nativeCustomFieldValue($field, $fieldvalue) {
 					);
 				if($clientdocs == 'complete') $fieldvalue = $json; //json_encode();
 				else $fieldvalue = $json['label'];
-//if(mattOnlyTEST()) {echo print_r($clientdocs,1).": ".print_r($fieldvalue,1);exit;}	
+}	
 			}
 		}
 	return $fieldvalue;

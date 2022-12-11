@@ -81,7 +81,7 @@ echo "$k: $v<br>";
 
 //print_r($newData);exit;
 
-			mysql_select_db('petcentral');
+			mysqli_select_db('petcentral');
 
 			$userNamed = findSystemLoginWithLoginId($username, true);
 			if($provider['userid']) { // provider already has a login
@@ -109,9 +109,9 @@ echo "$k: $v<br>";
 				}
 			}
 			
-			mysql_close();
-			mysql_connect($_SESSION["dbhost"], $_SESSION["dbuser"], $_SESSION["dbpass"]);
-			mysql_select_db($_SESSION["db"]);
+			mysqli_close();
+			mysqli_connect($_SESSION["dbhost"], $_SESSION["dbuser"], $_SESSION["dbpass"]);
+			mysqli_select_db($_SESSION["db"]);
 
 		}
 	}

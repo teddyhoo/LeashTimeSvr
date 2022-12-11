@@ -25,7 +25,7 @@ function composeMessage($body, $heading=null, $props=null) {
 		
 	$heading = screenNoticeWhiteList(strip_tags(screenNoticeWhiteList($heading)), 'restore');
 	$body = screenNoticeWhiteList(strip_tags(screenNoticeWhiteList($body)), 'restore');
-//if(mattOnlyTEST()) {echo 'BONK '.print_r($_POST,1).'<hr>'.print_r($props,1);exit;}	
+}	
 	foreach((array)$props as $prop) {
 		$prop = strtoupper($prop);
 		if($prop == 'HEADER1') $headerTag = 'h1';
@@ -54,7 +54,7 @@ function composeMessage($body, $heading=null, $props=null) {
 	if($heading) $message = "<$headerTag $centerHeader>$heading</$headerTag>";
 	$message .= "<div $bodyClass>$body</div>";
 	$message = str_replace("\r", "", $message);
-//if(mattOnlyTEST()) echo "BANG! ".print_r($message, 1);		
+		
 	return $message;
 }
 

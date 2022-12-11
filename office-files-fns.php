@@ -114,7 +114,7 @@ function getOfficeFiles($audience=null, $visibility='all') { //visibility=all(or
 		if($audience && $doc['audience'] != $audience) continue;
 		$docVisibility = $doc['hidden'] ? 'hidden' : 'visible';
 		if($visibility && !$anyVisibility && $docVisibility != $visibility) continue;
-		//if(mattOnlyTEST()) {echo "$visibility == $docVisibility  ".print_r($doc, 1)."<br> ";exit;}
+		}
 		$results[$remotefileid] = $file;
 	}
 	//if($visibility=='visible') echo "$sql<hr>[[[[[$visibility<hr>".print_r($results, 1);

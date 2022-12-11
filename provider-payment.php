@@ -111,7 +111,7 @@ $handle = getUnpaidPayablesDBResult($throughDate, null, $startDate);
 $mileageCompensation = array();
 $aggregate = array();
 
-while($payable = mysql_fetch_assoc($handle)) {
+while($payable = mysqli_fetch_assoc($handle)) {
 	$due[$payable['providerptr']] += $payable['amount'] - $payable['paid'];
 	if($_SESSION['preferences']['sittersPaidHourly'] && $payable['itemtable'] == 'tblappointment') {
 		if(!$travelAllowance) 
@@ -122,7 +122,7 @@ while($payable = mysql_fetch_assoc($handle)) {
 	if($csv) classifyPayable($payable, $aggregate);
 }
 
-//if(mattOnlyTEST()) print_r($mileageCompensation);
+
 foreach($mileageCompensation as $provid => $comp) {
 	//$due[$provid] += $comp;
 }
@@ -558,7 +558,7 @@ function payProviders() {
 			}
 ?>							
   										)) {
-<? //if(mattOnlyTEST()) echo "alert('Ok');return;"; ?>												
+<?  ?>												
 		lockForm();
 		document.getElementById('action').value='payProviders';
 		document.payform.submit();

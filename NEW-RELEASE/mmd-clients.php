@@ -15,7 +15,7 @@ if(userRole() == 'd') locked('d-');
 else locked('o-');
 
 $headers = apache_request_headers();
-//if(mattOnlyTEST()) {echo json_encode($headers);exit;}
+}
 foreach($headers as $hdr=>$val)
     if(strtoupper($hdr) == 'CONTENT-TYPE') $contentType = strtoupper($val);
 

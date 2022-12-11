@@ -328,7 +328,7 @@ function guessCreditCardCompany(str) {
 }
 </script>
 <?
-//if(mattOnlyTEST()) {echo "Session is set: [".isset($_SESSION)."]<p>";foreach($_SESSION as $k => $v) echo "<br>$k: $v";exit;}
+}
 require "frame-end.html";
 
 function handleSolverasCallback($op, $auth, $tokenId) {

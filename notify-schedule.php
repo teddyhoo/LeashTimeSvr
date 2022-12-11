@@ -159,8 +159,8 @@ $priceInformation = "<b>Services: $per</b>".dollarAmount($priceInformation['serv
 if($_SESSION['preferences']['bottomLineOnlyInSchedNotificPriceInfo'])
 	$priceInformation = '<b>Total: </b>'.dollarAmount($bottomLine).'<p>';
 //$showStats=true, $includeApptLinks=true, $surcharges=null
-//if(mattOnlyTEST()) {echo "<p>Appts include 253438: ".in_array(253438, $apptIds).'<p>'.join(', ', $apptIds); exit;}
-//if(mattOnlyTEST()) {echo "<p>Appts: <pre>".print_r($appts,1)."</pre>"; exit;}
+}
+}
 
 
 $oldApplyValue = $applySitterNameConstraintsInThisContext;
@@ -190,7 +190,7 @@ if($_SESSION['preferences']['suppressPriceInfoInClientSchedNotifications'])
 $packageDescription = "$appointmentDescription\n"
 											."<div style='background:white;width:500px;border: solid black 1px;padding:5px;'>"
 											."<b>Schedule Description:</b><p>".packageDescriptionHTML($package, null, 'packageprice').$priceInformation."</div>\n";
-//if(mattOnlyTEST()) {echo $packageDescription;exit;}
+}
 
 $messageAppendixToken = '#SCHEDULE#';
 $messageAppendix = '<link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 

@@ -43,7 +43,7 @@ if(!$validRemoteFileId) {
 }
 
 $entry = fetchFirstAssoc("SELECT * FROM tblremotefile WHERE remotefileid = $id LIMIT 1");
-//if(mattOnlyTEST()) {print_r($entry);exit;}
+}
 
 if(userRole() == 'c') {
 	require_once "office-files-fns.php";
@@ -66,6 +66,6 @@ if(userRole() == 'c') {
 	}
 }
 
-//if(mattOnlyTEST()) {echo "item: $id ".print_r($entry, 1); locked('p-'); exit;}
+}
 
 returnToBrowser($entry['remotepath'], $_GET['download']);

@@ -40,11 +40,11 @@ class BillingStatementDisplay {
 		$invoice = $this->billingStatement;
 		if(!$invoice->populated) $invoice->populateBillingInvoice($firstDay, $lookahead, $literal, $showOnlyCountableItems, $packageptr, $excludePriorUnpaid);
 		
-	//if(mattOnlyTEST()) echo "<b>clientid: [[".print_r($invoiceOrClientId,1)."]]</b><hr>";
+	
 		global $invoicePayment; // TBD - investigate this
 		if(is_string($invoicePayment = getInvoicePaymentData($clientid))) return;
 		
-	//if(mattOnlyTEST()) {echo "[[{$_REQUEST['packageptr']}]]<p>";print_r($invoice); exit;}
+	}
 		// This may be called in a SESSION or outside of it (cronjob)
 		if($firstInvoicePrinted) echo invoicePageStyle();
 		
@@ -63,7 +63,7 @@ class BillingStatementDisplay {
 		//dumpInvoiceCredits($client['clientid']);
 	//echo "CREDITS: $ 	$".$invoice->decrementingCredits."<p>";
 		$this->dumpPriorUnpaidBillables($showOnlyCountableItems);
-	//if(mattOnlyTEST()) print_r($invoice); exit;	
+	 exit;	
 		$this->dumpCurrentBillables(); // Invoice #, Invoice Date, Items, Subtotal
 		$this->dumpRecentPayments(); // Invoice #, Invoice Date, Items, Subtotal
 		//dumpCurrentPastInvoiceSummaries($invoiceid); // Invoice #, Invoice Date, Items, Subtotal
@@ -254,7 +254,7 @@ if(FALSE && staffOnlyTEST()) 		labelRow('BLAH', '', ($invoice->origbalancedue)."
 		if($_SESSION['preferences']['suppressInvoiceSitterName']) unset($columns['provider']);
 		$numCols = count($columns);
 		foreach($lineItems as $index => $lineItem) {
-	//if(mattOnlyTEST()) { echo "showOnlyCountableItems: [$showOnlyCountableItems] countablecharge: [{$lineItem['countablecharge']}]"; }
+	 }
 			if($showOnlyCountableItems && !$lineItem['countablecharge']) continue;
 			if(!$suppressPriorUnpaidCreditMarkers) markLineItemCovered($lineItem);
 			$subtotal += (float)($lineItem['charge']);
@@ -317,9 +317,9 @@ if(FALSE && staffOnlyTEST()) 		labelRow('BLAH', '', ($invoice->origbalancedue)."
 		$rowClasses = array();
 		foreach($lineItems as $index => $lineItem) {
 	//echo print_r($lineItem,1)."<br>";
-	//if(mattOnlyTEST()) echo "{$lineItem['charge']} {$lineItem['service']}<br>";
+	
 			$subtotal += $lineItem['charge'];
-	//if(mattOnlyTEST()) if(!($lineItem['servicecode'] || $lineItem['surchargecode']))print_r($lineItem);			
+				
 			//markLineItemCovered($lineItem);	 // DISABLED 2013-11-05 at Ted's request
 
 			$lineItem['charge'] = dollarAmount($lineItem['charge']);
@@ -398,7 +398,7 @@ if(FALSE && staffOnlyTEST()) 		labelRow('BLAH', '', ($invoice->origbalancedue)."
 	}
 
 	function dumpRecentPayments() {
-//if(mattOnlyTEST()) print_r($this->billingStatement->allItemsSoFar);	
+	
 		$billableids = array_keys((array)$this->billingStatement->allItemsSoFar['tblrucurringpackage']);
 		foreach($this->billingStatement->allItemsSoFar as $table=>$items) {
 			if($table == 'tblrucurringpackage') continue;
@@ -408,7 +408,7 @@ if(FALSE && staffOnlyTEST()) 		labelRow('BLAH', '', ($invoice->origbalancedue)."
 							FROM tblbillable 
 							WHERE superseded = 0 AND itemtable = '$table' AND itemptr IN (".join(',', array_keys($items)).")"));
 		}
-//if(mattOnlyTEST()) print_r($billableids);	
+	
 		$excludingRepayments = "AND (tblcredit.reason IS NULL OR tblcredit.reason NOT LIKE '%(v: %')";
 		if($billableids) $localCredits = fetchAssociationsKeyedBy($sql =
 			"SELECT tblcredit.*, tblrefund.amount as refundamount
@@ -419,7 +419,7 @@ if(FALSE && staffOnlyTEST()) 		labelRow('BLAH', '', ($invoice->origbalancedue)."
 				AND creditid IS NOT NULL
 				ORDER BY issuedate", 'creditid');
 		// find gratuities and refunds
-//if(mattOnlyTEST()) print_r($localCredits);	
+	
 		if($localCredits) {
 			$details = fetchAssociationsKeyedBy(
 			"SELECT tblcredit.*, refundid, sum(tblgratuity.amount) as gratuity, tblrefund.amount as refundamount
@@ -446,8 +446,8 @@ if(FALSE && staffOnlyTEST()) 		labelRow('BLAH', '', ($invoice->origbalancedue)."
 						GROUP BY creditid
 						ORDER BY issuedate"));
 	
-	//if(mattOnlyTEST()) echo "<p>$sql<p>";	
-	//if(mattOnlyTEST()) echo "<p>".print_r($localCredits, 1)."<p>";	
+		
+		
 
 		echo "<div style='width:95%'>\n";
 		dumpSectionBar("Recent Payments and Credits", '');

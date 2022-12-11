@@ -160,7 +160,7 @@ function findClients() {
 		else $realPattern = "%$pattern%";
 		$baseQuery = str_replace("ANDALSO", "AND CONCAT_WS(' ',fname,lname) like '$realPattern'", $baseQuery);
 		//$baseQuery = "$baseQuery AND CONCAT_WS(' ',fname,lname) like '$realPattern'";
-		//$numFound = mysql_num_rows(mysql_query($baseQuery));
+		//$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 		//if($numFound)
 			//$clients = fetchAssociations("$baseQuery ORDER BY lname, fname"); // LIMIT 15
 		$all = array_merge(fetchAssociationsKeyedBy("$baseQuery", 'clientid', 1));
@@ -176,13 +176,13 @@ function findClients() {
 		//$numFound = count($clients);
 		$all = array_merge(fetchAssociationsKeyedBy("$baseQuery", 'clientid', 1));
 		$numFound = count($all);
-	//if(mattOnlyTEST()) screenLog( $baseQuery);	
+		
 		$clients = $all;
 	//for($i=0; $i<=15 && $all[$i]; $i++) $clients[] = $all[$i];
 		
 	}
 	else {
-		//$numFound = mysql_num_rows(mysql_query($baseQuery));
+		//$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 		$baseQuery = str_replace("ANDALSO", "", $baseQuery);
 		$baseQuery = "$baseQuery"; // LIMIT 15
 		//$clients = fetchAssociations("$baseQuery");

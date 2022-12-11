@@ -27,12 +27,12 @@ foreach(fetchAssociations("SELECT * FROM tblpetbiz WHERE activebiz=1") as $biz) 
 	$dbpass = $biz['dbpass'];
 	$db = $biz['db'];
 	$bizptr = $biz['bizid'];
-	$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+	$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 	if ($lnk < 1) {
 		echo "Not able to connect: invalid database username and/or password.\n";
 	}
-	$lnk1 = mysql_select_db($db);
-	if(mysql_error()) echo mysql_error();
+	$lnk1 = mysqli_select_db($db);
+	if(mysqli_error()) echo mysqli_error();
 	$tables = fetchCol0("SHOW TABLES");
 	$bizName = fetchRow0Col0("SELECT value FROM tblpreference WHERE property = 'bizName' LIMIT 1");
 	

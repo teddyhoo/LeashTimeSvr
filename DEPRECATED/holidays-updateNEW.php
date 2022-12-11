@@ -29,7 +29,7 @@ function holidaysFor($year, $country=null, $update=false, $shortDates=false) {
 				if($update) 
 					updateTable('tblsurchargetype', 
 												array('date'=>$date),
-												"label = '".mysql_real_escape_string($label)."'", 
+												"label = '".mysqli_real_escape_string($label)."'", 
 												1);
 			}
 		}

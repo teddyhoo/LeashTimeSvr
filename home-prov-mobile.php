@@ -161,10 +161,10 @@ if($appts && $detailedVisits) {
 	$displayNoteLength = 65;
 	require_once "service-fns.php";
 	foreach($appts as $appt) $packs[$appt['packageptr']] = $appt;
-//if(mattOnlyTEST()) print_r($packs);
+
 	foreach((array)$packs as $id => $appt) {
 		$curr = findCurrentPackageVersion($id, $appt['clientptr'], $appt['recurringpackage']);
-//if(mattOnlyTEST()) print_r("($id), ({$appt['clientptr']}), ({$appt['recurringpackage']}) == $curr");
+
 		$latest[$id] = $curr;
 		if($curr && !isset($packnotes[$curr])) {
 			$table = $appt['recurringpackage'] ? 'tblrecurringpackage' : 'tblservicepackage';
@@ -195,7 +195,7 @@ else foreach($appts as $appt)  {
 		}
 	}
 	
-//if(mattOnlyTEST()) echo "<tr><td>{$appt['note']}</td></tr>";
+
 	if($appt['note']) $appt['note'] = strip_tags($appt['note']);  // disallow HTML tags here
 	
 	if($appt['nokey']) {

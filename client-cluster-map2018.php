@@ -66,7 +66,7 @@ else  {
 			$markers[] = $marker;
 		}
 	}
-	//if(mattOnlyTEST()) echo print_r($marker, 1)."<hr>focusGoogleAddress: $focusGoogleAddress<hr>focus: ".print_r($focus, 1)."<hr>";
+	
 	
 	
 	// NEARBY CLIENTS
@@ -75,7 +75,7 @@ else  {
 	$clientAddressesFound = 0;
 	$homelessClients = array();
 	$closeClients = array();
-  while($cclient = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($cclient = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$prospectiveClients += $cclient['prospect'] ? 1 : 0;
 		if($cclient['clientid'] == $focus['clientid']) continue;
 		if($addr = googleAddress($cclient)) {
@@ -102,7 +102,7 @@ else  {
 	$sitterAddressesFound = 0;
 	$homelessSitters = array();
 	$closeSitters = array();
-  while($sitter = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($sitter = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		if($sitter['providerid'] == $focus['providerid']) continue;
 		if($addr = googleAddress($sitter)) {
 			if(distance($focusGeocode, $addr) < $radius) {

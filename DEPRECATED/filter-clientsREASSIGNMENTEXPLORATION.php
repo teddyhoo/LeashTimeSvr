@@ -84,8 +84,8 @@ if($_POST) {
 		$stop = count($clientIds) == 0;
 	}
 			
-//if(mattOnlyTEST()) {echo "$statusSQL: ".print_r($clientIds, 1);exit;}
-//if(mattOnlyTEST()) {echo "$checkDefaultProvider<hr>$statusSQL<p><error>[$chosensitter] && ([$pastvisits] || [$futurevisits])</error>";exit;}
+}
+}
 	if(!$stop && $haveongoing) {
 		$today = date('Y-m-d');
 		$ongoingClientIds = 
@@ -141,7 +141,7 @@ if($_POST) {
 		$clientIds = array_unique(array_intersect((array)$clientIds, $sitterClientIds));
 		$stop = count($clientIds) == 0;
 	}
-//if(mattOnlyTEST()) {echo "ClientIDs: ".print_r($clientIds, 1);exit;}
+}
 								
 	if(!$stop && $_SESSION["flags_enabled"] && $useflags) {
 		require_once "client-flag-fns.php";

@@ -36,17 +36,17 @@ function maskAllEmails($db, $target) {
 		$sql = "UPDATE $db.tblclient SET email = CONCAT('$emailMask', email) 
 							WHERE email IS NOT NULL AND email != '' AND email NOT LIKE '$emailMask%'";
 		doQuery($sql, 1);
-		$affected = mysql_affected_rows();
+		$affected = mysqli_affected_rows();
 		$sql = "UPDATE $db.tblclient SET email2 = CONCAT('$emailMask', email2) 
 							WHERE email2 IS NOT NULL AND email2 != '' AND email2 NOT LIKE '$emailMask%'";
 		doQuery($sql, 1);
-		$affected += mysql_affected_rows();
+		$affected += mysqli_affected_rows();
 	}
 	if($target != 'client') {
 		$sql = "UPDATE $db.tblprovider SET email = CONCAT('$emailMask', email) 
 							WHERE email IS NOT NULL AND email != '' AND email NOT LIKE '$emailMask%'";
 		doQuery($sql, 1);
-		$affected += mysql_affected_rows();
+		$affected += mysqli_affected_rows();
 	}
 	
 	return $affected;
@@ -59,17 +59,17 @@ function unmaskAllEmails($db, $target) {
 		$sql = "UPDATE $db.tblclient SET email = substr(email, $start) 
 							WHERE email LIKE '$emailMask%'";
 		doQuery($sql, 1);
-		$affected = mysql_affected_rows();
+		$affected = mysqli_affected_rows();
 		$sql = "UPDATE $db.tblclient SET email2 = substr(email2, $start)
 							WHERE email2 LIKE '$emailMask%'";
 		doQuery($sql, 1);
-		$affected += mysql_affected_rows();
+		$affected += mysqli_affected_rows();
 	}
 	if($target != 'client') {
 		$sql = "UPDATE $db.tblprovider SET email = substr(email, $start) 
 							WHERE email LIKE '$emailMask%'";
 		doQuery($sql, 1);
-		$affected += mysql_affected_rows();
+		$affected += mysqli_affected_rows();
 	}
 	
 	return $affected;

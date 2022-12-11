@@ -7,20 +7,20 @@ function loginAndEditElements($bizid) {
 
 function getBizUsers($biz) {
 	list($dbhost, $db, $dbuser, $dbpass) = array($biz['dbhost'], $biz['db'], $biz['dbuser'], $biz['dbpass']);
-	$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+	$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 
 	if ($lnk < 1) {
 		$errMessage ="Not able to connect: invalid database username and/or password.";
 		echo $errMessage;
 	}
 
-	if(!mysql_select_db($db)) echo "Failed to select [$db]: ".mysql_error();
+	if(!mysqli_select_db($db)) echo "Failed to select [$db]: ".mysqli_error();
 	
 	$users = array();
 	foreach(fetchAssociations("SELECT * FROM tblprovider") as $u) 
 		if($u['userid']) $users[$u['userid']] = $u;
 	$result = doQuery("SELECT * FROM tblclient");
-  while($u = mysql_fetch_array($result, MYSQL_ASSOC))
+  while($u = mysqli_fetch_array($result, MYSQL_ASSOC))
    if($u['userid']) $users[$u['userid']] = $u;
 //echo "BANG!<p>";print_r(count($users));exit;
 	foreach($users as $id => $u) $users[$id]['name'] = $u['fname'].' '.$u['lname'];

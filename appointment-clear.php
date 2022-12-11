@@ -5,7 +5,6 @@ require_once "common/init_db_petbiz.php";
 require_once "appointment-fns.php";
 require_once "preference-fns.php";
 
-if(!mattOnlyTEST()) {echo "matt only.";exit;}
 locked('ea');
 extract($_REQUEST);
 
@@ -39,9 +38,9 @@ if($photoCacheId) {
 }
 print_r($appointmentProps);
 deleteTable('tblappointmentprop', "appointmentptr = $id", 1);
-echo "<br>Deleted ".mysql_affected_rows();
+echo "<br>Deleted ".mysqli_affected_rows();
 deleteTable('tblgeotrack', "appointmentptr = $id", 1);
-echo " appt props and ".mysql_affected_rows()." tracks.";
+echo " appt props and ".mysqli_affected_rows()." tracks.";
 echo " $photoResult.";
 updateTable('tblappointment', array('completed'=>null), "appointmentid = $id", 1);
-echo "<br>un-completed  ".mysql_affected_rows()." visit.";
+echo "<br>un-completed  ".mysqli_affected_rows()." visit.";

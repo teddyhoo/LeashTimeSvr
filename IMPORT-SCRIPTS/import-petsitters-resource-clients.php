@@ -275,7 +275,7 @@ function importClients($showUnhandled=false) {
 				}
 				else if($disp == 'email') processEmails($v, $client);
 				else if(($householdMode || $petMode) && ($disp == 'fname' || $disp == 'lname')) {
-					$clientNameParts[$disp] = mysql_real_escape_string($v);
+					$clientNameParts[$disp] = mysqli_real_escape_string($v);
 					if(count($clientNameParts) == 2) {
 						$clientNameParts = "{$clientNameParts['fname']} {$clientNameParts['lname']}";
 						$client = fetchAssociations(
@@ -324,7 +324,7 @@ function valIsNull($key, $val) {
 
 function redline($s){$s = is_array($s) ? print_r($s, 1) : $s; echo "<font color=red>[$s]</font></br>";}
 
-function mres($s) { return mysql_real_escape_string($s); }
+function mres($s) { return mysqli_real_escape_string($s); }
 function handleMappedFields() {
 	global $line, $client, $pet, $stack, $lastPattern, $fieldMap, $box, $boxCounts;
 	if(!lineStartsWithOneOf(array_keys($fieldMap))) return;

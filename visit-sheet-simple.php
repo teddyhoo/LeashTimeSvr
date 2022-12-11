@@ -164,7 +164,7 @@ if($id && $_SESSION["flags_enabled"]) {
 	require_once "client-flag-fns.php";
 	$flagPanel = clientFlagPanel($id, $officeOnly=true);
 }
-//if(mattOnlyTEST()) print_r($_SESSION['preferences']);
+
 
 $wagPrimaryNameMode = getUserPreference($_SESSION['auth_user_id'], 'provuisched_client');
 if(!$wagPrimaryNameMode) $wagPrimaryNameMode = 'fullname';
@@ -259,7 +259,7 @@ else echo "<tr><td><i>No Visit Notes.</td></tr>";
   <tr><td colspan=2><b>Emergency Contact</b></td></tr>
 	<?
 	$fields = explodePairsLine('name|Name||homephone|Home Phone||cellphone|Cell Phone||workphone|Work Phone||location|Location');
-//if(mattOnlyTEST()) echo "XXXX".print_r($contacts, 1);
+
 	dumpFieldsSimple($fields, $contact);
 	?>
   <tr><td colspan=2><?= $contact['haskey'] ? 'Has key to house' : 'Does not have key to house' ?></td></tr>

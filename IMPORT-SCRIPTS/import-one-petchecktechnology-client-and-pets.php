@@ -334,7 +334,7 @@ function handleFnameSpaceLname($str, &$destination, $fnameKey='fname', $lnameKey
 	}
 }
 
-function mres($s) { return mysql_real_escape_string($s); }
+function mres($s) { return mysqli_real_escape_string($s); }
 
 function redline($s){$s = is_array($s) ? print_r($s, 1) : $s; echo "<font color=red>[$s]</font></br>";}
 

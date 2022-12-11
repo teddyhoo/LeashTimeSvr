@@ -361,7 +361,7 @@ if(in_array(userRole(), array('o', 'd'))) {
 		if(getSystemPrefix($label)) $templates[substr($label, strlen(getSystemPrefix($label)))] = $id;
 		else $templates[$label] = $id;
 	}
-//if(mattOnlyTEST()) echo "templates: ".print_r($templates,1);
+
 	require_once "email-template-fns.php";
 	$orgTemplates = getOrganizationEmailTemplateOptions($rType);
 	if($orgTemplates) $templates['Shared Templates'] = $orgTemplates;
@@ -374,7 +374,7 @@ if(in_array(userRole(), array('o', 'd'))) {
 }
 
 // $messageBody may be defined by including script
-//if(mattOnlyTEST()) echo "BANG!<hr>$template<hr>[$messageBody]<hr>".print_r(fetchFirstAssoc("SELECT * FROM tblemailtemplate WHERE active = '1' AND targettype = '$rType' AND templateid = $template", 1), 1);	
+	
 if(!$messageBody && $template) {
 	$sql = "SELECT * FROM tblemailtemplate WHERE active = '1' AND targettype = '$rType' AND templateid = $template"; //  AND label NOT LIKE '#STANDARD - %'
 	if($fullTemplate = fetchFirstAssoc($sql)) {

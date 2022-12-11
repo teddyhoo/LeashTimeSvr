@@ -75,7 +75,7 @@ if(!$billables) echo "No unpaid billables found for {$client['fname']} {$client[
 else {
 	echo "<h2>{$client['fname']} {$client['lname']}'s Unpaid Billables</h2>";
 	tableFrom($columns, $billables);
-	//if(mattOnlyTEST()) echo join(', ', (array)$collectedBillableIDs);
+	
 }
 
 $unappliedCredits = fetchAssociations("SELECT * FROM tblcredit WHERE clientptr = $id AND amountused < amount");

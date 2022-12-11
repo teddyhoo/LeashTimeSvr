@@ -18,7 +18,7 @@ else if($_REQUEST['user']) {
 	$target = $mgrs[$_REQUEST['user']];
 }
 if($target) $body = preprocessTemplateMessage($body, $target, $template);
-//if(mattOnlyTEST()) $body .= print_r($_REQUEST,1);
+
 
 echo json_encode(array('body'=>$body));
 

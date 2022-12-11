@@ -111,7 +111,7 @@ function getSmallBannerCSS() {
 	else if(file_exists($_SESSION["uidirectory"].'../logo.gif')) $headerBizLogo .= '../logo.gif';
 	else if(file_exists($_SESSION["uidirectory"].'../logo.png')) $headerBizLogo .= '../logo.png';
 	else $headerBizLogo = '';
-//if(mattOnlyTEST()) {echo $headerBizLogo;	exit;}
+}
 
 //echo "BANG!BANG!fuckingBANG!  $headerBizLogo".print_r($_SESSION,1);exit;	
 	

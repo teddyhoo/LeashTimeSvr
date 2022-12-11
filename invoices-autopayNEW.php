@@ -248,7 +248,7 @@ screenLog("Time from start to finish findIncompleteJobsResultSet: ".round((micro
 
 	$incompleteClients = array();
 	if($result) {
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC))
 		 $incompleteClients[$row['clientptr']] = $incompleteClients[$row['clientptr']]+1;
 	}
 	foreach($incompleteClients as $clientid => $num)

@@ -83,7 +83,7 @@ if($reassign) {  // AJAX - reassign request to admin $adm
 		echo $reassign;
 	}
 	else {
-		logError($_SESSION['auth_user_id'].'|'.mysql_error().'|'.$sql);
+		logError($_SESSION['auth_user_id'].'|'.mysqli_error().'|'.$sql);
 		echo "ERROR";
 	}
 	exit;
@@ -175,14 +175,14 @@ if($_POST) {
 					$oldclient = $oldclient ? $oldclient : fetchFirstAssoc("SELECT * FROM tblclient WHERE clientid = $clientptr");
 					if(!$textButtonsOffered && textMessageEnabled($oldclient[$key])) $val = "T$val";
 					else if($textButtonsOffered && $_POST["sms_primaryphone_$key"]) $val = "T$val";
-//if(mattOnlyTEST()) {print_r($profileChangeRequests); echo "<p>"; print_r($_POST);echo "<p>$key: $val";echo "<p>textButtonsOffered: $textButtonsOffered";exit;}
+}
 					if($primaryphone == $key) $val = "*$val";
 //if(mattOnlyTEST() && ($key == 'cellphone')) {echo print_r($_POST,1)."<hr>sms_primaryphone_$key [{$_POST["sms_primaryphone_$key"]}]".print_r($val,1);exit;}
 //if(mattOnlyTEST() && ($key == 'workphone')) {print_r($_POST);exit;}
 				}
 				$changes[$key] = $val;
 			}
-//if(mattOnlyTEST()) {echo "$clientptr [$primaryphone] ".print_r($changes, 1);				exit;}
+}
 			if($changes) updateTable('tblclient', $changes, "clientid = $clientptr", 1);
 //echo "[[[[clientptr: ".print_r($changes, 1)."]]]]<p>$clientptr";exit;
 		}
@@ -227,7 +227,7 @@ if($_POST) {
 					? $errors[0]
 					: '<ul><li>'.join('<li>', $errors).'</ul>';
 		}
-//if(mattOnlyTEST()) {echo "BANG!<p>".print_r($errors,1); exit;}
+}
 
 		// apply contact changes
 		$proceedWithSection = false;
@@ -250,8 +250,8 @@ if($_POST) {
 			$existingContacts = getKeyedClientContacts($clientptr);
 			foreach($contactPostFields as $index => $fields) {
 				$contactId = $index >= count($contactFields) ? null : $existingContacts[$index]['contactid'];
-//if(mattOnlyTEST()) echo "Existing contacts: ".print_r($existingContacts,1)."<p>Contact ID: $contactId<p>";
-//if(mattOnlyTEST()) logChange(-999, 'DEBUG', 'm', 'FIELDS: '.print_r($fields, 1));
+
+
 if(mattOnlyTEST()) logChange(-999, 'DEBUG', 'm', 'profileChangeRequests: '.print_r($profileChangeRequests, 1));
 				if($fields['contactid'] != $contactId)
 					unset($fields['contactid']);
@@ -1142,7 +1142,7 @@ function displayRequestEditor($source, $updateList) {
 			echoButton('', 'Go to Sitter Payment',
 				"if(window.opener) window.opener.location.href=\"provider-payment.php?startDate=$startDate&throughDate=$throughDate\"",
 				'', '',	'noecho', 'Review Payroll');
-//if(mattOnlyTEST()) {echo $source['note']; exit;		}
+		}
 		echo "<tr><td>Note:</td><td style='border:solid black 1px;'>$payrollButton<p>{$source['note']}</td></tr>";
 	}
 	else {
@@ -1194,7 +1194,7 @@ hiddenElement('emailNameCheck', $source['email']);
 		$note = $source['note'];
 		if($source['requesttype'] == 'Schedule') {
 			$schedule = scheduleFromNote($note);
-//if(mattOnlyTEST()) echo "JSON: $note<hr>is JSON: [".scheduleRequestPayloadIsJSON($note)."]<hr>".print_r($schedule, 1);			
+			
 			$note = explode("\n", $source['note']);  // $schedule['note'];, if we ever add it
 			$note = urldecode($note[2]);
 		}
@@ -1344,10 +1344,10 @@ function showProfileChangeEditorTable($source) {
 	$fields = array();
 	for($i=0;$i < count($raw) - 1; $i+=2) $fields[$raw[$i]] = $raw[$i+1];
 	$sectionChange = false;
-//if(mattOnlyTEST()) print_r($changes);
+
 	foreach($changes as $key => $val)
 		if(isset($fields[$key]) || isset($fields["mail$key"])) $sectionChange = $key;
-//if(mattOnlyTEST()) print_r($sectionChange);
+
 	if($sectionChange) {
 		echo "<tr><td>&nbsp;</td><tr>";
 		echo "<tr><td class='sectionHead' colspan=3>Client Profile Changes</td><tr>";
@@ -1416,7 +1416,7 @@ function showProfileChangeEditorTable($source) {
 	}
 
 
-//if(mattOnlyTEST()) print_r($petIdsByIndex);
+
 
 
 	foreach($changes as $key => $val) {
@@ -1467,7 +1467,7 @@ function showProfileChangeEditorTable($source) {
 			else $pet = $petsById[$thisPetId];
 
 			//$pet =  $thisPetId ? $petsById[$thisPetId] : array('name'=> 'New Pet');
-//if(mattOnlyTEST()) echo "<tr><td>[$thisPetId] ".print_r($petsById, 1);
+
 			// $pet =!$isNewPet ? $pets[$petIndex-1] : array('name'=> 'New Pet');
 //if($pet['name']	== 'New Pet' && mattOnlyTEST()) $pet['name'] = "{$pet['name']} ($petIndex)";
 			if($petIndex != $lastPetIndex/*$thisPetId != $lastPetId*/) {
@@ -1476,7 +1476,7 @@ function showProfileChangeEditorTable($source) {
 				$lastPetId = $thisPetId;
 				echo "<tr><td colspan=3 style='text-align:center;text-decoration:underline;'>".($pet['name'] ? $pet['name'] : 'Unnamed Pet')."</td></tr>";
 				if($isNewPet && !trim((string)$changes["name_$petIndex"])) inputRow('Name:', "name_$petIndex", "NO NAME SUPPLIED");
-				//if(mattOnlyTEST()) {echo "<tr><td colspan=2>".print_r($changes, 1);}
+				}
 			}
 			$label = $field == 'dropphoto' ? 'Drop Photo': $petFields[$field];
 			$customFieldType = null;

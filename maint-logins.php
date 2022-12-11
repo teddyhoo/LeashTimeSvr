@@ -121,7 +121,7 @@ else if($pattern || $conditions) {
 		$patterns = array_map('trim', explode(',', $pattern));
 		foreach($patterns as $i => $pat) {
 			if(strpos($pat, '*') !== FALSE) $pat = str_replace('*', '%', $pat);
-			$tests[] = "tbllogin.loginid LIKE '".mysql_real_escape_string($pat)."'";
+			$tests[] = "tbllogin.loginid LIKE '".mysqli_real_escape_string($pat)."'";
 		}
 	}
 	$sql = "SELECT tbllogin.loginid, success, rights, failurecause, bizid, bizname, 	remoteaddress, browser, LastUpdateDate as time, tbluser.active
@@ -132,7 +132,7 @@ WHERE $where AND (".($tests ? join(' OR ', $tests) : "1=1").")
 ORDER BY LastUpdateDate DESC LIMIT $limit";
 	$result = doQuery($sql);
 }
-//if(mattOnlyTEST()) echo "<hr>$sql<hr>";
+
 
 
 $windowTitle = 'Recent Logins';
@@ -190,7 +190,7 @@ $titles = explodePairsLine("p|P = Sitter||o|O = Owner / Manager||c|C = Client||d
 echo join(' - ', $titles);
 foreach((array)$hackerIPs as $ip) $hackerIPKeys[$ip] = 1;
 foreach((array)$likelyHackersAgents as $agent) $hackerAgentKeys[$agent] = 1;
-if($result) while($line = mysql_fetch_assoc($result)) {
+if($result) while($line = mysqli_fetch_assoc($result)) {
 	$time = date('m/d/Y H:i:s', strtotime($line['time']));
 	$color = $line['failurecause'] ? "style='background:pink'" : '';
 	$failure = $line['failurecause'] ? $line['failurecause'] : '0';

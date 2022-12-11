@@ -118,8 +118,8 @@ if($packdetail) {
 		if($_SESSION['preferences']['bottomLineOnlyInSchedNotificPriceInfo'])
 			$priceInformation = '<b>Total: </b>'.dollarAmount($bottomLine).'<p>';
 		//$showStats=true, $includeApptLinks=true, $surcharges=null
-		//if(mattOnlyTEST()) {echo "<p>Appts include 253438: ".in_array(253438, $apptIds).'<p>'.join(', ', $apptIds); exit;}
-		//if(mattOnlyTEST()) {echo "<p>Appts: <pre>".print_r($appts,1)."</pre>"; exit;}
+		}
+		}
 
 		//$oldApplyValue = $applySitterNameConstraintsInThisContext;
 		//$applySitterNameConstraintsInThisContext = true;

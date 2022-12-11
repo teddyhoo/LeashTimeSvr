@@ -211,7 +211,7 @@ function populateClient($clientid) {
 			$sequence += 1;
 		}
 	}
-//if(mattOnlyTEST()) { print_r($client); exit; }	
+ }	
 	
 	// hasKey Y|N, key ID etc taken car of elsewhere
 	
@@ -240,7 +240,7 @@ function populateClient($clientid) {
 			}
 		}
 		$client['pets'][] = $p;
-//if(mattOnlyTEST()) { print_r($client['pets']); exit; }	
+ }	
 	// pet name
 	// pet type
 	// breed

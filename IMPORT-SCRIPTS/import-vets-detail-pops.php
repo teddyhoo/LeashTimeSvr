@@ -57,8 +57,8 @@ foreach($vets as $i => $vet) {
 									'state'=>$vet['state'],
 									'zip'=>$vet['zip']);
 	insertTable('tblclinic', $clinic, 1);
-	if(!mysql_error()) {
-		echo "Vet #".mysql_insert_id()." [{$vet['name']}] added.<br>";
+	if(!mysqli_error()) {
+		echo "Vet #".mysqli_insert_id()." [{$vet['name']}] added.<br>";
 		$n++;
 	}
 }

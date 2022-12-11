@@ -63,7 +63,7 @@ function findUpcomingScheduleStarts() {
 																FROM tblappointment
 																WHERE canceled IS NULL AND packageptr IN ($history)
 																ORDER BY date ASC");
-//if(mattOnlyTEST()) echo "TARGET: $targetDate<p>";print_r($dates);	
+	
 //echo "<br>(".join(', ', $dates).")";
 				$qualifier = $dates[0] == $targetDate ? "starting" : ($dates[count($dates)-1] == $today ? 'ending' : '');
 				if($dates[0] == $targetDate || $dates[count($dates)-1] == $today) {

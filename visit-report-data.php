@@ -107,7 +107,7 @@ echo json_encode(visitReportDataPacket($id, !$nuggetid));
 //echo "killSession[[[$killSession]]]";exit;
 //echo "[[[{$appt['appointmentid']}]]] [$includeFields]";
 
-//if(mattOnlyTEST()) echo "USER ROLE: [".userRole()."]<p>";
+
 
 $includeValue = inclusionPreferences($appt['clientptr'], $includeFields);
 $visitPhotoURL = visitPhotoURL($appt['appointmentid'], $internalUse, $bizptr);
@@ -129,10 +129,10 @@ $service = 	$serviceType = fetchRow0Col0("SELECT label FROM tblservicetype WHERE
 
 echo enhancedOnlineVisitReportHTML($appt, !$killSession, null, $includeFields);
 */
-//if(mattOnlyTEST()) echo "USER ROLE: [".userRole()."] <p>killSession[$killSession]<br>";
+
 //echo "killSession[[[$killSession]]]";exit;
 if($killSession) {
 	session_unset();
 	session_destroy();
 }
-//if(mattOnlyTEST()) echo "USER ROLE: [".userRole()."] <p>killSession[$killSession]<br>";
+

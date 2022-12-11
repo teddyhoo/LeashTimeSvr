@@ -108,7 +108,7 @@ function reportAllSolverasPaymentSources() {
 	echo "<table border=1 bordercolor=black>";
 	echo "<tr><th>Name<th>Vault Entries";
 	foreach($noachs as $item) {
-		$nm = mysql_real_escape_string($item['name']);
+		$nm = mysqli_real_escape_string($item['name']);
 		$count = fetchRow0Col0("SELECT count(*) FROM tblvaultentry WHERE check_name = '$nm'"
 														." OR CONCAT_WS(' ', first_name, last_name) = '$nm'");												
 		echo "<tr><td>{$item['name']}<td>".($count ? $count : '');
@@ -122,7 +122,7 @@ function generateCCsAndACHs() {
 	$sql = "SELECT * FROM tblvaultentry WHERE ltclientid > 0 ORDER BY updated ASC";
 	if(!($result = doQuery($sql))) return null;
 	$assocs = array();
-	while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		if($row['check_name']) {
 			//echo "ACH - {$row['check_name']} ({$row['customerid']}): ";
 			$ach = array(
@@ -191,7 +191,7 @@ function generateCCsAndACHs() {
 function reportOnVaultEntryTable() {
 	$sql = "SELECT * FROM tblvaultentry ORDER BY updated ASC";
 	if(!($result = doQuery($sql))) return null;
-	while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$key = ($row['email'] ? $row['email'] : "({$row['address_1']} {$row['postal_code']})").$row['account'];
 		$name = $row['check_name'] ? $row['check_name'] : "{$row['first_name']} {$row['last_name']}";
 		if($accounts[$key]) echo "<font color=lightgrey>Dup for {$accounts[$key]} ($key))</font><br>";

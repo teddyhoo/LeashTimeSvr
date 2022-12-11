@@ -26,7 +26,7 @@ $dailyMasterScheduleEmailOption = true; //getPreference('dailyMasterScheduleEmai
 extract(extractVars('scheduleDay,noEmptyProviderScheduleNotification,noAllCanceledProviderScheduleNotification,scheduleDaily,scheduleDayAll,scheduleDailyAll,noEmptyProviderScheduleNotificationAll', $_REQUEST));
 
 if($_POST) {
-//if(mattOnlyTEST()) {print_r($_POST);exit;}
+}
 	setPreference('scheduleDay', $scheduleDay);
 	setPreference('noEmptyProviderScheduleNotification', $noEmptyProviderScheduleNotification ? '1' : '0');
 	setPreference('noAllCanceledProviderScheduleNotification', $noAllCanceledProviderScheduleNotification ? '1' : '0');
@@ -73,7 +73,7 @@ if($_POST) {
 
 $prefs = fetchPreferences();
 
-//if(mattOnlyTEST()) {echo "scheduleDay: {$prefs['scheduleDay']}<br>scheduleDaily: {$prefs['scheduleDaily']}<p>";print_r($prefs);}
+}
 
 
 $windowTitle = 'Sitter Schedule Email Preferences';

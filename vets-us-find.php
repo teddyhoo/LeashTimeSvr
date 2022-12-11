@@ -60,11 +60,11 @@ if($_GET['addressPat'] || $_GET['namePat']) {  // AJAX
 	 		FROM vetclinic_us
  			WHERE ".join(' AND ', (array)$filter)
  			." ORDER BY clinicname, state, city");
- $found = mysql_num_rows($result);
+ $found = mysqli_num_rows($result);
  $found = $found > $limit ? "$found found. $limit shown." : "$found found.";
 //echo "<ERROR>SELECT clinicname, city, state  	 		FROM vetclinic_us WHERE ".join(' AND ', (array)$filter)." ORDER BY clinicname, state, city LIMIT 25</ERROR>";exit;
  echo "<clinics><found>$found</found>";
- while(($clinic = mysql_fetch_array($result, MYSQL_ASSOC)) && $n < $limit) {
+ while(($clinic = mysqli_fetch_array($result, MYSQL_ASSOC)) && $n < $limit) {
 	$n++;
 	 echo "<c><nm><![CDATA[{$clinic['clinicname']}]]></nm>";
 	 echo "<cid><![CDATA[{$clinic['clinicid']}]]></cid>";
@@ -226,7 +226,7 @@ function showClinics(arg, resultxml) {
 		return;
 	}
 	var found = '';
-<? //if(mattOnlyTEST()) echo "if(!root.getElementsByTagName('found')[0]) alert(resultxml);" ?>
+<? " ?>
 	found = root.getElementsByTagName('found')[0].firstChild.nodeValue;
 	var appts = root.getElementsByTagName('c');
 	var atable = 'None found.';

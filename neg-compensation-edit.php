@@ -20,7 +20,7 @@ $auxiliaryWindow = true; // prevent login from appearing here if session times o
 
 // Verify login information here
 locked('o-');
-//if(mattOnlyTEST()) echo "MATT: ".print_r($_REQUEST, 1);
+
 extract(extractVars('amount,reason,charge,date,creationdate,lastday,provider,billableptr,saveCharge,usage,deleteCharge,id', $_REQUEST));
 $idToFind = $id ? $id : $deleteCharge;
 if($idToFind) {

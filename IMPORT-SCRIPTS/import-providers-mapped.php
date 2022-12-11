@@ -81,7 +81,7 @@ echo "$conv: $field	<br>";
 		$mapID = $prov['mapID'];
 		if(!$prov['activeHasBeenSet']) $prov['active'] = ($allInactive ? '0' : '1');  // see convert_setClientActive
 		saveNewProviderWithData($prov);
-		$newClientId = mysql_insert_id();
+		$newClientId = mysqli_insert_id();
 		if($mapID) $provMap[$mapID] = $newClientId;
 		echo "<p>Created PROVIDER #$newClientId {$prov['fname']} {$prov['lname']}<br>";
 		if($key) {
@@ -101,7 +101,7 @@ echo "$conv: $field	<br>";
 		}
 		if($prov['custom']) {
 			foreach($prov['custom'] as $field => $val) {
-				$val = mysql_real_escape_string($val);
+				$val = mysqli_real_escape_string($val);
 				if(!$customFields[$field])
 					echo "Bad custom field [$field].  Could not populate this field with [$val] for {$prov['lname']} [{$prov['mapID']}]";
 				else doQuery("REPLACE relclientcustomfield (clientptr, fieldname, value) VALUES ($newClientId, '$field', '$val')");

@@ -279,7 +279,7 @@ function setNags() {
 $locked = locked('o-,#rs');
 
 if(!$print && !$csv) {
-	//if(mattOnlyTEST()) $settings = '- '.fauxLink('Settings', 'openSettings()', 1);
+	
 	$breadcrumbs = "<a href='reports-survey-submissions.php'>Survey Submissions</a>$settings - <a href='reports.php'>Reports</a>";	
 	include "frame.html";
 	// ***************************************************************************

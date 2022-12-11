@@ -10,7 +10,7 @@ $locked = locked('o-');
 $species = $_REQUEST['species'] ? $_REQUEST['species'] : 'Client';
 $prefix = $species == 'Client' ? '' : 'pet';
 
-//if(mattOnlyTEST()) print_r($_POST);
+
 if($_POST) {
 	saveCustomFieldSpecs($prefix);
 	setPreference('showAllCustomFieldsInMobileSitterApps', $_POST['showAllCustomFields']);

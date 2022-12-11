@@ -144,7 +144,7 @@ function holidaySurchargeLink($surcharge)  {
 
 function upcomingHolidayRecurringAppts($exactLookahead=false, $lookahead=null) {
 	$holidays = upcomingHolidays($exactLookahead, $lookahead);
-//if(mattOnlyTEST()) echo "H ". print_r($holidays, 1);	
+	
 	if(!$holidays) return array();
 	foreach($holidays as $holiday) {
 		$dates[] = $holiday['date'];

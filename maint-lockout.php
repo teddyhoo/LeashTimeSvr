@@ -21,7 +21,7 @@ else {
 		deleteTable('tblpetbizpref', "property = 'lockoutnote' AND bizptr = '$bizId'", 1);
 		if($lockoutnote) replaceTable('tblpetbizpref', array('property'=>'lockoutnote', 'value'=>$lockoutnote, 'bizptr' => $bizId), 1);
 		//echo "lockout set to $lockout where bizid = '$bizId'<p>";print_r($_GET);
-		if(mysql_error()) echo mysql_error();
+		if(mysqli_error()) echo mysqli_error();
 		else echo 'OK';
 		exit;
 	}
@@ -121,7 +121,7 @@ function showLogins($bizId) {
 	$roles = explodePairsLine("p|P||o|O||c|C||d|D");
 	$titles = explodePairsLine("p|P = Sitter||o|O = Owner / Manager||c|C = Client||d|D = Dispatcher");
 	echo join(' - ', $titles);
-	if($result) while($line = mysql_fetch_assoc($result)) {
+	if($result) while($line = mysqli_fetch_assoc($result)) {
 		$time = date('D m/d/Y H:i:s', strtotime($line['time']));
 		$color = $line['failurecause'] ? "style='background:pink'" : '';
 		$failure = $line['failurecause'] ? $line['failurecause'] : '0';

@@ -395,7 +395,7 @@ if($goMinilog) {$t0 = $utime = microtime(1);}
 	$clearCCs= $_SESSION['ccenabled'] ? getClearCCs($clientids, 1) : array();
 //if($goMinilog) {$minilog[] = "getClearCCs (for ".count($clientids)." clients): ".(microtime(1) - $utime)." secs.<br>"; $utime = microtime(1);}
 //if($goMinilog) {$minilog[] = "interim: ".(microtime(1) - $utime)." secs.<br>"; $utime = microtime(1);}
-//if(mattOnlyTEST()) print_r($prepayments[37]);
+
 	completePrepaymentsArray($prepayments, $repeatCustomers, $recurring, $section);
 	$columns = explodePairsLine('cb| ||payment|Payment||clientname|Client||flags|Flags||invoicecell|History||netdue|Net Due'); // ||prepaymentdollars|Payment Due||credits|Credits
 	if($globalPriorUnpaidToggleNeeded) { // set in completePrepaymentsArray
@@ -406,8 +406,8 @@ if($goMinilog) {$t0 = $utime = microtime(1);}
 //$showZeroNetDue = !$goMinilog;	
 	if(!$showZeroNetDue) {
 		foreach($prepayments as $i => $pp) {
-//if(mattOnlyTEST()) echo print_r($pp, 1).'<br>';
-//if(mattOnlyTEST()) echo "{$pp['fname']} {$pp['lname']} {$pp['prepayment']} &lt;= {$pp['creditvalue']}<hr>";
+
+
 			$shouldBeHidden = TRUE ? ($pp['netdueraw'] < .01 /*<= 0*/) : ($pp['prepayment'] <= $pp['creditvalue']);
 			//if($pp['prepayment'] <= $pp['creditvalue'])
 			if($shouldBeHidden)
@@ -494,7 +494,7 @@ if($goMinilog) {$t0 = $utime = microtime(1);}
 	$incompleteStartDate = $literal ? $date : null;
 	if($incompleteStartDate) $incompleteStartDate = date('Y-m-d', min(strtotime(date('Y-m-d')), strtotime($incompleteStartDate)));
 	$incompleteVisitsResultSet = findIncompleteJobsResultSet($incompleteStartDate, $incompleteLastDate);
-	if(($resultSize = mysql_num_rows($incompleteVisitsResultSet)) > 0) {
+	if(($resultSize = mysqli_num_rows($incompleteVisitsResultSet)) > 0) {
 		$dateRange = "incompleteend=$incompleteLastDate";
 		$dateRange .= $incompleteStartDate ? "&incompletestart=$incompleteStartDate" : "&showIncomplete=days60";
 		$dateRange = "showIncomplete=1&$dateRange";
@@ -1143,11 +1143,11 @@ function emailSelectedInvoices(section) {
 	args += '&literal='+(document.forms['showform_'+section].elements['literal_'+section].checked ? '1' : '0');
 	if(excludes != null) args += "&excludePriors="+excludes;
 	if(document.forms['showform_'+section].elements['templateid_'+section]) alert('hooboy');
-<? //if(mattOnlyTEST()) echo "alert(document.getElementById('templateid_'+section));\n" // ['templateid']?>
+<? \n" // ['templateid']?>
 	var templateSelect = document.getElementById('templateid_'+section);
 	if(templateSelect != null && typeof templateSelect != 'undefined')
 			args += '&templateid='+templateSelect.options[templateSelect.selectedIndex].value;
-<? //if(mattOnlyTEST()) echo "alert('billing-statement-email.php?send=1&ids='+sels+args);"; ?>
+<?  ?>
 	ajaxGetAndCallWith('billing-statement-email.php?send=1&ids='+sels+args, reportEmailSuccess, null);
 }
 
@@ -1249,7 +1249,7 @@ function update(target, aspect) {
 												+"&firstDay_recurring="+firstDayR+"&lastDay_recurring="+lastDayR
 												+"&firstDay_nonrecurring="+firstDayNR+"&lastDay_nonrecurring="+lastDayNR
 												+"&firstDay_monthly="+firstDayM+"&lastDay_monthly="+lastDayM;
-<? //if(mattOnlyTEST()) echo "alert('refreshURL: '+refreshURL);" ?>
+<? " ?>
 //refreshURL: billing.php?clientupdate=1633&firstDay_recurring=null&lastDay_recurring=null&firstDay_nonrecurring=03/01/2015&lastDay_nonrecurring=03/31/2015&firstDay_monthly=null&lastDay_monthly=null
 		ajaxGetAndCallWith(refreshURL, updateClientRowCallback, rowid)
 	}
@@ -1291,7 +1291,7 @@ function updateClientRowCallback(rowid, data) {
 	//alert(data);
 	var root = getDocumentFromXML(data).documentElement;
 	//alert(root);
-<? //if(mattOnlyTEST()) echo "alert(root.tagName);return;" ?>
+<? " ?>
 	if(root.tagName == 'ERROR') {
 		alert(root.nodeValue);
 		return;
@@ -1320,7 +1320,7 @@ function updateClientRowCallback(rowid, data) {
 				openPaymentWindow(rowvals.clientid); });
 	}
 	$('#viewRecent_'+rowvals.clientid+'_'+rowvals.section).html(rowvals.viewRecent);
-<? //if(mattOnlyTEST()) echo "alert('********************!');return;" ?>
+<? " ?>
 	applyFilter();		
 	
 }

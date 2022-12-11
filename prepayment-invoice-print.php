@@ -39,7 +39,7 @@ $first = true;
 foreach($ids as $id) {
 	if(!$first) echo "<p style='page-break-before:always;'>";
 //NEWdisplayPrepaymentInvoice($invoiceOrClientId, $firstDay, $lookahead, $firstInvoicePrinted=true, $includePriorUnpaidBillables=false, $showOnlyCountableItems=false, $scope=null) {
-//if(mattOnlyTEST()) echo "NEWdisplayPrepaymentInvoice($id, $firstDay, $lookahead, $first, $includePriorUnpaidBillables);";
+
 	NEWdisplayPrepaymentInvoice($id, $firstDay, $lookahead, $first, $includePriorUnpaidBillables);
 	$first = false;
 }

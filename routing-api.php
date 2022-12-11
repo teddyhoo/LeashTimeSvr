@@ -47,7 +47,7 @@ function apiLogin($userName, $password, $userRole='I') {
              AND active = 1", 1);
 
 	if(!$user && !$failure) {
-		$badLogin = fetchFirstAssoc("select * from tbluser where LoginID = '".mysql_real_escape_string($userName)."'");
+		$badLogin = fetchFirstAssoc("select * from tbluser where LoginID = '".mysqli_real_escape_string($userName)."'");
 		if($badLogin && $badLogin['tempPassword']) // clear temporary password, if any
 			doQuery("UPDATE tbluser set tempPassword = '' WHERE userid = '{$badLogin['userid']}'");
 		if(!$badLogin) $failure = 'U'; // Unknown
@@ -83,7 +83,7 @@ function apiLogin($userName, $password, $userRole='I') {
 					 ", FailureCause = '$failure'".
 					 ", RemoteAddress = '{$_SERVER["REMOTE_ADDR"]}'".
 					 ", browser = '"
-					 	.mysql_real_escape_string($_SERVER["HTTP_USER_AGENT"] ? $_SERVER["HTTP_USER_AGENT"] : $_SESSION['jsuseragent'])
+					 	.mysqli_real_escape_string($_SERVER["HTTP_USER_AGENT"] ? $_SERVER["HTTP_USER_AGENT"] : $_SESSION['jsuseragent'])
 					 	."'"
 					 	.(usingMobileSitterApp() ? ", note = 'mobile'" : '')
 					 .updateStamp());

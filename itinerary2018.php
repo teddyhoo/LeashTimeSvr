@@ -65,8 +65,8 @@ if($emailprovider && !$parms) { // Case #2
 		$itinerary = ob_get_contents();
 		ob_end_clean();
 
-//if(mattOnlyTEST()) {echo 'XXX: '.$itinerary;exit;}
-//if(mattOnlyTEST()) $person['email'] = 'matt@leashtime.com';
+}
+
 		
 		
 		$parms = array("reordering=$reordering","generate=$generate","date=".dbDate($date),"pop=visitsheets",
@@ -113,7 +113,7 @@ else if($change) {
 }
 
 $date = isset($date) ? date('Y-m-d', strtotime($date)) : date('Y-m-d');
-//if(mattOnlyTEST()) echo "($provider, $date)";
+
 
 $providerAppts = getProviderDayAppointments($provider, $date);
 
@@ -141,7 +141,7 @@ $clientIds = array_unique($clientIds);
 
 $clientDetails = getClientDetails($clientIds, array('googleaddress', 'address'));
 
-//if(mattOnlyTEST()) print_r($clientDetails);
+
 /*
 $itinerary = getAddressList($providerAppts, $clientDetails);
 $itinerary = 'from: '.join(' to: ', $itinerary);

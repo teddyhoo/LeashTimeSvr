@@ -30,7 +30,7 @@ function getFileCacheStats() {
 	if(!remoteCacheAvailable())
 		return array('error'=>'tblfilecache not found');
 	$result = doQuery("SELECT * FROM tblfilecache");
-	while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$stats['cachecount'] += 1;
 		$stats['localcount'] += $row['existslocally'];
 		$stats['remotecount'] += $row['existsremotely'];
@@ -163,7 +163,7 @@ function dumpResizedVersion($f, $outName, $maxDims, $cacheResizedVersion=false) 
 $cacheResizedVersion = mattOnlyTEST();	
 	
 	ini_set('memory_limit', '512M');
-//if(mattOnlyTEST()) {print_r(targetSize($f, $maxDims));exit;}
+}
 
 	if($cacheResizedVersion && $maxDims) {
 		// on an ad-hoc basis, a photo may be requested to fit inside max dims
@@ -255,7 +255,7 @@ function dumpCachedResizedPhoto($photoName, $maxDims) {
 	
 	if(!$entryid) return false;
 	else {
-//if(mattOnlyTEST()) echo "BANG! [$photoName] [$remoteName]".print_r( $entryid, 1);exit;
+
 		dumpPhotoHeader($photoName);
 		dumpRemoteFileId($entryid);
 		return true;
@@ -272,7 +272,7 @@ function dumpCachedResizedPhoto($photoName, $maxDims) {
 function dumpPhotoHeader($file) {
 	$ctypes = array('jpg'=>'jpeg', 'png'=>'png', 'jpeg'=>'jpeg', 'gif'=>'gif');
 	$extension = strtolower(substr($file, strrpos($file, '.')+1));
-	//if(mattOnlyTEST()) {echo "$file: Content-Type: image/{$ctypes[$extension]}";} else
+	} else
 	header("Content-Type: image/{$ctypes[$extension]}");
 	header("Pragma: public"); // required
 	header("Expires: 0");
@@ -515,7 +515,7 @@ function saveAWS($localPath, $remotePath, $credentials=null, $contentType=null) 
 function restoreCachedFile($localPath, $remotePath) {
 	$credentials = getRemoteStorageCredentials();	
 	if($credentials['servicename'] == 'AWS') 
-//if(mattOnlyTEST()) echo print_r($remotePath,1)."<hr>"; // .$s3Client."<hr>"
+ // .$s3Client."<hr>"
 		if($success = restoreAWS($localPath, $remotePath, $credentials))
 			checkCacheLimits();
 	return $success;
@@ -528,7 +528,7 @@ function restoreAWS($localPath, $remotePath, $credentials=null) {
 	require_once 'aws-autoloader.php';
 	$s3Client = S3Client::factory(array('key'=>$credentials['accessKey'], 'secret'=>$credentials['secretAccessKey']));
 	$bucket = $credentials['bucketName'];
-//if(mattOnlyTEST()) echo print_r($s3Client,1)."<hr>"; // .$s3Client."<hr>"
+ // .$s3Client."<hr>"
 	try {
 		$result = $s3Client->getObject(array(
 				'Bucket' => $bucket,
@@ -568,7 +568,7 @@ function checkAWSError($remotePath, $credentials=null) {
 	require_once 'aws-autoloader.php';
 	$s3Client = S3Client::factory(array('key'=>$credentials['accessKey'], 'secret'=>$credentials['secretAccessKey']));
 	$bucket = $credentials['bucketName'];
-//if(mattOnlyTEST()) echo print_r($s3Client,1)."<hr>"; // .$s3Client."<hr>"
+ // .$s3Client."<hr>"
 	try {
 		$result = $s3Client->getObject(array(
 				'Bucket' => $bucket,
@@ -664,7 +664,7 @@ function dumpRemoteFile($remotePath) { // fetch contents to standard output
 	require_once 'aws-autoloader.php';
 	$s3Client = S3Client::factory(array('key'=>$credentials['accessKey'], 'secret'=>$credentials['secretAccessKey']));
 	$bucket = $credentials['bucketName'];
-//if(mattOnlyTEST()) echo print_r($s3Client,1)."<hr>"; // .$s3Client."<hr>"
+ // .$s3Client."<hr>"
 	$absRemotePath = absoluteRemotePath($remotePath);
 	try {
 		$result = $s3Client->getObject(array(
@@ -742,14 +742,14 @@ function deleteFileForOwner($basename, $ownerptr, $ownertable) {
 	$remotePath = auxFilesPrefix($ownerptr, $ownertable).$basename;
 	$credentials = getRemoteStorageCredentials();
 	if(deleteAWS(absoluteRemotePath($remotePath), $credentials)) {
-		$saferemotepath = mysql_real_escape_string($remotePath);
+		$saferemotepath = mysqli_real_escape_string($remotePath);
 		return deleteTable('tblremotefile', "ownerptr = $ownerptr AND ownertable = '$ownertable' AND remotepath = '$saferemotepath'", 1);
 	}
 	return false;
 }
 
 function findFileForOwner($basename, $ownerptr, $ownertable) {
-	$remotePath = mysql_real_escape_string(auxFilesPrefix($ownerptr, $ownertable).$basename);
+	$remotePath = mysqli_real_escape_string(auxFilesPrefix($ownerptr, $ownertable).$basename);
 	return fetchFirstAssoc(
 		"SELECT * 
 			FROM tblremotefile 
@@ -775,7 +775,7 @@ function uploadFileForOwner($filename, $ownerptr, $ownertable, $usename=null, $r
 		$fileSize = filesize($filename);
 		if($credentials['servicename'] == 'AWS') {
 			if(saveFileRemotely($filename, $remotePath, $credentials)) { // absoluteRemotePath( is called in saveFileRepotely
-//if(mattOnlyTEST()) logError("Uploaded: ".absoluteRemotePath($remotePath));
+
 				$object = array('ownerptr'=>$ownerptr, 'ownertable'=>$ownertable, 'remotepath'=>$remotePath, 'uploaded'=>date('Y-m-d H:i:s'), 'filesize'=>$fileSize, 'remoteservice'=>'AWS', 'bucket'=>sqlVal("''"));
 				replacetable('tblremotefile', $object, 1);
 				return true;
@@ -1046,9 +1046,9 @@ function checkCacheLimits($localCountLimitOverride=null) {
 			$cachedFile['existsremotely'] = saveCachedFileRemotely($cachedFiles[$i]) ?  '1' : '0';
 		}
 		//1.6  delete local copy of oldest file
-//if(mattOnlyTEST()) echo "BEFORE {$cachedFiles[$i]['localpath']} exists: [".file_exists($cachedFiles[$i]['localpath'])."]<br>";
+
 		if(file_exists($cachedFiles[$i]['localpath'])) unlink($cachedFiles[$i]['localpath']);
-//if(mattOnlyTEST()) echo "AFTER {$cachedFiles[$i]['localpath']} exists: [".file_exists($cachedFiles[$i]['localpath'])."]<p>";
+
 		
 		updateTable('tblfilecache', $cachedFile, "filecacheid = '{$cachedFiles[$i]['filecacheid']}'", 1);
 	}

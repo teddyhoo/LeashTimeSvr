@@ -23,19 +23,19 @@ if($_POST && $resolveRequests) {
 	if($ids) {
 		if($deleteSpam) {
 			deleteTable('tblclientrequest', "requesttype='Spam' AND requestid IN (".join(',', $ids).")", 1);
-			$deleted = mysql_affected_rows();
+			$deleted = mysqli_affected_rows();
 			$_SESSION['frame_message'] = "$deleted requests deleted.";
 			logChange($deleted, 'tblclientrequest', 'd', "$deleted requests deleted");
 		}
 		else if($deleteRequest) {
 			deleteTable('tblclientrequest', "requestid IN (".join(',', $ids).")", 1);
-			$deleted = mysql_affected_rows();
+			$deleted = mysqli_affected_rows();
 			$_SESSION['frame_message'] = "$deleted requests deleted.";
 			logChange($deleted, 'tblclientrequest', 'd', "$deleted requests deleted");
 		}
 		else {
 			updateTable('tblclientrequest', array('resolved'=>1), "requestid IN (".join(',', $ids).")", 1);
-			$modified = mysql_affected_rows();
+			$modified = mysqli_affected_rows();
 			$_SESSION['frame_message'] = "$modified requests resolved.";
 			logChange($modified, 'tblclientrequest', 'm', "$modified requests resolved");
 		}

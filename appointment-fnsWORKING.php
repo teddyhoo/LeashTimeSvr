@@ -564,13 +564,13 @@ function detectVisitCollision($appt, $provid) { // $appt may or may not exist in
 									OR ('$endtime' $GT $rowStartTime AND '$endtime' $LT $rowEndTime)
 									)
 									";
-//if(mattOnlyTEST()) {echo $sql;exit;};
+
 /*						AND ((starttime >= '$starttime' AND starttime <= '$endtime')
 									OR ('$starttime' >= starttime AND '$starttime' <= endtime))
 */									
 	$serviceCodes = fetchCol0($sql);
-//if(mattOnlyTEST()) logLongError("sql: $sql");
-//if(mattOnlyTEST()) {echo "prov: $provid\n\n starttime: $starttime \n\n endtime: $endtime \n\n".print_r($appt, 1)."\n\ncodes: ".print_r(fetchFirstAssoc(str_replace('servicecode', '*', $sql)), 1);exit;}	
+
+}	
 	if($serviceCodes) { // there may be a collision
 		$existingExclusive = fetchRow0Col0(
 						"SELECT hoursexclusive
@@ -710,7 +710,7 @@ function changeAppointmentDate($appointmentid, $newDate) {
 	// HANDLE SITTER ASSIGNMENT
 	if($providerptr = $oldAppt['providerptr']) {			
 		require_once "provider-fns.php";
-//if(mattOnlyTEST()) logError("providerIsOff({$_POST['providerptr']}, {$_POST['date']}, {$_POST['timeofday']}): [".providerIsOff($_POST['providerptr'], $_POST['date'], $_POST['timeofday'])."]");				
+				
 		global $misassignedAppts;
 		if($val == '-1') $appt['providerptr'] = 0;
 		else if(!fetchRow0Col0("SELECT active FROM tblprovider WHERE providerid = $providerptr LIMIT 1")) {
@@ -783,7 +783,7 @@ function changeRecurringAppointmentDate($appointmentid, $newDate) {
 	// HANDLE SITTER ASSIGNMENT
 	if($providerptr = $oldAppt['providerptr']) {			
 		require_once "provider-fns.php";
-//if(mattOnlyTEST()) logError("providerIsOff({$_POST['providerptr']}, {$_POST['date']}, {$_POST['timeofday']}): [".providerIsOff($_POST['providerptr'], $_POST['date'], $_POST['timeofday'])."]");				
+				
 		global $misassignedAppts;
 		if($val == '-1') $appt['providerptr'] = 0;
 		else if(!fetchRow0Col0("SELECT active FROM tblprovider WHERE providerid = $providerptr LIMIT 1")) {
@@ -899,7 +899,7 @@ function updateAppointment() {
 		}
 		else if($field == 'providerptr' && $_POST['providerptr']) {			
 			require_once "provider-fns.php";
-//if(mattOnlyTEST()) logError("providerIsOff({$_POST['providerptr']}, {$_POST['date']}, {$_POST['timeofday']}): [".providerIsOff($_POST['providerptr'], $_POST['date'], $_POST['timeofday'])."]");				
+				
 			global $misassignedAppts;
 			if($val == '-1') $appt[$field] = 0;
 			else if($_POST['providerptr'] && !fetchRow0Col0("SELECT active FROM tblprovider WHERE providerid = {$_POST['providerptr']} LIMIT 1")) {
@@ -987,7 +987,7 @@ function updateAppointment() {
 //echo $memberid;exit;		
 		if($discount == $currentDiscount &&
 				($oldAppt['charge']+$oldAppt['adjustment'] != $appt['charge']+$appt['adjustment'])) {
-//if(mattOnlyTEST()) logError("resetAppointmentDiscountValue($appointmentid, {$appt['charge']}+{$appt['adjustment']})");
+
 			resetAppointmentDiscountValue($appointmentid, $appt['charge']+$appt['adjustment']);
 		}
 		else if($discount != $currentDiscount) {
@@ -1068,7 +1068,7 @@ getApptFields();
 
 function displayAppointmentEditor($source, $updateList=null) {
 	global $apptFields;
-//if(mattOnlyTEST()) echo print_r($source, 1);
+
 	$changeDateEnabled = 
 		dbTEST('dogslife')
 		&& $source['appointmentid']
@@ -1135,7 +1135,7 @@ function displayAppointmentEditor($source, $updateList=null) {
 	$packageTypeLink = $source['packageType'];
 	require_once "service-fns.php";
 	$apkid = findCurrentPackageVersion($source['packageptr'], $source['clientptr'], $source['recurringpackage'], $lastestIfNoneActive=true);
-//if(mattOnlyTEST()) echo "BANG [{$source['packageptr']}] [$apkid]";
+
 	$appack = getPackage($apkid);
 	
 	if(staffOnlyTEST() || dbTEST('pawlosophy')) {
@@ -1190,7 +1190,7 @@ function displayAppointmentEditor($source, $updateList=null) {
 		$currentCharges = getStandardCharges();
 		foreach(getClientCharges($source['clientptr']) as $code => $chrg) $currentCharges[$code] = $chrg;
 		$currentCharge = (float)($currentCharges[$source['servicecode']]['defaultcharge']);
-//if(mattOnlyTEST()) echo "client[{$source['clientptr']}] servicecode[{$source['servicecode']}] current[{$currentCharge}]<hr>"; //.print_r($currentCharges,1);
+
 		$chargeWarning = ($inactiveServiceType || (float)$source['charge'] != $currentCharge) ? "(Saved charge is ".dollarAmount($source['charge']).")" : '';
 	}
 		
@@ -1225,7 +1225,7 @@ function displayAppointmentEditor($source, $updateList=null) {
 	$currentRate = calculateServiceRate($source['providerptr'], $source['servicecode'], $source['pets'], 
 								$allPets, $source['charge']);
 	$actualRate = $source['rate'];
-//if(mattOnlyTEST()) echo "actual: [{$actualRate}] current: [{$currentRate}]<p>";	
+	
 	$rateWarning = ($inactiveServiceType || $actualRate != $currentRate) ? "(Saved rate is ".dollarAmount($actualRate).")" : '';
 	echo "<td><input id='rate' type='hidden' name='rate' size=2 value='{$source['rate']}'>
 	          <div id='div_rate' style='display:inline'>{$actualRate}</div> $rateWarning</td></tr>";

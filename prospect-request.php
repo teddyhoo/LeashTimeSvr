@@ -20,7 +20,7 @@ if(!$petBiz) {
 	echo "Business not found.";
 	killSessionAndExit();
 }
-mysql_close();
+mysqli_close();
 $_SESSION["dbhost"] = $petBiz["dbhost"];
 $_SESSION["db"] = $petBiz["db"];
 $_SESSION["dbuser"] = $petBiz["dbuser"];
@@ -47,7 +47,7 @@ saveNewProspectRequest($_POST);
 if($prefs['prospectRequestResponse']) { // the Staff Only URL or text
 	if(strpos($prefs['prospectRequestResponse'], 'http') === 0) $goback = $prefs['prospectRequestResponse'];
 	else {
-//if(mattOnlyTEST()) {echo globalURL("prospect-request-thankyou.php?bizid=$pbid&goback=$goback");exit;}
+}
 		globalRedirect("prospect-request-thankyou.php?bizid=$pbid&goback=$goback");
 		exit;
 	}

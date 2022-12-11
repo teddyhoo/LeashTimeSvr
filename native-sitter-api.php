@@ -404,7 +404,7 @@ function requestSessionAuthentication($userName, $password) {
              AND active = 1", 1);
 
 	if(!$user && !$failure) {
-		$badLogin = fetchFirstAssoc("select * from tbluser where LoginID = '".mysql_real_escape_string($userName)."'");
+		$badLogin = fetchFirstAssoc("select * from tbluser where LoginID = '".mysqli_real_escape_string($userName)."'");
 
 		if($badLogin && $badLogin['tempPassword']) // clear temporary password, if any
 			doQuery("UPDATE tbluser set tempPassword = '' WHERE userid = '{$badLogin['userid']}'");
@@ -436,7 +436,7 @@ function requestSessionAuthentication($userName, $password) {
 		$browser = $_SERVER["HTTP_USER_AGENT"] ? $_SERVER["HTTP_USER_AGENT"] : (
 				$_SESSION['jsuseragent'] ? $_SESSION['jsuseragent'] : '--');
 		if(suspiciousUserAgent($browser)) $browser = "suspicious: ".sqlScrubbedString($browser);
-		$browser = mysql_real_escape_string($browser);
+		$browser = mysqli_real_escape_string($browser);
 		$loginRecord = 
 			array('LoginID'=>($suspiciousLoginId ? $suspiciousLoginId : $userName), 
 						'Success'=>($failure ? '0' : '1'), 
@@ -455,7 +455,7 @@ function requestSessionAuthentication($userName, $password) {
 					 ", FailureCause = '$failure'".
 					 ", RemoteAddress = '{$_SERVER["REMOTE_ADDR"]}'".
 					 ", browser = '"
-					 	.mysql_real_escape_string($_SERVER["HTTP_USER_AGENT"] ? $_SERVER["HTTP_USER_AGENT"] : $_SESSION['jsuseragent'])
+					 	.mysqli_real_escape_string($_SERVER["HTTP_USER_AGENT"] ? $_SERVER["HTTP_USER_AGENT"] : $_SESSION['jsuseragent'])
 					 	."'"
 					 	.(usingMobileSitterApp() ? ", note = 'mobile'" : '')
 					 .updateStamp());*/
@@ -523,7 +523,7 @@ function registerVisitTrack($coord) {
 		// wipe any appt events that happen to be in the db
 		deleteTable('tblgeotrack', "appointmentptr = {$coord['appointmentptr']} AND date < '{$datetime}'", 1);
 		// if any appt events deleted, log the fact
-		if($deleted = mysql_affected_rows())
+		if($deleted = mysqli_affected_rows())
 			logChange($coord['appointmentptr'], 'tblgeotrack', 'd', "arrived again.deleted $deleted coords");
 	}
 	$coord['lat'] = $coord['lat'] ? $coord['lat'] : '0';

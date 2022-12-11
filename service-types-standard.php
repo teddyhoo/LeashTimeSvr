@@ -45,7 +45,7 @@ if($_POST) {
 			$service['hours'] = $_POST["hours_$i"];
 			$service['hoursexclusive'] = $_POST["exclusive_$i"] ? 1 : 0;
 			if(!$service['servicetypeid']) {
-//if(mattOnlyTEST()) {echo "<hr>Inserting #$i: ".print_r($service,1)."<hr>".print_r($_POST,1);}
+}
 				$newServiceTypeID = insertTable('tblservicetype', $service, 1);
 				logChange($newServiceTypeID, 'tblservicetype', 'm', "New Service type added: [{$service['label']}]");
 			}
@@ -55,14 +55,14 @@ if($_POST) {
 					logChange($service['servicetypeid'], 'tblservicetype', 'm', "Changes to [{$serv2['label']}]: $mods");
 				updateTable('tblservicetype', $service, "servicetypeid = {$serv2['servicetypeid']}", 1);
 			}
-			if(mysql_error()) $dbFaults[] = mysql_error();
+			if(mysqli_error()) $dbFaults[] = mysqli_error();
 		}
 	}
 	logChange(-999, 'tblservicetype', 'm', 'Service type changes saved');
 	if($idsToDelete) {
 		foreach($idsToDelete as $id) {
 			doQuery("DELETE FROM tblpreference WHERE property LIKE 'client_service_%' AND value LIKE '%|$id|%'");
-			if(mysql_error()) $dbFaults[] = mysql_error();
+			if(mysqli_error()) $dbFaults[] = mysqli_error();
 		}
 		require_once "preference-fns.php";
 		$_SESSION['preferences'] = fetchPreferences();
@@ -72,7 +72,7 @@ if($_POST) {
 		}
 		$idsToDelete = join(',', $idsToDelete);
 		doQuery("DELETE FROM tblservicetype WHERE servicetypeid IN ($idsToDelete)");
-		if(mysql_error()) $dbFaults[] = mysql_error();
+		if(mysqli_error()) $dbFaults[] = mysqli_error();
 		logChange(-999, 'tblservicetype', 'd', count($idsToDelete).' service types deleted');
 	}
 	getServiceNamesById('refresh');

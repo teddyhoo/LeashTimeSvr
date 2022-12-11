@@ -40,7 +40,7 @@ if($cancelOrUncancel != 'uncancel') {
 }
 //print_r($mods);echo "<p>[$where]<p>";
 $ids = fetchCol0("SELECT appointmentid FROM tblappointment WHERE $where");
-//if(mattOnlyTEST()) {print_r($additionalMods);exit;}
+}
 
 cancelAppointments($ids, ($cancelOrUncancel == 'uncancel' ? 0 : 1), $additionalMods, $generateMemo=false, $initiator='honored request');
 

@@ -26,9 +26,9 @@ if($go) {
 		}
 		echo "Updated ".count($billables)." rows in tblbillable.<p>";
 		doQuery("DELETE FROM relbillablepayment WHERE paymentptr = $credit", 1);
-		echo "Deleted ".mysql_affected_rows()." rows from relbillablepayment.<p>";
+		echo "Deleted ".mysqli_affected_rows()." rows from relbillablepayment.<p>";
 		doQuery("DELETE FROM tblcredit WHERE creditid = $credit", 1);
-		echo "Deleted ".mysql_affected_rows()." rows from tblcredit.<p>";
+		echo "Deleted ".mysqli_affected_rows()." rows from tblcredit.<p>";
 	}
 }
 

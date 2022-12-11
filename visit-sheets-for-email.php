@@ -126,7 +126,7 @@ if(!$stopWithoutExiting) {
 	}
 	
 	$cssPrefix = $emailingVisitSheet ? globalURL('') : '';
-//if(mattOnlyTEST()) {echo "emailingVisitSheet: [$emailingVisitSheet] cssPrefix: [$cssPrefix]";exit;}
+}
 	?>
 	<div id="directions"></div>
 	<?

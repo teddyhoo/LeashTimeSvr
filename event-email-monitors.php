@@ -30,7 +30,7 @@ if($_GET['initialize']) {
 		deleteTable('relstaffnotification', "userptr = $userptr", 1);
 		$row = array('daysofweek'=>'Every Day', 'timeofday'=>'12:00 am-11:59 pm', 'eventtypes'=>'i,r,c,e,t,k',	'email'=>$owner["email"], 'userptr'=>$userptr);
 		insertTable('relstaffnotification', $row, 1);
-	//if(mattOnlyTEST()) {print_r($row);echo "<p>".mysql_error();exit;}	
+	}	
 		logChange($userptr, 'eventmonitor', 'm', "{$owner['lname']}  ({$owner['userid']} {$owner['loginid']}) initialized.");
 		$message = "{$owner['lname']}  ({$owner['userid']} {$owner['loginid']}) initialized.";
 	}
@@ -50,7 +50,7 @@ if($_POST) {
 			$row = array('daysofweek'=>$val, 'timeofday'=>$_POST["timeofday_$i"], 'eventtypes'=>$events, 'email'=>$_POST["email"], 'userptr'=>$userptr);
 			$numNewEntries += 1;
 			insertTable('relstaffnotification', $row, 1);
-//if(mattOnlyTEST()) {print_r($row);echo "<p>".mysql_error();exit;}	
+}	
 		};
 	}
 	logChange($userptr, 'eventmonitor', 'm', "[user: $userptr] before: ".count($oldEntries)." entries. after: $numNewEntries entries.");
@@ -202,7 +202,7 @@ if($inactiveProviders) {
 	$options .= "\n<OPTGROUP	label='Inactive Sitters'>";
 	$providerLabels = array();
 	foreach($inactiveProviders as $prov) {
-//if(mattOnlyTEST()) echo "<p>P: ".print_r($prov['userid'], 1);
+
 		$checked = $prov['userid'] == $userptr ? 'SELECTED' : '';
 		$optValue = safeValue($prov['userid']);
 		$optLabel = "<i>{$allProviderLoginIdsByUserId[$prov['userid']]} - {$prov['nickname']} - ({$prov['name']})</i>";
@@ -210,12 +210,12 @@ if($inactiveProviders) {
 		$options .= "\n\t<option value='$optValue' $checked>$optLabel</option>\n";
 	}
 }
-//if(mattOnlyTEST()) print_r($missingProviders);
+
 if($missingProviders) 
 	foreach($missingProviders as $prov)
 		$providersLabels[$prov['userid']] = "<i>{$prov['label']} (Sitter)</i>";
 
-//if(mattOnlyTEST()) print_r($inactiveProviders);
+
 $options .= "\n</OPTGROUP>";
 $noSelection = !$userptr ? 'SELECTED' : '';
 $options = "<option value='' $noSelection>-- Select a Staff Member --</option>".$options;

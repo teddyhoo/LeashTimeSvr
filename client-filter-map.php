@@ -27,7 +27,7 @@ if($refresh && $_SESSION['clientListIDString']) {
 	$result = doQuery("SELECT * FROM tblclient WHERE clientid IN ($ids)", 'clientid');
 	$clientAddressesFound = array();
 	$homelessClients = array();
-  while($cclient = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($cclient = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$prospectiveClients += $cclient['prospect'] ? 1 : 0;
 		if($addr = googleAddress($cclient)) {
 			$cclient['address'] = personsHTMLAddress($cclient); //personsHTMLAddress // htmlFormattedAddress

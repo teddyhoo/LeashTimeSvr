@@ -19,7 +19,7 @@ extract(extractVars('loginid,password,id,token,nugget', $_REQUEST));
 if($_REQUEST['maxdims']) $maxDims = $_REQUEST['maxdims'];
 
 
-//if(mattOnlyTEST()) {require_once "common/init_db_petbiz.php";logError( "loginid: $loginid, password: $password, id: $id, token: $token");exit;}
+}
 if($_GET['nugget']) {
 	require_once "common/init_session.php";
 	require_once "common/init_db_common.php";
@@ -112,7 +112,7 @@ if($token = $_REQUEST['passthru']) {
 }
 
 function ditch() {
-//if(mattOnlyTEST()) logError("ditching ".$_SERVER["REQUEST_URI"]."[(($loginid && $password) || {$_SESSION["burnafterreading"]})]");	
+	
 	global $loginid, $password;
 	if(($loginid && $password) || $_SESSION["burnafterreading"]) endRequestSession();
 	exit;

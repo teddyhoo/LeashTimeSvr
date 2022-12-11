@@ -41,7 +41,7 @@ function getCustomFields($activeOnly=false, $visitSheetOnly=false, $fieldNames=n
 	$fields = array();
 	foreach($fieldNames as $fieldName) {
 		$field = explode('|', $_SESSION['preferences'][$fieldName]);
-//if(mattOnlyTEST()) { echo "$fieldName: [".print_r($field, 1)."]<br>";}
+}
 		/*$clientVisibleOnly = 
 			$clientVisibleOnly   // client-only asked for
 			&& (($_SESSION['auth_login_id'] == 'ekrum' || clientVisibleEnabledForDb()) // gate is open
@@ -157,8 +157,8 @@ function savePetCustomFields($petid, $pairs, $number, $pairsOnly=false) {
 // END PETS
 	
 function customFieldsTable($client, $customFields, $prefix=null, $groupClass=null, $hideEmpties=false) {
-//if(mattOnlyTEST()) print_r($client);	
-//if(mattOnlyTEST()) echo "<pre>".print_r($customFields,1)."</pre>";
+	
+
 	echo "<p><table class='sortableListCell'>";
 	foreach($customFields as $key => $descr) {
 		$label = $descr[0];
@@ -197,9 +197,9 @@ function customFieldsTable($client, $customFields, $prefix=null, $groupClass=nul
 		//  inputRow($descr[0].':', $id, $client[$key], $labelClass, "input600 $groupClass", null, $rowStyle);
 		  
 		else if($descr[2] == 'file') {
-//if(mattOnlyTEST()) echo "<tr><td>BANG![groupClass: $groupClass][$rowStyle]"."<pre>".print_r($descr,1)."</pre>";			
-//if(mattOnlyTEST()) echo "<pre>".print_r($descr,1)."</pre>";
-//if(mattOnlyTEST()) echo "<pre>KEY: [$key]".print_r($client,1)."</pre>";
+			
+
+
 			if($valueCellContent = $client[$key]) {
 				$remotefileid = $valueCellContent;
 				if(!($validRemoteFileId = is_numeric($remotefileid) && $remotefileid > 0 && $remotefileid == round($remotefileid))) 
@@ -437,7 +437,7 @@ function OLDsaveCustomFieldSpecs($prefix=null) { // prefix may be 'pet' or null
 
 function customFieldSpecEditor($fields=null, $prefix=null) {	
 	$fields = $fields !== null ? $fields : getCustomFields();
-//if(mattOnlyTEST()) print_r($fields);			
+			
 	
 	//$fieldKeys = array_merge($fields);
 	$nFields = array();

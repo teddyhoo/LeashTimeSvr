@@ -356,7 +356,7 @@ JS2;
 			}
 			else $response = $result;
 			if($response['FAILURE']) return 'Error-'.$response['FAILURE'];
-			//if(mattOnlyTEST()) echo print_r($response,1)."<hr>";
+			
 			$errmessage = urldecode($response['ErrorMessage'] ? $response['ErrorMessage'] : $response['Message']);
 			$primaryMessageArray = array_key_exists('CVV2Response', (array)$response) 
 				? @$this->txpCCResponseFields
@@ -428,7 +428,7 @@ JS2;
 									'sourcetable' => $sourcetable,
 									'response' => ($rawResponse ? $rawResponse : sqlVal("''"))), 1
 								);
-			$this->lastCCErrorId = mysql_insert_id();
+			$this->lastCCErrorId = mysqli_insert_id();
 		}
 		function resultAsResponseArray($resultString) { // TXP
 			//"ResponseCode=0&tranNr=1237753&PostDate=2011-12-07T01:22:40.000&Amount=995&Message=Transaction+Processed"

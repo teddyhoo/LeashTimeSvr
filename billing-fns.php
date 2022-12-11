@@ -105,7 +105,7 @@ $monthlyZeroTEST = TRUE;//staffOnlyTEST();  //TRUE;
 
 // markPrepayementsWithMonthlyBillables sets monthlyBillablesFound=1
 if($monthlyZeroTEST && $monthly) markPrepayementsWithMonthlyBillables($prepayments, $clientTest, $firstDayDB, $lookaheadLastDay);
-//if(mattOnlyTEST()) print_r($prepayments[903]);
+
 	
 	
 minilog("sumMonthlyBillables: #TIME# secs.");
@@ -158,8 +158,8 @@ minilog("sumCharges (prior): #TIME# secs.");
 		$billablesByType = (array)sumUnpaidBillables($prepayments, $clientTest,	$firstDayDB, $lookaheadLastDay, $billableClientidsFound);
 minilog("sumUnpaidBillables: #TIME# secs.");
 
-//if(mattOnlyTEST()) echo  "client 905 prepayment: {$prepayments[905]['prepayment']}";
-//if(mattOnlyTEST()) echo  "<br>client 905 billablesByType: ".print_r($billablesByType['tblappointment'], 1);
+
+
 //echo "STOP 3 (930): {$prepayments[930]['prepayment']}<p>";echo "ALL APPTS: ".ad($allAppts)."<p>"; 
 		$allAppts = array_unique(array_merge($allAppts, (array)$billablesByType['tblappointment']));
 //echo "ALL APPTS(2): ".ad($allAppts)."<p>";		
@@ -182,24 +182,24 @@ minilog("sumAllVisitsAndSurchargesForNRPackages: #TIME# secs.", 0, $SAVASTIME);
 			$priorClients = array();
 			if($priorAppts) $priorClients = 
 				fetchCol0("SELECT distinct clientptr FROM tblappointment WHERE appointmentid IN (".join(',', $priorAppts).")");
-//if(mattOnlyTEST()) echo "priorClients (app): ".print_r($priorClients,1).'<br>';
+
 			if($priorSurch) $priorClients = array_merge($priorClients, 
 				fetchCol0("SELECT distinct clientptr FROM tblappointment WHERE appointmentid IN (".join(',', $priorSurch).")"));
-//if(mattOnlyTEST()) echo "priorClients (surch): ".print_r($priorClients,1).'<br>';
+
 			if($billablesByType) $priorClients = array_merge($priorClients, $billableClientidsFound);
 			if($priorBillableClientidsFound) $priorClients = array_merge($priorClients, $priorBillableClientidsFound);
-//if(mattOnlyTEST()) echo "priorClients (bill): ".print_r($priorClients,1).'<br>';
+
 			foreach($priorClients as $priorclientid)
 				if($prepayments[$priorclientid])
 					$prepayments[$priorclientid]['includesPriors'] = 1;
-//if(mattOnlyTEST()) echo "subsequentBillableClientidsFound: ".print_r($subsequentBillableClientidsFound, 1);
+
 			foreach($subsequentBillableClientidsFound as $subsclientid)
 				if($prepayments[$subsclientid])
 					$prepayments[$subsclientid]['includesSubsequents'] = 1;
 			foreach($prepayments as $aClientId => $pp)
 				if(!$pp['clientid']) $prepayments[$aClientId]['clientid'] = $aClientId;
 
-			//if(mattOnlyTEST()) echo "priorClients: ".print_r($priorClients,1)." pp[{$priorClients[0]}] = ".print_r($prepayments[$priorClients[0]], 1)."<br>";
+			
 //echo "STOP 4 (930): sumAllVisitsAndSurchargesForNRPackages($prepayments, $firstDayDB, $lookaheadLastDay, $clientids, ".ad($allAppts).", ".ad($allSurcharges).")<p>";	
 //echo "STOP 4 (930): {$prepayments[930]['prepayment']}<p>";	
 		}
@@ -233,7 +233,7 @@ function markPrepayementsWithMonthlyBillables(&$prepayments, $clientTest, $first
 				AND monthyear >= '$firstMonth'
 				AND monthyear <= '$lastMonth'");
   if(!($result = doQuery($sql))) return null;
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$clientptr = $row['clientptr'];
 		$prepayments[$clientptr]['monthlyBillablesFound'] = 1;
 		
@@ -243,7 +243,7 @@ function markPrepayementsWithMonthlyBillables(&$prepayments, $clientTest, $first
 		$billables[$clientptr]['owedprior'] += ($row['charge'] - $row['paid']);
 		$billables[$clientptr]['paidprior'] += $row['paid'];  // amount paid toward items prior to start date
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 	return $billables;
 }
 
@@ -258,28 +258,27 @@ function sumMonthlyBillables($prepayments, $clientTest, $firstDayDB, $lookaheadL
 				AND monthyear >= '$firstMonth'
 				AND monthyear <= '$lastMonth'");
   if(!($result = doQuery($sql))) return null;
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$clientptr = $row['clientptr'];
 		$prepayments[$clientptr]['prepayment'] += $row['charge'];  // full amount is used for in-range monthlies // - $row['paid'];
 		$prepayments[$clientptr]['paid'] += $row['paid'];
 		$prepayments[$clientptr]['monthlyBillablesFound'] = 1;
 		$billables[] = $itemptr;
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 	return $billables;
 }
 
 function sumAllVisitsAndSurchargesForNRPackages(&$prepayments, $start, $end, &$clientids, &$allAppts, &$allSurcharges, &$priorClientidsFound, &$subsequentClientidsFound) {
 	global $allTaxRates, $taxRates, $standardTaxRate; // 7134, 7129, 7131, 7132
 	$timings = array();
-//sort($allAppts);if(mattOnlyTEST()) print_r($allAppts);
 	$packageFilter = "current = 1 AND ((startdate >= '$start' AND startdate <= '$end') OR
 										('$start' >= startdate AND '$start'  <= enddate))";
 	$packageFilter = "$packageFilter AND clientptr IN (".join(',', $clientids).")"; // cancellationdate?
 $sqlTime = microtime(1);
 	$currentNRIds = fetchKeyValuePairs($sql = "SELECT packageid, clientptr FROM tblservicepackage WHERE $packageFilter");
 $timings['SAVASFNR current package id query:'] += microtime(1) - $sqlTime;
-//if(mattOnlyTEST()) {echo "$sql<hr>".print_r($currentNRIds,1)."<hr>";}
+}
 	foreach($currentNRIds as $currpack => $clientptr) {
 		$priorClientFound = false;
 		$subsequentClientFound = false;
@@ -333,7 +332,7 @@ $timings['SAVASFNR appts:'] += microtime(1) - $sqlTime;
 		
 		if($noBillableJoinPath) {
 			$visitids = array();
-			while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+			while($row = mysqli_fetch_array($result, MYSQL_ASSOC))
 				$visitids[] = $row['appointmentid'];
 $sqlTime = microtime(1);
 			$paidvisits = !$visitids ? array()
@@ -350,7 +349,7 @@ $timings['SAVASFNR billables paid:'] += microtime(1) - $sqlTime;
 		
 		
 		if(!$result) return null;  // ????
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 			if(in_array($row['appointmentid'], $allAppts)) continue;
 			$taxRate = $allTaxRates[$clientptr][$row['servicecode']];
 			if(noTaxBefore($row['date'])) $taxRate = 0; // consults "No Taxation Before" in LeashTime Staff Only prefs		
@@ -363,7 +362,7 @@ $timings['SAVASFNR billables paid:'] += microtime(1) - $sqlTime;
 			if(strcmp($row['date'], $start) < 0 ) $priorClientFound = true;
 			else if(strcmp($end, $row['date']) < 0 ) $subsequentClientFound = true;
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 		
 $sqlTime = microtime(1);
 		// added primtable.clientptr = $clientptr after creating clientptrindex to tblappointment
@@ -377,7 +376,7 @@ $sqlTime = microtime(1);
 					AND primtable.packageptr IN (".join(',', $history).")");
 		if(!$result) return null;
 $timings['SAVASFNR surch:'] += microtime(1) - $sqlTime;
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 			if(in_array($row['surchargeid'], $allSurcharges)) continue;
 			$clientptr = $row['clientptr'];
 			$taxRate = $row['servicecode']
@@ -391,13 +390,13 @@ $timings['SAVASFNR surch:'] += microtime(1) - $sqlTime;
 			if(strcmp($row['date'], $start) < 0 ) $priorClientFound = true;
 			else if(strcmp($end, $row['date']) < 0 ) $subsequentClientFound = true;
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 		if($priorClientFound) $priorClientidsFound[] = $clientptr;
 		if($subsequentClientFound) $subsequentClientidsFound[] = $clientptr;
 	}
 global $minilog;
 foreach($timings as $k => $sum) $minilog[] = "$k $sum sec.<br>";
-//if(mattOnlyTEST()) echo "subsequentClientidsFound: ".print_r($subsequentClientidsFound, 1);
+
 }
 
 function minilogResetUTime() {
@@ -439,8 +438,8 @@ function sumAppointments(&$prepayments, $timeAndClientFilter, $returnApptIds, $t
   if(!($result = doQuery($sql))) {
 		return null;
 	}
-//if(mattOnlyTEST()) echo "<p>".print_r($prepayments[1018], 1);
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$clientptr = $row['clientptr'];
 		$taxRate = $allTaxRates[$clientptr][$row['servicecode']];
 		if(noTaxBefore($row['date'])) $taxRate = 0; // consults "No Taxation Before" in LeashTime Staff Only prefs		
@@ -456,7 +455,7 @@ function sumAppointments(&$prepayments, $timeAndClientFilter, $returnApptIds, $t
 		if($returnApptIds) $appts[] = $row['appointmentid'];
 	}
 
-	mysql_free_result($result);
+	mysqli_free_result($result);
 	if($returnApptIds) return $appts;
 }
 
@@ -469,7 +468,7 @@ function sumSurcharges(&$prepayments, $timeAndClientFilter, $returnSurchargeIds,
 			LEFT JOIN tblbillable ON superseded = 0 AND itemptr = surchargeid AND itemtable = 'tblsurcharge'
 			WHERE primtable.canceled IS NULL AND $timeAndClientFilter");
   if(!($result = doQuery($sql))) return null;
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$clientptr = $row['clientptr'];
 		$taxRate = $row['servicecode']
 				? $allTaxRates[$clientptr][$row['servicecode']]
@@ -486,7 +485,7 @@ function sumSurcharges(&$prepayments, $timeAndClientFilter, $returnSurchargeIds,
 		}
 		if($returnSurchargeIds) $surcharges[] = $row['surchargeid'];
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 	if($returnSurchargeIds) return $surcharges;
 }
 
@@ -498,7 +497,7 @@ function sumCharges(&$prepayments, $timeAndClientFilter, $tallyBeforeDate=null) 
 			LEFT JOIN tblbillable ON superseded = 0 AND itemptr = chargeid AND itemtable = 'tblothercharge'
 			WHERE $timeAndClientFilter");
   if(!($result = doQuery($sql))) return null;
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$clientptr = $row['clientptr'];
 		$tax = 0; //round($standardTaxRate * $row['charge']) / 100; // ... orshould this be zero?
 		$prepayments[$clientptr]['prepayment'] += $row['charge'] + $tax;
@@ -509,7 +508,7 @@ function sumCharges(&$prepayments, $timeAndClientFilter, $tallyBeforeDate=null) 
 			$prepayments[$clientptr]['taxprior'] += $tax;  // amount paid toward items prior to start date
 		}
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 }
 
 function sumUnpaidBillables(&$prepayments, $clientTest, $firstDayDB, $lookaheadLastDay, &$clientidsFound) {
@@ -522,11 +521,11 @@ function sumUnpaidBillables(&$prepayments, $clientTest, $firstDayDB, $lookaheadL
 			AND paid < primtable.charge
 			AND ((monthyear IS NOT NULL AND monthyear < '$firstMonth') 
 						OR (monthyear IS NULL AND itemdate < '$firstDayDB'))");
-//if(mattOnlyTEST()) echo "$sql<p>";
+
 //if(mattOnlyTEST() && strpos($clientTest, '1225')) print_r($sql);
   if(!($result = doQuery($sql))) return null;
   
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$clientptr = $row['clientptr'];
 		$clientidsFound[] = $clientptr;
 		$prepayments[$clientptr]['prepayment'] += $row['charge'] - $row['paid'];
@@ -538,7 +537,7 @@ function sumUnpaidBillables(&$prepayments, $clientTest, $firstDayDB, $lookaheadL
 		
 //if($clientptr ==33) 	echo "(client {$row['clientptr']}) {$row['billableid']} [{$row['itemtable']} {$row['itemptr']} {$row['date']} {$row['timeofday']}] {$row['charge']} - {$row['paid']}<p>";//.print_r($allSurcharges,1);
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 	return $billables;
 }
 //===========================================================================================================
@@ -567,10 +566,10 @@ function getAppointmentRows($timeAndClientFilter) {  // billables keyed by billa
 		return null;
 	}
 		
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		if(prepareLineItemForAppt($row)) $lineitems[] = $row;		
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 }
 	
 function getSurchargeRows($timeAndClientFilter) {  // billables keyed by billableid, packageBillables: packageid=>billableid
@@ -583,10 +582,10 @@ function getSurchargeRows($timeAndClientFilter) {  // billables keyed by billabl
 			LEFT JOIN tblbillable billable ON superseded = 0 AND itemptr = surchargeid AND itemtable = 'tblsurcharge'
 			WHERE primtable.canceled IS NULL AND $timeAndClientFilter");
   if(!($result = doQuery($sql))) return null;
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		if(prepareLineItemForSurcharge($row)) $lineitems[] = $row;
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 }
 
 function getChargeRows($timeAndClientFilter) {  // billables keyed by billableid, packageBillables: packageid=>billableid
@@ -596,7 +595,7 @@ function getChargeRows($timeAndClientFilter) {  // billables keyed by billableid
 			FROM tblothercharge o
 			LEFT JOIN tblbillable ON NOT superseded AND itemptr = chargeid AND itemtable = 'tblothercharge'
 			WHERE $timeAndClientFilter");
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		if(isset($allItemsSoFar['tblothercharge'][$row['chargeid']])) continue;
 		$allItemsSoFar['tblothercharge'][$row['chargeid']] = $row;
 		$clientptr = $row['clientptr'];
@@ -611,10 +610,10 @@ if(FALSE && staffOnlyTEST()) echo "<p>Tax(3): ".(round($taxRate * $row['charge']
 		$row['charge'] = $row['charge'];
 		$row['sortdate'] = $row['date'];
 		$row['date'] = shortDate(strtotime($row['date']));
-//if(mattOnlyTEST()) echo print_r($row, 1).'<br>';		
+		
 		$lineitems[] = $row;
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 }
 
 function getMonthlyBillableRows($clientid, $firstDayDB, $lookaheadLastDay, $alternativeFilter=null) {
@@ -634,7 +633,7 @@ function getMonthlyBillableRows($clientid, $firstDayDB, $lookaheadLastDay, $alte
 				AND $filter");
   if(!($result = doQuery($sql))) return null;
 //echo "$sql<p>";  
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 //echo print_r($row,1)."<br>";		
 		if(isset($allItemsSoFar['tblrucurringpackage'][$row['billableid']])) continue;
 		$allItemsSoFar['tblrucurringpackage'][$row['billableid']] = $row;
@@ -662,7 +661,7 @@ function getMonthlyBillableRows($clientid, $firstDayDB, $lookaheadLastDay, $alte
 			$lineitems[] = $appt;
 		}
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 }
 
 function getBillingServiceName($servicecode) {
@@ -697,10 +696,10 @@ function prepareLineItemForSurcharge(&$row) {
 
 function prepareLineItemForAppt(&$row) {
 	global $allItemsSoFar, $standardCharges, $providers, $taxRates, $origbalancedue, $creditApplied, $tax, $totalDiscount;
-//if(mattOnlyTEST()) echo print_r($row['appointmentid'],1)."";	
+	
 	
 	if(isset($allItemsSoFar['tblappointment'][$row['appointmentid']])) return false;
-//if(mattOnlyTEST()) echo "/<b>".print_r($row['appointmentid'],1)."</b><hr>";	
+	
 	$allItemsSoFar['tblappointment'][$row['appointmentid']] = $row;
 	$clientptr = $row['clientptr'];
 	if($row['discount'] > 0) {
@@ -741,11 +740,11 @@ function getRowsForVisitsAndSurchargesInNRPackages($start, $end, $clientptr) {
 	
 	$packageFilter = "$packageFilter AND clientptr = $clientptr"; // cancellationdate?
 	$currentNRIds = fetchCol0($sql = "SELECT packageid FROM tblservicepackage WHERE $packageFilter");
-//if(mattOnlyTEST()) echo "(2) currentNRIds: ".print_r($currentNRIds, 1)."<hr>";
+
 	
 	foreach($currentNRIds as $currpack) {
 		$history = findPackageIdHistory($currpack, $clientptr, !'recurring');
-//if(mattOnlyTEST()) echo "-- history: ".print_r($history, 1)."<hr>";
+
 		$result = doQuery($sql = 
 			"SELECT appointmentid, servicecode, paid, primtable.charge + ifnull(adjustment,0) as charge, 
 					ifnull(d.amount, 0) as discount, discountptr, primtable.clientptr, date, starttime, timeofday, primtable.providerptr
@@ -755,11 +754,11 @@ function getRowsForVisitsAndSurchargesInNRPackages($start, $end, $clientptr) {
 				WHERE canceled IS NULL AND packageptr IN (".join(',', $history).")");
 		if(!($result = doQuery($sql))) return null;
 		
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 			if(prepareLineItemForAppt($row)) $lineitems[] = $row;
 //else if(mattOnlyTEST()) echo "No line for: ".print_r($row, 1)."<hr>";
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 		
 		
 		$result = doQuery($sql = 
@@ -770,10 +769,10 @@ function getRowsForVisitsAndSurchargesInNRPackages($start, $end, $clientptr) {
 				LEFT JOIN tblbillable ON superseded = 0 AND itemptr = surchargeid AND itemtable = 'tblsurcharge'
 				WHERE primtable.canceled IS NULL AND primtable.packageptr IN (".join(',', $history).")");
 		if(!($result = doQuery($sql))) return null;
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 			if(prepareLineItemForSurcharge($row)) $lineitems[] = $row;
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 	}
 }
 
@@ -788,19 +787,19 @@ function getUnpaidBillableRows($clientptr, $firstDayDB, $lookaheadLastDay) {
 			AND (paid < primtable.charge)
 			AND ((monthyear IS NOT NULL AND monthyear < '$firstMonth') 
 						OR itemdate < '$firstDayDB')"); //  OR itemtable = 'tblothercharge' -- dropped 2014-04-02
-//if(mattOnlyTEST()) echo "$sql<p>";
+
   if(!($result = doQuery($sql))) return null;
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		if($row['itemtable'] == 'tblappointment') $appts[] = $row['itemptr'];
 		else if($row['itemtable'] == 'tblsurcharge') $surcharges[] = $row['itemptr'];
 		else if($row['itemtable'] == 'tblothercharge') $charges[] = $row['itemptr'];
 		else if($row['itemtable'] == 'tblrecurringpackage') $monthlies[] = $row['billableid'];
 	}
-//if(mattOnlyTEST()) echo print_r($appts,1)."<p>";
+
 	
-	mysql_free_result($result);
+	mysqli_free_result($result);
 	if($appts) getAppointmentRows("appointmentid IN (".join(',', $appts).")");
-//if(mattOnlyTEST()) echo print_r($lineitems,1)."<p>";	
+	
 	if($surcharges) getSurchargeRows("surchargeid IN (".join(',', $surcharges).")");
 	if($charges) getChargeRows("chargeid IN (".join(',', $charges).")");
 	if($monthlies) getMonthlyBillableRows($clientptr, null, null, "billableid IN (".join(',', $monthlies).")");
@@ -840,7 +839,7 @@ function getBillingInvoiceCurrentLineItems($clientid, $firstDayDB, $lookaheadLas
 	getSurchargeRows($inTimeFrameFilter);
 	getChargeRows("o.clientptr = $clientid AND issuedate >= '$firstDayDB' AND issuedate <= '$lookaheadLastDay'");
 	getMonthlyBillableRows($clientid, $firstDayDB, $lookaheadLastDay);
-//if(mattOnlyTEST()) echo "(1)currentNRIds: ".print_r($currentNRIds, 1)."<hr>";
+
 	if(!$currentNRIds && !$literal) getRowsForVisitsAndSurchargesInNRPackages($firstDayDB, $lookaheadLastDay, $clientid);
 	$currentCharges = $origbalancedue;
 	usort($lineitems, 'dateSort');
@@ -885,7 +884,7 @@ function getBillingInvoice($clientid, $firstDay, $lookahead, $literal=false, $sh
 //, $currentTax, $priorTax			
 	$currentDiscount = $totalDiscount;
 	$totalDiscountAmount =  $currentDiscount['amount'];
-//if(mattOnlyTEST()) print_r($currentDiscount);
+
 	//added: 3/20/2017:
 	$invoice['currentPostDiscountPreTaxSubtotal'] -= 0+$totalDiscountAmount;
 	
@@ -948,21 +947,21 @@ if($suppressPriorUnpaidCreditMarkers) { //  && mattOnlyTEST()
 		stripeLineItems();
 		$invoice['priorunpaiditems'] = $lineitems;
 	}
-//if(mattOnlyTEST()) {echo print_r($invoice, 1).'<p>';}
+}
 
 		// Consume avail credits (projected) in current date range
-//if(mattOnlyTEST()) {echo "[$currentPaymentsAndCredits] items: "; foreach($invoice['lineitems'] as $lineItem) echo "{$lineItem['appointmentid']}, ";}			
+}			
 		foreach($invoice['lineitems'] as $lineItem) {
 			
 			
-//if(mattOnlyTEST()) echo "<hr>item: [{$lineItem['paid']}] [$localCreditTotal]".print_r($lineItem, 1);
+
 			if(FALSE && $lineItem['paid'] < $lineItem['charge']  // DISABLED 2013-11-05 at Ted's request
 					&& $localCreditTotal > 0  
 					&& $localCreditTotal >= $lineItem['charge']) {
 				$localCreditTotal -= $lineItem['charge'];
 				$currentPaymentsAndCredits += $lineItem['charge'];
 				$creditUnappliedToUnpaidItems += $lineItem['charge'];
-//if(mattOnlyTEST()) echo "<hr>LINEITEM:<br>".print_r($lineItem, 1)."<hr>creditAppliedToUnpaidItems: $creditUnappliedToUnpaidItems<p>";
+
 			}
 			else $currentPaymentsAndCredits += $lineItem['paid'];
 		}
@@ -1057,11 +1056,11 @@ function displayBillingInvoice($invoiceOrClientId, $firstDay, $lookahead, $first
 		$clientid = $invoiceOrClientId;
 	}
 	
-//if(mattOnlyTEST()) echo "<b>clientid: [[".print_r($invoiceOrClientId,1)."]]</b><hr>";
+
 	global $invoicePayment;
 	if(is_string($invoicePayment = getInvoicePaymentData($clientid))) return;
 	
-//if(mattOnlyTEST()) {echo "[[{$_REQUEST['packageptr']}]]<p>";print_r($invoice); exit;}
+}
 	// This may be called in a SESSION or outside of it (cronjob)
 	if($firstInvoicePrinted) echo invoicePageStyle();
 	
@@ -1084,7 +1083,7 @@ if(mattOnlyTEST()) {global $credits; echo "ZOOM2 CREDITS: $credits<hr>";}
 	$decrementingCredits = $credits;
 //echo "CREDITS: $ 	$decrementingCredits<p>";
 	dumpPriorUnpaidBillables($invoice, $clientid, $showOnlyCountableItems);
-//if(mattOnlyTEST()) print_r($invoice); exit;	
+ exit;	
 	dumpCurrentBillables($invoice, $client['clientid']); // Invoice #, Invoice Date, Items, Subtotal
 	dumpRecentPayments($invoice, $client['clientid']); // Invoice #, Invoice Date, Items, Subtotal
 	//dumpCurrentPastInvoiceSummaries($invoiceid); // Invoice #, Invoice Date, Items, Subtotal
@@ -1136,7 +1135,7 @@ function stripeLineItems() {
 function dumpRecentPayments($invoice, $clientid) {
 	global $allItemsSoFar;
 	$billableids = array_keys((array)$allItemsSoFar['tblrucurringpackage']);
-//if(mattOnlyTEST()) {print_r($allItemsSoFar);exit;}	
+}	
 	foreach($allItemsSoFar as $table=>$items) {
 		if($table == 'tblrucurringpackage') continue;
 		$billableids = array_merge($billableids,
@@ -1181,8 +1180,8 @@ function dumpRecentPayments($invoice, $clientid) {
 					GROUP BY creditid
 					ORDER BY issuedate"));
 	
-//if(mattOnlyTEST()) echo "<p>$sql<p>";	
-//if(mattOnlyTEST()) echo "<p>".print_r($credits, 1)."<p>";	
+	
+	
 	
 	echo "<div style='width:95%'>\n";
 	dumpSectionBar("Recent Payments and Credits", '');
@@ -1208,7 +1207,7 @@ function dumpInvoiceCreditTable($credits, $firstDay) {
 	foreach($credits as $credit) {
 		
 		if($credit['hide']) continue;
-//if(mattOnlyTEST()) {echo "BANG! ".print_r($credit,1).'<br>';}
+}
 		$ccPrefix = 'CC: ';
 		$achPrefix = 'ACH: ';
 		if(strpos($credit['sourcereference'], $ccPrefix) === 0)
@@ -1283,7 +1282,7 @@ function dumpPriorUnpaidBillables($invoice, $clientid, $showOnlyCountableItems=f
 	if($_SESSION['preferences']['suppressInvoiceSitterName']) unset($columns['provider']);
 	$numCols = count($columns);
 	foreach($lineItems as $index => $lineItem) {
-//if(mattOnlyTEST()) { echo "showOnlyCountableItems: [$showOnlyCountableItems] countablecharge: [{$lineItem['countablecharge']}]"; }
+ }
 		if($showOnlyCountableItems && !$lineItem['countablecharge']) continue;
 		if(!$suppressPriorUnpaidCreditMarkers) markLineItemCovered($lineItem);
 		$subtotal += (float)($lineItem['charge']);
@@ -1346,9 +1345,9 @@ function dumpCurrentBillables($invoice, $clientid) { // Invoice #, Invoice Date,
 	$rowClasses = array();
 	foreach($lineItems as $index => $lineItem) {
 //echo print_r($lineItem,1)."<br>";
-//if(mattOnlyTEST()) echo "{$lineItem['charge']} {$lineItem['service']}<br>";
+
 		$subtotal += $lineItem['charge'];
-//if(mattOnlyTEST()) if(!($lineItem['servicecode'] || $lineItem['surchargecode']))print_r($lineItem);			
+			
 		//markLineItemCovered($lineItem);	 // DISABLED 2013-11-05 at Ted's request
 		
 		$lineItem['charge'] = dollarAmount($lineItem['charge']);
@@ -1617,7 +1616,7 @@ function calculateAmountDue($excludedPayment=0) {
 	// $credits == getUnusedClientCreditTotal($clientid)
 	// $creditApplied == credit paid toward lineitems shown in the invoice
 	global $origbalancedue, $credits, $tax, $creditApplied, $totalDiscountAmount, $currentPaymentsAndCredits;
-//if(mattOnlyTEST()) echo "origbalancedue: $origbalancedue - creditApplied: $creditApplied  - credits: $credits - totalDiscountAmount: $totalDiscountAmount";
+
 	return $origbalancedue - $creditApplied /*+ $tax*/ - $credits - $totalDiscountAmount + $excludedPayment; // + priorUnpaidItemTotal($invoice);
 }
 
@@ -1817,7 +1816,7 @@ function dumpFooter() {
 }
 	
 function prepaymentClientLink($pp, $nameOnly=false, $sortable=false) {
-//if(mattOnlyTEST()) echo "<hr>".print_r($pp, 1);	
+	
 	require_once "client-flag-fns.php";
 	global $db;
 	$printableName = $sortable && $db != 'leashtimecustomers' ? $pp['sortname'] : $pp['clientname'];
@@ -1873,7 +1872,7 @@ function ccStatusDisplay(&$prepayment) {
 	$clientid = $prepayment['clientid'];
 	if(!$_SESSION['ccenabled']) return '';
 	$cc = $clearCCs[$clientid];
-//if(mattOnlyTEST()) echo print_r($prepayment, 1)." [$clientid]<p>";	
+	
 	$status = ccStatus($cc);
 	if($cc) {
 		$prepayment['autopay'] = $cc['autopay'];

@@ -88,7 +88,7 @@ function fetchResultAssoc($result) {
 }
 
 function resetResult($result) {
-  //return mysql_data_seek($result, 0); //TBD
+  //return mysqli_data_seek($result, 0); //TBD
 }
 
 function fetchCol0($sql) {
@@ -190,11 +190,11 @@ function leashtime_affected_rows() {
 	return $lastPDOResult->rowCount();
 }
 
-function leashtime_real_escape_string($s) { // adapter for mysql --> PDO switch (mysql_real_escape_string)
+function leashtime_real_escape_string($s) { // adapter for mysql --> PDO switch (mysqli_real_escape_string)
 	return pdo_real_escape_string($s);
 }
 
-function pdo_real_escape_string($s) { // mysql_real_escape_string
+function pdo_real_escape_string($s) { // mysqli_real_escape_string
 	global $pdo;
 	return substr($pdo->quote($s), 1, -1);
 }
@@ -474,7 +474,7 @@ function reconnectPetBizDB($dbN=null, $dbhostN=null, $dbuserN=null, $dbpassN=nul
 
 		if(!$force && array_intersect($currentSettings, $newSettings) == $currentSettings)
 			return;
-		//@mysql_close();
+		//@mysqli_close();
 	}
 
 	if($dbhostN) $dbhost = $dbhostN;

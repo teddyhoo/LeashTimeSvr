@@ -123,7 +123,7 @@ if($_POST) {
 									." - {$reasons[$reason]}";
 		}
 		if($badApples) $badApples = "The following visits could not be assigned: ".join(", ", $badApples);
-		//if(mattOnlyTEST()) {print_r($misassignedAppts);exit;}
+		}
 		//$misassignedAppts[$apptId] = $providerUnassigned; // 'timeoff' or 'conflict'
 		//$missing = array_intersect(providersOffThisDay($startdate), array_unique($packageProviders));
 	}
@@ -146,7 +146,7 @@ if($_POST) {
 		exit;
 	}
 }
-if(mysql_error()) exit;
+if(mysqli_error()) exit;
 if($newPackageId) $packageid = $newPackageId;
 $client = isset($client) ? $client : '';
 if($packageid) { // existing service package

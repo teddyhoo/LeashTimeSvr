@@ -38,7 +38,7 @@ else if(suspiciousCredentials($loginid, $passwd)) {
 					 ", FailureCause = '$failure'".
 					 ", RemoteAddress = '{$_SERVER["REMOTE_ADDR"]}'".
 					 ", browser = '"
-					 	.mysql_real_escape_string($_SERVER["HTTP_USER_AGENT"] ? $_SERVER["HTTP_USER_AGENT"] : $_SESSION['jsuseragent'])
+					 	.mysqli_real_escape_string($_SERVER["HTTP_USER_AGENT"] ? $_SERVER["HTTP_USER_AGENT"] : $_SESSION['jsuseragent'])
 					 	."'"
 					 	.($note ? ", note = '$note'" : '')
 					 .updateStamp());*/
@@ -60,7 +60,7 @@ else if ( isset ( $_POST['user_name'] ) ) {
 	}
 
 	if(!$user) {
-		$badLogin = fetchFirstAssoc("select * from tbluser where LoginID = '".mysql_real_escape_string($userName)."'");
+		$badLogin = fetchFirstAssoc("select * from tbluser where LoginID = '".mysqli_real_escape_string($userName)."'");
 		if($badLogin && $badLogin['tempPassword']) // clear temporary password, if any
 			doQuery("UPDATE tbluser set tempPassword = '' WHERE userid = '{$badLogin['userid']}'");
 		if(!$badLogin) $failure = 'U'; // Unknown
@@ -96,7 +96,7 @@ else if ( isset ( $_POST['user_name'] ) ) {
 					 ", FailureCause = '$failure'".
 					 ", RemoteAddress = '{$_SERVER["REMOTE_ADDR"]}'".
 					 ", browser = '"
-					 	.mysql_real_escape_string($_SERVER["HTTP_USER_AGENT"] ? $_SERVER["HTTP_USER_AGENT"] : $_SESSION['jsuseragent'])
+					 	.mysqli_real_escape_string($_SERVER["HTTP_USER_AGENT"] ? $_SERVER["HTTP_USER_AGENT"] : $_SESSION['jsuseragent'])
 					 	."'"
 					 	.($note ? ", note = '$note'" : '')
 					 .updateStamp());*/
@@ -105,10 +105,10 @@ else if ( isset ( $_POST['user_name'] ) ) {
 $browser = $_SERVER["HTTP_USER_AGENT"] ? $_SERVER["HTTP_USER_AGENT"] : (
 		$_SESSION['jsuseragent'] ? $_SESSION['jsuseragent'] : '--');
 if(suspiciousUserAgent($browser)) $browser = "suspicious: ".sqlScrubbedString($browser);
-//$browser = mysql_real_escape_string($browser);
+//$browser = mysqli_real_escape_string($browser);
 
 
-//if($suspiciousLoginId) $suspiciousLoginId = mysql_real_escape_string($suspiciousLoginId);
+//if($suspiciousLoginId) $suspiciousLoginId = mysqli_real_escape_string($suspiciousLoginId);
 
 $loginRecord =
 	array('LoginID'=>($suspiciousLoginId ? $suspiciousLoginId : $_POST['user_name']), 

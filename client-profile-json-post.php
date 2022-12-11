@@ -251,7 +251,7 @@ function fetchCurrentClientProfile($clientid) {
 	
 	// client custom fields [all w/sitter rights] 	
 	if(($fields = customClientFields($fields)) != -999) {
-//if(mattOnlyTEST()) {print_r($fields);exit;}		
+}		
 		$fieldCounter = 0;
 		foreach($fields as $fkey => $field) {
 			$fieldvalue = getClientCustomField($client['clientid'], $fkey);
@@ -332,7 +332,7 @@ function nativeCustomFieldValue($field, $fieldvalue) {
 					);
 				if($clientdocs == 'complete') $fieldvalue = $json; //json_encode();
 				else $fieldvalue = $json['label'];
-//if(mattOnlyTEST()) {echo print_r($clientdocs,1).": ".print_r($fieldvalue,1);exit;}	
+}	
 			}
 		}
 	return $fieldvalue;

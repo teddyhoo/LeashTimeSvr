@@ -71,7 +71,7 @@ $lastVisitTime = substr($lastVisitTime, 0, strpos($lastVisitTime, '-'));
 $lastVisitDate = $requestDate == date('Y-m-d') ? 'today' : month3Date(strtotime($requestDate));
 $lastVisitPhrase = "$lastVisitDate at $lastVisitTime";
 
-$label = mysql_real_escape_string("#STANDARD - Send Home Safe Request to Client");
+$label = mysqli_real_escape_string("#STANDARD - Send Home Safe Request to Client");
 $defaultTemplate = fetchFirstAssoc("SELECT * FROM tblemailtemplate WHERE label = '$label' LIMIT 1");
 if(!$defaultTemplate) {
 	// first try to generate it in email-template-fns
@@ -257,7 +257,7 @@ if(count($templates) > 1) {
 	selectRow('Templates:', 'template', $template, $templates, 'templateChosen()');
 }
 
-//if(mattOnlyTEST()) {echo "<tr><td>".print_r($templates, 1);exit;}
+}
 
 
 
@@ -357,7 +357,7 @@ function jstrim(str) {
 //include "frame-end.html";
 
 
-//	$label = mysql_real_escape_string("#STANDARD - Client's Schedule");
+//	$label = mysqli_real_escape_string("#STANDARD - Client's Schedule");
 //	$template = fetchRow0Col0("SELECT * FROM tblemailtemplate WHERE label = '$label' LIMIT 1");
 function preprocessMessage($person, $message, $responseURL=null, $leaveVisitTileTokenAlone=true) {
 	global $lastVisitPhrase, $lastVisitTile;

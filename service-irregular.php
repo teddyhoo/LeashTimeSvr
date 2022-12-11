@@ -148,7 +148,7 @@ if($_POST) {
 		exit;
 	}
 }
-if(mysql_error()) exit;
+if(mysqli_error()) exit;
 
 $client = isset($client) ? $client : '';
 if($packageid) { // existing service package
@@ -418,7 +418,7 @@ else {
 
 <?
 //screenLogPageTime("up to calendar-package-irregular-embedded.php: ");
-//if(mattOnlyTEST()) {echo "CLIENTID: $clientid CLIENT: $client CLIENTDETAILS: ".print_r($clientDetails, 1);exit;}
+}
 // ###########################################################
 // ###########################################################
 if($packageid) include "calendar-package-irregular-embedded.php";

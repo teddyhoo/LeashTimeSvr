@@ -22,15 +22,15 @@ foreach(fetchAssociations("SELECT * FROM tblpetbiz WHERE activebiz=1") as $biz) 
 		continue;
 	}
 	if($lastHost != $biz['dbhost']) {
-		mysql_close();
-		$lnk = mysql_connect($biz['dbhost'], $biz['dbuser'], $biz['dbpass']);
+		mysqli_close();
+		$lnk = mysqli_connect($biz['dbhost'], $biz['dbuser'], $biz['dbpass']);
 		if ($lnk < 1) {
 			$errMessage="Not able to connect: invalid database username and/or password.";
 		}
 	}
 	$lastHost = $biz['dbhost'];
-	mysql_select_db($biz['db']);
-	if(mysql_error()) echo mysql_error();
+	mysqli_select_db($biz['db']);
+	if(mysqli_error()) echo mysqli_error();
 // TEMPORARY -- UNTIL WE SWAP IN THE NEW MAIL ENGINE
 if($hhost = !isSMTPHostExperimental()) {
 	echo "DB: {$biz['db']} skipped.\n";

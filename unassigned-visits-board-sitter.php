@@ -150,7 +150,7 @@ function cmpclient($a, $b) {
 foreach($unassignedVisits as $i =>$u) 
 	$unassignedVisits[$i]['uvbdate'] = $u['uvbdate'] ? $u['uvbdate'] : $u['date'];
 	
-//if(mattOnlyTEST()) print_r($unassignedVisits);
+
 uasort($unassignedVisits, ($sortByClient ? 'cmpclient' : 'cmpdate'));
 
 //foreach($unassignedVisits as $u) echo "[{$u['appointmentptr']}] ".print_r($allClients[$u['clientptr']],1)."<p>";exit;

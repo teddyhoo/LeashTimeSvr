@@ -7,7 +7,7 @@ require_once "gui-fns.php";
 
 $locked = locked('z-');
 extract($_GET);
-$pat = mysql_real_escape_string($pat);
+$pat = mysqli_real_escape_string($pat);
 if($pat) { // AJAX
 	// find db name and biz name matches
 	$bizids = fetchCol0("SELECT bizid FROM tblpetbiz WHERE bizname LIKE '%$pat%' OR db LIKE '%$pat%' OR state LIKE '%$pat%' OR CONCAT('[', state) LIKE '%$pat%'");

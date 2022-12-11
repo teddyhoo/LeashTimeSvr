@@ -74,7 +74,7 @@ function invoiceStatementNoticeSection($client, $starting=null, $ending=null) {
 	$endCondition = $ending ? "AND SUBSTR(datetime, 1, 10) <= '".date('Y-m-d', strtotime($ending))."'" : '';
 	$hideStatements = in_array(userRole(), array('o', 'd')) ? '' : "AND hidefromcorresp = 0";
 	$statementSubjectTest = fetchRow0Col0("SELECT subject FROM tblemailtemplate WHERE label = '#STANDARD - Invoice Email'");
-	$statementSubjectTest = $statementSubjectTest ? " OR subject LIKE '%".mysql_real_escape_string($statementSubjectTest)."%' " : '';
+	$statementSubjectTest = $statementSubjectTest ? " OR subject LIKE '%".mysqli_real_escape_string($statementSubjectTest)."%' " : '';
 	$statements = fetchAssociations(
 		"SELECT datetime, msgid, subject, correspaddr, ifnull(transcribed, 'email') as transcribed
 		 FROM tblmessage
@@ -122,7 +122,7 @@ function analyzeInvoiceStatementMessage($msgid) {
 	$version = findInvoiceVersion($message);
 	if($version == 0) {
 		$lines = explode("\n", $body);
-//if(mattOnlyTEST()) print_r(collectRows($lines));
+
 		$pat = 'Prior Unpaid Charges</label></td>';
 		foreach($lines as $i => $line) {
 			if($start = strpos($line, $pat)) {

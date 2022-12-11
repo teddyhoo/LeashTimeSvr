@@ -20,25 +20,25 @@ if($biz['db'] == 'dogslife') continue; // for testing cron-daily-tasks.php
 	$dbpass = $biz['dbpass'];
 	$db = $biz['db'];
 	$bizptr = $biz['bizid'];
-	$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+	$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 	if ($lnk < 1) {
 		$errMessage="Not able to connect: invalid database username and/or password.";
 	}
-	$lnk1 = mysql_select_db($db);
-	if(mysql_error()) echo mysql_error();
+	$lnk1 = mysqli_select_db($db);
+	if(mysqli_error()) echo mysqli_error();
 	
 	$preferences = fetchPreferences();
 	
 	// Note: for dev testing purposes ensure that database schema is up to date
 
-	$result = mysql_query("SHOW COLUMNS FROM tblservicepackage");
+	$result = mysqli_query("SHOW COLUMNS FROM tblservicepackage");
 	$ran = false;
 	if (!$result) {
-			echo 'Could not run query: ' . mysql_error();
+			echo 'Could not run query: ' . mysqli_error();
 			exit;
 	}
-	if (mysql_num_rows($result) > 0) {
-			while ($row = mysql_fetch_assoc($result)) {
+	if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_assoc($result)) {
 					if($row['Field'] == 'prepaid') {
 						$NO_SESSION['i18n'] = getI18NProperties($biz['country']);				
 						billingCron($force=false);

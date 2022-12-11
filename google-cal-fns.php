@@ -74,7 +74,7 @@ function updateProviderCalendarsForDates($providerIdString, $start, $end, $unass
 		else if(!$appt['providerptr']) $byProvider[0][] = $appt; // Unassigned, to manager
 		else $byProvider['NODESTINATION'.$appt['providerptr']][] = $appt; // nowhere to send
 	}
-//if(mattOnlyTEST()) return array(print_r($byProvider, 1));				
+				
 
 	$allowed = getPreference('googleCalendarEnabledSitters');
 	$sent = $unsendable = $unready = $ready = 0;
@@ -151,7 +151,7 @@ function getManagerNames($userids) {
 }
 
 function getGoogleCalCredsTokenForGoogleUser($username) {
-//if(mattOnlyTEST()) echo "SELECT * FROM tbluserpref	WHERE value LIKE '$username#*SEPR*#%' LIMIT 1"."<hr>".print_r(fetchFirstAssoc("SELECT * FROM tbluserpref	WHERE value LIKE '%$username#*SEPR*#%' LIMIT 1"),1);exit;	
+	
 /*if(mattOnlyTEST()) {
 	foreach(fetchAssociations("SELECT * FROM tbluserpref WHERE property LIKE 'googlecreds'") as $e)
 		echo lt_decrypt($e['value'])."<br>";
@@ -159,7 +159,7 @@ function getGoogleCalCredsTokenForGoogleUser($username) {
 }*/
 	$result = doQuery("SELECT * FROM tbluserpref WHERE property = 'googlecreds'");
 	$username = strtoupper("$username");
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$row['value'] =  lt_decrypt($row['value']);
 		$googleCreds = explode('#*SEPR*#', $row['value']);
 		
@@ -262,7 +262,7 @@ function clearAllGoogleItems($start, $end, $provIds=null) {
 		foreach($items as $item) {
 			deleteTable('tblusergooglevisit', "userptr = $userptr AND visitptr = {$item['visitptr']}", 1);
 			if($item['visitptr'] > 0) // do not include "cancel" notices in the count
-				$deletions += mysql_affected_rows();
+				$deletions += mysqli_affected_rows();
 		}
 		if($items) logChange($userptr, 'tblusergooglevisit', 'd', "$deletions visits");
 	}

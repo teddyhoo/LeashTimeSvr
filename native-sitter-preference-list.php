@@ -62,7 +62,7 @@ if($_POST) {
 				setPreference('earlyArrivalMarkingLimit', $_POST[$field]);
 		}
 	}
-//if(mattOnlyTEST()) {print_r($_POST);exit;}	
+}	
 	echo "<script language='javascript'>if(parent) { if(parent.updateProperty) parent.updateProperty('nativeSitterAppPrefs', '{$nativeSitterAppPrefs}'); parent.$.fn.colorbox.close();}</script>";
 	
 }
@@ -423,7 +423,7 @@ if(petOwnerPortalVRTest()) {
 }
 else $templateBody = $template['body'];
 
-//if(mattOnlyTEST()) echo "/* TEMPPPP ".print_r($template,1)." */";
+
 $EnhancedVisitReportTemplate = str_replace("\r", '', $templateBody);
 
 for($sepr=9999; strpos($EnhancedVisitReportTemplate, $sepr) === FALSE; $sepr++) ;

@@ -2,9 +2,9 @@
 
 require_once "common/init_session.php";
 //if($_REQUEST['support']) {print_r($_REQUEST['support']);exit;}
-//if(mattOnlyTEST()) {	require_once "common/init_db_common.php";logError("prospect-leashtime.php: ".print_r($_POST,1));}
+}
 if(in_array(userRole(), array('o', 'd', 'c', 'p'))) {
-//if(mattOnlyTEST()) {echo "USER ROLE: [".userRole()."]<hr>";/*exit;*/}
+*/}
 	// generate a regular request by the client business
 	$_POST['type'] = 'comm_comment';
 	$_POST['name'] = "{$_POST['fname']} {$_POST['lname']}";

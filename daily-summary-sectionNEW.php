@@ -156,7 +156,7 @@ if(staffOnlyTEST() || dbTEST('themonsterminders')) {
 	else providerCalendarSection("Schedule", $prov, $counts['visits']);
 	$providerDiv = ob_get_contents();
 	ob_end_clean();
-//if(mattOnlyTEST()) if($prov==157) print_r(htmlentities($providerDiv)."<hr>[".$showStyle."]");	
+	
 	$rows[] = "<tr class='provrow_$prov' $showStyle><td colspan=2>$providerDiv</td></tr>";
 //if(mattOnlyTEST() && !$breakdown[$prov]) {echo htmlentities(print_r($rows, 1));exit;}
 }

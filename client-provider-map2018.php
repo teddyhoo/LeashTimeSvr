@@ -49,7 +49,7 @@ $doNotServeProviders = providerIdsWhoWillNotServeClient($client['clientid']);
 if(!googleAddress($client)) 
 	$_SESSION['frame_message'] = $error = "There is not sufficient address information on file for {$client['fname']} {$client['lname']} to produce a map.";
 else  {
-//if(mattOnlyTEST()) print_r(googleAddress($client));	
+	
 	$sitters = fetchAssociationsKeyedBy("SELECT * FROM tblprovider WHERE active =  1 ORDER BY lname, fname", 'providerid');
 	if($client['defaultproviderptr'] && $sitters[$client['defaultproviderptr']]) $defaultSitter = $sitters[$client['defaultproviderptr']];
 	$sitterAddrs = array();
@@ -123,7 +123,7 @@ $markers = array();
 
 $client['address'] = personsHTMLAddress($client); //htmlFormattedAddress($add);
 if($clientGoogleAddress = googleAddress($client)) {
-//if(mattOnlyTEST()) echo "<hr>Client:".print_r($add,1)."<br>";	
+	
 	$marker = getLatLon($clientGoogleAddress);
 	$clientGeocode = $marker;
 	$marker['address'] = $client['address'];

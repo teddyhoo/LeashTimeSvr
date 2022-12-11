@@ -330,10 +330,10 @@ function preprocessTemplateMessage($message, $target, $template) {
 		$merges['#REQUESTSUMMARY#'] = $requestSummary;
 	}
 	
-//if(mattOnlyTEST()) 	$message = "$managerNickname<hr>{$_SESSION['auth_user_id']}<hr>$message";
+
 
 	$message = mailMerge($message, $merges);
-//if(mattOnlyTEST()) {return($message);exit;}
+}
 	$hasHtml = strpos($message, '<') !== FALSE;
 	if($hasHtml) {
 		$message = str_replace("\r", "", $message);

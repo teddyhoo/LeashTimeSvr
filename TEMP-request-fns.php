@@ -340,7 +340,7 @@ function notifyStaffOfClientRequest($request) {
 }
 
 function anyVisitsInScopeMarkedComplete($source) {
-//if(mattOnlyTEST()) echo print_r($source,1);	
+	
 	$scope = explode('_', $source['scope']);
 	$soleScope = $scope[0] == 'sole';
 	if($soleScope) $where = "WHERE appointmentid = {$scope[1]}";
@@ -618,7 +618,7 @@ function saveNewProspectRequest($request) {
 		else logChange(99, 'spam', 'c', "IP[{$_SERVER['REMOTE_ADDR']}] spam created");
 	}
 		
-//if(mattOnlyTEST()) {print_r($request);exit;}
+}
   foreach($request as $key => $value) 
   	if(strpos($key, 'x-')===0)
   		$extraFields .= "<extra key=\"$key\"><![CDATA[$value]]></extra>";
@@ -694,7 +694,7 @@ function getClientRequests($unresolvedOnly=null, $offset=0, $initialUnresolvedLi
 		if($filterParams['client']) {
 			$extraFields = ", tblclient.fname, tblclient.lname";
 			$pattern = strpos($filterParams['client'], '*') === FALSE ? "*{$filterParams['client']}*" : $filterParams['client'];
-			$pattern = mysql_real_escape_string(str_replace('*', '%', $pattern));
+			$pattern = mysqli_real_escape_string(str_replace('*', '%', $pattern));
 			$filter[] = "(CONCAT_WS(' ', tblclientrequest.fname, tblclientrequest.lname) LIKE '$pattern'"
 									."|| CONCAT_WS(' ', tblclient.fname, tblclient.lname) LIKE '$pattern')";
 		}
@@ -874,7 +874,7 @@ function clientRequestSection($updateList, $unresolvedOnly=true, $offset=0, $ini
 	$requests = getClientRequests($unresolvedOnly, $offset, $initialUnresolvedLimit, $filterParams);
 	foreach($requests as $request) 
 	  if($request['clientptr']) $clientids[] = $request['clientptr'];
-//if(mattOnlyTEST()) print_r($requests[0]);
+
 	if($requests) separatePreferredSection($requests);
 	
 	$clientDetails = getClientDetails($clientids, array('phone','address'));

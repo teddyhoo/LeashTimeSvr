@@ -66,7 +66,7 @@ function handleBettaWalkaKey($row) {
 	foreach($dataHeaders as $i => $label) {
 		$trimVal = trim($row[$i]);
 		if($label == 'Account') {
-			$name = mysql_real_escape_string($trimVal);
+			$name = mysqli_real_escape_string($trimVal);
 			$client = fetchFirstAssoc(
 				"SELECT * FROM tblclient 
 					WHERE CONCAT_WS(' ', fname, lname) = '$name'");

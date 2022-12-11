@@ -43,7 +43,7 @@ $messages =  fetchAssociations($sql =
 	 	AND note NOT LIKE 'Approved%'
 	 ORDER BY time DESC", 1);
 
-//if(mattOnlyTEST()) {print_r($messages);exit;}
+}
 
 $users = array();
 foreach($messages as $i => $m) {

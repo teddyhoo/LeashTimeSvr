@@ -68,7 +68,7 @@ else {
 }
 
 $extension = substr($file, strrpos($file, '.')+1);
-//if(mattOnlyTEST()) {echo "$file: Content-Type: image/{$ctypes[$extension]}";} else
+} else
 header("Content-Type: image/{$ctypes[$extension]}");
 header("Pragma: public"); // required
 header("Expires: 0");

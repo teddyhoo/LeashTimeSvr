@@ -41,7 +41,7 @@ oneLineEntry('Color', 100, true, $pet['color']);
 lineEnd();
 oneLineEntry('Birthday ('.getI18Property('shortdateformat', 'm/d/Y').')', 100, true, ($pet['dob'] ? shortDate(strtotime($pet['dob'])) : ''));
 oneLineEntry('Description', 500, false, $pet['description']);
-echo "<p>";//if(mattOnlyTEST()) print_r($pet);
+echo "<p>";
 
 textBox('Notes', $width=700, $height=100, $pet['notes']);
 

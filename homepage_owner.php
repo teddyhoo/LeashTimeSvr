@@ -35,7 +35,7 @@ if(userRole() != 'd' || strpos($_SESSION['rights'], '#av'))
 if($numIncomplete) {
 	//$beforeToday = count(findIncompleteJobs(null, date('Y-m-d', strtotime('yesterday'))));
 	//$beforeToday = $beforeToday == $numIncomplete ? 'all' : $beforeToday;
-	$beforeToday = mysql_num_rows(findIncompleteJobsResultSet(null, date('Y-m-d', strtotime('yesterday'))));
+	$beforeToday = mysqli_num_rows(findIncompleteJobsResultSet(null, date('Y-m-d', strtotime('yesterday'))));
 //screenLogPageTime('Just did findIncompleteJobsResultSet');
 	$beforeToday = $beforeToday ? " ($beforeToday before today)" : ''; 
 	echo "<div style='float:right;position:relative;top:-40px;font-size:1.1em;font-weight:bold;color:red;' title='Click to see them.'>
@@ -639,7 +639,7 @@ if(prov==53) alert(url+'provider='+prov+'&oneDay='+oneDay+showCanceled+showSurch
 }
 
 function reportAppointments(divId, tabletext) {
-<? //if(mattOnlyTEST()) echo "if(divId=='prov_section_118') alert(divId+'\\n\\n'+tabletext);"; ?>
+<?  ?>
 <? if($homePageMode == 'brief') { ?>
 	var prov = divId.split('_');
 	prov = prov[prov.length-1];
@@ -679,7 +679,7 @@ if(1 || divId == "prov_section_50") alert(tabletext.indexOf('No visit'));
 	
 	// make rows for this provider visible in case they were invisible before
 	var prov = divId.split('_');
-<? //if(mattOnlyTEST()) echo "alert(prov[2]);"; ?>
+<?  ?>
 	//$('.provrow_'+prov[2]).prop('style', ''); // fails in MSIE 10
 	$('.provrow_'+prov[2]).css('display', '<?= $_SESSION['tableRowDisplayMode'] ?>');
 <? /*if(mattOnlyTEST()) echo "alert(document.getElementById('provrow_'+prov[2]));"; */ ?>
@@ -720,7 +720,7 @@ function reportTotalRevenue() {
 			apptcount++;
 		}
 	}
-<? //if(mattOnlyTEST()) echo "alert(sum)"; ?>	
+<?  ?>	
 	<? if(!getUserPreference($_SESSION["auth_user_id"], 'suppressRevenueDisplay')) { ?>
 	if(true || sum)
 		document.getElementById('total-revenue').innerHTML = " Day's revenue: "+currencyMark+sum;

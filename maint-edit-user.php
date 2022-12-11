@@ -169,7 +169,7 @@ if($_POST && ($_POST['action'] == 'register')) {
   // new loginid and new user
 	$data = array_merge($_POST);
 	$data['isowner'] = $isowner && ($role == 'manager' || $rights[0] == 'o') ? 1 : '0';
-//if(mattOnlyTEST()) {print_r($data);exit;}	
+}	
 
   if(!$user && !$userid) { // new loginid and new user
 		$data['bizptr'] = $bizptr;
@@ -199,7 +199,7 @@ if($_POST && ($_POST['action'] == 'register')) {
   else if(!$user || ($userid && is_array($user) && $user['userid'] == $userid)) {
 //echo "SAVE: ".print_r($_POST,1);exit;	
 		if(!$data['password']) unset($data['password']);
-//if(mattOnlyTEST()) {print_r($data);exit;}		
+}		
 		updateSystemLogin($data);
 		if($_POST['clearnotices']) deleteTable('relusernotice', "userptr = '$userid'", 1);
 	}
@@ -340,7 +340,7 @@ if(($userid && (!$logins || $userDetails['providerid'] || $userDetails['clientid
 	//print_r($userDetails);
 	echoButton('', 'Erase User', "if(confirm(\"Really?\")) document.location.href=\"maint-edit-user.php?kill=$userid\"", 'HotButton', 'HotButtonDown');
 }
-//if(mattOnlyTEST()) echo "[[$rights]]";
+
 if($userid && strpos('od', $rights[0]) !== FALSE)
 	echoButton('', 'New User With Same Rights', "document.location.href=\"maint-edit-user.php?bizptr=$bizptr&duplicate=$userid\"");
 ?>

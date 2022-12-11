@@ -133,7 +133,7 @@ function printPageLabels($pdf, $labelFunction, $keys, $rows, $cols, $spec) {
 	else $horizontalLeap = cm(5.0);
 	
 	foreach($keys as $index => $key) {
-//if(mattOnlyTEST()) {echo "$labelFunction ($index): ";print_r($key);}
+}
 		call_user_func_array($labelFunction, array(&$pdf, $key, 
 																								$pdf->ez['leftMargin'], 
 																								$pdf->ez['pageHeight']

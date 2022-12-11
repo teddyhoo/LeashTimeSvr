@@ -224,7 +224,7 @@ function getKeyClients() {
 										 FROM tblkey
 										 WHERE possessor1 IS NOT NULL OR possessor2 IS NOT NULL OR 
 										 				possessor4 IS NOT NULL OR possessor4 IS NOT NULL OR possessor5 IS NOT NULL");
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		for($i = 0; $i < 5; $i++) {
 			$k = "possessor$i";
 			if($row[$k] && is_numeric($row[$k])) $keyClients[$row[$k]][] = $row['clientptr'];

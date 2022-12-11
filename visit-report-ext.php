@@ -116,7 +116,7 @@ ensureInstallationSettings(); // no help with map
 //echo "killSession[[[$killSession]]]";exit;
 //echo "[[[{$appt['appointmentid']}]]] [$includeFields]";
 
-//if(mattOnlyTEST()) echo "USER ROLE: [".userRole()."]<p>";
+
 if($_GET['original']) {
 	$visitPhotoURL = visitPhotoURL($appt['appointmentid'], $internalUse=!$killSession, $_GET['bizid']);
 	$message =  preprocessVRMessage($template['body'], $appt, $visitPhotoURL, $visitMapURL=null, $client=null, $includeFields);
@@ -126,10 +126,10 @@ else {
 	echo enhancedOnlineVisitReportHTML($appt, !$killSession, null, $includeFields);
 }
 
-//if(mattOnlyTEST()) echo "USER ROLE: [".userRole()."] <p>killSession[$killSession]<br>";
+
 //echo "killSession[[[$killSession]]]";exit;
 if($killSession) {
 	session_unset();
 	session_destroy();
 }
-//if(mattOnlyTEST()) echo "USER ROLE: [".userRole()."] <p>killSession[$killSession]<br>";
+

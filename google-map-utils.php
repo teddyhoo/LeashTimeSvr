@@ -1,7 +1,7 @@
 <? // google-map-utils.php
 
 function googleAddress($person, $forceZIP=false) {
-//if(mattOnlyTEST()) echo print_r($person,1)."<p>";
+
 	if($person) $person = array_map('trim', $person);
 	if(!$forceZIP && $person['city'] && $person['state'] ) $addr = "{$person['street1']}, {$person['city']}, {$person['state']}";
 	else 	$addr = trim("{$person['street1']} {$person['zip']}");
@@ -15,7 +15,7 @@ function googleAddress($person, $forceZIP=false) {
 						$_SESSION['altgeocodetable'] = $altTable;
 					}
 					if($altTable != 'none') {
-						$altAddress = fetchRow0Col0("SELECT altaddress FROM $altTable WHERE address = '".addslashes($addr)."' LIMIT 1", 1); // don't use mysql_real_escape_string here
+						$altAddress = fetchRow0Col0("SELECT altaddress FROM $altTable WHERE address = '".addslashes($addr)."' LIMIT 1", 1); // don't use mysqli_real_escape_string here
 						if($altAddress) $addr = $altAddress;
 					}
 	}*/
@@ -48,7 +48,7 @@ function convertMeters($meters, $preciseAlso=false) {
 }
 
 function getLatLonOLD($toAddress) { // OLD OLD OLD
-//if(mattOnlyTEST()) echo "TOADDRESS: ".print_r($toAddress, 1).'<hr>';	
+	
 	global $dbhost, $db, $dbuser, $dbpass;
 	list($dbhost1, $db1, $dbuser1, $dbpass1) = array($dbhost, $db, $dbuser, $dbpass);
 	global $googleMapAPIKey, $dbuser, $dbpass, $dbhost, $db;
@@ -74,7 +74,7 @@ function getLatLonOLD($toAddress) { // OLD OLD OLD
 
 function getLatLon($toAddress) {
 	if(!$toAddress) return null;
-//if(mattOnlyTEST()) echo "TOADDRESS: ".print_r($toAddress, 1).'<hr>';	
+	
 	global $dbhost, $db, $dbuser, $dbpass;
 	list($dbhost1, $db1, $dbuser1, $dbpass1) = array($dbhost, $db, $dbuser, $dbpass);
 	global $googleMapAPIKey, $dbuser, $dbpass, $dbhost, $db;
@@ -138,7 +138,7 @@ function distance($clientGeocode, $addrOrLatLon, $unitsToReturn=null) {
 	$lon1 = (float)$geocode['lon'];
 	$lat2 = (float)$clientGeocode['lat'];
 	$lon2 = (float)$clientGeocode['lon'];
-//if(mattOnlyTEST()) {echo 	"<hr>clientGeocode: [".print_r($clientGeocode, 1)."]  addrOrLatLon: [".print_r($addrOrLatLon, 1)."]<br>lat1: [$lat1]  lat2: [$lat2]  lon1: [$lon1]  lon2: [$lon2]<br>";}
+}
 	
   $dist = rad2deg(acos(sin(deg2rad($lat1)) * sin(deg2rad($lat2)) + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($lon1 - $lon2)))) * 60 * 1.1515;
 //echo "[$dist] $addrOrLatLon: ".print_r($geocode, 1).'<br>';
@@ -147,7 +147,7 @@ function distance($clientGeocode, $addrOrLatLon, $unitsToReturn=null) {
 	$factors = array('mi'=>1, 'km'=>1.609344, 'ft'=>5280, 'm'=>1609.344);
 	$factor = $factors[$unitsToReturn];
 	$finalDistance = $dist * $factor;
-//if(mattOnlyTEST()) {echo 	"<hr>[".print_r($addrOrLatLon['appointmentptr'], 1)."]lat1: [$lat1]  lat2: [$lat2]  lon1: [$lon1]  lon2: [$lon2]<br>Distance: [$dist] => [$finalDistance $unitsToReturn]";}
+}
 	return $unitsToReturn == 'mi' ? round($finalDistance, 1) : $finalDistance;
 }
 

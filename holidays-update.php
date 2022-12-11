@@ -18,7 +18,7 @@ foreach($holidays as $label => $dates) {
 			if($update) 
 				updateTable('tblsurchargetype', 
 											array('date'=>$date),
-											"label = '".mysql_real_escape_string($label)."'", 
+											"label = '".mysqli_real_escape_string($label)."'", 
 											1);
 		}
 }

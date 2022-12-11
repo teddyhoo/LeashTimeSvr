@@ -25,7 +25,7 @@ else if(isset($confirm)) {
   if(!$error) {
 	  $vetName = fetchRow0Col0("SELECT CONCAT_WS(' ', fname, lname) as name FROM tblvet WHERE vetid = $id LIMIT 1");
 	  deleteVet($id);
-	  if(mysql_error()) {echo mysql_error(); exit;};
+	  if(mysqli_error()) {echo mysqli_error(); exit;};
   	echo "<script language='javascript'>window.opener.updateAfterDeletion(escape('$vetName'), -1);window.close();</script>";
   	exit();
 	}

@@ -16,7 +16,7 @@ $_SESSION["responsiveClient"] =
 	 			|| in_array($_SESSION["clientid"], 
 											explode(',', $_SESSION['preferences']['version2TestClients'])));
 
-//if(mattOnlyTEST()) $_SESSION["responsiveClient"] = !false;			
+			
 
 if($_SESSION["creditCardIsRequired"]
 	// if CC required, go to account page

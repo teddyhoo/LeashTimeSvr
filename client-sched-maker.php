@@ -72,7 +72,7 @@ if($_POST && isset($_POST['servicecode_1_1'])) {
 		$request = array('note'=>$payload, 'requesttype'=>$requesttype, 'clientptr'=>$client);
 		
 		if(!($requestID = saveNewClientRequest($request, true))) {
-			$error = mysql_error();
+			$error = mysqli_error();
 			logChange($client, 'clientScheduler', 'm', "Step 3: $error");
 
 		}
@@ -89,7 +89,7 @@ if($_POST && isset($_POST['servicecode_1_1'])) {
 		$successMessage = $successMessage 
 			? $successMessage 
 			: "Your schedule request has been submitted.<p>We'll be getting back to you shortly.<p>Thank you!";
-		if(mysql_error()) $error = mysql_error();
+		if(mysqli_error()) $error = mysqli_error();
 		else $finalMessage = $successMessage;
 	}
 }		

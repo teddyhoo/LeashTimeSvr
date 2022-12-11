@@ -151,7 +151,7 @@
 			$_SESSION['frame_message'] = "Changes saved.";
 		} else {
 			saveNewClient();
-			$newClientId = mysql_insert_id();
+			$newClientId = mysqli_insert_id();
 			if (mattOnlyTEST())
 				setClientPreference($newClientId, 'lastSaved', date('Y-m-d H:i:s') . "|{$_SESSION['auth_username']}|{$_SESSION['auth_user_id']}");
 			logChange($newClientId, 'tblclient', 'c', 'Created');

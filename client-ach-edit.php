@@ -270,7 +270,7 @@ function achFormArgsToTest() {
 	val = document.getElementById('x_zip').value;
 	var zipcodemessage = ZIPCodeError(val);
 
-<? //if(mattOnlyTEST()) echo "alert('phonemessage: '+phonemessage+', statemessage: '+statemessage );"; ?>	
+<?  ?>	
 	extraArgs = [
 			'x_address', '', 'R',
 			'x_city', '', 'R',

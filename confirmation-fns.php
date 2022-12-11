@@ -237,7 +237,7 @@ function linkConfirmationToMessage($msgptr, $confid=null, $body=null) {
 //logError("linkConfirmationToMessage confid: [$confid] msgptr: [$msgptr]");
 
 	updateTable('tblconfirmation', array('msgptr'=>$msgptr), "confid = $confid", 1);
-//logError(mysql_error() ? mysql_error() : 'No Error (update)');
+//logError(mysqli_error() ? mysqli_error() : 'No Error (update)');
 	deleteTable('tblqueuedconf', "confid = $confid", 1);  // used to hold confids for queued messages until messages are sent
-//logError(mysql_error() ? mysql_error() : 'No Error (delete)');
+//logError(mysqli_error() ? mysqli_error() : 'No Error (delete)');
 }

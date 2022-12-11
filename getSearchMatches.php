@@ -222,7 +222,7 @@ function findClients($pat){
 	$loginIdSearch = $pat && preg_match('/^\(/', $pat);
 	if($loginIdSearch && strlen($pat) == 1) return;
 	$phoneSearch = $pat && preg_match('/^\-{0,1}\+[0-9]{1,7}$/', $pat);
-//if(mattOnlyTEST()) {echo "PAT[$pat] phoneSearch[$phoneSearch]||ddd";exit;}
+}
 
 	$activestatus = 1;
 	if(strpos($pat, '-') === 0) {
@@ -249,7 +249,7 @@ function findClients($pat){
 				$globalPattern = $pat;
 			}
 			$baseQuery = "$baseQuery AND tblpet.name like '$pat'";
-			//$numFound = mysql_num_rows(mysql_query($baseQuery));
+			//$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 			//if($numFound)
 				$pets = fetchAssociationsKeyedBy("$baseQuery $orderBy $limit", 'clientid');
 		}
@@ -296,7 +296,7 @@ function findClients($pat){
 							.") ";
 
 
-		//$numFound = mysql_num_rows(mysql_query($baseQuery));
+		//$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 		//if($numFound)
 		if($phoneSearch) $clients = phoneSearch($rawPat); else // ...
 		$clients = fetchAssociationsKeyedBy("$baseQuery $orderBy $limit", 'clientid');
@@ -334,7 +334,7 @@ function findClients($pat){
 	$rows = array();
 
 	if(true) {
-//if(mattOnlyTEST()) echo print_r(count($clients), 1).'///';		
+		
 		$groups = smartSort($clients, $rawPat); 
 		foreach((array)$clients as $client) unset($pets[$client['clientid']]);
 		foreach((array)$groups['lastnames'] as $client) $rows[] = "{$client['clientid']}|{$client['name']}{$client['petnames']}";
@@ -363,7 +363,7 @@ function findClients($pat){
 				$rows[] = "{$client['clientid']}|{$client['name']}";
 		}
 	}
-	//if(mattOnlyTEST()) $rows[] = "-99|$rawPat";
+	
 	if(staffOnlyTEST() && is_numeric($rawPat)) {
 		// phone search
 		foreach($rows as $i => $row) {
@@ -409,7 +409,7 @@ function phoneSearch($rawPat) {
 			FROM tblclient
 			WHERE (homephone IS NOT NULL OR workphone IS NOT NULL OR cellphone IS NOT NULL OR cellphone2 IS NOT NULL) AND "
 				.($inactive ? 'active=0' : 'active=1'), 1);
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
   	foreach($row as $k=>$v) {
 			if($k == 'clientid' || !$v) continue;
 			$rawnum = preg_replace("/[^0-9]/", "", $v);
@@ -555,7 +555,7 @@ function searchProviders($pat) {
 				OR street1 like '$pat'
 				)";
 
-		//$numFound = mysql_num_rows(mysql_query($baseQuery));
+		//$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 		//if($numFound)
 		$providers = fetchAssociationsKeyedBy("$baseQuery $orderBy $limit", 'providerid');
 		foreach($providers as $provider) 

@@ -173,7 +173,7 @@ if($includeVisitCounts) {	// visitCount
 			FROM tblappointment 
 			WHERE clientptr = {$client['clientid']} AND canceled IS NULL and completed IS NOT NULL
 			ORDER BY date", 1);
-	while($assoc = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while($assoc = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$firstDate = $firstDate ?  $firstDate  : $assoc['date'];
 		$lastDate = $assoc['date'];
 		$totalVisitCount += 1;

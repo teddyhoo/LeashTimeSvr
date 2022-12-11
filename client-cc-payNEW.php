@@ -40,7 +40,7 @@ if(!$clientid || !$userid) $error = "Insufficient information to continue.";
 if(!$error) {
 	require_once "common/init_session.php";
 	$startingDB = $_SESSION['db'];
-	//if(mattOnlyTEST()) echo "STARTING DB: [$startingDB] ";//.print_r($_SESSION, 1);
+	
 	if($_REQUEST['restart']) {
 			session_unset();
 		  session_destroy();
@@ -90,7 +90,7 @@ if(!$error) {
 	$amount = $amount ? floatval(str_replace(",","","$amount")) : $amount;
 	$ZERODUEOPTION = getPreference('enableGratuitySoliciation') || dbTEST('dogwalkingdc'); // mattOnlyTEST(); // 1
 	$GRATUITYONLY = !$amount && $ZERODUEOPTION;
-//if(mattOnlyTEST()) echo "	[$ZERODUEOPTION] / [$GRATUITYONLY]<hr>"; 
+ 
 	// AJAX call to see if login is necessary: client-cc-pay.php?rcip=XX|YY&checklogin=1
 	function passwordChecked() {
 		if(!$_SESSION['cardonfilepasswordcheck']) return;

@@ -68,7 +68,7 @@ if($_POST) {
 	if($servicecodes) 
 		$filterDescription[] = "with visit types: "
 					.addslashes(join(', ', fetchCol0("SELECT label FROM tblservicetype WHERE servicetypeid IN ($servicecodeString)")));
-//if(mattOnlyTEST()) echo print_r($filterDescription, 1);		
+		
 	$clientIds = array();
 	if($filter) {
 		$clientIds = 
@@ -97,12 +97,12 @@ if($_POST) {
 									WHERE canceled IS NULL AND date >= '$withVisitsAsRecentAs'", 1);
 		$clientIds = $clientIds ? array_intersect($clientIds, $recentClients) : $recentClients;
 		$stop = count($clientIds) == 0;
-//if(mattOnlyTEST()) {echo "$sql<hr>".print_r($clientIds, 1)." stop: [$stop]";exit;}		
+}		
 	}
 									
 	$checkDefaultProvider = $defaultprovider && $chosensitter;
-	$addressFragment = $addressFragment ? mysql_real_escape_string($addressFragment) : '';
-	$emailFragment = $emailFragment ? mysql_real_escape_string($emailFragment) : '';
+	$addressFragment = $addressFragment ? mysqli_real_escape_string($addressFragment) : '';
+	$emailFragment = $emailFragment ? mysqli_real_escape_string($emailFragment) : '';
 	
 	$anyTextableNumber = 
 		"((homephone IS NOT NULL AND LOCATE('T', homephone) > 0 AND LOCATE('T', homephone) < 2 AND LOCATE('T', homephone) < LENGTH(homephone)) OR
@@ -140,7 +140,7 @@ if($_POST) {
 			$clientIds 
 				? array_unique(array_intersect($clientIds,  fetchCol0($statusSQL)))
 				: fetchCol0($statusSQL);
-//if(mattOnlyTEST()) echo "/* ".$statusSQL.'<p>'.print_r($clientIds, 1).'<p> */';
+
 		//$stop = count($clientIds) == 0;
 		if(!$stop && $havetemppassword) {
 			// collect userids
@@ -161,7 +161,7 @@ if($_POST) {
 			$clientIds = array_merge($clientIds); // to make sure count works right
 			$stop = count($clientIds) == 0;
 		}
-//if(mattOnlyTEST()) {echo $statusSQL." : ".count($clientIds);exit;}
+}
 	}
 	else if(!$stop) {
 		$statusSQL = "SELECT clientid FROM tblclient WHERE 1=1";
@@ -191,8 +191,8 @@ if($_POST) {
 		//echo "wehavekeys: [$wehavekeys] keysafe: [{$_POST['keysafe']}]<hr>$ksql<hr>".count($keyClientsInHand)."<hr>".count($clientIds);exit;
 		
 	}
-//if(mattOnlyTEST()) {echo "$statusSQL: ".print_r($clientIds, 1);exit;}
-//if(mattOnlyTEST()) {echo "$checkDefaultProvider<hr>$statusSQL<p><error>[$chosensitter] && ([$pastvisits] || [$futurevisits])</error>";exit;}
+}
+}
 	if(!$stop && $haveongoing) {
 		$today = date('Y-m-d');
 		$ongoingClientIds = 
@@ -255,7 +255,7 @@ if($_POST) {
 		$clientIds = array_unique(array_intersect((array)$clientIds, $sitterClientIds));
 		$stop = count($clientIds) == 0;
 	}
-//if(mattOnlyTEST()) {echo "ClientIDs: ".print_r($clientIds, 1);exit;}
+}
 	if(!$stop && $_SESSION["flags_enabled"] && $useflags) {
 		require_once "client-flag-fns.php";
 		foreach($_POST as $key => $val)
@@ -324,12 +324,12 @@ if($_POST) {
 		require_once "custom-field-fns.php";
 		$customtests = json_decode($customfieldsJSON, 'assoc');
 		$filterDescription[] = "with custom fields: ".customFilterDescription($customtests, $maxFields=null);
-//if(mattOnlyTEST()) {print_r($customtests);exit;}	
+}	
 		$clientIds = filterByCustomFields($customtests, $clientIds);
-//if(mattOnlyTEST()) {echo print_r($customtests, 1).'<p>'.print_r($clientIds, 1);exit;}	
+}	
 		$stop = count($clientIds) == 0;
 	}
-//if(mattOnlyTEST()) {echo "CLIENTIDS: ".count($clientIds);exit;}	
+}	
 		
 	// ???	
 	$preClean = $clientIds;
@@ -349,7 +349,7 @@ if($_POST) {
 						."<status>$status</status>"
 						."<addedOnOrAfter>$addedOnOrAfter</addedOnOrAfter>"
 						."</root>";
-//if(mattOnlyTEST()) echo "stop: [$stop] clientIds: ".print_r($clientIds,1)."<hr>".htmlentities($result)."</pre>";
+
 						
 	echo "<script language='javascript'>if(window.opener.update) window.opener.update('filter', \"$result\");window.close();</script>";
 	exit;
@@ -360,7 +360,7 @@ else if($_SESSION['clientFilterJSON'])
 
 
 require "frame-bannerless.php";
-//if(mattOnlyTEST()) echo print_r($_REQUEST,1)."\n<br>";
+
 ?>
 <h2>Find Clients</h2>
 <form method='POST'>

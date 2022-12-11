@@ -14,7 +14,7 @@ else if($_SESSION['preferences']['ccGateway'] == 'TransFirstV1') require_once "t
 $op = $_GET['op'];
 $oplocks = array('clientpayment'=>'T-', 'clientcc'=>'c-', 'clientach'=>'c-', 0=>'o-'); // T == TEMPCLIENT
 $locked = locked($oplocks[$op] ? $oplocks[$op] : $oplocks[0]);
-//if(mattOnlyTEST()) {print_r($_SESSION); exit;}
+}
 
 $auth = merchantInfoSupplied();
 //	'ccGateway' OR property = 'x_login' OR property = 'x_tran_key'");
@@ -143,7 +143,7 @@ function handleNewCC($op, $auth, $tokenId) {
 		else {
 			$ccid = saveNewCC($cc); // deactivates old CC
 			$cc['ccid'] = $ccid;
-//if(mattOnlyTEST()) logLongError(print_r($cc, 1));			
+			
 			saveCCInfo($cc);
 			unset($_SESSION["creditCardIsRequired"]);
 			$request= array('resolved' => 0, 'requesttype' => 'CCSupplied', 'clientptr'=>$client, 'note'=>"Credit card supplied");

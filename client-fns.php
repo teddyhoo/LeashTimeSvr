@@ -100,7 +100,7 @@ function preprocessClient(&$client) {
     $client[$key] = isset($client[$key]) && $client[$key] ? 1 : 0;
   //if($_SESSION['preferences']['emergencycarepermission']) // 
   // 	$client['emergencycarepermission'] = 1;
-  //if(mattOnlyTEST()) {print_r($client);exit;}
+  }
   foreach(array('setupdate','activationdate','deactivationdate') as $date)
     if($client[$date]) $client[$date] = date("Y-m-d",strtotime($client[$date]));
   //preprocessCustomFields($client);
@@ -180,7 +180,7 @@ function deactivateClient($clientid) {
 
 function setClientCharges($id) {
 	doQuery("DELETE FROM relclientcharge WHERE clientptr=$id");
-//if(mattOnlyTEST()) {echo "<pre>".print_r(count($_POST), 1)."<pre>"; exit;}
+}
 	foreach($_POST as $key => $val) {
 		$val = trim($val);
 		$servType = strpos($key, 'servicecharge_') === 0 ? substr($key, strlen('servicecharge_')) : null;

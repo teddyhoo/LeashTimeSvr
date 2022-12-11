@@ -289,8 +289,8 @@ function handlePetraxClientListRecordOnlyRow($row) {
 			$client['clinicptr'] = $clinicid;
 			unset($client['clinic']);
 		}
-		$exists = fetchRow0Col0("SELECT notes FROM tblclient WHERE fname = '".mysql_real_escape_string($client['fname'])."' 
-			AND lname = '".mysql_real_escape_string($client['lname'])."'");
+		$exists = fetchRow0Col0("SELECT notes FROM tblclient WHERE fname = '".mysqli_real_escape_string($client['fname'])."' 
+			AND lname = '".mysqli_real_escape_string($client['lname'])."'");
 		if($exists && $exists == "Petrax ID: $petraxid") {
 			echo "Client [$ownerptr] {$client['fname']} {$client['lname']} already exists.<p>";
 		}
@@ -331,7 +331,7 @@ function handleRowPetraxLimited($row) {  // NEW VERSION (from TLC)
 		}
 	}
 	if($_REQUEST['nodups']) {
-		$fullname = mysql_real_escape_string(trim($row[$flippedHeaders['Name']]));
+		$fullname = mysqli_real_escape_string(trim($row[$flippedHeaders['Name']]));
 		if($cid = fetchRow0Col0("SELECT clientid FROM tblclient WHERE CONCAT_WS(', ', lname, fname) = '$fullname' LIMIT 1")) {
 			echo "<font color=red>Duplicate: [$fname $lname] ($cid) ignored.</font><p>";
 			return;
@@ -372,8 +372,8 @@ function handleRowPetraxOutlook($row) {
 		}
 	}
 	if($_REQUEST['nodups']) {
-		$fname = mysql_real_escape_string(trim($row[$flippedHeaders['First Name']]));
-		$lname = mysql_real_escape_string(trim($row[$flippedHeaders['Last Name']]));
+		$fname = mysqli_real_escape_string(trim($row[$flippedHeaders['First Name']]));
+		$lname = mysqli_real_escape_string(trim($row[$flippedHeaders['Last Name']]));
 		if($cid = fetchRow0Col0("SELECT clientid FROM tblclient WHERE fname = '$fname' AND lname = '$lname' LIMIT 1")) {
 			echo "<font color=red>Duplicate: [$fname $lname] ($cid) ignored.</font><p>";
 			return;
@@ -609,15 +609,15 @@ function handleQueeniesPets($row) {
 }
 
 function findVetByName($nm) {
-	return fetchRow0Col0("SELECT vetid FROM tblvet WHERE CONCAT_WS(' ', fname, lname)  = '".mysql_real_escape_string($nm ? $nm : '')."' LIMIT 1");
+	return fetchRow0Col0("SELECT vetid FROM tblvet WHERE CONCAT_WS(' ', fname, lname)  = '".mysqli_real_escape_string($nm ? $nm : '')."' LIMIT 1");
 }
 
 function findClinicByName($nm) {
-	return fetchRow0Col0("SELECT clinicid FROM tblclinic WHERE clinicname = '".mysql_real_escape_string($nm ? $nm : '')."' LIMIT 1");
+	return fetchRow0Col0("SELECT clinicid FROM tblclinic WHERE clinicname = '".mysqli_real_escape_string($nm ? $nm : '')."' LIMIT 1");
 }
 
 function findProviderByNickname($nn) {
-	return fetchRow0Col0("SELECT providerid FROM tblprovider WHERE nickname = '".mysql_real_escape_string($nn ? $nn : '')."' LIMIT 1");
+	return fetchRow0Col0("SELECT providerid FROM tblprovider WHERE nickname = '".mysqli_real_escape_string($nn ? $nn : '')."' LIMIT 1");
 }
 
 function handleRowCahills($row) {
@@ -686,7 +686,7 @@ function handleRowNannydolittle($row) {
 	}
 	saveNewClient($client);
 	echo "<p>CREATED CLIENT: {$client['fname']} {$client['lname']}";
-	$newClientId = mysql_insert_id();
+	$newClientId = mysqli_insert_id();
 	$lastClient = $newClientId;
 	if($source) {
 		replaceTable("relclientcustomfield", 

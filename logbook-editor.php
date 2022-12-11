@@ -45,7 +45,7 @@ else if($editid && $savenote) { // save an in-place editor
 						'subject'=>$subject/*, 
 						'date'=>date('Y-m-d H:i:s'), 
 						'authorid'=>$_SESSION['auth_user_id']*/), "noteid = $editid");
-	if(!mysql_error()) echo $subject.'#ENDOFSUBJECT#'.displayableNote($savenote, $subject, $editid);
+	if(!mysqli_error()) echo $subject.'#ENDOFSUBJECT#'.displayableNote($savenote, $subject, $editid);
 	exit;
 }
 else if($retireid) {

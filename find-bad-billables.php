@@ -16,7 +16,7 @@ WHERE superseded = 0 AND billabledate >= '$start' ORDER BY lname, fname, billabl
 
 if(!$r) exit;
 echo '<table border=1><tr><th>name<th>Visit Date<th>Time<th>Billabledate<th>Billable Charge<th>Correct Charge<th>Difference';
-while($b = mysql_fetch_array($r)) {
+while($b = mysqli_fetch_array($r)) {
 	if($b['itemtable'] != 'tblappointment') continue;
 	$appt = getAppointment($b['itemptr']);
 	$discount = fetchRow0Col0("SELECT amount FROM relapptdiscount WHERE appointmentptr = {$b['itemptr']}");

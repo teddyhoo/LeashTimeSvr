@@ -48,14 +48,14 @@ if($_POST) {
 				logChange($newServiceTypeID, 'tblservicetype', 'm', "New Service type added: [{$service['label']}]");
 			}
 			
-			if(mysql_error()) $dbFaults[] = mysql_error();
+			if(mysqli_error()) $dbFaults[] = mysqli_error();
 			$serviceHours[$serviceTypeId] = $service['hours'];
 		}
 	}
 	if($idsToDelete) {
 		foreach($idsToDelete as $id) {
 			doQuery("DELETE FROM tblpreference WHERE property LIKE 'client_service_%' AND value LIKE '%|$id|%'");
-			if(mysql_error()) $dbFaults[] = mysql_error();
+			if(mysqli_error()) $dbFaults[] = mysqli_error();
 
 		}
 		$_SESSION['preferences'] = fetchPreferences();
@@ -65,7 +65,7 @@ if($_POST) {
 		}
 		$idsToDelete = join(',', $idsToDelete);
 		doQuery("DELETE FROM tblservicetype WHERE servicetypeid IN ($idsToDelete)");
-		if(mysql_error()) $dbFaults[] = mysql_error();
+		if(mysqli_error()) $dbFaults[] = mysqli_error();
 	}
 	getServiceNamesById('refresh');
 

@@ -70,7 +70,7 @@ foreach($appts as $appt)
 		$providers[$appt['providerptr']] =  array('providerptr' => $appt['providerptr'], 'name'=>$appt['pname'], 'email'=>$appt['pemail']);
 
 $templateLabel = $_POST['template'] ? $_POST['template'] : "#STANDARD - Client's Schedule";
-$safeLabel = mysql_real_escape_string($templateLabel);
+$safeLabel = mysqli_real_escape_string($templateLabel);
 $template = fetchFirstAssoc("SELECT * FROM tblemailtemplate WHERE label = '$safeLabel' LIMIT 1");
 
 
@@ -308,7 +308,7 @@ if($_SESSION['preferences']['enableVisitsComposerTemplates'] && in_array(userRol
 		else $templates[$label] = $id;
 	}
 	
-//if(mattOnlyTEST()) echo "templates: ".print_r($templates,1);
+
 	$orgTemplates = getOrganizationEmailTemplateOptions($rType);
 	if($orgTemplates) $templates['Shared Templates'] = $orgTemplates;
 	if($templates) {
@@ -473,7 +473,7 @@ if(document.getElementById('clientemail2')) document.getElementById('clientemail
 // ***************************************************************************
 //include "frame-end.html";
 
-//	$label = mysql_real_escape_string("#STANDARD - Client's Schedule");
+//	$label = mysqli_real_escape_string("#STANDARD - Client's Schedule");
 //	$template = fetchRow0Col0("SELECT * FROM tblemailtemplate WHERE label = '$label' LIMIT 1");
 function preprocessMessage($client, $message, $schedule=false) {
 	if(strpos($message, '#PETS#') !== FALSE) {

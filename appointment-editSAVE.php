@@ -328,7 +328,7 @@ var allPets = '<?= addslashes($allPetNames) ?>'.split(',');
 			displayRateAmount += " (Saved rate is $ "+document.getElementById('oldRate').value+")";
 		document.getElementById('div_rate').innerHTML = displayRateAmount;
 		document.getElementById('charge').value = parseFloat(charge).toFixed(2);
-<? //if(mattOnlyTEST()) echo "document.write('['+document.getElementById('charge').value+'] : ['+oldChargeParsed+']<p>');"; ?>
+<?  ?>
 		if(document.getElementById('charge').value != oldChargeParsed)
 			chargewarning = "(Saved charge is $"+oldChargeParsed+")";
 		if(document.getElementById('chargewarning')) document.getElementById('chargewarning').innerHTML = chargewarning;

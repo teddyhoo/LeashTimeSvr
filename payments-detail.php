@@ -27,7 +27,7 @@ $result = doQuery($sql);
 
 $aggregateView = 1;
 
-while($payment = mysql_fetch_array($result, MYSQL_ASSOC)) {
+while($payment = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 	$id = $payment['paymentid'];
 	require "payment-detail.php";
 	echo "<p>";

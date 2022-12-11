@@ -279,7 +279,7 @@ RAWRESPONSEFIELDS;
 								'response' => ($rawResponse ? $rawResponse : sqlVal("''")))
 
 							);
-		$this->lastCCErrorId = mysql_insert_id();
+		$this->lastCCErrorId = mysqli_insert_id();
 	}						
 	
 	function ccErrorLogMessage($result, $amount=null) {  // $amount is ignored here

@@ -19,7 +19,7 @@ $sql =
 		WHERE active=1 AND email IS NOT NULL AND userid IS NOT NULL";
 //
 if(!($result = doQuery($sql))) return null;
-while($row = mysql_fetch_assoc($result)) {
+while($row = mysqli_fetch_assoc($result)) {
 	$user = $users[$row['userid']];
 	if(!$user) continue;
 	unset($row['userid']);

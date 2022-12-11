@@ -39,7 +39,7 @@ while($row = fgetcsv($strm, 0, $delimiter)) {
 	// HANDLE CONTINUATIONS OF INCOMPLETE LINES
 	$clientLabel = rowAtHeader($row, 'Client');
 	if($clientLabel) {
-		$clients = fetchAssociations("SELECT * FROM tblclient WHERE CONCAT_WS(' ', fname, lname) = '".mysql_real_escape_string($clientLabel)."'");
+		$clients = fetchAssociations("SELECT * FROM tblclient WHERE CONCAT_WS(' ', fname, lname) = '".mysqli_real_escape_string($clientLabel)."'");
 		if(!$clients) echo "<font color=red>Client [$clientLabel] not found.<br></font>";
 		else if(count($clients) > 1) echo "<font color=red>Client name [$clientLabel] refers to ".count($clients)." clients.<br></font>";
 		if(count($clients) != 1) continue;
@@ -47,7 +47,7 @@ while($row = fgetcsv($strm, 0, $delimiter)) {
 	}
 	$clientid = $client['clientid'];
 	$pet = rowAtHeader($row, 'Name');
-	$pets = fetchAssociations("SELECT * FROM tblpet WHERE ownerptr = $clientid AND name = '".mysql_real_escape_string($pet)."'");
+	$pets = fetchAssociations("SELECT * FROM tblpet WHERE ownerptr = $clientid AND name = '".mysqli_real_escape_string($pet)."'");
 	if(!$pets) {
 		echo "<font color=red>Pet [$pet] not found.<br></font>";
 		//continue;
@@ -56,7 +56,7 @@ while($row = fgetcsv($strm, 0, $delimiter)) {
 			$pets = array(array('name'=>$pet, 'type'=>rowAtHeader($row, 'Type'), 'ownerptr'=>$clientid));
 			insertTable('tblpet', $pets[0], 1);
 			echo "<font color=red>CREATED [$pet].<br></font>";
-			$pets[0]['petid'] = mysql_insert_id();
+			$pets[0]['petid'] = mysqli_insert_id();
 		}
 	}
 	else if(count($pets) > 1) echo "<font color=orange>Pet name [$pet] refers to ".count($pets)." pets owned by $clientLabel.<br></font>";

@@ -12,7 +12,7 @@ foreach($services as $service) $servicemarks[$service['serviceid']] = getService
 
 $result = doQuery("SELECT appointmentid, birthmark, serviceptr FROM tblappointment", $showErrors=1);
 $n=0;
-while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 	if(!$servicemarks[$row['serviceptr']]) echo "Bad servicemark for service: [{$row['serviceptr']}] appointment: [{$row['appointmentid']}]<br>";
 	else if(!$row['birthmark']) {
 		doQuery("UPDATE tblappointment SET birthmark='{$servicemarks[$row['serviceptr']]}' 

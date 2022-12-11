@@ -4,9 +4,9 @@ require_once "common/init_db_common.php";
 require_once "gui-fns.php";
 
 $locked = locked('z-');
-//if(mattOnlyTEST()) print_r($_REQUEST);
+
 extract(extractVars('sort,droplogo,droplogotoken,bizptr,status,hidetest,hidefree,showlogos,surveysmtphosts', $_REQUEST));
-//if(mattOnlyTEST()) print_r($_SESSION);
+
 if(!in_array('status', array_keys($_REQUEST))) {
 	if(in_array('dashboardstatus', array_keys($_SESSION))) $status = $_SESSION['dashboardstatus'];
 	else $status = 7;
@@ -46,7 +46,7 @@ if($surveysmtphosts) {
 	foreach(fetchAssociations("SELECT * FROM tblpetbiz") as $biz) {
 		if(!in_array($biz['db'], $dbs)) continue;
 		reconnectPetBizDB($biz['db'], $biz['dbhost'], $biz['dbuser'], $biz['dbpass'], 1);
-		if(mysql_error()) continue;
+		if(mysqli_error()) continue;
 		$smtpHost = fetchKeyValuePairs("SELECT property, value FROM tblpreference WHERE property IN ('emailHost', 'smtpPort', 'smtpSecureConnection', 'emailUser')");
 		if($smtpHost['emailHost']) {
 			if($surveysmtphosts != 1 && $smtpHost['emailHost'] != $surveysmtphosts) continue;
@@ -158,7 +158,7 @@ foreach(fetchAssociations("SELECT * FROM tbluser where rights like 'o-%' AND NOT
 foreach(fetchAssociations("SELECT * FROM tbluser where rights like 'd-%'") as $owner)
 	$owners[$owner['bizptr']][] = $owner;
 	
-//if(mattOnlyTEST()) print_r($owners);	
+	
 
 function bizLink($name, $id) {
 	global $businessesOnly;

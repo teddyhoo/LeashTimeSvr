@@ -6,7 +6,6 @@ require_once "client-fns.php";
 require_once "cc-processing-fns.php";
 
 
-// Determine access privs
 if(userRole() == 'o') $locked = locked('o-');
 else $locked = locked('*cm');
 
@@ -87,9 +86,7 @@ foreach($messages as $msg) {
 		$row['acct'] = "<span $hintStyle title='".safeValue($ach['acctname'])."'>{$row['acct']}</span>";
 	}
 	$row['user'] = $usernames[$msg['user']]['loginid'];
-//if(mattOnlyTEST())	print_r($msg);
 	$result = parseNote($msg['note']);
-//if(mattOnlyTEST() && 	in_array($row['time'], array('07/10/2015 09:43', '03/22/2015 21:59'))) echo print_r($msg['note'],1).'<br>';
 	$row['transaction'] = $result['transaction'];
 	$row['amount'] = "$".$result['amount'];
 	$note = "{$result['status']} ";
@@ -98,8 +95,6 @@ foreach($messages as $msg) {
 	$row['note'] = $note;
 	if($result['rawerror'] && staffOnlyTEST()) {
 		$rawResponse = str_replace("\n", "<br>", str_replace("\n\n", "<p>", $result['rawerror']));
-		//$rawResponse = str_replace("<", '&lt;', str_replace(">", '&gt;', $rawResponse));
-		//$rawResponse = str_replace("'", '&quot;', safeValue($rawResponse));
 		$rawResponse = str_replace("'", '&quot;', $rawResponse);
 		$rawResponse = addslashes($rawResponse);
 		if(strpos((string)$_SESSION['preferences']['ccGateway'], 'Authorize') !== FALSE) {
@@ -140,7 +135,6 @@ tableFrom($columns, $rows, 'width=100%', $class=null, $headerClass='sortableList
 
 function parseNote($note) {
 	$result = array();
-	//$parts = explode('-', $note);
 	if(($dash = strpos($note, '-')) !== FALSE) {
 		$parts[0] = substr($note, 0, $dash);
 		$parts[1] = substr($note, $dash+1, strlen($note)-($dash+1));
@@ -149,7 +143,7 @@ function parseNote($note) {
 	
 	$result['status'] = $parts[0];
 	$parts = explode('|', $parts[1]);
-//if(mattOnlyTEST()) echo print_r($note,1)."<hr>";			
+			
 	if($result['status'] == 'Approved') {
 		$result['amount'] = $parts[0];
 		$result['transaction'] = $parts[1];
@@ -157,8 +151,6 @@ function parseNote($note) {
 	else {
 		
 		$result['reason'] = $parts[0];
-		// Declined-This transaction has been declined.|Amount:2.00|Trans:3574472823|Gate:Authorize.net|ErrorID:172
-		// 2|1|2|This transaction has been declined.|000000|U|3574472823|||2.00|CC|auth_capture||Ted|Hooban||22085 Chelsy Paige Sq|ASHBURN|VA|20148|USA|||||||||||||||||E88631C92BF364DC7FCA08CBDD03B36E|N||||||||||||XXXX5299|MasterCard||||||||||||||||
 		for($i=1;$i<count($parts);$i++) {
 			if(strpos($parts[$i], 'Gate:') === 0) $gateway = substr($parts[$i], strlen('Gate:'));
 			else if(strpos($parts[$i], 'ErrorID:') === 0) {

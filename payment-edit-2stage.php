@@ -54,11 +54,11 @@ else {
 	$chargeCard = $payby == 'epay' ? 1 : '0';
 }
 
-//if(mattOnlyTEST()) echo "[$sourcereference] returned: $returned<p>".print_r($_POST, 1);		// why is sourcereference missing on return?								 
+		// why is sourcereference missing on return?								 
 
 $stage = 1;
-//if(mattOnlyTEST()) {print_r($successDestination); eXxit;}
-//if(mattOnlyTEST()) {echo "4: ".print_r($successDestination, 1).'<br>----'.print_r($_REQUEST, 1).'<br>----'; }
+}
+ }
 // STAGE 2 -- when applyspecific
 if(!$returned && $action != 'paySpecific' && $applyspecific) {
 	$stage = 2;
@@ -126,13 +126,13 @@ if(!$returned && $action != 'paySpecific' && $applyspecific) {
 			echo "</table>"; //  end MISC shrink
 			endAShrinkSection();
 		}
-//if(mattOnlyTEST()) echo "<pre>".print_r($targets, 1)."</pre>";
+
 		if($targets['nonrecurring']) {
 			startAShrinkSection("Short Term Schedules", 'shortterm', $hidden=false, $extraStyle='');
 			echo "<table width=100%>"; //  EZ shrink
 			
 			foreach($targets['nonrecurring'] as $packageid => $itemlist) {
-//if(mattOnlyTEST()) echo "<hr>[$packageid]<pre>".print_r($targets['nonrecurring'], 1)."</pre>";
+
 				$packageDescriptions[$packageid] = nonRecurringScheduleDetails($packageid);
 /*				$finalcharge = 0;
 				foreach($itemlist as $item) 
@@ -254,7 +254,7 @@ if($saveCredit && $client && $_SESSION['PaymentEditorDblClickToken'] != $_REQUES
 		$error = "Button was clicked twice.  Please do not double-click buttons in LeashTime.<p>";
 		$stopOnError = true;
 }
-//if(mattOnlyTEST()) {echo "<br>3: ".print_r($successDestination, 1); }
+ }
 
 if(!$error && $saveCredit && $chargeCard && $client) {
 
@@ -292,7 +292,7 @@ if(!$error && $saveCredit && $chargeCard && $client) {
 
 unset($_SESSION['PaymentEditorDblClickToken']);
 //if($_POST) {echo "ItemNote: [$itemnote] ID: $id ERROR: $error saveCredit: [$saveCredit]";eXxit;}
-//if(mattOnlyTEST()) {echo "<br>2: ".print_r($successDestination, 1); }
+ }
 
 if(!$error && $saveCredit) {
 	if($id) {
@@ -314,12 +314,12 @@ if(!$error && $saveCredit) {
 		if($client) {						
 			$newPaymentId = null;
 			if($chargeCard) {
-//if(mattOnlyTEST()) {echo "<br>1: ".print_r($successDestination, 1); eXxit;}
+}
 //if(mattOnlyTEST()) {
 //echo "CHARGE: $chargeCard<p>".print_r($_REQUEST,1);
 //exit;
 //}
-//if(mattOnlyTEST()) {print_r($_POST);exit;}
+}
 				$success = payElectronically($client, null, $amount, $reason, null, 'dontApplyPayment', ($gratuity ? $gratuity : 0));
 				$newPaymentId = $latestPaymentId; //$latestPaymentId is globally set in payElectronically
 				if(is_array($success)) {
@@ -1001,7 +1001,7 @@ function findClients() {
 		if(strpos($pattern, '*') !== FALSE) $pattern = str_replace  ('*', '%', $pattern);
 		else $pattern = "%$pattern%";
 		$baseQuery = "$baseQuery AND CONCAT_WS(' ',fname,lname) like '$pattern'";
-		$numFound = mysql_num_rows(mysql_query($baseQuery));
+		$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 		if($numFound)
 			$clients = fetchAssociations("$baseQuery ORDER BY lname, fname LIMIT 15");
 	}
@@ -1011,7 +1011,7 @@ function findClients() {
 		$numFound = count($clients);
 	}
 	else {
-		$numFound = mysql_num_rows(mysql_query($baseQuery));
+		$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 		$baseQuery = "$baseQuery ORDER BY lname, fname LIMIT 15";
 		$clients = fetchAssociations("$baseQuery");
 	}
@@ -1065,14 +1065,14 @@ function nonRecurringScheduleDetails($packageid) {
 	
 	$history = $nonRecurringHistories[$packageid];
 	$history = join(',', $history);
-//if(mattOnlyTEST()) echo "### ID: $packageid, CLIENT: {$p['clientptr']} HIST: $history";
+
 	$allvisits = fetchAssociations(
 		"SELECT * 
 			FROM tblappointment
 			WHERE packageptr IN ($history) AND canceled IS NULL
 			ORDER BY date, starttime");
 //$xcx = 0; foreach($allvisits as $v) $xcx += $v['charge']+$v['adjustment'];
-//if(mattOnlyTEST()) echo "ID: $packageid, CLIENT: $clientptr TOTAL: $xcx visits:<hr>".print_r($targets,1);
+
 	
 	foreach($allvisits as $appt) $allDays[$appt['date']] = 1;
 	
@@ -1206,7 +1206,7 @@ function getPaymentApplicationTargets($clientid) {
 	$allSurcharges = fetchAssociations($sql);
 	global $errors;
 	$testHistories = mattOnlyTEST() ? $allHistories : $nonRecurringHistories; // I no longer remember why this was done
-//if(mattOnlyTEST()) echo "PACKS: <u><li>".join('<li>', array_keys($testHistories))."</u><p>==>".print_r(findLatestPackageVersion(3110, $testHistories));
+
 	
 	/*foreach($testHistories as $version => $history) {
 		foreach($allSurcharges as $i => $surch) {
@@ -1245,7 +1245,7 @@ if(mattOnlyTEST() && $surch) echo "$surchPack: ".print_r($history, 1)."<p>";
 	
 //if(mattOnlyTEST() && $errors) echo "ERRORS: <u><li>".join('<li>', $errors)."</u>";
 	// WHY DO WE IGNORE SURCHARGES FROM RECURRING SCHEDULES?
-//if(mattOnlyTEST()) print_r($allSurcharges);	
+	
 	$allSurcharges = array_merge($allSurcharges);
 	
 		
@@ -1319,7 +1319,7 @@ if(mattOnlyTEST() && $surch) echo "$surchPack: ".print_r($history, 1)."<p>";
 	}
 	if($owed) $targets['norecurring'][$packageptr]['owed'] = $owed;
 	*/
-//if(mattOnlyTEST()) echo "<hr>targets: ".print_r($targets,1);
+
 	return $targets;
 }
 	

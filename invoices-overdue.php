@@ -21,7 +21,7 @@ if($_REQUEST['bizid']) {
 		$roles = explodePairsLine("p|P||o|O||c|C||d|D");
 		$titles = explodePairsLine("p|P = Sitter||o|O = Owner / Manager||c|C = Client||d|D = Dispatcher");
 		echo join(' - ', $titles);
-		if($result) while($line = mysql_fetch_assoc($result)) {
+		if($result) while($line = mysqli_fetch_assoc($result)) {
 			$loginid = $line['loginid'];
 			$time = date('D m/d/Y H:i:s', strtotime($line['time']));
 			$color = $line['failurecause'] ? "style='background:pink'" : '';

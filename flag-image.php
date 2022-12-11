@@ -33,7 +33,7 @@ if(!($file = flagExists($name, $dir)) && !($file = flagExists($name, 'art/')))
 else {
 	$ctypes = array('gif'=>'gif', 'jpg'=>'jpeg', 'png'=>'png');
 	$extension = substr($file, strrpos($file, '.')+1);
-//if(mattOnlyTEST()) {echo "$file: Content-Type: image/{$ctypes[$extension]}";} else
+} else
 	header("Content-Type: image/{$ctypes[$extension]}");
 	header("Pragma: public"); // required
 	header("Expires: 0");

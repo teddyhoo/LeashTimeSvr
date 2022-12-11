@@ -18,7 +18,7 @@ function getKeySafeFields($activeOnly=false) {
 	if(isset($_SESSION['preferences'])) foreach($_SESSION['preferences'] as $key => $val)
 		if(in_array($key, $keySafeFieldNames)) {
 			$field = explode('|', $val);
-//if(mattOnlyTEST()) echo "$key => $val [".print_r($field,1)."]<br>";			
+			
 			if(!$activeOnly || $field[1])
 				$fields[$key] = $field;
 		}

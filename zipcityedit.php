@@ -56,12 +56,12 @@ if($_GET['mentionedonly'] || $_POST['allcities']) {
 		$dbpass = $biz['dbpass'];
 		$db = $biz['db'];
 		$bizptr = $biz['bizid'];
-		$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+		$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 		if ($lnk < 1) {
 			echo "Not able to connect: invalid database username and/or password.\n";
 		}
-		$lnk1 = mysql_select_db($db);
-		if(mysql_error()) echo mysql_error();
+		$lnk1 = mysqli_select_db($db);
+		if(mysqli_error()) echo mysqli_error();
 		$tables = fetchCol0("SHOW TABLES");
 		$bizName = fetchRow0Col0("SELECT value FROM tblpreference WHERE property = 'bizName' LIMIT 1");
 		if(!in_array('tblcreditcard', $tables)) continue;
@@ -115,7 +115,7 @@ if($cityPost) {
 			}
 			replaceTable('zipcodes2_citymods', array('oldcity'=>$old, 'newcity'=>$new), 1);
 			updateTable('zipcodes2', array('city'=>$new), "city COLLATE latin1_general_cs LIKE '$old'", 1);
-			$mods = mysql_affected_rows();
+			$mods = mysqli_affected_rows();
 			echo "<font color=darkgreen>$old changed to $new in $mods rows.</font><p>";
 		}
 }
@@ -138,7 +138,7 @@ echo "<h2>Upgrade a city name in the ZIP Code DB</h2>";
 if(($new = $_POST['newname']) && ($old = $_POST['pat'])) {
 	replaceTable('zipcodes2_citymods', array('oldcity'=>$old, 'newcity'=>$new), 1);
 	updateTable('zipcodes2', array('city'=>$new), "city COLLATE latin1_general_cs LIKE '$old'", 1);
-	$mods = mysql_affected_rows();
+	$mods = mysqli_affected_rows();
 	echo "<font color=darkgreen>$old changed to $new in $mods rows.</font><p>";
 }
 

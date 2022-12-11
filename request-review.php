@@ -105,7 +105,7 @@ else if($source['requesttype'] == 'Reminder') displayReminder($source, $updateLi
 else if($source['requesttype'] == 'VisitReport') {
 	startForm($source, $updateList, 'Visit Report');
 	require_once "appointment-client-notification-fns.php";
-//if(mattOnlyTEST()) print_r($source);
+
 	displayVisitReportRequest($source, $updateList);
 	$noCommOrViewBox = true;
 }

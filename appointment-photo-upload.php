@@ -107,12 +107,10 @@ function uploadPhoto($formFieldName, $destFileName, $makeDisplayVersion=true) {
     return "Photo Not uploaded!  Uploaded file MUST be a $allowedTypesDescr.<br>[$originalName] does not qualify.";
 
 	$target_path = $destFileName;
-//if(mattOnlyTEST() && $failure) {echo $target_path;exit;}  
 
 	if($reason = invalidUpload($formFieldName, $target_path)) return "The file $originalName could not be used because $reason";
 	if(file_exists($target_path)) unlink($target_path);
 	ensureDirectory(dirname($target_path), 0775); // x is necessary for group
-//echo substr(sprintf('%o', fileperms(dirname($target_path))), -4);
 	if(!move_uploaded_file($_FILES[$formFieldName]['tmp_name'], $target_path)) {
 		return "There was an error uploading the file, please try again!";
 	}

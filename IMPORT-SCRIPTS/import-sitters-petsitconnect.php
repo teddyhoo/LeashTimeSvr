@@ -54,7 +54,7 @@ while(getLine($strm)) {
 echo "</table>";
 
 function findProviderByName($nn) {
-	return fetchFirstAssoc("SELECT * FROM tblprovider WHERE CONCAT_WS(' ', fname, lname) = '".mysql_real_escape_string($nn ? $nn : '')."' LIMIT 1");
+	return fetchFirstAssoc("SELECT * FROM tblprovider WHERE CONCAT_WS(' ', fname, lname) = '".mysqli_real_escape_string($nn ? $nn : '')."' LIMIT 1");
 }
 
 

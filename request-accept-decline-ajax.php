@@ -27,7 +27,7 @@ updateTable('tblappointment', $mods, $where, 1);
 
 if($_REQUEST['applyNote']) {
 	$oldReq = fetchFirstAssoc("SELECT * FROM tblclientrequest WHERE requestid = $request LIMIT 1", 1);
-	$addition = mysql_real_escape_string(stripslashes($oldReq['note']));
+	$addition = mysqli_real_escape_string(stripslashes($oldReq['note']));
 	$mods =  
 		array('note' =>
 					sqlVal("IF(note IS NULL, '$addition', CONCAT_WS('\\n', note, '$addition'))"));
@@ -50,7 +50,7 @@ else {
 	$dateTime = shortDateAndTime()." Declined by {$_SESSION['auth_username']} ({$_SESSION['auth_user_id']})\n";
 	$resolution = 'declined';
 }
-$dateTime = mysql_real_escape_string($dateTime);
+$dateTime = mysqli_real_escape_string($dateTime);
 updateTable('tblclientrequest', array('resolved'=>1, 'resolution'=>$resolution, 
 				'officenotes'=>sqlVal("CONCAT_WS('\\n','$dateTime', officenotes)")), "requestid = $request", 1);
 

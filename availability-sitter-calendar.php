@@ -77,10 +77,10 @@ function allTimesAvailableThisDay($date, $provid, $editableTimeOff=false) {
 	$timeOffBlackoutId = getTimeOffBlackoutId();
 	if($provid) { // ONE PROVIDER
 		$sittersSeeAll = userRole() == 'p' && $_SESSION['preferences']['enableTimeoffCalendarGlobalVisibility'];
-//if(mattOnlyTEST()) {echo "USER: [".userRole()."]";}// userRole() == 'p' && 		
-//if(mattOnlyTEST()) {echo "sittersSeeAll: [$sittersSeeAll]";exit;}// userRole() == 'p' &&
+}// userRole() == 'p' && 		
+}// userRole() == 'p' &&
 		//$content .= $blackoutsEnabled ? availabilityThisDayForOneProvider($date, $timeOffBlackoutId, $editableTimeOff) : '';
-//if(mattOnlyTEST()) $content .= "[{$timeOffBlackoutId}]";		
+		
 		
 		//if($provid == $timeOffBlackoutId) return '';
 		$content .= availabilityThisDayForOneProvider($date, $provid, $editableTimeOff, 'omit', $nullIfUnavailable);		
@@ -98,7 +98,7 @@ function allTimesAvailableThisDay($date, $provid, $editableTimeOff=false) {
 	}
 	else { // ALL PROVIDERS
 		$slackers = array_keys($provs);
-//if(mattOnlyTEST()) echo "$date: ".print_r($slackers,1).'<br>';		
+		
 		if(FALSE && in_array($timeOffBlackoutId, $slackers)) {
 			$content .= $blackoutsEnabled ? availabilityThisDayForOneProvider($date, $timeOffBlackoutId, $editableTimeOff, null, $nullIfUnavailable) : '';
 			unset($slackers[array_search($timeOffBlackoutId, $slackers)]);
@@ -116,7 +116,7 @@ function availabilityThisDayForOneProvider($date, $provid, $editableTimeOff=fals
 	$content .= $omitName ? '' : $provs[$provid].'- ';
 	if(!$times = timesOffThisDay($provid, $date, 'complete')) 
 		return "{$content}ALL DAY<hr>";
-//if(mattOnlyTEST()) 	echo "[[$provid]]";
+
 	foreach($times as $i => $t) {
 		if(!$t['timeofday']) {
 			$label = "<span class='warning'>OFF</span>";

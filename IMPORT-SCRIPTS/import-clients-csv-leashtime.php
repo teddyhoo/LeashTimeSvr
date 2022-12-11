@@ -151,7 +151,7 @@ function handleRow($row) {
 //exit;	
 	saveNewClient($client);
 	echo "<p>CREATED CLIENT: {$client['fname']} {$client['lname']}";
-	$newClientId = mysql_insert_id();
+	$newClientId = mysqli_insert_id();
 	$lastClient = $newClientId;
 	foreach((array)$client['custom'] as $field => $val)
 		replaceTable("relclientcustomfield", 

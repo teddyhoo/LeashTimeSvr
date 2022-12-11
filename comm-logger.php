@@ -54,7 +54,7 @@ else if(isset($user)) {
 $corrName = $correspondent['fname'].' '.$correspondent['lname'];
 if($log == 'phone') {
 	$corrAddr = primaryPhoneNumber($correspondent);
-//if(mattOnlyTEST()) echo print_r(	$corrAddr, 1);
+
 	$logType = 'Phone Call';
 	$addrType = 'Phone';
 	$addrObject = 'Phone Number';

@@ -132,7 +132,7 @@ if($_POST) {
 			if($oldNote && trim($oldNote)) setAppointmentProperty($visit, 'oldnote', $oldNote);
 		}	
 		if($newVisitNote) $mods = withModificationFields(array('note'=>$newVisitNote));
-	//if(mattOnlyTEST()) echo "MODS: [".print_r($mods,1).']';	
+		
 		if($mods) updateTable('tblappointment', $mods, "appointmentid = $visit", 1);
 
 		if($newVisitNote && $_SESSION['preferences']['enableSitterNotesChatterMods']) {

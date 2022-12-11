@@ -35,10 +35,10 @@ $clientName = fetchRow0Col0("SELECT CONCAT_WS(' ', fname, lname) FROM tblclient 
 require_once "pet-fns.php";
 $petnames = getClientPetNames($source['clientptr'], false, true);
 
-$label = mysql_real_escape_string("#STANDARD - Send Client Schedule Request to Sitter");
+$label = mysqli_real_escape_string("#STANDARD - Send Client Schedule Request to Sitter");
 $defaultTemplate = fetchFirstAssoc("SELECT * FROM tblemailtemplate WHERE label = '$label' LIMIT 1");
 if(!$defaultTemplate) { // TEMPORARY
-		$label = mysql_real_escape_string("#STANDARD - Send Client Request to Sitter");
+		$label = mysqli_real_escape_string("#STANDARD - Send Client Request to Sitter");
 }
 $defaultTemplate = fetchFirstAssoc("SELECT * FROM tblemailtemplate WHERE label = '$label' LIMIT 1");
 if(!$defaultTemplate) {
@@ -81,12 +81,12 @@ if($_POST) {
 	
 	$msgbody = htmlize(preprocessMessage($person, $msgBodyFromForm));
 	if(!$error && $sendLater) {
-//if(mattOnlyTEST()) {echo "[error: $error] Send to ".print_r($recipients,1)." ".($sendLater ? 'later' : 'now').': '.print_r($msgbody,1);exit;}	
+}	
 		$result = enqueueEmailNotification($person, $subject, $msgbody, null, $mgrname, 'html');
 		if($sendText) {
 			notifyByLeashTimeSMS($person, "In a few minutes you will receive a schedule request email concerning $clientName.  Please review it.");
 		}
-//if(mattOnlyTEST()) {echo print_r($result, 1); exit;}
+}
 	}
 	
 	else if(!$error && ($error = sendEmail($recipients, $subject, $msgbody, '', 'html', $mgrname, $bcc))) {
@@ -383,11 +383,11 @@ function scheduleDescription($requestid) {
 							.longDayAndDate(strtotime($schedule['end'])).".\n\n";
 	if($requestnote) $message .= "==========\nNote: $requestnote\n==========\n\n";
 	$message .= join("\n", $dayVisits);
-//if(mattOnlyTEST()) $message = "message<hr>".print_r($schedule, 1);	
+	
 	return $message;
 }
 
-//	$label = mysql_real_escape_string("#STANDARD - Client's Schedule");
+//	$label = mysqli_real_escape_string("#STANDARD - Client's Schedule");
 //	$template = fetchRow0Col0("SELECT * FROM tblemailtemplate WHERE label = '$label' LIMIT 1");
 function preprocessMessage($person, $message) {
 	$managerNickname = fetchRow0Col0(

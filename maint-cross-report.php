@@ -130,7 +130,7 @@ if($action) {
 		SELECT trim(loginid) as loginid, bizptr, bizname, rights 
 		FROM tbluser
 		LEFT JOIN tblpetbiz ON bizid = bizptr
-		WHERE loginid IN ('".join("','", array_map('mysql_real_escape_string', array_keys($loginids)))."')
+		WHERE loginid IN ('".join("','", array_map('mysqli_real_escape_string', array_keys($loginids)))."')
 		ORDER BY bizname");
 //foreach($users as $user) echo "[{$user['loginid']}]<br>"; 
 		if(!$csv) {
@@ -220,12 +220,12 @@ if($action) {
 		$dbpass = $biz['dbpass'];
 		$db = $biz['db'];
 		$bizptr = $biz['bizid'];
-		$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+		$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 		if ($lnk < 1) {
 			echo "Not able to connect: invalid database username and/or password.\n";
 		}
-		$lnk1 = mysql_select_db($db);
-		if(mysql_error()) echo mysql_error();
+		$lnk1 = mysqli_select_db($db);
+		if(mysqli_error()) echo mysqli_error();
 		$tables = fetchCol0("SHOW TABLES");
 		$bizName = fetchRow0Col0("SELECT value FROM tblpreference WHERE property = 'bizName' LIMIT 1");
 		$bizName = $bizName ? $bizName : "($db)";
@@ -368,15 +368,15 @@ function reportGlobalStats() {
 			"SELECT loginid
 			FROM tbllogin 
 			WHERE LastUpdateDate > '$start 00:00:00' 
-				AND loginid NOT IN ('".join("','", array_map('mysql_real_escape_string', $loginIdsToIgnore))."')");
+				AND loginid NOT IN ('".join("','", array_map('mysqli_real_escape_string', $loginIdsToIgnore))."')");
 	$distinctLogins = fetchAssociationsKeyedBy(
 		"SELECT loginid, bizptr, substring(rights, 1, 1) as role 
 			FROM tbluser 
-			WHERE loginid IN ('".join("','", array_map('mysql_real_escape_string', $distinctLogins))."')", 'loginid');
+			WHERE loginid IN ('".join("','", array_map('mysqli_real_escape_string', $distinctLogins))."')", 'loginid');
 	for($date = $start; $date <= date('Y-m-d'); $date = date('Y-m-d', strtotime("+ 24 hours", strtotime($date)))) {
 		$sql = "SELECT loginid FROM tbllogin WHERE LastUpdateDate LIKE '$date%' AND success";
 		$result = doQuery($sql);
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 //if(!$row['role']) echo print_r($row, 1).'<br>';			
 			$logins[$date]['bizzes'][$distinctLogins[$row['loginid']]['bizptr']] = null;
 			$logins[$date]['loginids'][$row['loginid']] = $roles[$distinctLogins[$row['loginid']]['role']];
@@ -392,7 +392,7 @@ function reportGlobalStats() {
 						WHERE LastUpdateDate LIKE '$date%' AND success AND test = 0 AND bizid != 68";
 		$result = doQuery($sql);
 //echo "[{$logins[$date]['count']}] ".print_r($sql, 1).'<br>';			
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 //if(!$row['role']) echo print_r($row, 1).'<br>';			
 			$logins[$date]['bizzes'][$row['bizptr']] = null;
 			$logins[$date]['loginids'][$row['loginid']] = $roles[$row['role']];
@@ -444,13 +444,13 @@ function reportVisitStats() {
 		if(!$biz['activebiz']) continue;
 		if(!$biz['db'] == 'leashtimecustomers') continue;
 		reconnectPetBizDB($biz['db'], $biz['dbhost'], $biz['dbuser'], $biz['dbpass']);
-		if(mysql_error()) echo mysql_error();
+		if(mysqli_error()) echo mysqli_error();
 		for($date = $start; $date <= date('Y-m-d'); $date = date('Y-m-d', strtotime("+ 24 hours", strtotime($date)))) {
 			$sql = "SELECT completed, canceled
 							FROM tblappointment
 							WHERE date = '$date'";
 			$result = doQuery($sql);
-			if($result) while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			if($result) while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 				$visitStats[$date]['date'] = $date;
 				$visitStats[$date]['total'] += 1;
 				$visitStats[$date]['canceled'] += ($row['canceled'] ? 1 : 0);

@@ -60,7 +60,7 @@ else {
 <?
 echo "<table border=1 bordercolor=black><tr><th>Saved<th>Current<th>Diff<th>Created<th>Sitter<th>Pets<th>Date<th>Time<th>Service<th>Client";
 }
-while($appt = mysql_fetch_array($result, MYSQL_ASSOC)) {
+while($appt = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 	$appt['created'] = date('n/j/Y H:i', strtotime($appt['created']));
 	$providerptr = $appt['providerptr'];
 	$clientid = $appt['clientptr'];

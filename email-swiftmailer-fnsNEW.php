@@ -219,11 +219,11 @@ if($_SERVER['REMOTE_ADDR'] == 'X68.225.89.173') {
 	
 	//Create the Mailer using your created Transport
 	$mailer = Swift_Mailer::newInstance($transport);
-//if(mattOnlyTEST()) logError(substr('>>Mail Sending test: '.$message, 255));
+
 
 	//Send the message
 	try {
-//if(mattOnlyTEST()) {print_r($message);		exit;}
+}
 		$numSent = $mailer->send($message, $failedAddresses);
 	}
 	catch (Swift_TransportException $e)

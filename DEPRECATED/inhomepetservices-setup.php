@@ -156,7 +156,7 @@ function insertServiceTypes() {
 (60, 'Dropoff', NULL, 0.00, 1, 0.00, NULL, NULL, 0, '1', '00:00', 0, 0);
 ";
 	doQuery($sql, 1);
-	return mysql_affected_rows();
+	return mysqli_affected_rows();
 }
 
 function setTimePreferences() {
@@ -178,7 +178,7 @@ function setTimePreferences() {
 ('timeZone', 'America/New_York');
 ";
 	doQuery($sql, 1);
-	return mysql_affected_rows();
+	return mysqli_affected_rows();
 }
 
 if(!$_POST['go']) {

@@ -31,12 +31,12 @@ if(!$addr = googleAddress($person))
 
 if($action == 'dropit') {
 	deleteTable('geocodes', "address = '$addr'", 1);
-	$deleted = mysql_affected_rows();
+	$deleted = mysqli_affected_rows();
 	$message = "Dropped the coordinates for [$addr] ($deleted).  Will try the city/state formula.";
 }
 if($action == 'fixit') {
 	deleteTable('geocodes', "address = '$addr'", 1);
-	$deleted = mysql_affected_rows();
+	$deleted = mysqli_affected_rows();
 	$message = "Dropped the coordinates for [$addr] ($deleted).  Here's the ZIP approach.";
 	$addr = googleAddress($person, 'forceZIP');
 }

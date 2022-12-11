@@ -27,7 +27,7 @@ if($since) $sql .= "AND LastUpdateDate >= '$since'";
 //echo $sql;
 	
 $result = doQuery($sql);
-while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 	if(substr($row['LastUpdateDate'], 0, 10) != $date) {
 		//if($logins[$date]) $logins[$date] = count($logins[$date]);
 		$date = substr($row['LastUpdateDate'], 0, 10);

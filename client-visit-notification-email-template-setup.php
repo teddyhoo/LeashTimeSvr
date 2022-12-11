@@ -34,8 +34,8 @@ if($_POST['go']) {
 		('#STANDARD - Visit Completed', 'Visit completed', 'Hi #RECIPIENT#,\r\n\r\nThis note is to inform you that #SITTER# finished a visit to care for #PETS# at your home on #DATE# at #TIME#.#IF_NOVISITNOTE#\r\n\r\nIt is always a pleasure to visit with #PETS#.#END_NOVISITNOTE##IF_VISITNOTE#<hr>Visit note:\r\n\r\n#VISITNOTE#<hr>#END_VISITNOTE#\r\n\r\nSincerely,\r\n\r\n#BIZNAME#', 'other', 0, NULL, '', 1, ''),
 		('#STANDARD - Sitter Arrived', 'Sitter arrival', 'Hi #RECIPIENT#,\r\n\r\nThis note is to inform you that #SITTER# arrived to care for #PETS# at your home on #DATE# at #TIME#.\r\n\r\nSincerely,\r\n\r\n#BIZNAME#', 'other', 0, NULL, '', 1, '');";
 	doQuery($sql);
-	if(mysql_error()) echo "PROBLEM: ".mysql_error();
-	else 	echo mysql_affected_rows()." rows added.";
+	if(mysqli_error()) echo "PROBLEM: ".mysqli_error();
+	else 	echo mysqli_affected_rows()." rows added.";
 	exit;
 }
 ?>

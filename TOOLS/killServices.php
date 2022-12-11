@@ -13,6 +13,6 @@ foreach(array('tblrecurringpackage','tblservicepackage','tblservice','tblappoint
   $sql = "delete from $tbl where clientptr = $id";
   echo "$sql<br>";
   doQuery($sql);
-  printf("Records deleted: %d<p>\n", mysql_affected_rows());
+  printf("Records deleted: %d<p>\n", mysqli_affected_rows());
 }
 ?>

@@ -301,7 +301,7 @@ JS2;
 									'response' => ($response ? $response : sqlVal("''"))),
 									1
 								);
-			$this->lastCCErrorId = mysql_insert_id();
+			$this->lastCCErrorId = mysqli_insert_id();
 	}
 		
 	/* RESPONSE: 

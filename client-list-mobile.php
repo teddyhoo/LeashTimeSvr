@@ -23,7 +23,7 @@ $columnSorts = array('name'=>'asc','email'=>null);
 $colClasses = array('name'=>'nameCol');
 extract($_REQUEST);
 
-$pattern = mysql_escape_string($pattern);
+$pattern = mysqli_escape_string($pattern);
 $patternParam = !isset($pattern) ? '' : $pattern;
 $pattern = !isset($pattern) ? '' : 
            (strpos($pattern, '*') !== FALSE ? str_replace('*', '%', $pattern) : "%$pattern%");

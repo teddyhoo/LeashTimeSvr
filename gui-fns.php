@@ -138,8 +138,8 @@ function NEWtableFrom($columns, $data=null, $attributes=null, $class=null, $head
   if($maxTableRows) $maxCountDown = $maxTableRows;
   if($data) {
 		if(is_array($data)) reset($data);
-		$row = is_array($data) ? current($data) : mysql_fetch_array($data, MYSQL_ASSOC);
-		$i = is_array($data) ? count($data) : mysql_num_rows($data);
+		$row = is_array($data) ? current($data) : mysqli_fetch_array($data, MYSQL_ASSOC);
+		$i = is_array($data) ? count($data) : mysqli_num_rows($data);
 		while($i > 0) {
 		// $data may be an array or a query result
 			if($maxTableRows && !$maxCountDown) {
@@ -168,7 +168,7 @@ function NEWtableFrom($columns, $data=null, $attributes=null, $class=null, $head
 				echo "\n</tr>\n";
 			}
 			$rowNumber++;
-			$row = is_array($data) ? next($data) : mysql_fetch_array($data, MYSQL_ASSOC);
+			$row = is_array($data) ? next($data) : mysqli_fetch_array($data, MYSQL_ASSOC);
 			$i -= 1;
 		} // while
   } // if data
@@ -846,7 +846,7 @@ function htmlFormattedAddress($addr) {
 		$v = 1;
 	}
 	else $s.= $v;
-//if(mattOnlyTEST()) {$test = "TEST[$s] $v";}
+}
 	next($addr);
 	if(current($addr)) {
 		if($v) $s.= ' ';

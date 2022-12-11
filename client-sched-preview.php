@@ -45,7 +45,7 @@ if($_POST && isset($_POST['servicecode_1_1'])) {
 							$servicetime = getServiceStartTime($services[count($services)-1]);
 							if(strcmp("$startDate $servicetime", date('Y-m-d H:i')) < 0) $noTimeTravelAllowed = true;
 						}
-//if(mattOnlyTEST()) {echo "{$services[count($services)-1]} [$startDate $servicetime] [".date('Y-m-d H:i')."]";exit;}
+}
 					}
 //}
 					

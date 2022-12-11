@@ -164,7 +164,7 @@ if(!$errors) {
 		if($oldNote && trim($oldNote)) setAppointmentProperty($appointmentptr, 'oldnote', $oldNote);
 	}	
 	if($newVisitNote) $mods = withModificationFields(array('note'=>$newVisitNote));
-//if(mattOnlyTEST()) echo "MODS: [".print_r($mods,1).']';	
+	
 	if($mods) updateTable('tblappointment', $mods, "appointmentid = {$appt['appointmentid']}", 1);
 	
 if($newVisitNote && $_SESSION['preferences']['enableSitterNotesChatterMods']) {
@@ -206,7 +206,7 @@ if($newVisitNote && $_SESSION['preferences']['enableSitterNotesChatterMods']) {
 				}
 				if($stopItsADup) logLongError("native-visit-update ($loginid): Dup VR: $hash");
 			}
-//if(mattOnlyTEST()) $stopItsADup = false;	
+	
 			
 			if(!$stopItsADup) { // do not stop, even if it is a dupicate // !$stopItsADup
 				if(getProviderPreference($provider['providerid'], 'sitterReportsToClientViaServerAfterApproval')) {

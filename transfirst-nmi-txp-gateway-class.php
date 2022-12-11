@@ -219,7 +219,7 @@ class TransFirstNMITXPGateway extends AbstractMerchantGateway
 		
 		// $cc must be null for adHoc sales
 		function executeTransaction($auth, $cc, $transactionType, $x_amount, $otherData=null) {
-//if(mattOnlyTEST()) {global $ccTestMode; print_r($ccTestMode);exit;}			
+}			
 			if($cc['acctnum']) return $this->executeTXPTransaction($auth, $cc, $transactionType, $x_amount, $otherData);
 			else return $this->executeNMITransaction($auth, $cc, $transactionType, $x_amount, $otherData);
 		}
@@ -238,7 +238,7 @@ class TransFirstNMITXPGateway extends AbstractMerchantGateway
 				$postRequest = $this->createTXPACHSalePostRequest($auth, $cc, $x_amount);
 			else if($specificTransaction == 'ACHRefundOrVoid')  
 				$postRequest = $this->createTXPACHVoidPostRequest($auth, $otherData['transactionId']);
-//if(mattOnlyTEST()) { echo "$postRequest<hr>"; exit;}
+}
 $TXPTestMode = dbTEST('dogslife');;
 
 			$gatewayURL = $TXPTestMode ? $this->TXPTestGatewayURL : $this->TXPGatewayURL;
@@ -391,7 +391,7 @@ $TXPTestMode = dbTEST('dogslife');;
 		function executeNMITransaction($auth, $cc, $transactionType, $x_amount, $otherData=null) {
 			global $ccTestMode, $ccDebug, $duplicateWindow;
 			$transactionTypes = array('CREDIT'=>'refund', 'VOID'=>'void', 'SALE'=>'sale', 'VALIDATE'=>'auth');
-//if(mattOnlyTEST()) print_r($cc);			
+			
 			//if(in_array($transactionType, array('VOID', 'CREDIT')))
 			//	return executeThreeStepTransaction($auth, $cc, $transactionType, $x_amount, $otherData=null);
 			
@@ -411,7 +411,7 @@ $TXPTestMode = dbTEST('dogslife');;
 			$xmlRequest->appendChild($xmlTransaction);
 //print_r($xmlRequest->saveHTML());			
 //if($_SERVER['REMOTE_ADDR'] == '68.225.89.173') { print_r($xmlRequest->saveHTML());exit;}
-//if(mattOnlyTEST()) print_r($xmlRequest->saveHTML());			
+			
 			$responseXml = $this->sendXMLGatewayRequest($xmlRequest);
 			return $this->distillXmlResponseAndLogCCTransactionError($responseXml, $cc);  
 
@@ -459,7 +459,7 @@ $TXPTestMode = dbTEST('dogslife');;
 			}
 			else $response = $result;
 			if($response['FAILURE']) return 'Error-'.$response['FAILURE'];
-			//if(mattOnlyTEST()) echo print_r($response,1)."<hr>";
+			
 			$errmessage = urldecode($response['ErrorMessage'] ? $response['ErrorMessage'] : $response['Message']);
 			$msg = $this->txpACHResponseFields[$response['ResponseCode']].'-'.$this->TXPErrorMessagePayload($errmessage);
 			return $msg."|Amount:{$response['Amount']}|Trans:{$response['tranNr']}|Gate:TransFirstV1|ErrorID:".$this->lastCCErrorId;
@@ -501,7 +501,7 @@ $TXPTestMode = dbTEST('dogslife');;
 			if($errmessage) $message = $this->TXPErrorMessagePayload($errmessage);
 			else if($response['ResponseCode'] != '00') {
 				$message = $this->txpACHResponseFields[$response['ResponseCode']];
-			//if(mattOnlyTEST()) echo print_r($response,1)."<br>";			
+						
 				if($response) $message .= ' '.$errmessage;
 			}
 			//$message = $this->txpACHResponseFields[$response['ResponseCode']];
@@ -612,7 +612,7 @@ $TXPTestMode = dbTEST('dogslife');;
 									'sourcetable' => $sourcetable,
 									'response' => ($rawResponse ? $rawResponse : sqlVal("''"))), 1
 								);
-			$this->lastCCErrorId = mysql_insert_id();
+			$this->lastCCErrorId = mysqli_insert_id();
 		}
 		
 		
@@ -630,7 +630,7 @@ $TXPTestMode = dbTEST('dogslife');;
 									'response' => ($response ? $response : sqlVal("''"))),
 									1
 								);
-			$this->lastCCErrorId = mysql_insert_id();
+			$this->lastCCErrorId = mysqli_insert_id();
 		}
 		
 /* RESPONSE: 

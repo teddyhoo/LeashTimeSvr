@@ -41,7 +41,7 @@ if($_POST) {
 		if($_POST['headerAlign'] == 'center') $props[] = 'CENTERHEADER';
 		if($_POST['bodyAlign'] == 'center') $props[] = 'CENTERBODY';
 		$value = array('title'=>$title, 'message'=>$message, 'first'=>$first, 'last'=>$last, 'props'=>$props);
-//if(mattOnlyTEST()) {echo 'PREVIEW '.print_r($_POST,1).'<hr>'.print_r($props,1);exit;}
+}
 		if($_POST['action'] == 'showpreview') {
 			echo composeMessage($message, $title, $props);
 			exit;

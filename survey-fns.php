@@ -431,8 +431,8 @@ function displaySurveySubmission($id, $answerSubstitutes=null, $flaggedAnswerCla
 		}
 		else if($q['type'] == 'textbox') {
 			$aid = 0;
-//if(mattOnlyTEST()) echo " qid: $qid, aid: $aid";print_r($answers);
-//if(mattOnlyTEST()) echo print_r($q,1).'<p>';	
+
+	
 			$a = $q['answers'][0];
 			if(array_key_exists($aid, (array)$answers[$qid])) {
 				$v = $answers[$qid][$aid];
@@ -718,7 +718,7 @@ function sessionRoleIdentity() {
 }
 
 function storeSurveySubmission($post) {
-//if(mattOnlyTEST()) {print_r($post);exit;}
+}
 	$surveyid = $post['surveyid'];
 	$survey = fetchSurvey($surveyid);
 	
@@ -1306,7 +1306,7 @@ function dbSetupQueries() {
 function getSurveyVersions() {
 	$result = doQuery("SELECT property, value FROM tblpreference WHERE property LIKE 'survey_%'");
 	$versions = array();
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$qid = substr($row['property'], 7);
 		if("".(int)$qid != "$qid") continue;
 		$desc = fetchSurvey($qid);
@@ -1326,7 +1326,7 @@ function svCompare($a, $b) {
 function getSurveyNamesById() {
 	$result = doQuery("SELECT property, value FROM tblpreference WHERE property LIKE 'survey_%'");
 	$names = array();
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$qid = substr($row['property'], 7);
 		if("".(int)$qid != "$qid") continue;
 		$desc = fetchSurvey($qid);
@@ -1339,7 +1339,7 @@ function getSurveyNamesById() {
 function getSurveyTitlesById() {
 	$result = doQuery("SELECT property, value FROM tblpreference WHERE property LIKE 'survey_%'");
 	$names = array();
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$qid = substr($row['property'], 7);
 		if("".(int)$qid != "$qid") continue;
 		$desc = fetchSurvey($qid);
@@ -1389,8 +1389,8 @@ function userCanSubmitSurvey($idOrSurvey, $idType=null) {
 		$_SESSION["clientid"] ? 'client' : (
 		$_SESSION["providerid"] ? 'sitter' : (
 		$_SESSION["auth_user_id"] ? 'staff' : '')));
-//if(mattOnlyTEST()) print_r('providerid: ['.$_SESSION["providerid"].']');	
-//if(mattOnlyTEST()) echo print_r($_SESSION, 1).'<hr>';
+	
+
 	if(!$roles) return true; // open to all logged in users
 	else {
 		$roles = array_map('trim', explode(',', $roles));

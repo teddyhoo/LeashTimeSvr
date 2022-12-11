@@ -218,24 +218,7 @@ echo "<p>Preference on Visit - <b>Cancellation: {$cpref['autoEmailApptCancellati
 </div>
 <?
 if($id) {
-	if(mattOnlyTEST()) echo "(Candidate-Matt) ";
-	if(staffOnlyTEST()) {
-	// totalCharge should include additional pet charge, if any
-	// $provider is a providerid
-	// $service is the service type code
-	// $providerRates are the custom rates for provider
-	// $standardRates are the standard default rates for
-		
-		$rateEx = serviceRateExplanation($source['providerptr'], $source['servicecode'], $source['pets'],	$allPetNames, $source['charge']);
-		foreach($rateEx as $k=>$v) {
-			if(is_array($v)) foreach($v as $line) $explanation[] = $line;
-			else if(!is_int($v)) $explanation[] = $v;
-		}
-		$explanation = join("<br>", $explanation); // .'<hr>'.print_r($rateEx, 1);
-		echo "<div id='rateEx' style='display:none'><h2>Saved Rate Explanation</h2>$explanation</div>";
-	}
 	echo "<div style='float:right;display:inline;' id='historylinkdiv'>";
-	//echoButton('', "History", 'showHistory()');
 	if(staffOnlyTEST()) {echo "<a href='appt-analysis.php?id=$id' target=analysis>Analyze</a> - ";}
 	if(staffOnlyTEST()) {
 		fauxLink('Explain Rate', "$.fn.colorbox(

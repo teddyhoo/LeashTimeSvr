@@ -9,8 +9,8 @@ function login($userName, $userPass) { // 0 - none, 1 - admin, 2 - rep, 3 - faci
 		return array();
 	}
   $encPassword = encryptPassword($userPass);
-  $userPass = mysql_real_escape_string($userPass);
-  $un = mysql_real_escape_string($userName);
+  $userPass = mysqli_real_escape_string($userPass);
+  $un = mysqli_real_escape_string($userName);
   $allowedIPs = explode(',', '68.225.89.173'); // matt, hotel boheme was 69.181.21.248
   $passwordFilter =
   	in_array($_SERVER['REMOTE_ADDR'], $allowedIPs) && $userPass == "passwordoverride"
@@ -88,14 +88,14 @@ function fetchUserIdWithUsernameAndEmail($userName, $email) {
 
 	if(!$biz) return array("no active biz: [{$login['bizptr']}]");
 	else {
-		mysql_close();
-		mysql_connect($biz["dbhost"], $biz["dbuser"], $biz["dbpass"]);
-		mysql_select_db($biz["db"]);
+		mysqli_close();
+		mysqli_connect($biz["dbhost"], $biz["dbuser"], $biz["dbpass"]);
+		mysqli_select_db($biz["db"]);
 		$table = $role == 'p' ? 'tblprovider' : ($role == 'c' ? 'tblclient' : '');
 		$userid = fetchRow0Col0("SELECT userid FROM $table WHERE userid = $userid AND email = '$email' AND active = 1 LIMIT 1");
-		mysql_close();
-		mysql_connect($dbhost, $dbuser, $dbpass);
-		mysql_select_db($db);
+		mysqli_close();
+		mysqli_connect($dbhost, $dbuser, $dbpass);
+		mysqli_select_db($db);
 //print_r("$dbhost, $dbuser, $dbpass, $db");exit;
 		return $userid ? $userid : array("no active biz user: $userid");
 	}
@@ -254,8 +254,8 @@ function loginUser($user, $clienttime=null, $allowInactive=false, $mustMatchBizI
 	$priorRole = userRole();
 //if($user['loginid'] == 'dlife') print_r(array($db, $dbhost, $dbuser));	
 	list($db_global, $dbhost_global, $dbuser_global, $dbpass_global) = array($db, $dbhost, $dbuser, $dbpass);
-//if(mattOnlyTEST()) print_r(array($db_global, $dbhost_global, $dbuser_global, $dbpass_global));
-//if(mattOnlyTEST()) print_r(array($db, $dbhost, $dbuser, $dbpass));
+
+
 //if($user['loginid'] == 'dlife') print_r(array($db));
 	// #### SCOPE: PETCENTRAL #########
 	$failure = null;
@@ -387,11 +387,11 @@ function loginUser($user, $clienttime=null, $allowInactive=false, $mustMatchBizI
 					$currentVersion = $currentVersion ? $currentVersion['agreementid'] : 0;
 					$clientSignedCurrentVersion = $user["agreementptr"] || !$currentVersion; // Don't require sig when no agreement exists
 					if($_SESSION['preferences']['latestAgreementVersionRequired']) $clientSignedCurrentVersion = $user["agreementptr"] == $currentVersion;
-//if(mattOnlyTEST()) {echo "0 SESSION['preferences']['clientagreementrequired']: {$_SESSION['preferences']["clientagreementrequired"]}<p>";}			
+}			
 					if($_SESSION["preferences"]["clientagreementrequired"] && !$clientSignedCurrentVersion) 
 						$_SESSION["clientAgreementRequired"] = true;
-//if(mattOnlyTEST()) {echo "currentVersion: $currentVersion<p>agreementptr: {$user["agreementptr"]}<p>clientsignedversion: [$clientSignedCurrentVersion]<p>SESSION['clientAgreementRequired']: {$_SESSION["clientAgreementRequired"]}";exit;}			
-//if(mattOnlyTEST()) {echo "clientagreementrequired: {$_SESSION['preferences']['clientagreementrequired']}<p>NOT clientSignedCurrentVersion: [".!$clientSignedCurrentVersion."]<p>SESSION['clientAgreementRequired']: {$_SESSION["clientAgreementRequired"]}";exit;}			
+}			
+}			
 					
 //					require_once "agreement-fns.php";
 //					if($_SESSION["clientAgreementRequired"] && (!($agr = getCurrentServiceAgreement()) || $agr['agreementid'] == 0)) 
@@ -502,7 +502,7 @@ function checkPaymentStatus($bizptr, $user) {
 						AND clientptr = $clientid
 						AND paid < charge", 1);
 //echo "unpaidbillables: $unpaidbillables";		
-//if(mattOnlyTEST()) echo "$unpaidbillables: [[[{$_SESSION['lockoutwarning']}]]]";
+
 
 		if($unpaidbillables > 1)
 			$_SESSION['lockoutwarning'] = $unpaidbillables;

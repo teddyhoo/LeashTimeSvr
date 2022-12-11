@@ -82,8 +82,8 @@ function showDups($client, $start, $end=null) {
 				if($_GET['go']) {
 					deleteTable('tblappointment', "appointmentid IN ($doomedstring)", 1);
 					//$action .=  "deleteTable('tblappointment', [appointmentid IN ($doomedstring)]";
-					$action .= ' '.mysql_affected_rows().' visits deleted.';
-					if(mysql_error()) $action .= '<font color=red>'.mysql_error().'</font>';
+					$action .= ' '.mysqli_affected_rows().' visits deleted.';
+					if(mysqli_error()) $action .= '<font color=red>'.mysqli_error().'</font>';
 				}
 				
 			}

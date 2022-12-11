@@ -277,5 +277,5 @@ Zirkelbach, Linda";
 $names = array_map('trim', explode("\n", $names));
 foreach($names as $name)
 	if(!fetchFirstAssoc("SELECT * FROM tblclient WHERE CONCAT(lname, ', ', fname) = '"
-						.mysql_real_escape_string($name)."' LIMIT 1"))
+						.mysqli_real_escape_string($name)."' LIMIT 1"))
 		echo "$name is missing.<br>";

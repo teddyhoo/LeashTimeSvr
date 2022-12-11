@@ -31,7 +31,7 @@ if($_POST) {
 		$clientid = substr($key, strlen('cb_'));
 		$loginid = trim($_POST['loginid_'.$clientid]);
 		if(!$loginid) $emptyLoginIds++;
-		else $loginIds[] = mysql_real_escape_string($loginid);
+		else $loginIds[] = mysqli_real_escape_string($loginid);
 	}
 	if($loginIds) $badLoginIds = fetchCol0("SELECT loginid FROM tbluser WHERE loginid IN ('".join("','", $loginIds)."')");
 	reconnectPetBizDB($db1, $dbhost1, $dbuser1, $dbpass1, 1);
@@ -86,7 +86,7 @@ if($clientsWithLogins) {
 }
 
 foreach($clientsWithoutLogins as $clientid => $client)
-	if($client['email']) $clientEmails[] = mysql_real_escape_string($client['email']);
+	if($client['email']) $clientEmails[] = mysqli_real_escape_string($client['email']);
 	
 if($clientEmails) $badEmails = 
 	fetchAssociationsKeyedBy(
@@ -109,7 +109,7 @@ foreach($clientsWithoutLogins as $clientid => $client) {
 if($confirmUnique) {
 	list($dbhost1, $db1, $dbuser1, $dbpass1) = array($dbhost, $db, $dbuser, $dbpass);
 	require  "common/init_db_common.php";
-	$confirmUnique = array_map('mysql_real_escape_string', $confirmUnique);
+	$confirmUnique = array_map('mysqli_real_escape_string', $confirmUnique);
 	$moreDups = fetchCol0("SELECT loginid FROM tbluser WHERE loginid IN ('".join("','", $confirmUnique)."')", 1);
 	foreach($moreDups as $dup) $duplicates[strtoupper($dup)] += 1;
 	reconnectPetBizDB($db1, $dbhost1, $dbuser1, $dbpass1, 1);

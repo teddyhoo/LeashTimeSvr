@@ -140,7 +140,7 @@ if($_POST && isset($clientid)) {
 	}
 	else {
 		saveNewClient();
-		$newClientId = mysql_insert_id();
+		$newClientId = mysqli_insert_id();
 		logChange($newClientId, 'tblclient', 'c', 'Created');
 		saveClientKey($newClientId);
 		saveClientPets($newClientId);

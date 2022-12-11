@@ -147,15 +147,15 @@ if($provsummary) { // fetch summary for provider $provsummary and $date
 }
 	
 
-//if(mattOnlyTEST()) {print_r($_POST);exit;}
+}
 if($_POST) {
-	//if(mattOnlyTEST()) {print_r($_POST); exit;}
+	}
 	require_once "request-fns.php";
 	if($delete) {
 		$xfaction = 'Deleted';
 		$firstDayToDelete = fetchRow0Col0("SELECT date FROM tbltimeoffinstance WHERE timeoffid = $id");
 		$patternrow = getPatternForInstance($id);
-//if(mattOnlyTEST()) {echo "$delete $firstDayToDelete ".print_r($patternrow, 1); exit;}
+}
 		if($delete == 'all' ||
 				($delete == 'following' && $firstDayToDelete == $patternrow['date'])) {
 			$xfaction .= ' Time Off Group';
@@ -502,7 +502,7 @@ function addTimeOff($args, $provOverride=null) {
 				//insertTable('tbltimeoffinstance', $timeOff);
 			}
 			else if(!$days) {
-//if(mattOnlyTEST()) {echo "$pattern day: [$day] w: $w date(w) [".date('w', strtotime($day))."]<p>";	exit;}
+}
 				// pattern = dom | everyday | every | 1st | 2nd | 3rd | 4th | last  
 				if($pattern == 'everyday'
 					|| ($pattern == 'dom' && $dom == date('j', strtotime($day)))
@@ -569,7 +569,7 @@ function simulatedTimeOff($args, $provOverride=null) {
 				if(!applicableBlackoutCollision($timeOff)) $results[] = $timeOff;
 			}
 			else if(!$days) {
-//if(mattOnlyTEST()) {echo "$pattern day: [$day] w: $w date(w) [".date('w', strtotime($day))."]<p>";	exit;}
+}
 				// pattern = dom | everyday | every | 1st | 2nd | 3rd | 4th | last  
 				if($pattern == 'everyday'
 					|| ($pattern == 'dom' && $dom == date('j', strtotime($day)))
@@ -947,7 +947,7 @@ function patternChanged(el) {
 		$('.weekdaytable td').removeClass('chosenday');
 	}
 	else {
-	<? //if(mattOnlyTEST()) echo "alert($('#monthlyselect')[0]);"; ?>
+	<?  ?>
 		$('#monthlyselect')[0].selectedIndex = 0;
 	}
 }
@@ -970,13 +970,13 @@ function dayClicked(td) {
 	if(td) {
 		if($('#dailypattern').attr('disabled')) return;
 		$('#dailypattern').attr( "checked", true);
-<? //if(mattOnlyTEST()) echo "alert(td.className);"; ?>	
+<?  ?>	
 		w = td.getAttribute('w');
 		var className = td.className.indexOf('chosen') != -1 ? 'day' : 'chosenday';
 		if(w != 7) td.className = className;
 		else w = -1;
 	}
-<? //if(mattOnlyTEST()) echo "event.stopPropagation();" ?>	
+<? " ?>	
 	$('#chosenday').val(w); // php date 'w'
 	if(w != -1) {
 		//$('#dailypattern').click();

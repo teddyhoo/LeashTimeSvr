@@ -48,7 +48,7 @@ function getClientFieldMaxArray(&$fieldMaxArray, $dbTable=null) {
 		if(strpos($col['Type'], 'varchar(') === 0)
 			$fieldMaxArray[$dbTable][$col['Field']] = substr($col['Type'], strlen('varchar('), strpos($col['Type'], ')')-strlen('varchar('));
 	}
-	//if(mattOnlyTEST()) echo "<hr><pre>".print_r($fieldMaxArray, 1)."</pre>";
+	
 	return $fieldMaxArray;
 }
 
@@ -168,7 +168,7 @@ function deltaContactRows($contact, $type, $contact0, $showSuppliedClientFieldsO
 		}
 //phoneRow($label, $name, $value=null, $labelClass=null, $inputClass=null, $rowId=null,  $rowStyle=null, $groupname=null) {
 		else if($field == 'name') {
-//if(mattOnlyTEST()) echo "<tr><td>[$field_N] [$val] [$val0]".print_r($contact0,1);			
+			
 			$displayFn = !array_key_exists($field, $contact) && $showSuppliedClientFieldsOnly ? 'deltaLabelRow' : 'deltaInputRow';
 			if($displayFn == 'deltaLabelRow') $val = $val0;
 			$displayFn($label.':', $field_N, $val, $val0, '', 'standardInput', $dbTable='tblcontact');
@@ -404,7 +404,7 @@ function showProfileChangeDisplayTable($source, $noExternalCSS=false) {
 	$sectionChange = false;
 	foreach($changes as $key => $val)
 		if(isset($fields[$key]) || isset($fields["mail$key"])) $sectionChange = $key;
-//if(mattOnlyTEST()) print_r($changes);
+
 	if($sectionChange) {
 		echo "<tr><td>&nbsp;</td><tr>";
 		echo "<tr><td $sectionCSS colspan=3>Client Profile Changes</td><tr>";
@@ -463,7 +463,7 @@ function showProfileChangeDisplayTable($source, $noExternalCSS=false) {
 	}
 
 
-//if(mattOnlyTEST()) print_r($petIdsByIndex);
+
 
 
 	foreach($changes as $key => $val) {
@@ -504,7 +504,7 @@ function showProfileChangeDisplayTable($source, $noExternalCSS=false) {
 			else $pet = $petsById[$thisPetId];
 
 			//$pet =  $thisPetId ? $petsById[$thisPetId] : array('name'=> 'New Pet');
-//if(mattOnlyTEST()) echo "<tr><td>[$thisPetId] ".print_r($petsById, 1);
+
 			// $pet =!$isNewPet ? $pets[$petIndex-1] : array('name'=> 'New Pet');
 //if($pet['name']	== 'New Pet' && mattOnlyTEST()) $pet['name'] = "{$pet['name']} ($petIndex)";
 			if($petIndex != $lastPetIndex/*$thisPetId != $lastPetId*/) {
@@ -513,7 +513,7 @@ function showProfileChangeDisplayTable($source, $noExternalCSS=false) {
 				$lastPetId = $thisPetId;
 				echo "<tr style='border-top:solid lightgrey 1px'><td colspan=3 style='padding-top:10px;text-align:center;text-decoration:underline;'>".($pet['name'] ? $pet['name'] : 'Unnamed Pet')."</td></tr>";
 				if($isNewPet && !trim((string)$changes["name_$petIndex"])) inputRow('Name:', "name_$petIndex", "NO NAME SUPPLIED");
-				//if(mattOnlyTEST()) {echo "<tr><td colspan=2>".print_r($changes, 1);}
+				}
 			}
 			$label = $field == 'dropphoto' ? 'Drop Photo': $petFields[$field];
 			$customFieldType = null;
@@ -899,7 +899,7 @@ function createProfileChangeRequestFromJSON($clientptr=null) {
 	$requestId = saveNewClientRequest($request, false);
 	logChange($clientptr, 'tblclient', 'm', "Profile request created from JSON: $requestId");
 
-//if(mattOnlyTEST()) { exit; }			
+ }			
 	
 	$profile = fetchTempClientProfile($clientptr);
 	$details = $profile['details'];
@@ -918,7 +918,7 @@ function createProfileChangeRequestFromJSON($clientptr=null) {
 		if($changes) foreach($changes as $key => $val) {
 	//if($db == 'dogslife') {
 			require_once "field-utils.php";
-	//if(mattOnlyTEST()) {echo "$val<br>"; }		
+	 }		
 			if(!mattOnlyTEST()) 
 				$val = cleanseString((string)$val);
 	//}			

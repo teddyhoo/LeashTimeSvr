@@ -258,7 +258,7 @@ function createDetailView($start, $end, $client) {
 				if(!$row['completed']) $rowClass = 'noncompletedtask';
 			}
 			if($rowClass != 'futuretask' && !($count & 1)) $rowClass = $rowClass.'EVEN';
-			//if(mattOnlyTEST()) {print_r($rowClass);exit;}
+			}
 		}
 		$rowClasses[] = $rowClass;
 	}

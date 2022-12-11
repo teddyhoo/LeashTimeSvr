@@ -111,7 +111,7 @@ function arrivalIcon($apptOrApptId, &$performance) {
 		//$performance = getOrInitNotePerformance($apptOrApptId);
 		$performance = evaluatePerformance($apptOrApptId);
 	$not = !$performance['arrived'] ? '-not' : '';
-//if(mattOnlyTEST()) {print_r($performance);exit;}
+}
 	$gracePeriodSeconds = $_SESSION['preferences']['visitsStaleAfterMinutes'];
 	$gracePeriodSeconds = ($gracePeriodSeconds ? $gracePeriodSeconds : 15) * 60;
 	
@@ -193,7 +193,7 @@ function completionIcon($apptOrApptId, &$performance=null) {
 
 	$futurity = time() < $frame['starttime'] ? 'future' : (
 							time() > $frame['starttime'] && time() <= $frame['endtime'] ? 'current' : 'past');
-//if(mattOnlyTEST()) echo print_r($performance, 1)."<hr>";							
+							
 	$completed = strtotime($performance['completed']);
 	if(!$completed && !$performance['completedNonmobile']) {
 //echo "TIME: ".time().".   {$frame['endtime']} + $gracePeriodSeconds = ".($frame['endtime'] + $gracePeriodSeconds).'<hr>';		
@@ -381,7 +381,7 @@ function evaluatePerformance($apptOrApptId) {
 				$performance['completiondelta'] = distance($clientGeocode, $events['completed'], $unitsToReturn='ft');
 		}
 	}
-//if(mattOnlyTEST()) {echo ">>>$apptid: ". print_r($performance, 1).'<br>';exit;}
+}
 	return $performance;
 }
 

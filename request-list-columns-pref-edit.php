@@ -39,7 +39,7 @@ print_r($_POST);
 
 $prefs = fetchPreferences();
 
-//if(mattOnlyTEST()) {echo "scheduleDay: {$prefs['scheduleDay']}<br>scheduleDaily: {$prefs['scheduleDaily']}<p>";print_r($prefs);}
+}
 
 
 $windowTitle = 'Request List Columns';

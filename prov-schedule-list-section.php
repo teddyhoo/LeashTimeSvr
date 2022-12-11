@@ -26,7 +26,7 @@ $dbOneDay = dbDate($oneDay);
 $found = getProviderAppointmentCountAndQuery($dbOneDay, $dbOneDay, 'date_ASC', ($provider ? $provider : -1), $offset, $max_rows, $canceledFilter);
 $numFound = 0+substr($found, 0, strpos($found, '|'));
 $query = substr($found, strpos($found, '|')+1);
-//if(mattOnlyTEST()) echo $query;exit;
+
 $appts = $numFound ? fetchAssociations($query) : array();
 
 $originalServiceProviders = originalServiceProviders($appts);

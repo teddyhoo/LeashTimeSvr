@@ -25,7 +25,7 @@ $ending = shortDate(strtotime("+$days days"));
 
 $pageTitle = "AJAX Home: {$_SESSION["clientname"]}'s Schedule";
 
-//if(mattOnlyTEST()) {echo "{$_SESSION['user_notice']}<hr>";}
+}
 
 $clientLoginNotice = fetchRow0Col0("SELECT value FROM tblpreference WHERE property = 'clientLoginNotice'");
 $alreadyDelivered = $_SESSION['clientLoginNoticeDelivered'];
@@ -42,10 +42,10 @@ if($clientLoginNotice && !$alreadyDelivered) {
 			$template = "<h2>{$clientLoginNotice['title']}</h2>$message";
 		}
 	}
-//if(mattOnlyTEST()) {echo "$template<hr><hr>";exit;}
+}
 	$_SESSION['user_notice'] = $template;
 }	
-//if(mattOnlyTEST()) {echo "{$_SESSION['user_notice']}<hr><hr>";exit;}
+}
 
 include "frame-client.html";
 // ***************************************************************************

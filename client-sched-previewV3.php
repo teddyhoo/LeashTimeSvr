@@ -73,7 +73,7 @@ if($payLoadTEST) {
 								//print_r($_POST);
 							}
 						}
-//if(mattOnlyTEST()) {echo "{$services[count($services)-1]} [$startDate $servicetime] [".date('Y-m-d H:i')."]";exit;}
+}
 					}
 //}
 					

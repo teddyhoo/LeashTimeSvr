@@ -148,28 +148,28 @@ if($_POST && isset($clientid)) {
 		$utime = microtime(1);	
 		saveClient();
 		setClientPreference($clientid, 'lastSaved', date('Y-m-d H:i:s')."|{$_SESSION['auth_username']}|{$_SESSION['auth_user_id']}");
-//if(mattOnlyTEST()) logError("saveClient: ".(microtime(1) - $utime)." sec"); $utime = microtime(1);
+
 		saveClientKey($clientid);
-//if(mattOnlyTEST()) logError("saveClientKey: ".(microtime(1) - $utime)." sec"); $utime = microtime(1);
+
 		saveClientPets($clientid);
-//if(mattOnlyTEST()) logError("saveClientPets: ".(microtime(1) - $utime)." sec"); $utime = microtime(1);
+
 		saveClientContacts($clientid);
-//if(mattOnlyTEST()) logError("saveClientContacts: ".(microtime(1) - $utime)." sec"); $utime = microtime(1);
+
 		if($showBillingTab) {
 			setClientCharges($clientid);
 			setClientPreference($clientid, 'noCreditCardRequired', $_POST['noCreditCardRequired']);
 		}
-//if(mattOnlyTEST()) logError("setClientCharges: ".(microtime(1) - $utime)." sec"); $utime = microtime(1);
+
 		saveClientCustomFields($clientid, $_POST);
-//if(mattOnlyTEST()) logError("saveClientCustomFields: ".(microtime(1) - $utime)." sec"); $utime = microtime(1);
+
 		saveClientPreferences($clientid, $_POST);
-//if(mattOnlyTEST()) logError("saveClientPreferences: ".(microtime(1) - $utime)." sec"); $utime = microtime(1);
+
 		saveDiscount($clientid, $_POST);
-//if(mattOnlyTEST()) logError("saveClientPreferences: ".(microtime(1) - $utime)." sec"); $utime = microtime(1);
+
 		if($active != $savedClient['active']) setUserActive($savedClient['userid'], $active);
-//if(mattOnlyTEST()) logError("setUserActive: ".(microtime(1) - $utime)." sec"); $utime = microtime(1);
+
 		$oldProvider = $savedClient['defaultproviderptr'] ? $savedClient['defaultproviderptr'] : 0;
-//if(mattOnlyTEST()) logError("most saves: ".(microtime(1) - $utime)." sec"); $utime = microtime(1);
+
 
 
 	/*if($clientid) 
@@ -207,9 +207,9 @@ if($_POST && isset($clientid)) {
 		$_SESSION['frame_message'] = "Changes saved.";
 	}
 	else {
-//if(mattOnlyTEST()) {print_r($_POST);exit;}		
+}		
 		saveNewClient();
-		$newClientId = mysql_insert_id();
+		$newClientId = mysqli_insert_id();
 if(mattOnlyTEST()) setClientPreference($newClientId, 'lastSaved', date('Y-m-d H:i:s')."|{$_SESSION['auth_username']}|{$_SESSION['auth_user_id']}");
 		logChange($newClientId, 'tblclient', 'c', 'Created');
 		saveClientKey($newClientId);
@@ -237,7 +237,7 @@ if(mattOnlyTEST()) setClientPreference($newClientId, 'lastSaved', date('Y-m-d H:
 	
 //print_r($_POST);exit;
 	if($rd) {
-//if(mattOnlyTEST()) logError("total time before  redirect [$rd]: ".(microtime(1) - $scriptstarttime)." sec"); 
+ 
 		header ("Location: $rd");
 		exit();
 	}
@@ -312,14 +312,14 @@ if($_SESSION['preferences']['enableClientProfileLastAccessNotice']) {
 	if($_SESSION['ccenabled'] && $id) {
 		require_once "cc-processing-fns.php";
 		if($client['clientid']) $cc = getClearPrimaryPaySource($client['clientid']);
-	//if(mattOnlyTEST()) echo "CC: ".print_r($cc,1);	
+		
 
 		if(!$cc) $ccDisplay = 'None on file.';
 		else if($cc['x_exp_date']) {
 			$autopay = $cc['autopay'] ? ' [auto]' : '[no auto]';
 			$ccCompany = $cc['company'] == "Amex" ? "American Express" : $cc['company'];
 			foreach(getAllCardTypes() as $type) if($type['label'] == $ccCompany) $image = $type['img'];
-//if(mattOnlyTEST()) print_r(getAllCardTypes());			
+			
 			if($image) $image = $image ? "<img src='art/$image'>" : $cc['company'];
 			$exp = shortExpirationDate($cc['x_exp_date']);
 			$realExpDate = strtotime(date('Y-m-t', strtotime($cc['x_exp_date'])));
@@ -429,7 +429,7 @@ startFixedHeightTabPage('pets', $initialSelection, $labelAndIds, $boxHeight);
 if($requestid) $tablePets = array_values(getProspectPets($request));
 else $tablePets = getClientPets($id);
 
-//if(mattOnlyTEST()) print_r($tablePets);
+
 
 petTable($tablePets, $client);
 endTabPage('pets', $labelAndIds, customSaveButton('pets'), $saveAndAddButton, $quitButton, true);
@@ -1156,7 +1156,7 @@ function ePaymentTableRows($client) {
 			echo "<tr><td colspan=2><hr></td></tr>";
 			echo "<tr><td style='font-weight:bold;font-size:1.25em;padding-top:10px;' colspan=3>E-check (ACH) Info</td></tr>";
 			$ach = getClearACH($client['clientid'], $primaryToo=false);
-//if(mattOnlyTEST()) echo "ACH ({$client['clientid']}): ".print_r($ach, 1);
+
 			$autopay = $ach['autopay'] ? ' [auto]' : '';
 			$bankDisplay = $ach['bank'] ? $ach['bank'] : "Routing #{$ach['abacode']} /";
 			//if(!mattOnlyTEST() && $ach  && $_SESSION['preferences']['ccGateway'] != $ach['gateway']) {
@@ -1166,7 +1166,7 @@ function ePaymentTableRows($client) {
 			else {
 				$achDisp = $ach ? "$bankDisplay {$ach['acctnum']} {$ach['accttype']}".$autopay : 'No ACH Info on file.';
 				$achDisp .= unusableFlag($ach);
-//if(mattOnlyTEST()) $achDisp .= print_r(mattGetACH($ach), 1);
+
 			}
 			echo "<tr><td id='achinfo' style='' colspan=3>$achDisp</td></tr>";
 			$primarydisplay = $ach ? $_SESSION['tableRowDisplayMode'] : 'none';
@@ -1183,7 +1183,7 @@ function ePaymentTableRows($client) {
 
 		echo "</tr><tr><td colspan=2>".fauxLink('View Electronic Transactions', 
 																"openConsoleWindow(\"cctransreport\", \"cc-transaction-history.php?client={$client['clientid']}\",800,410)", 1)."</tr>";
-		//if(mattOnlyTEST()) echo "<tr><td colspan=2>".fauxLink('Find Transaction by Transaction ID', 'findTransactionByID()', 1)."</tr>";
+		
 	}
 }
 
@@ -1202,7 +1202,7 @@ function pricesTable($id) {
 	global $rawServiceTypeFields;
 	$standardTaxRate = $_SESSION['preferences']['taxRate'] ? $_SESSION['preferences']['taxRate'] : '';
 	$standardRates = getStandardRates();
-//if(mattOnlyTEST()) print_r($standardRates);
+
 	$charges = getClientCharges($id, false);
 	echo "<table style='width: 100%;'><tr><td colspan=3 style='text-align:center;font-weight:bold;font-size:1.5em'>Custom Service Prices</td></tr>\n";
 	echo "<tr><th>&nbsp;</th><th style='text-align:right;'>Standard Price</th><th>Price</th><th>Standard Tax</th><th>Tax Rate %</th></tr>\n";
@@ -1622,7 +1622,7 @@ $allRawNames = "$rawBasicCol1Fields,$rawBasicOtherFields,zip,Home Address ZIP Co
 
 if($rawServiceTypeFields) {
 	$serviceTypePairs = explode('|||', $rawServiceTypeFields); // servicecharge_158','3 walks 60 min|||servicecharge_156','Cancelled with credit|||...
-	//if(mattOnlyTEST()) echo ">>>>>>>>>\n\n\n\n".print_r($serviceTypePairs, 1)."\n\n\n\n";
+	
 	foreach($serviceTypePairs as $pair) {
 		$pair = explode(',', $pair);
 		$prettyServices[] = $pair[0];
@@ -1631,7 +1631,7 @@ if($rawServiceTypeFields) {
 }
 if($prettyServices) $allRawNames .= ",".join(",",array_map('addslashes', (array)$prettyServices));
 $prettyNames = "'".join("','",array_map('addslashes', explode(',',$allRawNames)))."'";
-//if(mattOnlyTEST()) echo ">>>>>>>>>\n\n\n\n$rawServiceTypeFields\n\n\n\n";
+
 $serviceTypeConstraints = '';
 for($i = 0; $i < count($prettyServices); $i+=2) {
 	$part = addslashes($prettyServices[$i]);
@@ -1706,8 +1706,8 @@ var activeOnOpen = <?= $inactive ? 0 : 1 ?>;
 setPrettynames(<?= $prettyNames ?>);	
 function checkAndSubmit(continueEditing, justcheck) {
 	if(typeof justcheck=="undefined" || justcheck==null || justcheck==0 || justcheck=="") justcheck = false;
-	<? //if(mattOnlyTEST()) echo "alert(this);\n"; ?>
-	<? //if(mattOnlyTEST()) echo "$('input[type=\"button\"]').prop('disabled', true);\n" ?>
+	<?  ?>
+	<? \n" ?>
 	$('input[type="button"]').prop('disabled', true); // prevent dup clients
 	<? if($_SESSION['referralsenabled']) echo "var referralMessage = referralIsIncomplete(true);\n"; ?>
 	
@@ -1748,7 +1748,7 @@ function checkAndSubmit(continueEditing, justcheck) {
 		  
 		  )) {
 		$('input[type="button"]').prop('disabled', false);
-	<? //if(mattOnlyTEST()) echo "$('input[type=\"button\"]').prop('disabled', false);\n" ?>
+	<? \n" ?>
 				
 		return false;
 	}

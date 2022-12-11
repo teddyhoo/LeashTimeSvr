@@ -107,7 +107,7 @@ function googleAddress($person) {
 						$_SESSION['altgeocodetable'] = $altTable;
 					}
 					if($altTable != 'none') {
-						$altAddress = fetchRow0Col0("SELECT altaddress FROM $altTable WHERE address = '".addslashes($addr)."' LIMIT 1", 1); // don't use mysql_real_escape_string here
+						$altAddress = fetchRow0Col0("SELECT altaddress FROM $altTable WHERE address = '".addslashes($addr)."' LIMIT 1", 1); // don't use mysqli_real_escape_string here
 						if($altAddress) $addr = $altAddress;
 					}
 	}*/
@@ -142,7 +142,7 @@ $googleAPIKey = $googleMapAPIKey;  //from init_session.php  //"ABQIAAAAK5DZh3ZV8
 $map = new GoogleMapAPI($mapId);
 $map->map_type = "ROADMAP";
 if($googleVersion != 3) $map->setAPIKey($googleAPIKey); // unnecessary in v3
-//if(mattOnlyTEST()) {foreach($tracks as $track) echo print_r($track, 1).'<p>';}
+}
 
 
 
@@ -215,7 +215,7 @@ foreach($clients as $cclient) {
 	
 		$iconToUse = $cclient['prospect'] ? "pin-green.png" : "pin-blue.png";
 		if($googleVersion == 3) {
-//if(mattOnlyTEST()) {echo "<hr>";echo print_r($client, 1).'<p>'.$addr." ($clientIcon)";}
+}
 			$map->addMarkerByAddress($addr,"{$cclient['fname']} {$cclient['lname']}'s home", $html,
 																		"{$cclient['fname']} {$cclient['lname']}'s home",
 																		"{$IMGHOST}art/$iconToUse",

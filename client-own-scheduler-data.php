@@ -85,13 +85,13 @@ if($servicetypes) {
 		"SELECT servicetypeptr, charge, extrapetcharge, taxrate 
 			FROM relclientcharge 
 			WHERE clientptr = $client", "servicetypeptr");
-//if(mattOnlyTEST()) {print_r($custom);exit;}
+}
 	$baseRate = $_SESSION['preferences']['taxRate'];
 	foreach($clientServices as $label => $servicetype) {
 		$servicetypeid = $servicetype['servicetypeid'];
 		$customType = $custom[$servicetypeid];
-//if(mattOnlyTEST()) {echo "CT: ".print_r($customType,1);}
-//if(mattOnlyTEST()) {echo "<br>ST[$label]: ".print_r($servicetype,1);}
+}
+}
 		
 		//if($label == 'Dog Walk 1 hr') {print_r($servicetype); exit;}
 		
@@ -101,7 +101,7 @@ if($servicetypes) {
 							: $servicetype['defaultcharge'];
 		$extrapetcharge = $customType && ((float)$customType['extrapetcharge']) != -1 ? $customType['extrapetcharge'] 
 							: $servicetype['extrapetcharge'];
-//if(mattOnlyTEST()) echo "<br>[$charge, $extrapetcharge, $taxRate]";
+
 		$thisServiceType = array(
 			'label'=>$label,
 			'servicetypeid'=>$servicetypeid,
@@ -277,7 +277,7 @@ function fetchClientVisits($start, $end, $excludecanceledvisits=null, $includeno
 					LEFT JOIN tblappointmentprop vr ON vr.appointmentptr = appointmentid AND property = 'reportIsPublic'
 					WHERE a.date >= '$start' AND a.date <= '$end' $filter
 					ORDER BY date, starttime";
-//if(mattOnlyTEST()) {echo $sql;exit;}					
+}					
 
 // ADD: sitter, servicelabel, clientservicelabel
 
@@ -337,7 +337,7 @@ function getVisitReportStatus($apptid) {
 	$finalPhotoFail = $aprops['visitphotouploadfail'] && 
 			(!$aprops['visitphotoreceived'] || 
 							strcmp($aprops['visitphotoreceived'], $aprops['visitphotouploadfail']) < 0);
-//if(mattOnlyTEST()) print_r($aprops);exit;	
+exit;	
 	if($aprops['visitreportreceived']) $status['received'] = 1;
 	else $status['received'] = 0;
 	$status['photo'] = $finalPhotoFail ? 'uploadfailed' : (

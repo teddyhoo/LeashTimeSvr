@@ -51,6 +51,6 @@ if(($fileDescription = getOfficeDoc($id)) && $fileDescription['hidden']) {
 	exit;
 }
 
-//if(mattOnlyTEST()) {echo "item: $id ".print_r($entry, 1); locked('p-'); exit;}
+}
 //echo "returnToBrowser({$entry['remotepath']}, {$_GET['download']}, $bizptr)";exit;
 returnToBrowser($entry['remotepath'], $_GET['download'], $bizptr);

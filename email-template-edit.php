@@ -44,14 +44,14 @@ if($action == 'revert') {
 		foreach(array('subject', 'body', 'extratokens', 'salutation', 'farewell') as $k)
 			$rTemplate[$k] = $replacement[$k] ? $replacement[$k] : sqlVal("''");
 		replaceTable('tblemailtemplate', $rTemplate, 1);
-//echo "TEMPLATE:<p>".print_r($rTemplate, 1)."<p>.<p>".mysql_affected_rows()." rows affected.";
+//echo "TEMPLATE:<p>".print_r($rTemplate, 1)."<p>.<p>".mysqli_affected_rows()." rows affected.";
 	}
 	//exit;//
 	globalRedirect("email-template-edit.php?id=$id");
 	exit;
 }
 	
-//if(mattOnlyTEST()) {	print_r($_REQUEST);exit;}
+}
 if($action == 'preview') {
 	require_once "preference-fns.php";
 	setPreference('emailtemplatepreview', $templatebody);

@@ -32,7 +32,7 @@ if($_POST && !$error) {
 
 	
 	$recipients = array("\"$corresname\" <$correspaddr>");
-//if(mattOnlyTEST()) {echo "ZOOP!".print_r($_REQUEST, 1)."<hr>".print_r($recipients, 1);exit;} //$recipients
+} //$recipients
 	/*$allSuppliedEmails[] = $correspaddr;
 	if($_POST['clientemail2']) {
 		$multiAddresses = explode(',', $_POST['clientemail2']);

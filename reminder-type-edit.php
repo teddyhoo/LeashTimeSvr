@@ -24,7 +24,7 @@ if($action == 'saveReminder') {
 		$sendondow ? $sendondow : (
 		$sendannually ? 'ann'.str_replace('-', '_', substr(date('Y-m-d', strtotime($sendannually)), strlen('YEAR-'))) : (
 		date('Y-m-d', strtotime($sendondate)))));
-//if(mattOnlyTEST()) {echo print_r($_REQUEST, 1)."<hr>$sendon"; exit;}
+}
 	$reminder = array('subject'=>$subject, 'message'=>$message, 'label'=>$label, 'sendon'=>$sendon,
 					'userid'=>($private ? $_SESSION['auth_user_id'] : 0), 'restriction'=>$restriction);
 	if($id) {

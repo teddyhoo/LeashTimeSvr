@@ -28,7 +28,7 @@ function userLink($name, $id) {
 
 
 
-if($result) while($line = mysql_fetch_assoc($result)) {
+if($result) while($line = mysqli_fetch_assoc($result)) {
 	$row = $line;
 	$line['time'] = date('m/d/Y H:i', strtotime($line['time']));
 	//$row['user'] = $line['userptr'];

@@ -52,7 +52,7 @@ function retrieveNotices($newNoticeThreshold) {
 	if(!$newNoticeThreshold) $newNoticeThreshold = '2010-01-01 00:00:00';
 	$user = $_SESSION['auth_user_id'];
 	$role = $user ? userRole() : '-';
-//if(mattOnlyTEST()) screenLog("user: $user role: ".userRole());	
+	
 		
 	$notices = fetchAssociationsKeyedBy($sql = 
 		"SELECT *, if(added > '$newNoticeThreshold', 1, 0) as newlyadded
@@ -65,7 +65,7 @@ function retrieveNotices($newNoticeThreshold) {
 	if(!$notices) return;
 	if($user) {
 		$alreadyNoticed = fetchKeyValuePairs($sql = "SELECT noticeptr, shownomore FROM petcentral.relusernotice WHERE userptr = $user AND noticeptr IN (".join(',', array_keys($notices)).")");
-//if(mattOnlyTEST()) screenLog(print_r($sql, 1));		
+		
 		foreach($alreadyNoticed as $id => $showNoMore) {
 			$notices[$id]['shown'] = 1;
 			$notices[$id]['shownomore'] = $showNoMore;

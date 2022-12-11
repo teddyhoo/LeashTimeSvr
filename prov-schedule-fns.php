@@ -81,7 +81,7 @@ function providerScheduleTable($rows, $suppressColumns=null, $noSort=false, $upd
 	if($prefs['provuisched_hideaddress']) $suppressColumns[] = 'address';
 	if($prefs['provuisched_hiderate']) $suppressColumns[] = 'rate';
 	if($noContactInfo) $suppressColumns = array_merge($suppressColumns, array('phone'));
-//if(mattOnlyTEST()) print_r($suppressColumns);	
+	
   if($suppressColumns) foreach($suppressColumns as $col) unset($columns[$col]);
 	$cols = count($columns);
   
@@ -312,10 +312,10 @@ function versaProviderScheduleTable($providerid, $rows, $suppressColumns=null, $
 	$userRole = userRole();
 	
 	foreach((array)$rows as $appt) if($appt['packageptr']) $packs[$appt['packageptr']] = $appt;
-//if(mattOnlyTEST()) echo "PACKS: ".print_r($packs, 1);
+
 	foreach((array)$packs as $id => $appt) {
 		$curr = findCurrentPackageVersion($id, $appt['clientptr'], $appt['recurringpackage']);
-//if(mattOnlyTEST()) print_r("($id), ({$appt['clientptr']}), ({$appt['recurringpackage']}) == $curr<p>");
+
 		$latest[$id] = $curr;
 		if($curr && !isset($packnotes[$curr])) {
 			$table = $appt['recurringpackage'] ? 'tblrecurringpackage' : 'tblservicepackage';
@@ -485,7 +485,7 @@ if(0 && mattOnlyTEST()) {
 			  "<tr $extraClass><td colspan=$cols style='padding-top:0px;padding-bottom:5px;'>$row2</td></tr>\n");
 		
 		
-//if(mattOnlyTEST()) {print_r($columns);exit;}
+}
 	}
 	if($emailVersion) {
 		$sortableCols = $rowClasses = $colClasses = null;
@@ -576,12 +576,12 @@ function providerCalendarTable($rows, $suppressDateRows=false, $appointmentDispl
 	$timesOfDayRaw = getPreference('appointmentCalendarColumns');
 //	if(mattOnlyTEST() || !$timesOfDayRaw) $timesOfDayRaw = 'Morning,07:00:00,Midday,11:00:00,Afternoon,15:00:00,Evening,19:00:00';
 	if(!$timesOfDayRaw) $timesOfDayRaw = 'Morning,07:00:00,Midday,11:00:00,Afternoon,15:00:00,Evening,19:00:00';
-//if(mattOnlyTEST()) {echo "timesOfDayRaw: $timesOfDayRaw";}
+}
 	$timesOfDayRaw = explode(',',$timesOfDayRaw);
 	$timesOfDay = array();
 	for($i=0;$i < count($timesOfDayRaw)-1; $i+=2) $timesOfDay[$timesOfDayRaw[$i+1]] = $timesOfDayRaw[$i];
-//if(mattOnlyTEST()) {echo "timesOfDayRaw: $timesOfDayRaw<p>".print_r($timesOfDay,1);}
-//if(mattOnlyTEST()) echo "[[$timesOfDayRaw]]";
+}
+
 
 	$displayedDateRange = array();
 	if($rows && !$allProviders) {
@@ -653,7 +653,7 @@ function providerColors($provids) {
 	// find all active provider IDs
 	$allProviderIDs = fetchCol0("SELECT providerid FROM tblprovider WHERE active = 1 ORDER BY providerid");
 	if(count($allProviderIDs) <= count($allColors)) {
-//if(mattOnlyTEST()) print_r($allColors);
+
 		// if there are enough colors assign each active provider a "permanent" color for the session
 		foreach($allProviderIDs as $i => $prov)
 			$sessionProviderColors[$prov] = $allColors[$i];
@@ -664,7 +664,7 @@ function providerColors($provids) {
 		$provids = array_merge($provids);
 		foreach($provids as $i => $prov)
 			$providerColors[$prov] = $allColors[$i % count($allColors)];
-	//if(mattOnlyTEST()) print_r($provids);
+	
 	}
 	$providerColors[0] = '#FFFFFF';
 	return $providerColors;
@@ -689,7 +689,7 @@ function providerCalendarTable90($rows, $suppressDateRows=false, $appointmentDis
 	if($groupByTimesOfDay) {
 		require_once "preference-fns.php";
 		$timesOfDayRaw = getPreference('appointmentCalendarColumns');
-	//if(mattOnlyTEST()) echo 	$timesOfDayRaw;
+	
 		if(!$timesOfDayRaw) $timesOfDayRaw = 'Morning,07:00:00,Midday,11:00:00,Afternoon,15:00:00,Evening,19:00:00';
 		$timesOfDayRaw = explode(',',$timesOfDayRaw);
 		for($i=0;$i < count($timesOfDayRaw)-1; $i+=2) $timesOfDay[$timesOfDayRaw[$i+1]] = $timesOfDayRaw[$i];
@@ -805,7 +805,7 @@ function clientLink($clientptr, $clients, $includeVisitSheetLinkForDate=false, $
 		$rowPets = trim($row['pets']);
 		$displayPets = $rowPets == 'All Pets' ? $clientPets : ($rowPets ? $rowPets : "no pets");
 	}
-//if(mattOnlyTEST()) echo "[[[wagPrimaryNameMode: $wagPrimaryNameMode]]]<hr>";	
+	
 	if(!$wagPrimaryNameMode) $wagPrimaryNameMode = 'fullname';
 //if($_SERVER['REMOTE_ADDR'] == '68.225.89.173') { print_r($clients);exit;; }	
 	$label = $wagPrimaryNameMode == 'fullname' ? $clients[$clientptr]['clientname'] : (

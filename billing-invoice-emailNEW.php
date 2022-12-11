@@ -50,7 +50,7 @@ if(isset($ids) || ($_GET && $_GET['ids'] && $_GET['send'] == 1)) { // Automatic 
 		
 		$invoice = getBillingInvoice($clientid, $firstDay, $lookahead, $literal, $showOnlyCountableItems=true, $_REQUEST['packageptr']);
 		$invoice['clientid'] = $clientid;
-//if(mattOnlyTEST()) {unset($invoice['lineitems']);unset($invoice['priorunpaiditems']);print_r($invoice);exit;}	
+}	
 		//$invoice = getPrepaidInvoice($clientid, $firstDay, $lookahead, $showOnlyCountableItems=true, null);
 		//global $origbalancedue, $creditApplied, $tax, $credits;
 		$amountDue = calculateAmountDue();//$origbalancedue - $creditApplied + $tax - $credits + priorUnpaidItemTotal($invoice);

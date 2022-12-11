@@ -113,7 +113,7 @@ if($_POST) {
 		exit;
 	}
 }
-if(mysql_error()) exit;
+if(mysqli_error()) exit;
 if($newPackageId) $packageid = $newPackageId;
 
 $client = isset($client) ? $client : '';

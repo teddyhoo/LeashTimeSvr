@@ -537,7 +537,7 @@ function flagReport(flagid) {
 }
 
 function bizBillingFlagPicker($i, $imgs, $src) {
-//if(mattOnlyTEST()) print_r();	
+	
 	$allFlags = getBillingFlagList();
 	
 	$inuse = array_map('strtolower', explode('|', $imgs));
@@ -572,7 +572,7 @@ function drop(i) {
 
 	
 function bizFlagPicker($i, $imgs, $src) {
-//if(mattOnlyTEST()) print_r();	
+	
 	$allFlags = getBizFlagList();
 	$inuse = array_map('strtolower', explode('|', $imgs));
 	$currentIcon = $src == 'art/emptyFlagIcon.jpg' ? "(None)" : "<img src='$src'>";

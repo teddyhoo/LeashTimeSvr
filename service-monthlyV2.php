@@ -97,7 +97,7 @@ else if($save) {
 			"<a href='service-monthlyV2.php?packageid=".($packageid ? $packageid : $newPackageId)."'>Back to Fixed Monthly Price Package</a>";
 		}
 		
-		if(!mysql_error() && ($_POST['prepaid'] || $_POST['oldprepaid'])) { // if monthly contract IS or WAS prepaid
+		if(!mysqli_error() && ($_POST['prepaid'] || $_POST['oldprepaid'])) { // if monthly contract IS or WAS prepaid
 			$billablePackageId = isset($packageid) && $packageid ? $packageid : $newPackageId;
 			$firstDay = max(strtotime($_POST['startdate']), strtotime(date('Y-m-d')));
 			if($_POST['effectivedate']) $firstDay = max($firstDay, strtotime($_POST['effectivedate']));
@@ -118,7 +118,7 @@ else if($save) {
 			}
 		}
 		
-	if(mysql_error()) $errors[] = sqlErrorMessage();
+	if(mysqli_error()) $errors[] = sqlErrorMessage();
 	
 	if($errors)
 		$payload = array('status'=>'error', 'errors'=>$errors);

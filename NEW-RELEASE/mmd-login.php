@@ -14,7 +14,7 @@ $logChangeTable = $logChangeTable  ? $logChangeTable  : 'mmd-login';
 
 
 $headers = apache_request_headers();
-//if(mattOnlyTEST()) {echo json_encode($headers);exit;}
+}
 foreach($headers as $hdr=>$val)
     if(strtoupper($hdr) == 'CONTENT-TYPE') $contentType = strtoupper($val);
 
@@ -81,7 +81,7 @@ logChange(999, $logChangeTable, 'L', "[$userName] [$password] [{$INPUT_ARRAY['ex
 			$_SESSION['passwordResetRequired'] = true;
 		}
 		if(!$user) {
-			$badLogin = fetchFirstAssoc("select * from tbluser where LoginID = '".mysql_real_escape_string($userName)."'");
+			$badLogin = fetchFirstAssoc("select * from tbluser where LoginID = '".mysqli_real_escape_string($userName)."'");
 			if($badLogin && $badLogin['tempPassword']) // clear temporary password, if any
 				doQuery("UPDATE tbluser set tempPassword = '' WHERE userid = '{$badLogin['userid']}'");
 			if(!$badLogin) $failure = 'U'; // Unknown
@@ -89,7 +89,7 @@ logChange(999, $logChangeTable, 'L', "[$userName] [$password] [{$INPUT_ARRAY['ex
 				$failure = 'P'; // Password
 			else if(!$badLogin['active'])
 				$failure = 'I'; // InactiveUser 
-	//if(mattOnlyTEST()) {echo "[$failure] ".print_r($badLogin, 1);exit;}
+	}
 		}
 		if($user) {
 			$foundRole = $user['rights']; // test rights, if found
@@ -110,7 +110,7 @@ logChange(999, $logChangeTable, 'L', "[$userName] [$password] [{$INPUT_ARRAY['ex
 	$browser = $_SESSION['jsuseragent'] ? $_SESSION['jsuseragent'] : $_SERVER["HTTP_USER_AGENT"];
 	
 	if(suspiciousUserAgent($browser)) $browser = "suspicious: ".sqlScrubbedString($browser);
-	$browser = mysql_real_escape_string($browser);
+	$browser = mysqli_real_escape_string($browser);
 	$loginRecord = 
 		array('LoginID'=>($suspiciousLoginId ? $suspiciousLoginId : $userName), 
 					'Success'=>($failure ? '0' : '1'), 
@@ -129,7 +129,7 @@ logChange(999, $logChangeTable, 'L', "[$userName] [$password] [{$INPUT_ARRAY['ex
 					 ", FailureCause = '$failure'".
 					 ", RemoteAddress = '{$_SERVER["REMOTE_ADDR"]}'".
 					 ", browser = '"
-					 	.mysql_real_escape_string($_SERVER["HTTP_USER_AGENT"] ? $_SERVER["HTTP_USER_AGENT"] : $_SESSION['jsuseragent'])
+					 	.mysqli_real_escape_string($_SERVER["HTTP_USER_AGENT"] ? $_SERVER["HTTP_USER_AGENT"] : $_SESSION['jsuseragent'])
 					 	."'"
 					 	.(usingMobileSitterApp() ? ", note = 'mobile'" : '')
 					 .updateStamp());*/

@@ -68,9 +68,9 @@ if($numClients) {
 }
 else $clients = array();
 
-//if(mattOnlyTEST()) {echo "[[[".print_r($sql, 1)."]]]";exit;}
-//if(mattOnlyTEST()) echo "[[[".print_r($clients[924], 1)."]]]";
-//if(mattOnlyTEST()) echo "[[[".print_r($numClients, 1)."]]]";
+}
+
+
 
 $data = array();
 $rowClass = 'rowstripewhite';

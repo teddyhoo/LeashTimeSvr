@@ -31,7 +31,7 @@ if(staffOnlyTEST()) $eventTypeMenu['q'] = 'Surveys Received';
 
 //if(dbTEST('dogslife,tonkatest,sarahrichpetsitting')) $eventTypeMenu['v'] = 'Overdue Visits';		
 asort($eventTypeMenu);
-//if(mattOnlyTEST()) print_r($eventTypeMenu);		
+		
 /*	if($testProspectRequestNotifications) {
 		$newMenu = array('i'=>'Prospect Requests');
 		foreach($eventTypeMenu as $k => $v) $newMenu[$k] = $v;
@@ -46,7 +46,7 @@ $eventTypeMenu = getEventTypeMenu();
 function staffToNotify($eventType) {
 	if(!in_array('relstaffnotification', fetchCol0("SHOW TABLES"))) return array();
 	$all = fetchAssociations($sql = "SELECT * FROM relstaffnotification WHERE eventtypes LIKE '%$eventType%'"); //daysofweek, timeofday
-//if(mattOnlyTEST()) echo "$sql<br>".print_r($all, 1);	
+	
 	$time = strtotime(date('H:i:s'));
 	$day = date('w');
 	$dows = explode(',', 'Su,M,Tu,W,Th,F,Sa');
@@ -63,7 +63,7 @@ function staffToNotify($eventType) {
 								&& !in_array($dows[$day], explode(',', $entryDays)))
 		) unset($all[$i]);
 	}
-//if(mattOnlyTEST()) { echo "$sql<p>";print_r($all); echo "<br>day: [$day]<br>start: [$start]<br>time: [$time]<br>end : [$end]<br>entryDays: [$entryDays]<br>"; exit; }	
+ }	
 	return array_merge($all);
 }
 

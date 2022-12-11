@@ -7,6 +7,6 @@ extract($_REQUEST);
 
 if($ids) {
 	updateTable('tblinvoice', array('notification'=>'mail', 'lastsent'=>date('Y-m-d')), "invoiceid IN ($ids)", 1);
-  //echo mysql_error();
+  //echo mysqli_error();
 }
 

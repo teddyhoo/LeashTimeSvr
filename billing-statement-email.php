@@ -131,7 +131,7 @@ else if(isset($ids) || ($_GET && $_GET['ids'] && $_GET['send'] == 1)) { // Autom
 		$standardInvoiceMessage = $template['body'];
 		$standardMessageSubject = $template['subject'];
 	}
-//if(mattOnlyTEST()) {print_r($standardInvoiceMessage);exit;}	
+}	
 	
 	foreach($clients as $clientid) {
 		$client = $clientDetails[$clientid];
@@ -155,7 +155,7 @@ else if(isset($ids) || ($_GET && $_GET['ids'] && $_GET['send'] == 1)) { // Autom
 						$_REQUEST['packageptr'], ($excludePriorUnpaidBillables ? 1 : 0));
 						
 		
-//if(mattOnlyTEST()) {unset($invoice['lineitems']);unset($invoice['priorunpaiditems']);print_r($invoice);exit;}	
+}	
 		//$invoice = getPrepaidInvoice($clientid, $firstDay, $lookahead, $showOnlyCountableItems=true, null);
 		//global $origbalancedue, $creditApplied, $tax, $credits;
 		$amountDue = $billingStatement->calculateAmountDue();//$origbalancedue - $creditApplied + $tax - $credits + priorUnpaidItemTotal($invoice);
@@ -219,7 +219,7 @@ if($invoicePaymentReference['section']) {  // Auto mode - send email with a paid
 	$auxiliaryWindow = true; // prevent login from appearing here if session times out
 	$clientid = $invoicePaymentReference['clientid'];
 	$client = getClient($clientid);
-//if(mattOnlyTEST()) print_r($_GET);	
+	
 	$message = getPaidInvoiceSubjectAndMessage($templateid);
 	$preprocessedMessage = preprocessMessage($message['body'], getClient($client));
 

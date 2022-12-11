@@ -7,7 +7,7 @@ extract(extractVars('loginid,password,newpassword', $_REQUEST));
 
 $userOrFailure = requestSessionAuthentication($loginid, $password);
 
-$mysqlUserId = mysql_real_escape_string($loginid);
+$mysqlUserId = mysqli_real_escape_string($loginid);
 $user = fetchFirstAssoc("SELECT * FROM tbluser WHERE loginid = '$mysqlUserId' LIMIT 1");
 $biz = fetchFirstAssoc("SELECT * FROM tblpetbiz WHERE bizid = {$user['bizptr']} LIMIT 1");
 require_once "login-fns.php";
@@ -32,8 +32,8 @@ else if(is_string($userOrFailure)) {
 //if($user)
 	updateTable('tbluser', $mods, "userid = {$user['userid']}", 1);
 
-if(!$errors && mysql_error()) $errors = array('error'=>$userOrFailure);
-if(mysql_error()) $errors['sqlerror'] = mysql_error();
+if(!$errors && mysqli_error()) $errors = array('error'=>$userOrFailure);
+if(mysqli_error()) $errors['sqlerror'] = mysqli_error();
 
 if(!$errors) echo "OK";
 else {

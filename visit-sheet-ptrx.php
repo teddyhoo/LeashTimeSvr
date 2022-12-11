@@ -272,7 +272,7 @@ else echo "<tr><td><i>No Visit Notes.</td></tr>";
   <tr><td class='label' colspan=2>EMERGENCY CONTACT</td></tr>
 	<?
 	$fields = explodePairsLine('name|Name||homephone|Home Phone||cellphone|Cell Phone||workphone|Work Phone||location|Location');
-//if(mattOnlyTEST()) echo "XXXX".print_r($contacts, 1);
+
 	dumpFieldsPtrx($fields, $contact);
 	?>
   <tr><td colspan=2><?= $contact['haskey'] ? 'Has key to house' : 'Does not have key to house' ?></td></tr>

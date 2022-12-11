@@ -95,7 +95,7 @@ function importSitter($showUnhandled=false) {
 }
 
 function redline($s){$s = is_array($s) ? print_r($s, 1) : $s; echo "<font color=red>[$s]</font></br>";}
-function mres($s) { return mysql_real_escape_string($s); }
+function mres($s) { return mysqli_real_escape_string($s); }
 function handleMappedFields() {
 	global $line, $provider, $pet, $stack, $lastPattern, $fieldMap, $box, $boxCounts;
 	if(!lineStartsWithOneOf(array_keys($fieldMap))) return;

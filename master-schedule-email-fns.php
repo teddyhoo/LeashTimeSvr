@@ -17,7 +17,7 @@ function getMasterScheduleToEmail($starting, $ending) {
 				AND isowner = 1
 			ORDER BY userid
 			LIMIT 1");
-	if(mysql_error()) logError(mysql_error());	
+	if(mysqli_error()) logError(mysqli_error());	
 	reconnectPetBizDB($db1, $dbhost1, $dbuser1, $dbpass1);
 
 	global $wagPrimaryNameMode, $maxServiceNameLength;

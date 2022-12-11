@@ -11,7 +11,7 @@ require_once "key-fns.php";
 // Determine access privs
 $needed = '@ka,@ki,@#km';
 locked($needed);
-//if(mattOnlyTEST()) echo print_r($_SESSION['rights'],1)."<br>vs $needed: ".adequateRights($needed);
+
 $right = keyManagementRight();
 
 extract($_REQUEST);

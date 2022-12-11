@@ -27,7 +27,7 @@ if("".(int)"$id" != $id) $id = 0; // against injection attacks 8/26/2020
 if(suspiciousSubmission((array)$_POST)) $id = 0; // against injection attacks 8/26/2020
 
 $survey = fetchSurvey($id);
-//if(mattOnlyTEST()) print_r('userCanSubmitSurvey: '.userCanSubmitSurvey($survey));
+
 if(!$survey) $error = "Survey not found.";
 else if(!userCanSubmitSurvey($survey) && !$_REQUEST['omitsubmit']) $error = "Insufficient access rights.";
 if($error) {

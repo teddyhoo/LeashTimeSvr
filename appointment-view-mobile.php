@@ -165,7 +165,7 @@ if($id && $_SESSION["flags_enabled"]) {
 	$start = strpos($flagLegend, 'COUNT[')+strlen('COUNT[');
 	$flagCount = $flagLegend ? substr($flagLegend, $start, strpos($flagLegend, ']', $start)-$start) : 0;
 	$pagingInUse = $flagCount > 6;
-//if(mattOnlyTEST()) echo "COUNT: $flagCount";
+
 	if($pagingInUse) {
 		require_once "js-gui-fns.php";
 		$flagLegend = "<div style='width:280px;height:90px;overflow:scroll;display:block;'>$flagLegend</div>";

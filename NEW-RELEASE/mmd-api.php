@@ -228,7 +228,7 @@ function populateClient($clientid) {
 	// client custom fields [all w/sitter rights] 	
 	require_once "custom-field-fns.php";
 	if($fields = displayOrderCustomFields(getCustomFields($activeOnly=true, $visitSheetOnly=false), 'custom')) {
-//if(mattOnlyTEST()) {print_r($fields);exit;}		
+}		
 		$fieldCounter = 0;
 		foreach($fields as $fkey => $field) {
 			$fieldvalue = getClientCustomField($client['clientid'], $fkey);
@@ -316,7 +316,7 @@ function nativeCustomFieldValue($field, $fieldvalue) {
 					);
 				if($clientdocs == 'complete') $fieldvalue = $json; //json_encode();
 				else $fieldvalue = $json['label'];
-//if(mattOnlyTEST()) {echo print_r($clientdocs,1).": ".print_r($fieldvalue,1);exit;}	
+}	
 			}
 		}
 	return $fieldvalue;

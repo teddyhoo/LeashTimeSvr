@@ -7,7 +7,7 @@ require_once "provider-fns.php";
 
 $sql = "SELECT * FROM tblchangelog ORDER BY time";
 
-$result = mysql_query($sql);
+$result = mysqli_query($sql);
 ?>
 <table border=1 bordercolor=black><tr><th>Time</th><th>Operation</th><th>Object</th><th>ID</th><th>User</th><th>Note</th></tr>
 <?
@@ -40,7 +40,7 @@ function merge_names_in($str) {
 	return $str;
 }
 
-while($row = mysql_fetch_assoc($result)) {
+while($row = mysqli_fetch_assoc($result)) {
 	$data = array();
 	$data[] = date('m/d/Y H:i:s', strtotime($row['time']));
 	$data[] = $ops[$row['operation']];

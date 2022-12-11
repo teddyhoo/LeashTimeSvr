@@ -30,10 +30,10 @@ function location($loc) {
 }
 
 $result = doQuery($sql, 1);
-if(!mysql_num_rows($result)) $out .= "No keys found.";
+if(!mysqli_num_rows($result)) $out .= "No keys found.";
 else {
 	$out .= "Key ID,Key Hook,Client,Status,Lock Location,Key Description,Location\n";
-	while($key = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	while($key = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		$copies = 1;
 		while(isset($key["possessor$copies"]) && $key["possessor$copies"]) {
 			$label = formattedKeyId($key['keyid'], $copies);

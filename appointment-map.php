@@ -116,7 +116,7 @@ if($token = $_REQUEST['passthru']) {
 }
 
 function ditch() {
-	//if(mattOnlyTEST()) logError("ditching ".$_SERVER["REQUEST_URI"]."[(($loginid && $password) || {$_SESSION["burnafterreading"]})]");	
+		
 	global $loginid, $password;
 	if(($loginid && $password) || $_SESSION["burnafterreading"]) endRequestSession();
 	exit;

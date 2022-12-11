@@ -12,14 +12,14 @@ $dbuser = "leashtime"; //$installationSettings['dbuser'];
 $dbpass = "sdh++HS_sdkh2k96g42jd6384cnwe";//$installationSettings['dbpass'];
 echo "CONNECT MYSQL WITH credentials:\n";
 echo "$dbhost  --  $dbuser  --  $dbpass";
-$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 
 if ($lnk < 1) {
 	$errMessage="Not able to connect: invalid database username and/or password.";
 }
 
-$lnk1 = mysql_select_db($db);
+$lnk1 = mysqli_select_db($db);
 
-if(mysql_error()) echo mysql_error();
+if(mysqli_error()) echo mysqli_error();
 
 ?>

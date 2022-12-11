@@ -110,7 +110,7 @@ function makeTimeFramer($id, $narrow=false, $noNameLinks=false, $clearButton=fal
   echo "<div id='$id' class='timeFrame' style='z-index:999;visibility:hidden;position:absolute;$width;$extraStyle'><form id='timeframer' name='timeframer'>\n<input type=hidden name=originaldate id=originaldate>"; //
   $colon = '<b>:</b>';
 	//$width = "width=".($pixelsWide-5);
-	//if(mattOnlyTEST()) 	$width = "width=''";
+	
   echo "<table $width border=0><tr>";
   echo "<td class='timeframerlabel'>Start time: ";  hourSelect('hour0'); echo $colon; minuteSelect('minute0');
   if($narrow) echo "<tr>";

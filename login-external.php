@@ -87,15 +87,15 @@ else if ( isset ( $_POST['user_name'] ) ) {
 $browser = $_SERVER["HTTP_USER_AGENT"] ? $_SERVER["HTTP_USER_AGENT"] : (
 		$_SESSION['jsuseragent'] ? $_SESSION['jsuseragent'] : '--');
 if(suspiciousUserAgent($browser)) $browser = "suspicious: ".sqlScrubbedString($browser);
-$browser = mysql_real_escape_string($browser);
+$browser = mysqli_real_escape_string($browser);
 
 $failuredestination = trim("{$_POST['failuredestination']}");
 if(suspiciousUserAgent($failuredestination)) $failuredestination = "suspicious: ".sqlScrubbedString($failuredestination);
-$failuredestination = mysql_real_escape_string($failuredestination);
+$failuredestination = mysqli_real_escape_string($failuredestination);
 
 $bizid = trim("{$_POST['bizid']}");
 if(suspiciousUserAgent($bizid)) $bizid = "suspicious: ".sqlScrubbedString($bizid);
-$bizid = mysql_real_escape_string($bizid);
+$bizid = mysqli_real_escape_string($bizid);
 
 
 $loginRecord = 

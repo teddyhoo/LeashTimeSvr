@@ -21,8 +21,8 @@ if($_GET['show']) {
 			 			AND active = 1
 			 ORDER BY lname, fname");
 	echo "<div style='background:palegreen;padding:10px;font-size:1.1em;'><h2>Active Clients with Billing flag <img src='{$billingFlags[$flagid]['src']}'></h2>";
-	echo "Currently: ".mysql_num_rows($result)." clients.<p>";
-  while($client = mysql_fetch_array($result, MYSQL_ASSOC))
+	echo "Currently: ".mysqli_num_rows($result)." clients.<p>";
+  while($client = mysqli_fetch_array($result, MYSQL_ASSOC))
   	echo "<a href='#c_{$client['clientid']}'>{$client['fname']} {$client['lname']}</a><br>";
   echo "</div>";
 	exit;

@@ -46,7 +46,7 @@ if($_REQUEST['KILL'] && mattOnlyTEST()) { // DEV only
 }
 if($save) {
 	$_POST = $INPUT_ARRAY; // to make the transition to JSON easier
-//if(mattOnlyTEST()) logError("NEW SCHEDULE SAVE START: [packageid: $packageid]");
+
 	
 	if($packageid) {
 		$oldPackage = getRecurringPackage($packageid);
@@ -72,7 +72,7 @@ if($save) {
 		}
 	}
 	else {
-//if(mattOnlyTEST()) logError("REALLY NEW SCHEDULE SAVE START");
+
 		if($newPackageId = saveNewRepeatingPackage())
 			$package = getRecurringPackage($newPackageId); // for the sake of setClientPreference, below
 		$_SESSION['clientEditNotifyToken'] = time();
@@ -95,7 +95,7 @@ if($save) {
 	}
 
 
-	if(mysql_error()) $errors[] = sqlErrorMessage();
+	if(mysqli_error()) $errors[] = sqlErrorMessage();
 	
 	if($errors)
 		$payload = array('status'=>'error', 'errors'=>$errors);
@@ -106,7 +106,7 @@ if($save) {
 										: "service-repeatingV2.php?packageid=$packageid";
 		$payload = array('status'=>'success', 'destination'=>globalURL($destination));
 	}
-//if(mattOnlyTEST()) logError("NEW SCHEDULE RESULT: ".json_encode($payload));
+
 	echo json_encode($payload);
 	exit;
 }

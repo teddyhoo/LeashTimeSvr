@@ -37,7 +37,7 @@ $achToShow = getActiveClientACH($_SESSION['clientid']);
 
 $formURL = $gateWayObject->startAuthRequest($auth, $client, $op = "clientach");
 
-//if(mattOnlyTEST()) $formURL = 'testmonths.php';
+
 
 if(is_array($formURL)) {
 	echo "<font color='red'>{$formURL[0]}: {$formURL[1]}<p>";

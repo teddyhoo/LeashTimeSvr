@@ -62,7 +62,7 @@ background-color: white;
 }
 </style>
 <?
-//if(mattOnlyTEST()) echo '<link href="mobile-sitter.css" type= "text/css" rel="stylesheet" / >';
+
 } // isMobile
 else { ?>
 <link href="<?= $mobileSitterStyleSheet ?>" type= "text/css" rel="stylesheet" / >
@@ -82,11 +82,11 @@ if($_SESSION['mobile_private_zone_timeout']) {
 	}
 	$privateZoneOpen = $localTimeout > 0;
 }
-//if(mattOnlyTEST()) echo " mobile_private_zone_timeout_interval: [{$_SESSION['mobile_private_zone_timeout_interval']}]";;
-//if(mattOnlyTEST()) echo " privateZoneOpen: [$privateZoneOpen] mobile_private_zone_timeout: [{$_SESSION['mobile_private_zone_timeout']} = ".date('Y-m-d H:i', $_SESSION['mobile_private_zone_timeout'])."] past: [".($_SESSION['mobile_private_zone_timeout'] < time())."]";
-//if(mattOnlyTEST()) echo " mobile_time_offset: [{$_SESSION['mobile_time_offset']}]";
-//if(mattOnlyTEST()) echo " localTimeout: [$localTimeout]";
-//if(mattOnlyTEST()) exit;
+
+
+
+
+
 if($countdown) echo "<script language='javascript' src='ajax_fns.js'></script>";
 
 ?>

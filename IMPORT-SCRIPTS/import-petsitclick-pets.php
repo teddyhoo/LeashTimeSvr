@@ -66,7 +66,7 @@ function startAfterPat($line, $pat) {
 }
 
 function findClientNamed($name) {
-	$mname = mysql_real_escape_string($name);
+	$mname = mysqli_real_escape_string($name);
 	$found = fetchCol0("SELECT clientid FROM tblclient WHERE CONCAT_WS(' ', fname, lname) = '$mname'");
 	if(count($found) > 1) return "<font color=red>Multiple clients named $name</font>";
 	else if(!$found) return "<font color=red>Found no client named $name</font>";
@@ -74,7 +74,7 @@ function findClientNamed($name) {
 }
 
 function findSitterNamed($name) {
-	$mname = mysql_real_escape_string($name);
+	$mname = mysqli_real_escape_string($name);
 	$found = fetchCol0("SELECT providerid FROM tblprovider WHERE CONCAT_WS(' ', fname, lname) = '$mname'");
 	if(count($found) > 1) return "<font color=red>Multiple providers named $name</font>";
 	else if(!$found) return "<font color=red>Found no provider named $name</font>";

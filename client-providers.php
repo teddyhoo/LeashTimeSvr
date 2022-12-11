@@ -22,7 +22,7 @@ if($error) {
 }
 
 if($_POST) {
-//if(mattOnlyTEST()) print_r($_POST);	
+	
 	updateClientsDoNotAssignList($id, $_POST, $severConnections=false);
 	savePreferredProviderIds($id, $preferred);
 	$_SESSION['frame_message'] = 'Saved Changes.';

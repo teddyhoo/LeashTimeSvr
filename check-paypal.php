@@ -257,9 +257,9 @@ function echoUnknownRow(&$row) {
 	require_once "invoice-fns.php";
 	$row = $row[0];
 	$email = $row['email'];
-	$payer = mysql_real_escape_string($row['payer']);
+	$payer = mysqli_real_escape_string($row['payer']);
 	$payer = $payer ? $payer : print_r($row,1);
-//if(mattOnlyTEST()) echo print_r($email,1)."<br>";	
+	
 	$possible = fetchAssociations(
 			"SELECT CONCAT_WS(' ', fname, lname) as name, clientid 
 				FROM tblclient 

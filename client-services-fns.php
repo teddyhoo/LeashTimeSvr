@@ -19,7 +19,7 @@ function getClientServices($clientptr=null) { // (in display sequence) label => 
 	//}
 	$prefs = fetchKeyValuePairs("SELECT property, value FROM tblpreference WHERE property LIKE 'client_service_%'");
 	$petTypeFilter = serviceTypesTailoredByPets($clientptr);
-//if(mattOnlyTEST()) echo "FILTER: [".print_r($petTypeFilter, 1)."]";	
+	
 	for($i=1; $i <= count($prefs); $i++) {
 		$field = explode('|', $prefs["client_service_$i"]); //clientServiceLabel, serviceTypeId, description
 		if(!$petTypeFilter || in_array($field[1], $petTypeFilter))
@@ -38,7 +38,7 @@ function serviceTypesTailoredByPets($clientptr, $petNames=null) {
 			WHERE active = 1 
 				AND ownerptr = '$clientptr' 
 				$petNameFilter", 1);
-//if(mattOnlyTEST()) echo "PET TYPES: [".print_r($pettypes, 1)."]";	
+	
 	if(!$pettypes || in_array('UNKNOWN_BOINK', $pettypes)) return null;
 	require_once "pet-service-fns.php";
 	$servicesByPettype = getAllPetsTypesServices();

@@ -43,7 +43,7 @@ $useGraphicCommButtons = TRUE; // enableClientFilesFeatures enabled 12/6/2018
 if($useGraphicCommButtons) {
 	$localprefs = $_SESSION['preferences'];
 	$showSMSButton = $_SESSION['preferences']['enableSMS'] && $_SESSION['preferences']['enableClientSMS'] ? 1 : 0;// mattOnlyTEST();
-//if(mattOnlyTEST()) echo "[[[{$_SESSION['preferences']['enableClientSMS']}]]]";	
+	
 	$buttonCount = 5 + $showSMSButton; // changed from 4 when enableClientFilesFeatures enabled 12/6/2018
 	$notMatt = !mattOnlyTEST();
 	$notMatt = FALSE;

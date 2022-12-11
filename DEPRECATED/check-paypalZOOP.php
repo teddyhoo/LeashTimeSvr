@@ -247,7 +247,7 @@ function echoUnknownRow(&$row) {
 	//echo "<tr><td colspan=5>".print_r($row, 1)."</td></tr>";
 	require_once "invoice-fns.php";
 	$row = $row[0];
-	$payer = mysql_real_escape_string($row['payer']);
+	$payer = mysqli_real_escape_string($row['payer']);
 	$payer = $payer ? $payer : print_r($row,1);
 	$possible = fetchAssociations(
 			"SELECT CONCAT_WS(' ', fname, lname) as name, clientid 

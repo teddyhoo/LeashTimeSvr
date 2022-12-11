@@ -42,12 +42,12 @@ while(getLine($strm)) {
 		if(strpos($line, '</table')) break;
 		if(!($row = readProviderPhones($strm))) break;
 		else {
-			$cellphone = mysql_real_escape_string(stripslashes($row['cellphone']));
-			$homephone = mysql_real_escape_string(stripslashes($row['homephone']));
+			$cellphone = mysqli_real_escape_string(stripslashes($row['cellphone']));
+			$homephone = mysqli_real_escape_string(stripslashes($row['homephone']));
 			$homePhoneTest = $row['homephone'] ? "homephone = ".val($homephone)."" : "homephone IS NULL";
 			$cellPhoneTest = $row['cellphone'] ? "cellphone = ".val($cellphone)."" : "cellphone IS NULL";
-			$lname = mysql_real_escape_string(stripslashes($row['lname']));
-			$fname = mysql_real_escape_string(stripslashes($row['fname']));
+			$lname = mysqli_real_escape_string(stripslashes($row['lname']));
+			$fname = mysqli_real_escape_string(stripslashes($row['fname']));
 			$providerId = fetchRow0Col0("SELECT providerid FROM tblprovider WHERE lname = '$lname' AND fname = '$fname' AND $homePhoneTest AND $cellPhoneTest LIMIT 1");
 			if(!$providerId) echo "No provider named [{$row['fname']} {$row['lname']}] exists to add contact info: ".print_r($row, 1)."<br>";
 			else {

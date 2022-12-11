@@ -41,7 +41,6 @@ function notifyClient($source, $event, $note) {
 		else $eventTime = strtotime($trackTime);
 	}
 	$eventTime = $eventTime ? $eventTime : time();
-if(!mattOnlyTEST()) $eventTime = time();	
 	$date = month3Date($eventTime);
 	$time = date('g:i a', $eventTime);
 	$client = fetchFirstAssoc("SELECT *, CONCAT_WS(' ', fname, lname) as clientname FROM tblclient WHERE clientid = {$source['clientptr']}");
@@ -121,7 +120,7 @@ else offer editing of boxes of arrived/completed emails (NOT "display on client 
 function displayVisitReportRequest($request, $updateList) {
 	global $OFFER_SET_PET_PHOTO;
 	$extraFields = getExtraFields($request);
-//if(mattOnlyTEST()) print_r($extraFields);	
+	
 	require_once "client-flag-fns.php";
 	require_once "appointment-fns.php";
 	require_once "comm-fns.php";
@@ -174,21 +173,15 @@ function displayVisitReportRequest($request, $updateList) {
 	if($appointment) {
 		$service = fetchRow0Col0("SELECT label FROM tblservicetype WHERE servicetypeid = {$appointment['servicecode']} LIMIT 1");
 		echo "Submitted by: {$extraFields['x-providername']} at ".longestDayAndDateAndTime(strtotime($request['received']));
-		if(staffOnlyTEST()) echo "<br><i>Received: {$request['received']}</i>";
 		$visitidDisplay = mattOnlyTEST() ? " <i>({$extraFields['x-appointmentptr']})</i>" : '';
 		echo "<p>Visit$visitidDisplay: ".shortDate(strtotime($appointment['date']))." {$appointment['timeofday']} $service Pets: {$appointment['pets']}";
-		if(staffOnlyTEST()) {
-			$oldnote = fetchRow0Col0("SELECT value FROM tblappointmentprop WHERE appointmentptr = {$appointment['appointmentid']} AND property='oldnote' LIMIT 1");
-			if($oldnote)
-				echo " <a style='cursor:pointer;font-style:italic;' onclick='var el=document.getElementById(\"oldnote\");el.style.display=el.style.display == \"none\" ? \"block\" : \"none\"'>Old Note</a>"
-								."<div id='oldnote' style='display:none;padding:5px;width:400px;border:solid black 1px;'>$oldnote</div>";
-		}
+
 	}
 	else echo "Note: This visit referred to has been deleted.";
 	echo "<p>";
 
 	if($appointment) $statDesc = checkAndSetLastReport($appointment['appointmentid']); // lastReport, queued, slated
-//if(mattOnlyTEST()) print_r($statDesc);	
+	
 	if(!is_array($statDesc)) $statDesc = null;
 	if($statDesc['slated']) $statDesc = "Slated to be sent after ".date('g:i a', strtotime($statDesc['slated'])).'.';
 	else if($statDesc['queued']) $statDesc = "Waiting to be sent at ".date('g:i a', strtotime($statDesc['queued'])).'.';
@@ -212,7 +205,7 @@ function displayVisitReportRequest($request, $updateList) {
 			if($revision)
 				echo "\n {$revision['changenotice']}\n<div style='display:none;' id='visitreportnote'>{$extraFields['x-note']}</div>\n";
 
-			//if(mattOnlyTEST()) print_r($revision);
+			
 			//echo "ALL: ".print_r($allEmails,1);
 		}
 	}
@@ -220,13 +213,6 @@ function displayVisitReportRequest($request, $updateList) {
 		if($extraFields['x-messageptr']) echo "Message sent, but message cannot not be found!<br>";
 		else {
 			echo $appointment ? "Not yet sent to client." : "";
-			if(mattOnlyTEST()) {
-				if($statDesc) echo "  $statDesc";
-				if($statusVars) {
-					foreach($statusVars as $k => $v) $statusVars[$k] = "[$k] $v";
-					echo " <i>[".date('H:i:s')."]</i> ".join(' ', $statusVars);
-				}
-			}
 			echo "<br>";
 		}
 	}
@@ -258,9 +244,9 @@ $OFFER_SET_PET_PHOTO = $_SESSION['preferences']['enableVisitPhotoToPetPhoto'];
 function dumpVisitReportEditorFormElementRows($extraFields, $appointmentid=null) {
 	global $OFFER_SET_PET_PHOTO;
 	//if(!$appointmentid)  return;
-//if(mattOnlyTEST()) print_r($extraFields);	
+	
 	$report = visitReportData($extraFields);
-//if(mattOnlyTEST()) {print_r($report);exit;}
+}
 	$includeCheck = inclusionPreferences($extraFields['x-clientptr'], $includeFields=null);			
 	echo "<table border=0><tr><td colspan=2>Include the following:</td><tr>\n"; // manager's editor
 	$labels = explodePairsLine('ARRIVED|Arrived||COMPLETED|Completed||MOODBUTTON|Mood||MAPROUTEURL|Visit Map||NOTE|Note||VISITPHOTOURL|Photo');
@@ -417,7 +403,7 @@ function visibleNoteAndChangeNotice($appointmentid, $clientVisibleNote) {
 
 function dumpVisitReportClientDisplay($appointmentid) {
 	global $OFFER_SET_PET_PHOTO;
-//if(mattOnlyTEST()) print_r($extraFields);	
+	
 	$report = visitReportDataForApptId($appointmentid);
 	$includeCheck = inclusionPreferences($report['clientptr'], $includeFields=null);			
 	echo "<table border=0><tr><td colspan=2></td><tr>\n"; // manager's editor
@@ -425,7 +411,7 @@ function dumpVisitReportClientDisplay($appointmentid) {
 	$allButtonImages = moodButtonImages(); // mood=>(('title'=>'', 'file'=>'basename'))
 	foreach(explode(',', 'ARRIVED,COMPLETED,MOODBUTTON,MAPROUTEURL') as $key) {
 		if($key == 'MOODBUTTON') {
-//if(mattOnlyTEST()) print_r($report['MOODBUTTON']);	
+	
 			
 			foreach($report['MOODBUTTON'] as $mood=>$rawval) {
 				if($rawval == 'yes' || $rawval == 1)
@@ -615,14 +601,14 @@ if($ALTEmailAddressTEST = TRUE) { //enabled for all 2020-10-04 $_SESSION['prefer
 if(dbTEST('dogslife') && !$_SESSION) insertTable('tbltextbag', array('referringtable'=>'app-cli-not', 'body'=>print_r($message, 1)), 1);
 	$messageBody = $message['body'];
 	$subject = $message['subject'];
-//if(mattOnlyTEST()) $immediately = true;
+
 	if($immediately) {
 		$senderName = $_SESSION["providerfullname"] ? $_SESSION["providerfullname"] : $_SESSION["auth_username"];
-//if(mattOnlyTEST()) echo "SENDER: [$senderName]<p>";		
-//if(mattOnlyTEST()) {echo "internalUse: [$internalUse] messageBody: [$messageBody]<p>";		exit;}
+		
+}
 		if(!($error = notifyByEmail($client, $subject, $messageBody, $cc, $senderName, 'html'))) {// returns error on fail,null on success
 		// $_SESSION["auth_username"] $_SESSION["fullname"]
-			$messagePtr = mysql_insert_id();
+			$messagePtr = mysqli_insert_id();
 			updateTable('tblmessage', array('tags'=>"vr$appointmentid"), "msgid={$messagePtr}", 'showerrors');
 		}
 	}
@@ -635,7 +621,7 @@ if(dbTEST('dogslife') && !$_SESSION) insertTable('tbltextbag', array('referringt
 	}
 
 	if($error) {
-		logError("sendEnhancedVisitReportEmail($appointmentid)): ".mysql_error().", ".print_r($messagePtr,1));
+		logError("sendEnhancedVisitReportEmail($appointmentid)): ".mysqli_error().", ".print_r($messagePtr,1));
 		return array("Attempt to email visit report for visit #$appointmentid failed at ".date('H:i:s'), $errorData);
 	}
 	else if($immediately) {
@@ -682,7 +668,7 @@ function enhancedVisitReportEmail($appointmentOrApptid, $immediately=true, $temp
 	require_once "comm-fns.php";
 	$message = enhancedVisitReport($appt, $internalUse=false, $template=null, $includeFields);
 	return $message;
-//if(mattOnlyTEST()) $immediately = true;
+
 }
 
 function visitReportErrorNotification($error) {
@@ -722,7 +708,7 @@ function visitReportErrorNotification($error) {
 function orderDelayedVisitReportEmail($appointmentid, $delaySeconds=60, $requestPtr=null) {
 	// tell LeashTime to generate a VR email and add it to the emil queue some time
 	// AFTER delaySeconds have elapsed.
-//if(mattOnlyTEST()) echo "orderDelayedVisitReportEmail[$appointmentid, $delaySeconds=60, $requestPtr]...";	
+	
 	$dateTime = date('Y-m-d H:i:s', strtotime("+ $delaySeconds seconds"));
 	replaceTable('tblappointmentprop', 
 								array('appointmentptr'=>$appointmentid, 'property'=>'emailAfter', 'value'=>"$requestPtr|$dateTime"), 1);
@@ -887,7 +873,7 @@ if(petOwnerPortalVRTest()) {
 	if(TRUE) {
 		$yesPhoto = $includeValue["VISITPHOTOURL"] && $visitPhotoURL;
 		$yesMap = $includeValue["MAPROUTEURL"] && $mapRouteURL;
-//if(mattOnlyTEST()) {echo "yesPhoto[$yesPhoto] yesMap[$yesMap]";exit;}
+}
 		if($yesPhoto && $yesMap) $specificTemplate = "evr-mail-full.html";
 		else if($yesPhoto) $specificTemplate = "evr-mail-image.html";
 		else if($yesMap) $specificTemplate = "evr-mail-map.html";
@@ -895,11 +881,11 @@ if(petOwnerPortalVRTest()) {
 	}
 	
 	$templatePath = "$stageDir/$specificTemplate";
-//if(mattOnlyTEST()) {echo getcwd()."\n\n$templatePath\n\n".realpath($templatePath);exit;}
+}
 	$template['body'] = file_get_contents($templatePath)
 											; //."<br>[$specificTemplate][$visitPhotoURL][".print_r($includeValue, 1)."]";
 	 // enhanced-visit-report-template-2017-09-07.html enhanced-visit-report-template-2017-10-10.html
-//if(mattOnlyTEST()) {echo "[[$templatePath}]]"; exit;}
+}
 }
 	return $template;
 }
@@ -916,7 +902,7 @@ function enhancedVisitReport($appt, $internalUse=false, $template=null, $include
 	$visitPhotoURL = visitPhotoURL($appt['appointmentid'], $internalUse, $bizptr);
 	$mapRouteURL = visitMapURL($appt['appointmentid'], $internalUse, $bizptr);
 	
-	//if(mattOnlyTEST()) echo "appointmentid: {$appt['appointmentid']} mapRouteURL: $mapRouteURL internalUse: [$internalUse]";		
+			
 	$template = $template ? $template : enhancedVisitReportEmailTemplate($includeValue, $visitPhotoURL, $mapRouteURL);	
 	
 	require_once "appointment-fns.php";
@@ -938,11 +924,11 @@ function enhancedOnlineVisitReportHTML($appt, $internalUse=false, $template=null
 	$visitPhotoURL = visitPhotoURL($appt['appointmentid'], $internalUse, $bizptr);
 	$mapRouteURL = visitMapURL($appt['appointmentid'], $internalUse, $bizptr);
 	
-	//if(mattOnlyTEST()) echo "appointmentid: {$appt['appointmentid']} mapRouteURL: $mapRouteURL visitPhotoURL: $visitPhotoURL internalUse: [$internalUse]";		
+			
 	$template = $template ? $template : enhancedVisitReportOnlineTemplate($includeValue, $visitPhotoURL, $mapRouteURL);	
-	//if(mattOnlyTEST()) echo "internalUse: ".print_r($internalUse, 1);	
-	//if(mattOnlyTEST()) print_r(enhancedVisitReportEmailTemplate($includeValue, $visitPhotoURL, $mapRouteURL));	
-	//if(mattOnlyTEST()) print_r($includeFields);	
+		
+		
+		
 	
 	require_once "appointment-fns.php";
 	//$appt = getAppointment($appt['appointmentid'], $withNames=true);
@@ -952,7 +938,7 @@ function enhancedOnlineVisitReportHTML($appt, $internalUse=false, $template=null
 
 function enhancedVisitReportOnlineTemplate($includeValue=null, $visitPhotoURL=null, $mapRouteURL=null) {
 	$stageDir = "../html/wordpressmktg/sandbox/communications/visit-report/online/html/leashtime";
-	//if(mattOnlyTEST()) $stageDir .= "/mattwork";
+	
 	
 	$specificTemplate = "index.html";
 	
@@ -982,7 +968,7 @@ if($_GET['debug']) {echo "yesPhoto[$yesPhoto] [$visitPhotoURL]<p>yesMap[$yesMap]
 function visitPhotoURL($appointmentid, $internalUse=false, $bizptr=null) {
 	
 	require_once "preference-fns.php";
-//if(mattOnlyTEST()) {echo "BANG! [visitphotocacheid: $appointmentid]".getAppointmentProperty($appointmentid, 'visitphotocacheid');exit;}
+}
 	if(!getAppointmentProperty($appointmentid, 'visitphotocacheid')) return null;
 	require_once "remote-file-storage-fns.php";
 	if(!$internalUse) return getAppointmentPhotoPublicURL($appointmentid, $bizptr);
@@ -1135,7 +1121,7 @@ function approveVisitReport($form) { // from request-edit.php
 			$request['extrafields'] = "<extrafields>$extraFieldElements</extrafields>";
 			$request['resolved'] = 1;
 			$request['resolution'] = 'honored';
-			$change = mysql_real_escape_string(shortDateAndTime()." Honored by {$_SESSION['auth_username']} ({$_SESSION['auth_user_id']})");
+			$change = mysqli_real_escape_string(shortDateAndTime()." Honored by {$_SESSION['auth_username']} ({$_SESSION['auth_user_id']})");
 			if($form['officenotes']) $change .= "\n{$form['officenotes']}";
 			$request['officenotes'] = sqlVal("CONCAT_WS('\\n','$change', officenotes)");
 			updateTable('tblclientrequest', $request,	"requestid = {$form['requestid']}", 1);
@@ -1145,7 +1131,7 @@ function approveVisitReport($form) { // from request-edit.php
 }
 
 function visitReportData($extraFields) {
-//if(mattOnlyTEST()) {print_r($extraFields);exit;}	
+}	
 	$arrivedCompleted = fetchKeyValuePairs(
 			"SELECT event, date 
 				FROM tblgeotrack 
@@ -1265,8 +1251,8 @@ function preprocessVRMessage($message, $appt, $visitPhotoURL, $mapRouteURL, $cli
 	}
 	
 	$includeValue = inclusionPreferences($client['clientid'], $includeFields);
-//if(mattOnlyTEST()) {echo "$includeFields<hr>visitPhotoURL: $visitPhotoURL<br>includeFields: ".print_r($includeValue, 1)."<p>".print_r($appt, 1).'<hr>'.$message;exit;}
-//if(mattOnlyTEST()) {	$message = "MATT TEST: ".print_r($includeValue, 1)."<hr>$message";}
+}
+}
 	$message = str_replace('#NOTE#', ($includeValue['NOTE'] ? extractSitterNote($appt['note']) : ''), $message);
 	
 	foreach(array('ARRIVED', 'COMPLETED') as $event) {
@@ -1281,7 +1267,7 @@ function preprocessVRMessage($message, $appt, $visitPhotoURL, $mapRouteURL, $cli
 			$message = str_replace($substInfo['fullpattern'], $replacement, $message);
 		}
 	}
-//if(mattOnlyTEST()) {echo $message;exit;}
+}
 	
 	if($substInfo = bracketedContent($message, "VISITPHOTOURL")) {
 		if($includeValue["VISITPHOTOURL"] && $visitPhotoURL) {
@@ -1314,30 +1300,7 @@ if(mattOnlyTEST()) {$message .= "#STARTMAPROUTE##MAPROUTE##ENDMAPROUTE#";}
         }
         $message = str_replace($substInfo['fullpattern'], $replacement, $message);
     }
-    
-    /* if($substInfo = bracketedContent($message, "MAPROUTE")) {
-        //$mapRouteURL = globalURL("visit-map.php?id=$appointmentid&noframe=1");
-        if($includeValue["MAPROUTEURL"] && $mapRouteURL) {
-            ob_start();
-            ob_implicit_flush(0);
-            $clientView = true;
-						$id = $appointmentid;
-						$noframe = true;
-						
-						global $lockChecked;
-						$lockChecked = true;
-						require "visit-map-include.php";
-						makeMap();  // SHIT! why does this bypass the output buffer and go straight to stdout?!
-            //echo file_get_contents($mapRouteURL);
-            $mapHTML = ob_get_contents();
-            ob_end_clean();
-            $replacement = str_replace("#MAPROUTE#", $mapHTML, $substInfo['template']);
-        }
-        $message = str_replace($substInfo['fullpattern'], $replacement, $message);
-    }*/
 
-//echo "GLOB: ".print_r(glob('art/mood*'),1);
-//foreach(glob('art/mood*') as $f) echo "<br>".basename($f);	
 	$buttonImages = moodButtonImages(); // mood=>(('title'=>'', 'file'=>'basename'))
 		
 	$replacements = '';
@@ -1552,8 +1515,8 @@ data-saferedirecturl="#ENHANCED_REPORT_BIZ_URL#">Contact #ENHANCED_REPORT_BIZ_NA
 	
 	$includeValue = inclusionPreferences($client['clientid'], $includeFields);
 	
-//if(mattOnlyTEST()) {echo "$includeFields<hr>visitPhotoURL: $visitPhotoURL<br>includeFields: ".print_r($includeValue, 1)."<p>".print_r($appt, 1).'<hr>'.$message;exit;}
-//if(mattOnlyTEST()) {	$message = "MATT TEST: ".print_r($includeValue, 1)."<hr>$message";}
+}
+}
 
 
 	
@@ -1604,7 +1567,7 @@ data-saferedirecturl="#ENHANCED_REPORT_BIZ_URL#">Contact #ENHANCED_REPORT_BIZ_NA
 	}
 		
 	$replacement = '';
-//if(mattOnlyTEST()) {echo "$includeFields<hr>mapRouteURL: $mapRouteURL<br>visitPhotoURL: $visitPhotoURL<br>includeValue: ".print_r($includeValue, 1)."<p>".print_r($appt, 1).'<hr>'.$message;exit;}
+}
 
 	if($substInfo = bracketedContent($message, "MAPROUTEURL")) {		
 		if($includeValue["MAPROUTEURL"] && $mapRouteURL) {
@@ -1860,7 +1823,7 @@ function inclusionPreferences($clientid, $includeFields=null) {
 			|| in_array('NOTE', $includeFields)  // why, oh why?
 			;
 	}
-//if(mattOnlyTEST()) print_r($includeFields);
+
 	return $includeValue;
 }
 
@@ -1995,7 +1958,7 @@ function visitReportList($start=null, $end=null, $clientptrs=null, $fullReports=
 			else if($receivedonly) $apptids = array_keys($reports);
 			else $apptids = fetchCol0("SELECT appointmentid FROM tblappointment WHERE canceled IS NULL $clientTest $dateTest", 1);
 			
-//if(mattOnlyTEST()) {echo "publishedonly [$publishedonly] submittedonly[$submittedonly] receivedonly[$receivedonly]: ".print_r($reports, 1); exit;}		
+}		
 
 			if($apptids) {
 				$appts = fetchAssociationsKeyedBy(

@@ -10,7 +10,7 @@ extract($_REQUEST);
 
 if($showAgain) {
 	updateTable('relusernotice', array('shownomore'=>0), "noticeptr=$showAgain", 1);
-	$n = mysql_affected_rows() ? mysql_affected_rows() : '0';
+	$n = mysqli_affected_rows() ? mysqli_affected_rows() : '0';
 	echo "Notice #$showAgain will be shown again. $n rows affected.<p>";
 	$viewReport = $showAgain;
 }

@@ -38,16 +38,16 @@ function retireTokens($criteria, $currentDbSettings=null) {
 	$cutoff = date("Y-m-d", strtotime("-$days day"));
 	
 	if($currentDbSettings && $currentDbSettings["db"] != 'petcentral') {
-		mysql_close();
+		mysqli_close();
 		include "common/init_db_common.php";
 	}
 	deleteTable('tblresponsetoken', $criteria, 1);
 	if($currentDbSettings) {
-		mysql_close();
-		$lnk = mysql_connect($currentDbSettings['dbhost'], $currentDbSettings['dbuser'], $currentDbSettings['dbpass']);
+		mysqli_close();
+		$lnk = mysqli_connect($currentDbSettings['dbhost'], $currentDbSettings['dbuser'], $currentDbSettings['dbpass']);
 		if ($lnk < 1)
 			$errMessage="Not able to connect: invalid database username and/or password.";
-		else mysql_select_db($currentDbSettings['db']);
+		else mysqli_select_db($currentDbSettings['db']);
 
 	}
 }
@@ -131,17 +131,17 @@ function generateToken($respondentptr, $respondenttbl, $bizptr, $redirecturl, $l
     if($expires) $row['expires'] = $expires;
 		insertTable('tblresponsetoken', $row); // do not report this error onscreen , 1
     
-    if($errNum = mysql_errno()) {
+    if($errNum = mysqli_errno()) {
       // if Duplicate entry try again
       if($errNum == 1062) ; // do nothing
       // else if the problem is not an error with a duplicate key, we have a problem
       else if($errNum != 1062) return null;
     }
     // if no error, success!  else try again
-    $success = !mysql_error();
+    $success = !mysqli_error();
   }
   if($success && $appendToken) {
-//if(mattOnlyTEST()) echo "appendToken: $appendToken - $redirecturl$token<hr>";
+
 		
 		updateTable('tblresponsetoken', array('url'=>"$redirecturl$token"), "token = '$token'", 1);
 	}

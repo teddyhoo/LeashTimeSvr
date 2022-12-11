@@ -33,7 +33,7 @@ function safeDeleteMessagesBefore($date, $maxCount=null) {
 	echo fetchRow0Col0("SELECT count(*) FROM tblmessage WHERE datetime < '$date'")." visits to delete.<p>";
 	//replaceTable('tblpreference', array('property'=>'archivedmessagethresholddate', 'value'=>$date), 1);
 	$result = doQuery("SELECT * FROM tblmessage WHERE datetime < '$date' ORDER BY msgid");
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		//if($origBody = fetchRow0Col0("SELECT body FROM tblmessagearchive WHERE msgid = {$row['msgid']} LIMIT 1", 1)) { // }
 		if($origBody = $row['body']) {
 			$restoredBody = fetchArchiveMessageBody($row['msgid']);
@@ -62,7 +62,7 @@ function archiveMessagesBefore($date, $maxCount=null, $deleteOriginals=false) {
 	//echo fetchRow0Col0("SELECT count(*) FROM tblmessage WHERE datetime < '$date'")." visits to archive.<p>";
 	replaceTable('tblpreference', array('property'=>'archivedmessagethresholddate', 'value'=>$date), 1);
 	$result = doQuery("SELECT * FROM tblmessage WHERE datetime < '$date' ORDER BY msgid");
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 		if(!fetchRow0Col0("SELECT msgid FROM tblmessagearchive WHERE msgid = {$row['msgid']} LIMIT 1", 1)) {
 			if(archiveMessage($row)) {
 				$added += 1;
@@ -95,13 +95,13 @@ function fetchArchiveMessageBody($msgid) {
 
 function archiveMessage($row) {
 	$origBody = $row['body'];
-	$row['body'] = sqlVal("COMPRESS('".mysql_real_escape_string((string)$row['body'])."')");
+	$row['body'] = sqlVal("COMPRESS('".mysqli_real_escape_string((string)$row['body'])."')");
 	foreach(explode(',', 'correstable,mgrname,subject,correspaddr') as $f) //body,
 		if(!$row[$f])	$row[$f] = sqlVal("''");
 	insertTable('tblmessagearchive', $row, 1);
-	$error1 = mysql_error();
+	$error1 = mysqli_error();
 	$restoredBody = fetchArchiveMessageBody($row['msgid']);
-	$error2 = mysql_error();
+	$error2 = mysqli_error();
 	//TEST START
 	//$blob = fetchRow0Col0("SELECT body FROM tblmessagearchive WHERE msgid = {$row['msgid']} LIMIT 1", 1);
 	//$restoredBody = gzuncompress($blob);
@@ -154,7 +154,7 @@ function archiveLoginsBefore($date, $maxCount=null, $deleteOriginals=false) {//B
 	$date = date('Y-m-d 00:00:00', strtotime($date));
 	echo fetchRow0Col0("SELECT count(*) FROM tbllogin WHERE LastUpdateDate < '$date'")." login rows to archive.<p>";
 	$result = doQuery("SELECT * FROM tbllogin WHERE LastUpdateDate < '$date' ORDER BY LastUpdateDate");
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 			if(archiveLogin($row)) {
 				$added += 1;
 				//replaceTable('tblpreference', array('property'=>'latestarchivedmessagedate', 'value'=>$row['datetime']), 1);
@@ -174,7 +174,7 @@ function archiveLoginsAfter($date, $maxCount=null, $deleteOriginals=false) { // 
 	$date = date('Y-m-d H:i:s', strtotime($date));
 	echo fetchRow0Col0("SELECT count(*) FROM tbllogin WHERE LastUpdateDate >= '$date'")." login rows to archive.<p>";
 	$result = doQuery("SELECT * FROM tbllogin WHERE LastUpdateDate > '$date' ORDER BY LastUpdateDate");
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 			if(archiveLogin($row)) {
 				$added += 1;
 				//replaceTable('tblpreference', array('property'=>'latestarchivedmessagedate', 'value'=>$row['datetime']), 1);

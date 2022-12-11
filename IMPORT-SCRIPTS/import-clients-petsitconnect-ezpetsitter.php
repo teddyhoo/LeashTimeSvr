@@ -65,8 +65,8 @@ foreach((array)$exceptions as $msg) echo "$msg<br>";
 function handleRow($row) {
 	global $dataHeaders, $skipExisting, $exceptions;
 	if($skipExisting) {
-		$fname = mysql_real_escape_string(trim($row[array_search('FName', $dataHeaders)]));
-		$lname = mysql_real_escape_string(trim($row[array_search('LName', $dataHeaders)]));
+		$fname = mysqli_real_escape_string(trim($row[array_search('FName', $dataHeaders)]));
+		$lname = mysqli_real_escape_string(trim($row[array_search('LName', $dataHeaders)]));
 		$ex = fetchFirstAssoc("SELECT clientid FROM tblclient WHERE fname = '$fname' AND lname = '$lname' LIMIT 1");
 		if($ex) {
 				$exceptions[] = "<font color=red>Skipped client $fname $lname, who is already known.</font>";
@@ -156,15 +156,15 @@ function handleRow($row) {
 }
 
 function findVetByName($nm) {
-	return fetchRow0Col0("SELECT vetid FROM tblvet WHERE CONCAT_WS(' ', fname, lname)  = '".mysql_real_escape_string($nm ? $nm : '')."' LIMIT 1");
+	return fetchRow0Col0("SELECT vetid FROM tblvet WHERE CONCAT_WS(' ', fname, lname)  = '".mysqli_real_escape_string($nm ? $nm : '')."' LIMIT 1");
 }
 
 function findClinicByName($nm) {
-	return fetchRow0Col0("SELECT clinicid FROM tblclinic WHERE clinicname = '".mysql_real_escape_string($nm ? $nm : '')."' LIMIT 1");
+	return fetchRow0Col0("SELECT clinicid FROM tblclinic WHERE clinicname = '".mysqli_real_escape_string($nm ? $nm : '')."' LIMIT 1");
 }
 
 function findProviderByName($nm) {
-	return fetchRow0Col0("SELECT providerid FROM tblprovider WHERE CONCAT_WS(' ', fname, lname) = '".mysql_real_escape_string($nm ? $nm : '')."' LIMIT 1");
+	return fetchRow0Col0("SELECT providerid FROM tblprovider WHERE CONCAT_WS(' ', fname, lname) = '".mysqli_real_escape_string($nm ? $nm : '')."' LIMIT 1");
 }
 
 function handleFnameSpaceLname($str, &$destination, $fnameKey='fname', $lnameKey='lname') {

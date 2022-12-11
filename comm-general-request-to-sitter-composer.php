@@ -38,7 +38,7 @@ if(!$clientName) $clientName = "{$source['fname']} {$source['lname']}";
 $labelSpecific = $source['requesttype'] == 'General' ? 'General Client' : (
 									$source['requesttype'] == 'Prospect' ? 'Prospect' : (
 									$source['requesttype'] == 'Profile' ? 'General Client' : ''));
-$label = mysql_real_escape_string("#STANDARD - Send $labelSpecific Request to Sitter");
+$label = mysqli_real_escape_string("#STANDARD - Send $labelSpecific Request to Sitter");
 $defaultTemplate = fetchFirstAssoc($sql = "SELECT * FROM tblemailtemplate WHERE label = '$label' LIMIT 1");
 if(!$defaultTemplate) {
 	// first try to generate it in email-template-fns
@@ -88,7 +88,7 @@ if($_POST) {
 	$sendLater = true;
 	
 	if(!$error && $sendLater) {
-//if(mattOnlyTEST()) {echo "[error: $error] Send to ".print_r($recipients,1)." ".($sendLater ? 'later' : 'now').': '.print_r($msgbody,1);exit;}	
+}	
 		foreach($persons as $person) {
 			$msgbody = htmlize(preprocessMessage($person, $msgBodyFromForm));
 			if(strpos($msgbody, '#REQUESTDESCRIPTION#') !== FALSE)
@@ -96,7 +96,7 @@ if($_POST) {
 			else $msgbody .= getRequestDescription($requestid, $noExternalCSS=true);
 			$result = enqueueEmailNotification($person, $subject, $msgbody, null, $mgrname, 'html');
 		}
-//if(mattOnlyTEST()) {echo print_r($result, 1); exit;}
+}
 	}
 	
 	else if(!$error && ($error = sendEmail($recipients, $subject, $msgbody, '', 'html', $mgrname, $bcc))) {
@@ -467,7 +467,7 @@ function prospectRequestDescription($requestid) {
 
 }
 
-//	$label = mysql_real_escape_string("#STANDARD - Client's Schedule");
+//	$label = mysqli_real_escape_string("#STANDARD - Client's Schedule");
 //	$template = fetchRow0Col0("SELECT * FROM tblemailtemplate WHERE label = '$label' LIMIT 1");
 function preprocessMessage($person, $message) {
 	$managerNickname = fetchRow0Col0(

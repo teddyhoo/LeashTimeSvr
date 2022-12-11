@@ -13,7 +13,7 @@ function creditAppliedToTable($credit) {
 }
 
 function billableTable($billables, $display=true) {
-//if(mattOnlyTEST()) print_r($billables);	
+	
 	if(!$billables) return;
 	ob_start();
 	ob_implicit_flush(0);
@@ -117,7 +117,7 @@ function voidCredit($deleteCredit, $reason='', $hide=0, $retainGratuities=false)
 				FROM relbillablepayment 
 				LEFT JOIN tblbillable ON billableid = billableptr
 				WHERE paymentptr = $deleteCredit");
-//if(mattOnlyTEST()) { print_r($billables);exit;}				
+}				
 	foreach($billables as $billable) {
 		if($billable['invoiceptr']) $invoiceptrs[] = $billable['invoiceptr'];
 		$amount = $billable['amount'] ? $billable['amount'] : '0.0';
@@ -508,7 +508,7 @@ function payElectronically($clientid, $paymentSource, $amount, $reason, $sendRec
 //if(mattOnlyTEST()) { //(IPAddressTEST('173.23.162.252'))
 //	echo "applyEPayment : ".print_r($paymentSource, 1); exit;	}
 	//echo "applyEPayment($clientid, $paymentSource, $amount-$gratuity, $reason, $transactionid, $sendReceipt, $gratuity)";exit;	}
-//if(mattOnlyTEST()) {echo "payElectronically amount: $amount<br>gratuity: $gratuity"; exit;}	
+}	
 	$success = makeEPayment($amount, $paymentSource, $noLoginPayment);
 	// ##APLYANDREGISTER## -- SEE NOTE BELOW
 	$logChangeTable = $paymentSource['adhoc'] ? 'ccpaymentadhoc' : ($paymentSource['ccid'] ? 'ccpayment' : 'achpayment');
@@ -627,7 +627,7 @@ function saveEPayment($clientid, $paymentSource, $amount, $reason, $transactioni
 			
 			$mgrname = getUsersFromName();
 			enqueueEmailNotification($client, $subjectLine, $message, $cc=null, $mgrname, $hasHtml=true);
-//if(mattOnlyTEST()) {echo "sendReceipt: [$sendReceipt] ".print_r($client, 1);exit;}									
+}									
 		}
 	}
 	return $transactionid;

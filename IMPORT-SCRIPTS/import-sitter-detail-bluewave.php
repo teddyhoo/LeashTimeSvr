@@ -43,7 +43,7 @@ if($_REQUEST['files']) {
 		$loginid = trim($sitter['str_cd']);
 		if(!$loginid) $emptyLoginIds++;
 		else if($sitter['provideruserid']) $alreadyHaveLogins++;
-		else $loginIds[] = mysql_real_escape_string($loginid);
+		else $loginIds[] = mysqli_real_escape_string($loginid);
 	}
 	if($loginIds) $badLoginIds = fetchCol0("SELECT loginid FROM tbluser WHERE loginid IN ('".join("','", $loginIds)."')");
 	reconnectPetBizDB($db1, $dbhost1, $dbuser1, $dbpass1, 1);

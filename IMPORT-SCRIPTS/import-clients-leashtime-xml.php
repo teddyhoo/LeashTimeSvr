@@ -433,7 +433,7 @@ echo "Custom [$label]: $trimval<br>";;
 		$key['clientptr'] = $newClientId;
 		require_once "key-fns.php";
 		$keyId = insertTable('tblkey', $key, 1);
-		logKeyChange(mysql_insert_id(), $key, $newClientId, true);
+		logKeyChange(mysqli_insert_id(), $key, $newClientId, true);
 	}
 	// if($username) then we need 
 	//  to find that user in petcentral
@@ -488,14 +488,14 @@ function transferUserNames($userNames) {
 	echo "<hr>ClientUserIDs: ".print_r(array('bizptr'=>$_SESSION["bizptr"]), 1)."<br>"."userid IN (".join(',', $clientUserIds).")<hr>";
 	//  set the bizId to this business's business Id
 	$result = updateTable('tbluser', array('bizptr'=>$_SESSION["bizptr"]), "userid IN (".join(',', $clientUserIds).")", 1);
-	$messages[] = "Moved ".(mysql_affected_rows() ? mysql_affected_rows() : "NO")." users to {$_SESSION["bizname"]}.";
+	$messages[] = "Moved ".(mysqli_affected_rows() ? mysqli_affected_rows() : "NO")." users to {$_SESSION["bizname"]}.";
 	//  connect to the old business
 	$oldBizIds = array_keys($userBizzes);
 	$oldBiz = fetchFirstAssoc("SELECT * FROM tblpetbiz WHERE bizid = {$oldBizIds[0]} LIMIT 1", 1);
 	reconnectPetBizDB($oldBiz['db'], $oldBiz['dbhost'], $oldBiz['dbuser'], $oldBiz['dbpass'], $force=1);
 	//  find the old client with that userid and clear that client's user id
 	$result = updateTable('tblclient', array('userid'=>null), "userid IN (".join(',', $clientUserIds).")", 1);
-	$messages[] = "Cleared userids for ".(mysql_affected_rows() ? mysql_affected_rows() : "NO")." users in old db ({$oldBiz["bizname"]}).";
+	$messages[] = "Cleared userids for ".(mysqli_affected_rows() ? mysqli_affected_rows() : "NO")." users in old db ({$oldBiz["bizname"]}).";
 	// 	connect back to this db
 	reconnectPetBizDB($db1, $dbhost1, $dbuser1, $dbpass1, $force=1);
 	//  update the userid on the new client
@@ -510,15 +510,15 @@ function transferUserNames($userNames) {
 }
 
 function findVetByName($nm) {
-	return fetchRow0Col0("SELECT vetid FROM tblvet WHERE CONCAT_WS(' ', fname, lname)  = '".mysql_real_escape_string($nm ? $nm : '')."' LIMIT 1");
+	return fetchRow0Col0("SELECT vetid FROM tblvet WHERE CONCAT_WS(' ', fname, lname)  = '".mysqli_real_escape_string($nm ? $nm : '')."' LIMIT 1");
 }
 
 function findSitterByName($nm) {
-	return fetchRow0Col0("SELECT providerid FROM tblprovider WHERE CONCAT_WS(' ', fname, lname)  = '".mysql_real_escape_string($nm ? $nm : '')."' LIMIT 1");
+	return fetchRow0Col0("SELECT providerid FROM tblprovider WHERE CONCAT_WS(' ', fname, lname)  = '".mysqli_real_escape_string($nm ? $nm : '')."' LIMIT 1");
 }
 
 function findClinicByName($nm) {
-	return fetchRow0Col0("SELECT clinicid FROM tblclinic WHERE clinicname = '".mysql_real_escape_string($nm ? $nm : '')."' LIMIT 1");
+	return fetchRow0Col0("SELECT clinicid FROM tblclinic WHERE clinicname = '".mysqli_real_escape_string($nm ? $nm : '')."' LIMIT 1");
 }
 
 function handleFnameSpaceLname($str, &$destination, $fnameKey='fname', $lnameKey='lname') {

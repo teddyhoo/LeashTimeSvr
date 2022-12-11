@@ -371,7 +371,7 @@ if(fetchPreference('enableOverdueArrivalEventType')) $eventType =  'v';
 
 	foreach($additionalFields as $key => $label) {
 		$val = $request[$key];
-//if(mattOnlyTEST()) {print_r($additionalFields);exit;}
+}
 		if(mattOnlyTEST() && $val && $key == 'x-std-referralcode') {
 			require_once "referral-fns.php";
 			$val = join(' > ', getReferralPath($val));
@@ -440,7 +440,7 @@ function decribeVisitsInScope($request, $status=null) {
 
 
 function anyVisitsInScopeMarkedComplete($source) {
-//if(mattOnlyTEST()) echo print_r($source,1);	
+	
 	$scope = explode('_', $source['scope']);
 	$soleScope = $scope[0] == 'sole';
 	if($soleScope) $where = "WHERE appointmentid = {$scope[1]}";
@@ -819,7 +819,7 @@ function saveNewProspectRequest($request) {
 		else logChange(99, 'spam', 'c', "IP[{$_SERVER['REMOTE_ADDR']}] spam created. {$_SERVER['HTTP_USER_AGENT']}");
 	}
 		
-//if(mattOnlyTEST()) {print_r($request);exit;}
+}
   foreach($request as $key => $value) 
   	if(strpos($key, 'x-')===0)
   		$extraFields .= "<extra key=\"$key\"><![CDATA[$value]]></extra>";
@@ -915,7 +915,7 @@ function getClientRequests($unresolvedOnly=null, $offset=0, $initialUnresolvedLi
 		if($filterParams['client']) {
 			$extraFields = ", tblclient.fname, tblclient.lname";
 			$pattern = strpos($filterParams['client'], '*') === FALSE ? "*{$filterParams['client']}*" : $filterParams['client'];
-			$pattern = mysql_real_escape_string(str_replace('*', '%', $pattern));
+			$pattern = mysqli_real_escape_string(str_replace('*', '%', $pattern));
 			$filter[] = "(CONCAT_WS(' ', tblclientrequest.fname, tblclientrequest.lname) LIKE '$pattern'"
 									."|| CONCAT_WS(' ', tblclient.fname, tblclient.lname) LIKE '$pattern')";
 		}
@@ -1105,7 +1105,7 @@ function clientRequestSection($updateList, $unresolvedOnly=true, $offset=0, $ini
 	if($requests && strpos($_SERVER["SCRIPT_FILENAME"], 'client-request-page.php') === FALSE) 
 		separatePreferredSection($requests); // never on report page
 //screenLogPageTime('Just did separatePreferredSection');
-//if(mattOnlyTEST()) print_r($requests[0]);
+
 	
 	$clientDetails = getClientDetails($clientids, array('phone','address'));
 		

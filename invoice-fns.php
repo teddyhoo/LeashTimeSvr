@@ -327,7 +327,7 @@ To build a preview of an invoice (or collect lineitems for an invoice):
 
 //if($_SERVER['REMOTE_ADDR'] == '68.225.89.173') { echo "[$onlyTheseBillables]";}	
 	$billables = getUninvoicedBillables($clientid, $onlyTheseBillables); // Include paid billables for subtotal.  -- AND charge > paid 
-//if(mattOnlyTEST()) { echo "@@AA@@<p>$onlyTheseBillables<p> "; foreach($billables as $b) echo print_r($b,1)."<p>";}	
+}	
 
 	
 //if($_SERVER['REMOTE_ADDR'] == '68.225.89.173') { foreach($billables as $b) echo print_r($b, 1).'<p>';exit;}	
@@ -496,7 +496,7 @@ function checkInvoicePaid($invoiceid) {
 		/*$owed = fetchRow0Col0("SELECT sum(ifnull(tblbillable.charge,0) - ifnull(paid,0)) as owed 
 																		FROM tblbillable
 																		WHERE superseded = 0 AND invoiceptr = $invoiceid AND tblbillable.charge > 0");
-//if(mattOnlyTEST()) echo "[$owed => ";
+
 		$owed += fetchRow0Col0("SELECT sum(balancedue)
 														FROM tblinvoice
 														LEFT JOIN relpastdueinvoice ON oldinvoiceptr = invoiceid
@@ -508,7 +508,7 @@ if(mattOnlyTEST()) */
 		if($predecessorID) 
 			$owed += fetchRow0Col0("SELECT balancedue FROM tblinvoice WHERE invoiceid = $predecessorID LIMIT 1", 1);
 		
-//if(mattOnlyTEST()) echo "$owed]";
+
 																		
 		$update = array('balancedue'=>$owed);
 		if($owed <= 0)  $update['paidinfull'] = date('Y-m-d');
@@ -589,12 +589,12 @@ function getUninvoicedBillables($clientid, $constraint='') {
 													}
 	$billables = fetchAssociations($sql);
 if(mattOnlyTEST()) {print_r($sql.'<p>'); }
-//if(mattOnlyTEST()) {print_r($billables); }
+ }
 //if($_SESSION['staffuser']) {echo "$sql<p>"; foreach($billables as $b) echo print_r($b, 1).'<br>'; }	
 	$lastInvoiceDate = fetchRow0Col0("SELECT asofdate FROM tblinvoice WHERE clientptr = $clientid ORDER BY date DESC LIMIT 1");
 	if($lastInvoiceDate) $lastInvoiceDate = date('Y-m-d', strtotime($lastInvoiceDate));
 
-//if(mattOnlyTEST()) {echo "sql: $sql<p>lastInvoiceDate: $lastInvoiceDate<p>constraint: $constraint<p>";foreach($billables as $b) echo print_r($b, 1).'<br>'; }	
+ }	
 	if($lastInvoiceDate) {
 		$allowAllMiscCharges = true; //dbTEST('leashtimecustomers');
 		foreach($billables as $i => $b) {

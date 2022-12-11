@@ -61,7 +61,7 @@ function scheduleDescriptionFromPost($clientptr, $note) {
 							.longDayAndDate(strtotime($schedule['end'])).".\n\n";
 	if($requestnote) $message .= "==========\nNote: $requestnote\n==========\n\n";
 	$message .= join("\n", $dayVisits);
-//if(mattOnlyTEST()) $message = "message<hr>".print_r($schedule, 1);	
+	
 	return $message;
 }
 	
@@ -752,7 +752,7 @@ HEADER;
 	$displayOn = $_SESSION['tableRowDisplayMode'] == 'table-row' ? 'table-cell' : 'block';
 
 	$day = date('Y-m-d', strtotime($schedule['start']));
-//if(mattOnlyTEST()) echo "<hr><hr><hr>".print_r($schedule['services'],1)."<hr>";	
+	
 	foreach($schedule['services'] as $index => $group) { 
 		$dayNum = $index + 1;
 		$displayStatus = $index < $daysToShow ? $displayOn : 'none';

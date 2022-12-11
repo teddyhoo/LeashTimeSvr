@@ -93,7 +93,7 @@ background-color: gray;
 .banner { background-color: <?= $_SESSION['bannercolor'] ?>}
 </style>
 <?
-//if(mattOnlyTEST()) echo '<link href="mobile-sitter.css" type= "text/css" rel="stylesheet" / >';
+
 } // isMobile
 else { ?>
 <link href="<?= $mobileClientStyleSheet ?>" type= "text/css" rel="stylesheet" / >

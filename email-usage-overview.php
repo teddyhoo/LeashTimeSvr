@@ -9,7 +9,7 @@ $date2 = "2015-05-05";
 
 $result = doQuery("SELECT datetime FROM tblmessage where datetime >= '$date1 00:00:00' AND datetime <= '$date2 23:59:59' ORDER BY datetime");
 
-while($row = mysql_fetch_row($result)) {
+while($row = mysqli_fetch_row($result)) {
 	$date = substr($row[0], 0, strlen($date1));
 	$counts[$date] += 1;
 }

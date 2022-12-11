@@ -24,7 +24,7 @@ if(($role = userRole()) != 'o') {
 	if(!($confirmation['respondenttable'] == 'tblclient' && $role == 'c' && $confirmation['respondentptr'] == $_SESSION["clientid"])
 			&& !($confirmation['respondenttable'] == 'tblprovider' && $role == 'p' && $confirmation['respondentptr'] == $_SESSION["providerid"]) 
 		) {
-			//if(mattOnlyTEST()) echo "$filter<hr>".print_r($confirmation, 1)." / ".$_SESSION["clientid"];
+			
 			$badCreds = true;
 		}
 }

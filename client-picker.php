@@ -18,7 +18,7 @@ if(isset($pattern)) {
   if(strpos($pattern, '*') !== FALSE) $pattern = str_replace  ('*', '%', $pattern);
   else $pattern = "%$pattern%";
   $baseQuery = "$baseQuery AND CONCAT_WS(' ',fname,lname) like '$pattern'";
-  $numFound = mysql_num_rows(mysql_query($baseQuery));
+  $numFound = mysqli_num_rows(mysqli_query($baseQuery));
   if($numFound)
     $clients = fetchAssociations("$baseQuery $orderBy $limit");
 }

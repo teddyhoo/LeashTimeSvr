@@ -40,12 +40,12 @@ else if('FOREVERYONE') {//  ####### START NEW
      FROM tblappointment 
      WHERE completed IS NOT NULL AND canceled IS NULL $providerFilter AND rate+ifnull(bonus,0) > 0.0 AND tblappointment.date <= '$lastDay'");
 screenLog("appointment search: ".((microtime(1) - $stop) * 1000).' ms'." found ".count($apptids)." apptids."); $stop = microtime(1);
-//if(mattOnlyTEST()) echo "generatePayables apptids: ".count($apptids);
+
 	// whittle down $apptids
 	if($apptids) {
 		$result = doQuery("SELECT itemptr FROM tblpayable WHERE itemptr IN (".join(',', array_keys($apptids)).") AND itemtable = 'tblappointment'", 1);
-		while($row = mysql_fetch_row($result)) {
-//echo mysql_num_rows($result)." rows found. ".print_r($row,1);exit;
+		while($row = mysqli_fetch_row($result)) {
+//echo mysqli_num_rows($result)." rows found. ".print_r($row,1);exit;
 			unset($apptids[$row[0]]);
 		}
 		$apptids = array_keys($apptids);
@@ -57,7 +57,7 @@ else {//  ####### START OLD
   "SELECT appointmentid
      FROM tblappointment 
      WHERE completed IS NOT NULL AND canceled IS NULL $providerFilter AND rate+ifnull(bonus,0) > 0.0 AND tblappointment.date <= '$lastDay'");
-//if(mattOnlyTEST()) echo "$sql<hr>".print_r($apptids, 1)."<hr>";
+
 screenLog("appointment search (old): ".((microtime(1) - $stop) * 1000).' ms'); $stop = microtime(1);
 	//$payableitems = fetchCol0("SELECT itemptr FROM tblpayable WHERE itemptr IN (".join(',', $apptids).") AND itemtable = 'tblappointment'");
 	$payableitems = $apptids ?
@@ -93,8 +93,8 @@ else { // memory safe replacement
 				 
 if($unpaidCompletedAppointmentsResult) {
 screenLog("unpaidCompletedAppointments search: ".((microtime(1) - $stop) * 1000).' ms'); $stop = microtime(1);
-screenLog("Found ".mysql_num_rows($unpaidCompletedAppointmentsResult)." unpaidCompletedAppointments.");
-  while($appt = mysql_fetch_array($unpaidCompletedAppointmentsResult, MYSQL_ASSOC)) {
+screenLog("Found ".mysqli_num_rows($unpaidCompletedAppointmentsResult)." unpaidCompletedAppointments.");
+  while($appt = mysqli_fetch_array($unpaidCompletedAppointmentsResult, MYSQL_ASSOC)) {
 		$id = $appt['appointmentid'];
     insertTable('tblpayable', 
       array('providerptr'=>$appt['providerptr'], 'itemptr'=>$id, 'itemtable'=>'tblappointment', 
@@ -149,7 +149,7 @@ screenLog("visit payable creation: ".((microtime(1) - $stop) * 1000).' ms'); $st
 		"SELECT providerptr, compid, amount, date  
 			 FROM tblothercomp
 			 WHERE compid  IN (".join(',', $otherCompIds).")", 'compid');
-//if(mattOnlyTEST()) print_r($unpaidOtherComps);
+
 			
   /*$unpaidOtherComps = fetchAssociationsKeyedBy(
   "SELECT tblothercomp.providerptr, compid, tblothercomp.amount, tblothercomp.date  
@@ -195,7 +195,7 @@ function getUnpaidPayables($lastDay, $prov=null, $firstDay=null) {
 function getUnpaidPayablesDBResult($lastDay, $prov=null, $firstDay=null) {
   $providerFilter = $prov ? "AND providerptr = $prov" : '';
   $firstDay = $firstDay ? "AND date >= '$firstDay'" : '';
-	return mysql_query(
+	return mysqli_query(
 		"SELECT * FROM tblpayable 
 		  WHERE paid < amount $providerFilter AND date <= '$lastDay' $firstDay
 		  ORDER BY date");
@@ -591,7 +591,7 @@ function payablesTable(&$payables, $noEdit=false, $showPaid=false, $noLinks=fals
 				}
 				if($payable['comptype'] == 'gratuity') {
 					$row['service'] = gratuityLink($payable);
-					//if(mattOnlyTEST()) $row['descr'] .= print_r($payable, 1);
+					
 				}
 				
 				$row = array('#CUSTOM_ROW#'=>"<tr><td class='sortableListCell'>{$row['service']}</td><td class='dollaramountcell'>$amount</td>"
@@ -691,7 +691,7 @@ function payablesCSV(&$payables, $noEdit=false, $showPaid=false, $noLinks=false,
 				}
 				if($payable['comptype'] == 'gratuity') {
 					$row['service'] = 'Gratuity';
-					//if(mattOnlyTEST()) $row['descr'] .= print_r($payable, 1);
+					
 				}
 				
 			}

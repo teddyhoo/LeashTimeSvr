@@ -39,7 +39,7 @@ if(!$error) {
 	logChange(-99999, 'client-scheduler-jsn-post.php', 'm', $note="RECEIVED: [$json]");
 		if(!($requestID = saveNewClientRequest($request, true))) {
 	logChange(-99999, 'client-scheduler-jsn-post.php', 'm', $note="FAILED?");
-			$error = mysql_error();
+			$error = mysqli_error();
 			logChange($clientptr, 'clientScheduler', 'm', "JSON schedule error: $error");
 
 		}

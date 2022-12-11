@@ -173,7 +173,7 @@ function logoIMG($attributes='') {
 				$tokenIsUniqueInConfirmationTable =  true;
 		}
 //echo "responseURL: $responseURL<p>";
-//if(mattOnlyTEST()) {echo "token: $token<p>";exit;}
+}
 //echo "confirmationRequestText 1: $confirmationRequestText<p>";
 
 		if(!$token) { // SHOULD NOT HAPPEN.  WE HAVE PROBLEMS.
@@ -206,7 +206,7 @@ function logoIMG($attributes='') {
 		require_once "comm-fns.php";
 		if($htmlMessage) $message = "<span style='$notificationLooks'>".plainTextToHtml($message).'</span>';
 		
-//if(mattOnlyTEST()) {echo $messageAppendixToken." [".strpos($message, $messageAppendixToken)."]";exit;}		
+}		
 		
 		if($messageAppendix) {
 			if($messageAppendixToken && strpos($message, $messageAppendixToken) !== FALSE)
@@ -215,7 +215,7 @@ function logoIMG($attributes='') {
 				$message = str_replace($messageAppendixToken, $messageAppendix, $message);
 			else $message .= $messageAppendix;
 		}
-//if(mattOnlyTEST()) { print_r($recipients); exit; }		
+ }		
 		if($error = sendEmail($recipients, $subject, $message, null, $htmlMessage, $_POST['mgrname'])) {
 			$error = "Mail error:<p>$error<br>(recipients: ".htmlentities(join(',', $recipients)).")";
 		}
@@ -455,7 +455,7 @@ function templateChosen() {
 }
 
 function updateMessage(unused, resultxml) {
-<? //if(mattOnlyTEST()) echo "alert(resultxml);\n"; ?>
+<?  ?>
 	//alert(resultxml);
 	var root = getDocumentFromXML(resultxml).documentElement;
 	if(root.tagName == 'ERROR') {

@@ -81,21 +81,21 @@ if(FALSE && mattOnlyTEST()) $MONTHLYEXCEPTION = "OR billable.charge > 0";
 				LEFT JOIN relapptdiscount d ON appointmentptr = appointmentid
 				LEFT JOIN tblbillable billable ON superseded = 0 AND itemptr = appointmentid AND itemtable = 'tblappointment'
 				WHERE canceled IS NULL AND $timeAndClientFilter $monthlyExclusion");
-//if(mattOnlyTEST()) {static $oops; if($oops == 4) {echo $sql;		 exit; } $oops += 1;}
+}
 				
 		if(!($result = doQuery($sql))) {
 			return null;
 		}
 
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 			if($this->prepareLineItemForAppt($row)) $this->lineitems[] = $row;		
 		}
-		//if(mattOnlyTEST()) {foreach($this->lineitems as $i) echo "{$i['date']}\t{$i['tax']}\n";};
-		mysql_free_result($result);
+		
+		mysqli_free_result($result);
 	}
 
 	function getSurchargeRows($timeAndClientFilter) {  // billables keyed by billableid, packageBillables: packageid=>billableid
-//if(mattOnlyTEST()) {echo "<hr>({$this->rand}) $timeAndClientFilter";}
+}
 		$result = doQuery($sql = 
 			"SELECT surchargeid, surchargecode, a.servicecode, paid, tax, billableid, primtable.charge, primtable.clientptr, primtable.providerptr, 
 				primtable.date, primtable.starttime, primtable.timeofday, billable.charge as bcharge
@@ -104,10 +104,10 @@ if(FALSE && mattOnlyTEST()) $MONTHLYEXCEPTION = "OR billable.charge > 0";
 				LEFT JOIN tblbillable billable ON superseded = 0 AND itemptr = surchargeid AND itemtable = 'tblsurcharge'
 				WHERE primtable.canceled IS NULL AND $timeAndClientFilter");
 		if(!($result = doQuery($sql))) return null;
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 			if($this->prepareLineItemForSurcharge($row)) $this->lineitems[] = $row;
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 	}
 
 	function getChargeRows($timeAndClientFilter) {  // billables keyed by billableid, packageBillables: packageid=>billableid
@@ -116,7 +116,7 @@ if(FALSE && mattOnlyTEST()) $MONTHLYEXCEPTION = "OR billable.charge > 0";
 				FROM tblothercharge o
 				LEFT JOIN tblbillable ON NOT superseded AND itemptr = chargeid AND itemtable = 'tblothercharge'
 				WHERE $timeAndClientFilter");
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 			if(isset($this->allItemsSoFar['tblothercharge'][$row['chargeid']])) continue;
 			$this->allItemsSoFar['tblothercharge'][$row['chargeid']] = $row;
 			$clientptr = $row['clientptr'];
@@ -129,10 +129,10 @@ if(FALSE && mattOnlyTEST()) $MONTHLYEXCEPTION = "OR billable.charge > 0";
 			$row['charge'] = $row['charge'];
 			$row['sortdate'] = $row['date'];
 			$row['date'] = shortDate(strtotime($row['date']));
-	//if(mattOnlyTEST()) echo print_r($row, 1).'<br>';		
+			
 			$this->lineitems[] = $row;
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 	}
 
 	function getMonthlyBillableRows($firstDayDB, $lookaheadLastDay, $alternativeFilter=null) {
@@ -152,7 +152,7 @@ if(FALSE && mattOnlyTEST()) $MONTHLYEXCEPTION = "OR billable.charge > 0";
 					AND $filter");
 		if(!($result = doQuery($sql))) return null;
 	//echo "$sql<p>";  
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 	//echo print_r($row,1)."<br>";		
 			if(isset($this->allItemsSoFar['tblrucurringpackage'][$row['billableid']])) continue;
 			$this->allItemsSoFar['tblrucurringpackage'][$row['billableid']] = $row;
@@ -180,14 +180,14 @@ if(FALSE && mattOnlyTEST()) $MONTHLYEXCEPTION = "OR billable.charge > 0";
 				$this->lineitems[] = $appt;
 			}
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 	}
 
 	function prepareLineItemForSurcharge(&$row) {
-//if(mattOnlyTEST()) { echo "<br>A:{$this->rand}  ({$row['surchargeid']}) "; print_r($this->allItemsSoFar['tblsurcharge']); echo "<hr>"; }
+ }
 		if(isset($this->allItemsSoFar['tblsurcharge'][$row['surchargeid']])) return false;
 		$this->allItemsSoFar['tblsurcharge'][$row['surchargeid']] = $row;
-//if(mattOnlyTEST()) { echo "B: ({$row['surchargeid']}) "; print_r($this->allItemsSoFar['tblsurcharge']); echo "<hr>"; }
+ }
 		$clientptr = $row['clientptr'];
 
 		$row['service'] = 'Surcharge: '.$this->surchargeNames[$row['surchargecode']];
@@ -216,10 +216,10 @@ if(!dbTEST('tonkapetsitters') || !$row['billableid']) {
 
 	function prepareLineItemForAppt(&$row) {
 		//global $allItemsSoFar, $standardCharges, $providers, $taxRates, $origbalancedue, $creditApplied, $tax, $totalDiscount;
-//if(mattOnlyTEST()) echo "<br>appt: ({$row['date']})".print_r($row['appointmentid'],1)."";	
+	
 
 		if(isset($this->allItemsSoFar['tblappointment'][$row['appointmentid']])) return false;
-	//if(mattOnlyTEST()) echo "/<b>".print_r($row['appointmentid'],1)."</b><hr>";	
+		
 		$this->allItemsSoFar['tblappointment'][$row['appointmentid']] = $row;
 		$clientptr = $row['clientptr'];
 		if($row['discount'] > 0) {
@@ -267,11 +267,11 @@ if(!dbTEST('tonkapetsitters') || !$row['billableid']) {
 
 		$packageFilter = "$packageFilter AND clientptr = $clientptr"; // cancellationdate?
 		$currentNRIds = fetchCol0($sql = "SELECT packageid FROM tblservicepackage WHERE $packageFilter");
-	//if(mattOnlyTEST()) echo "(2) currentNRIds: ".print_r($currentNRIds, 1)."<hr>";
+	
 
 		foreach($currentNRIds as $currpack) {
 			$history = findPackageIdHistory($currpack, $clientptr, !'recurring');
-	//if(mattOnlyTEST()) echo "-- history: ".print_r($history, 1)."<hr>";
+	
 			$result = doQuery($sql = 
 				"SELECT appointmentid, servicecode, paid, primtable.charge + ifnull(adjustment,0) as charge, tax,
 						ifnull(d.amount, 0) as discount, discountptr, primtable.clientptr, date, starttime, timeofday, primtable.providerptr
@@ -281,10 +281,10 @@ if(!dbTEST('tonkapetsitters') || !$row['billableid']) {
 					WHERE canceled IS NULL AND packageptr IN (".join(',', $history).")");
 			if(!($result = doQuery($sql))) return null;
 
-//if(mattOnlyTEST()) {static $oops; if($oops == 0) {echo $sql;		 exit; } $oops += 1;}
+}
 
-//if(mattOnlyTEST()) echo "<hr>({$this->rand}) IN getRowsForVisitsAndSurchargesInNRPackages (1)<br>".print_r($this->lineitems,1);
-			while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+
+			while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 //if(mattOnlyTEST() && $row['date'] == '2015-10-16') echo "<hr>(10/16 1) IN getRowsForVisitsAndSurchargesInNRPackages<br>".print_r($this->lineitems,1);
 //if(mattOnlyTEST() && $row['date'] == '2015-10-16') echo "<hr>YINK!<br>";
 				if($this->prepareLineItemForAppt($row)) $this->lineitems[] = $row;
@@ -292,7 +292,7 @@ if(!dbTEST('tonkapetsitters') || !$row['billableid']) {
 //if(mattOnlyTEST() && $row['date'] == '10/16/2015') echo "<hr>(10/16 2) IN getRowsForVisitsAndSurchargesInNRPackages<br>".print_r($this->lineitems,1);
 	//else if(mattOnlyTEST()) echo "No line for: ".print_r($row, 1)."<hr>";
 			}
-			mysql_free_result($result);
+			mysqli_free_result($result);
 
 
 			$result = doQuery($sql = 
@@ -303,10 +303,10 @@ if(!dbTEST('tonkapetsitters') || !$row['billableid']) {
 					LEFT JOIN tblbillable ON superseded = 0 AND itemptr = surchargeid AND itemtable = 'tblsurcharge'
 					WHERE primtable.canceled IS NULL AND primtable.packageptr IN (".join(',', $history).")");
 			if(!($result = doQuery($sql))) return null;
-			while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 				if($this->prepareLineItemForSurcharge($row)) $this->lineitems[] = $row;
 			}
-			mysql_free_result($result);
+			mysqli_free_result($result);
 		}
 	}
 
@@ -325,21 +325,21 @@ if(!dbTEST('tonkapetsitters') || !$row['billableid']) {
 				AND (paid < primtable.charge)
 				AND ((monthyear IS NOT NULL AND monthyear < '$firstMonth') 
 							OR itemdate < '$firstDayDB')"); //  OR itemtable = 'tblothercharge' -- dropped 2014-04-02
-	//if(mattOnlyTEST()) echo "$sql<p>";
+	
 		if(!($result = doQuery($sql))) return null;
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
 			if($row['itemtable'] == 'tblappointment') $appts[] = $row['itemptr'];
 			else if($row['itemtable'] == 'tblsurcharge') $surcharges[] = $row['itemptr'];
 			else if($row['itemtable'] == 'tblothercharge') $charges[] = $row['itemptr'];
 			else if($row['itemtable'] == 'tblrecurringpackage') $monthlies[] = $row['billableid'];
 		}
-	//if(mattOnlyTEST()) echo print_r($appts,1)."<p>";
+	
 
-		mysql_free_result($result);
+		mysqli_free_result($result);
 //echo "$sql<br>appts: ".print_r($appts,1).'<hr>';
 		
 		if($appts) $this->getAppointmentRows("appointmentid IN (".join(',', $appts).")");
-//if(mattOnlyTEST()) print_r($this->lineitems);		
+		
 		if($surcharges) $this->getSurchargeRows("surchargeid IN (".join(',', $surcharges).")");
 		if($charges) $this->getChargeRows("chargeid IN (".join(',', $charges).")");
 		if($monthlies) $this->getMonthlyBillableRows(null, null, "billableid IN (".join(',', $monthlies).")");
@@ -375,8 +375,8 @@ if(!dbTEST('tonkapetsitters') || !$row['billableid']) {
 		$this->getSurchargeRows($inTimeFrameFilter);
 		$this->getChargeRows("o.clientptr = $clientid AND issuedate >= '$firstDayDB' AND issuedate <= '$lookaheadLastDay'");
 		$this->getMonthlyBillableRows($firstDayDB, $lookaheadLastDay);
-	//if(mattOnlyTEST()) echo "(1)currentNRIds: ".print_r($currentNRIds, 1)."<hr>";
-//if(mattOnlyTEST()) echo "<hr>getBillingInvoiceCurrentLineItems (1)<br>".print_r($this->lineitems,1);
+	
+
 
 		if(!$literal) {
 			$this->getRowsForVisitsAndSurchargesInNRPackages($firstDayDB, $lookaheadLastDay, $clientid);
@@ -402,7 +402,7 @@ if(!dbTEST('tonkapetsitters') || !$row['billableid']) {
 	function calculateAmountDue($excludedPayment=0) {
 		// $credits == getUnusedClientCreditTotal($clientid)
 		// $creditApplied == credit paid toward lineitems shown in the invoice
-	//if(mattOnlyTEST()) echo "origbalancedue: $origbalancedue - creditApplied: $creditApplied  - credits: $credits - totalDiscountAmount: $totalDiscountAmount";
+	
 		return $this->origbalancedue - $this->creditApplied /*+ $this->tax*/ - $this->credits - $this->totalDiscountAmount + $excludedPayment; // + priorUnpaidItemTotal($invoice);
 	}
 	
@@ -430,9 +430,9 @@ if(!dbTEST('tonkapetsitters') || !$row['billableid']) {
 		$lookaheadLastDayInt = strtotime("+ $lookahead days", $firstDayInt);
 		$lookaheadLastDay = date('Y-m-d', $lookaheadLastDayInt);	
 
-//if(mattOnlyTEST()) echo "<hr>PRE getBillingInvoiceCurrentLineItems<br>".print_r($currentLineItems,1);
+
 		$currentLineItems = $this->getBillingInvoiceCurrentLineItems($firstDayDB, $lookaheadLastDay, $literal, $packageptr);
-//if(mattOnlyTEST()) echo "<hr>POST getBillingInvoiceCurrentLineItems<br>".print_r($currentLineItems,1);
+
 		$this->firstDay = $firstDay;
 		$this->lookahead = $lookahead;
 		$this->currentTax = $this->tax;
@@ -487,10 +487,10 @@ if(!dbTEST('tonkapetsitters') || !$row['billableid']) {
 			$this->lineitems = $currentLineItems; // restore lineitems, which was cleared for the !$literal case
 		}
 
-	//if(mattOnlyTEST()) {echo print_r($invoice, 1).'<p>';}
-	//if(mattOnlyTEST()) {echo "[$currentPaymentsAndCredits] items: "; foreach($invoice['lineitems'] as $lineItem) echo "{$lineItem['appointmentid']}, ";}			
+	}
+	}			
 		foreach($this->lineitems as $lineItem) {
-//if(mattOnlyTEST()) echo "<hr>item: [{$lineItem['paid']}] [$localCreditTotal]".print_r($lineItem, 1);
+
 			$this->currentPaymentsAndCredits += $lineItem['paid'];
 		}
 

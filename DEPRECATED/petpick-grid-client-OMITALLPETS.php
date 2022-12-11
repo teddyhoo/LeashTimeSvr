@@ -33,7 +33,7 @@ function petPickerInnerHTML($pets, $petpickerOptionPrefix, $narrow=false) {
 	$pets = $pets ? $pets : array();
 	$petList = is_array($pets) ? $pets : explode(', ', $pets);
 
-	//if(mattOnlyTEST()) $_SESSION['preferences']['omitAllPetsOptionForClients'] = TRUE;
+	
 	if(!$_SESSION['preferences']['omitAllPetsOptionForClients'])
 		$petList = array_merge(array("All Pets"), $petList);
 

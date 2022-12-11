@@ -95,7 +95,7 @@ function providersWhoNeedKeyForDaysAhead($key, $daysAhead) {
 	if(!$possessors) return array();
 	$possessors = join(',',$possessors);
 	$result = 
-	  mysql_query(tzAdjustedSql("SELECT distinct providerptr, date,
+	  mysqli_query(tzAdjustedSql("SELECT distinct providerptr, date,
 	  			CONCAT_WS(' ', tblprovider.fname, tblprovider.lname) as provider,
 	  			CONCAT_WS('', tblprovider.lname, ',', tblprovider.fname) as providersortname
 	  			FROM tblappointment
@@ -105,7 +105,7 @@ function providersWhoNeedKeyForDaysAhead($key, $daysAhead) {
 						AND providerptr NOT IN ($possessors)
 					ORDER BY date"));	
 	$appts = array();
-	while($appt = mysql_fetch_array($result, MYSQL_ASSOC)) $appts[$appt['providerptr']] = $appt;
+	while($appt = mysqli_fetch_array($result, MYSQL_ASSOC)) $appts[$appt['providerptr']] = $appt;
 	return array_values($appts);
 }
 
@@ -124,7 +124,7 @@ function allClientKeysMissingForDaysAhead($daysAhead) {
 					
 	// pick first day for each provider-client
 	$appts = array();
-	while($appt = mysql_fetch_array($result, MYSQL_ASSOC)) $appts[$appt['providerptr'].'.'.$appt['clientptr']] = $appt;
+	while($appt = mysqli_fetch_array($result, MYSQL_ASSOC)) $appts[$appt['providerptr'].'.'.$appt['clientptr']] = $appt;
 	$appts = array_values($appts);
 	
 	
@@ -307,7 +307,7 @@ function keyTableForEditor($key) {  // will include print buttons
 			
 			// COPY MAY NOT BE ACCESSIBLE IF ADIN ONLY SAFE
 //labelRow($label, $name, $value=null, $labelClass=null, $inputClass=null, $rowId=null,  $rowStyle=null, $rawValue=false)		
-//if(mattOnlyTEST()) echo "<tr><td>[{$key["possessor$i"]}] ".print_r($adminOnlyKeySafes, 1);
+
 			if($adminOnlyKeySafes[$key["possessor$i"]] && shouldEnforceAdminOnly()) {
 				labelRow("Copy #$i", "Xpossessor$i", "(admin access only) ".$adminOnlyKeySafes[$key["possessor$i"]],'standardInputRight','',"Xrow_possessor_$i", "display:$displayMode;", $extraTD);
 				hiddenElement("possessor$i", $key["possessor$i"]);
@@ -373,7 +373,7 @@ function saveClientKey($clientId, $keyData=null) {
 		$key["possessor$i"] = $i <= $key['copies'] ? $keyData["possessor$i"] : null;
   if($key['copies']	 && !$key['keyid']) {
 		$keyId = insertTable('tblkey', $key, 1);
-		logKeyChange(mysql_insert_id(), $key, $clientId, true);
+		logKeyChange(mysqli_insert_id(), $key, $clientId, true);
 		return $keyId;
 	}
 	else if($key['keyid']) {
@@ -400,7 +400,7 @@ function saveKey($key) {  // $key may be a copy of $_POST
 
   if($key['copies']	 && !$keyId) {
 		insertTable('tblkey', $key, 1);
-		$keyId = mysql_insert_id();
+		$keyId = mysqli_insert_id();
 		logKeyChange($keyId, $key, $clientptr, true);
 	}
 	else if($keyId) {

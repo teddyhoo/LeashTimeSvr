@@ -50,7 +50,7 @@ if($csv) {
 }
 
 
-//if(mattOnlyTEST()) print_r($payables);
+
 if($_SESSION['preferences']['sittersPaidHourly']) {
 	$visitIds = array();
 	$totalSeconds = 0;
@@ -74,7 +74,7 @@ if($_SESSION['preferences']['sittersPaidHourly']) {
 
 if($id) getNegativePaymentDetails($payables, $through, $id);
 //print_r($payables);
-//if(mattOnlyTEST()) {echo "$through<p>";	foreach($payables as $payable) echo print_r($payable,1).'<br>';}
+}
 
 
 foreach($payables as $i => $payable) {

@@ -18,7 +18,7 @@ $missing = '0';
 $entered = '0';
 $dups = '0';
 foreach($expected as $nm) {
-	$nm = mysql_real_escape_string($nm);
+	$nm = mysqli_real_escape_string($nm);
 	if(strpos($nm, '-')) $hyphens[] = $nm;
 	$found = fetchAssociations("SELECT * FROM tblclient WHERE CONCAT_WS(' ', fname, lname) = '$nm'", 1);
 	if(count($found) > 1) {

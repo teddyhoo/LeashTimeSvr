@@ -19,7 +19,7 @@ $officenotes = $officenotes ? "$officenotes\n$creationNote" : $creationNote;
 updateTable('tblclientrequest', array('resolved'=>1, 'resolution'=>'honored', 'officenotes' => $officenotes), "requestid=$request", 1);
 //$source = getClientRequest($request);
 $schedule = scheduleFromNote($source['note']);
-//if(mattOnlyTEST()) {print_r($schedule);exit;}
+}
 $package['startdate'] = date('Y-m-d', strtotime($schedule['start']));
 $package['enddate'] = date('Y-m-d', strtotime($schedule['end']));
 $package['client'] = $source['clientptr'];

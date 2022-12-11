@@ -24,16 +24,16 @@ if($biz['db'] == 'dogslife') continue; // for testing cron-daily-tasks.php
 	reconnectPetBizDB($biz['db'], $biz['dbhost'], $biz['dbuser'], $biz['dbpass'], $force=true);
 	echo "\n(prepayment) Selected {$biz['db']}...";
 	/*if($lastHost != $biz['dbhost']) {
-		mysql_close();
-		$lnk = mysql_connect($biz['dbhost'], $biz['dbuser'], $biz['dbpass']);
+		mysqli_close();
+		$lnk = mysqli_connect($biz['dbhost'], $biz['dbuser'], $biz['dbpass']);
 		if ($lnk < 1) {
 			echo "Not able to connect: invalid database username and/or password.\n";
 		}
 	}
 	$lastHost = $biz['dbhost'];
-	if(!mysql_select_db($biz['db'])) echo "Failed to select {$biz['db']}\n";
+	if(!mysqli_select_db($biz['db'])) echo "Failed to select {$biz['db']}\n";
 	echo "\n(prepayment) Selected {$biz['db']}...";
-	if(mysql_error()) echo mysql_error();
+	if(mysqli_error()) echo mysqli_error();
 	*/
 	$NO_SESSION['i18n'] = getI18NProperties($biz['country']);
 	$lastRunDate = fetchPreference('lastOverduePrepaymentCronRunDate');

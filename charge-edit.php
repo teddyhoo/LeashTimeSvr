@@ -26,7 +26,7 @@ $autoCredit = $_SESSION['preferences']['autocredit'];
 // {"reason": "Test credit 15%", "amount": 15, "percent": "true", "issuedate": "3/24/2020", "expires": "3/27/2020",}
 
 if($autoCredit) {
-//if(mattOnlyTEST()) echo "AC: ".print_r($autoCredit, 1);
+
 	$autoCredit = json_decode($autoCredit, 'assoc');
 	if($autoCredit['expires'] && strtotime($autoCredit['expires']) < time())
 		$autoCredit = null;
@@ -359,7 +359,7 @@ function findClients() {
 		if(strpos($pattern, '*') !== FALSE) $pattern = str_replace  ('*', '%', $pattern);
 		else $pattern = "%$pattern%";
 		$baseQuery = "$baseQuery AND CONCAT_WS(' ',fname,lname) like '$pattern'";
-		$numFound = mysql_num_rows(mysql_query($baseQuery));
+		$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 		if($numFound)
 			$clients = fetchAssociations("$baseQuery ORDER BY lname, fname LIMIT 15");
 	}
@@ -369,7 +369,7 @@ function findClients() {
 		$numFound = count($clients);
 	}
 	else {
-		$numFound = mysql_num_rows(mysql_query($baseQuery));
+		$numFound = mysqli_num_rows(mysqli_query($baseQuery));
 		$baseQuery = "$baseQuery ORDER BY lname, fname LIMIT 15";
 		$clients = fetchAssociations("$baseQuery");
 	}

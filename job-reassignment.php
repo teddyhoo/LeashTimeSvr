@@ -13,7 +13,7 @@ else include "dragdrop-fns.php";
 // Determine access privs
 $locked = locked('o-');
 $roDispatcher = userRole() == 'd' && !strpos($_SESSION['rights'], '#ev');
-//if(mattOnlyTEST()) echo userRole();
+
 
 extract($_REQUEST);
 
@@ -27,7 +27,7 @@ if($roDispatcher) {
 	include "frame-end.html";
 	exit;
 }
-//if(mattOnlyTEST()) echo "touchPunchReassignmentTweaksEnabled: $touchPunchReassignmentTweaksEnabled [{$_SERVER["HTTP_USER_AGENT"]}]<br>";
+
 // ***************************************************************************
 ?>
 <style>

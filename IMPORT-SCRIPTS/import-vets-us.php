@@ -144,8 +144,8 @@ function handleVetRow ($row) {
 	}
 	$exists = fetchCol0(
 		"SELECT clinicid FROM vetclinic_us 
-			WHERE street1 = '".mysql_real_escape_string($clinic['street1'])."' 
-			AND zip = '".mysql_real_escape_string($client['zip'])."'");
+			WHERE street1 = '".mysqli_real_escape_string($clinic['street1'])."' 
+			AND zip = '".mysqli_real_escape_string($client['zip'])."'");
 	$clinicid = insertTable('vetclinic_us', $clinic, 1);
 	echo "Added clinic [$clinicid] {$clinic['clinicname']} ({$clinic['fname']} {$clinic['lname']} {$clinic['creds']}).<p>";
 	if($exists) {

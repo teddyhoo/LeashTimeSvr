@@ -14,7 +14,7 @@ $right = keyManagementRight();
 
 extract($_REQUEST);
 
-//if(mattOnlyTEST()) {echo "right: $right<br>".print_r($_REQUEST, 1); exit;}				
+}				
 
 if(($right == 'ka' || $right == 'ki') && $_POST && isset($operation)) {
 	if($operation == 'checkout') {
@@ -26,7 +26,7 @@ if(($right == 'ka' || $right == 'ki') && $_POST && isset($operation)) {
 		foreach($_POST as $key => $unused)
 			if(strpos($key, 'key_') === 0) {
 				$key = explode('-',substr($key, strlen('key_')));
-//if(mattOnlyTEST()) {echo "transferKey({$key[0]}, {$key[1]} $destination)"; exit;}				
+}				
 				transferKey((int)$key[0], (int)$key[1], $destination);
 			}
 	}

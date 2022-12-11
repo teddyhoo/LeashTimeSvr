@@ -61,8 +61,8 @@ if($found) {
 							 '{$bizfiledirectory}photos/pets/$version$id.jpeg',
 							 '{$bizfiledirectory}photos/pets/$version$id.png')
 						LIMIT 1")) {
-	//if(mattOnlyTEST()) {print_r($cache);exit;}
-	//if(mattOnlyTEST()) {echo $file; exit;}
+	}
+	}
 					getCachedFileAndUpdateExpiration($cache);
 					$file = $cache['localpath'];
 				}
@@ -79,7 +79,7 @@ $file = globalURL($file);
 
 $ctypes = array('jpeg'=>'jpeg', 'jpg'=>'jpeg', 'png'=>'png');
 $extension = substr($file, strrpos($file, '.')+1);
-//if(mattOnlyTEST()) {echo "$file: Content-Type: image/{$ctypes[$extension]}";} else
+} else
 header("Content-Type: image/{$ctypes[$extension]}");
 header("Pragma: public"); // required
 header("Expires: 0");

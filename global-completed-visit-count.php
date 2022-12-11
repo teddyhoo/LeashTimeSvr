@@ -88,13 +88,13 @@ function recalculate($test, $after=null, $property=null) {
 		$dbpass = $biz['dbpass'];
 		$db = $biz['db'];
 		$bizptr = $biz['bizid'];
-		$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+		$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 		if ($lnk < 1) {
 			if($test) echo "Not able to connect: invalid database username and/or password.\n";
 		}
-		$lnk1 = mysql_select_db($db);
-		if(mysql_error()) {
-			if($test) echo mysql_error().'<br>';
+		$lnk1 = mysqli_select_db($db);
+		if(mysqli_error()) {
+			if($test) echo mysqli_error().'<br>';
 			continue;
 		}
 		$tables = fetchCol0("SHOW TABLES");
@@ -134,13 +134,13 @@ function recalculateCompletedCountsStarting($onOrAfter) {
 		$dbpass = $biz['dbpass'];
 		$db = $biz['db'];
 		$bizptr = $biz['bizid'];
-		$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+		$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 		if ($lnk < 1) {
 			if($test) echo "Not able to connect: invalid database username and/or password.\n";
 		}
-		$lnk1 = mysql_select_db($db);
-		if(mysql_error()) {
-			if($test) echo mysql_error().'<br>';
+		$lnk1 = mysqli_select_db($db);
+		if(mysqli_error()) {
+			if($test) echo mysqli_error().'<br>';
 			continue;
 		}
 		$tables = fetchCol0("SHOW TABLES");
@@ -284,13 +284,13 @@ function recalculateTOTALVisitCount($day) {
 		$dbpass = $biz['dbpass'];
 		$db = $biz['db'];
 		$bizptr = $biz['bizid'];
-		$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+		$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 		if ($lnk < 1) {
 			if($test) echo "Not able to connect: invalid database username and/or password.\n";
 		}
-		$lnk1 = mysql_select_db($db);
-		if(mysql_error()) {
-			if($test) echo mysql_error().'<br>';
+		$lnk1 = mysqli_select_db($db);
+		if(mysqli_error()) {
+			if($test) echo mysqli_error().'<br>';
 			continue;
 		}
 		$tables = fetchCol0("SHOW TABLES");

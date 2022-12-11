@@ -402,7 +402,7 @@ function countAllProviderIncompleteJobs($prov=null, $filter=null, $timeWindowPas
 function findIncompleteJobs($starting, $ending, $prov=null, $sort=null, $client=null, $limit=null, $futurealso=null) {
 	if($result = findIncompleteJobsResultSet($starting, $ending, $prov, $sort, $client=null, $limit, $futurealso)) {
 		$assocs = array();
-		while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+		while($row = mysqli_fetch_array($result, MYSQL_ASSOC))
 		 $assocs[] = $row;
 		return $assocs;
 	}
@@ -645,9 +645,9 @@ function providerIsOff($prov, $date, $timeofday=null, $timesOff=null) {
 	$where="date = '$date'";
 	if($date != $date2)  $where = "(date = '$date' OR date = '$date2')";
 	$timesOff = $timesOff === null ? getProviderTimeOff($prov, $showpasttimeoff=true, $where) : $timesOff;
-//if(mattOnlyTEST()) echo "<p>TEST [$date] [$time] [".print_r($timeofday, 1)."]<br>>>>>".print_r($timesOff, 1).'<p>';
-//if(mattOnlyTEST()) logError(print_r($timesOff, 1));
-//if(mattOnlyTEST()) echo(print_r($timesOff, 1));
+
+
+
 
 	foreach($timesOff as $timeOff) {
 		if(!$timeOff['timeofday']) return true;
@@ -658,7 +658,7 @@ function providerIsOff($prov, $date, $timeofday=null, $timesOff=null) {
 			$b['endtime'] = "{$timeOff['date']} {$b['endtime']}";
 			
 //global $db;	if($db == 'dogslife') {if($timeOff['timeofday'] == '10:00 am-2:00 pm') logError(print_r($a,1).print_r($b,1));}
-//if(mattOnlyTEST()) echo "<p>".print_r($a,1)."<p>".print_r($b,1);
+
 			if(TRUE || staffOnlyTEST()) {
 				if(isset($_SESSION['preferences'])) $prefs = $_SESSION['preferences'];
 				else {
@@ -667,7 +667,7 @@ function providerIsOff($prov, $date, $timeofday=null, $timesOff=null) {
 						$prefs = fetchKeyValuePairs("SELECT property, value FROM tblpreference");  // will not be set for cron job
 					}
 				}
-//if(mattOnlyTEST()) {echo "<p>timeframeOverlapPolicy: {$prefs['timeframeOverlapPolicy']}<p>".print_r($a,1)."<p>".print_r($b,1)."<p>timeFrameOverlapStrict: ".timeFrameOverlapStrict($a, $b).'<p>';}
+}
 				if($prefs['timeframeOverlapPolicy'] == 'permissive') {if(timeFrameOverlapLenient($a, $b)) return true;}
 				else if(timeFrameOverlapStrict($a, $b)) return true;
 			}
@@ -717,9 +717,9 @@ function providerIsOffORIG($prov, $date, $timeofday=null, $timesOff=null) {
 	static $prefs, $lastDb;
 	$date =  is_string($date) ? date('Y-m-d', strtotime($date)) : date('Y-m-d', $date);
 	$timesOff = $timesOff === null ? getProviderTimeOff($prov, $showpasttimeoff=true, $where="date = '$date'") : $timesOff;
-//if(mattOnlyTEST()) echo "<p>TEST [$date] [$time] [".print_r($timeofday, 1)."]<br>>>>>".print_r($timesOff, 1).'<p>';
-//if(mattOnlyTEST()) logError(print_r($timesOff, 1));
-//if(mattOnlyTEST()) echo(print_r($timesOff, 1));
+
+
+
 	foreach($timesOff as $timeOff) {
 		if(!$timeOff['timeofday']) return true;
 		else if($timeOff['timeofday'] && $timeofday) {
@@ -728,7 +728,7 @@ function providerIsOffORIG($prov, $date, $timeofday=null, $timesOff=null) {
 			$b['starttime'] = strtotime(substr($timeOff['timeofday'], 0, strpos($timeOff['timeofday'], '-')));
 			$b['endtime'] = strtotime(substr($timeOff['timeofday'], strpos($timeOff['timeofday'], '-')+1));
 //global $db;	if($db == 'dogslife') {if($timeOff['timeofday'] == '10:00 am-2:00 pm') logError(print_r($a,1).print_r($b,1));}
-//if(mattOnlyTEST()) echo "<p>".print_r($a,1)."<p>".print_r($b,1);
+
 			if(TRUE || staffOnlyTEST()) {
 				if(isset($_SESSION['preferences'])) $prefs = $_SESSION['preferences'];
 				else {
@@ -737,7 +737,7 @@ function providerIsOffORIG($prov, $date, $timeofday=null, $timesOff=null) {
 						$prefs = fetchKeyValuePairs("SELECT property, value FROM tblpreference");  // will not be set for cron job
 					}
 				}
-//if(mattOnlyTEST()) {echo "<p>timeframeOverlapPolicy: {$prefs['timeframeOverlapPolicy']}<p>".print_r($a,1)."<p>".print_r($b,1)."<p>timeFrameOverlapStrict: ".timeFrameOverlapStrict($a, $b).'<p>';}
+}
 				if($prefs['timeframeOverlapPolicy'] == 'permissive') {if(timeFrameOverlapLenient($a, $b)) return true;}
 				else if(timeFrameOverlapStrict($a, $b)) return true;
 			}
@@ -866,7 +866,7 @@ function representTimeOffRange($timeoff, $futureOnly=false) {
 	if($pattern['until'] && date('Y', strtotime($pattern['until']))-date('Y') > 1)
 		$excludeEndYear = false;
 		
-//if(mattOnlyTEST()) $JUNK = 	date('Y').' v '.date('Y', strtotime($pattern['until']));
+
 	$startDay = $futureOnly && strtotime($pattern['date']) < strtotime(date('Y-m-d')) ? 'until '
 		: shortNaturalDate(strtotime($pattern['date']), 'noYear').'-';
 	return "<span style='text-decoration:underline;text-decoration-style:dashed' title='$timeOfDay'>"
@@ -895,7 +895,7 @@ function timeOffStartDayAndPtr($timeoff, $futureOnly=true) {
 function convertAllOldTimesOffToNew() {
 	global $numInstances, $numPatterns;
 	$result = doQuery("SELECT * FROM tbltimeoff");
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC))
 		convertOldTimeOffToNewTimeOff($row);
 	echo "Patterns: [$numPatterns]  Instances: [$numInstances]";
 }
@@ -964,7 +964,7 @@ function previewTimeOffUnassignments($timeOffInstances) {
 			LEFT JOIN tblservicetype s ON servicetypeid = servicecode
 			WHERE $unassignfilter
 			ORDER BY date, starttime, lname, fname, timeofday";
-//if(mattOnlyTEST()) print_r($sql);
+
 	return fetchAssociations($sql);
 }
 
@@ -1089,11 +1089,11 @@ if($unwiped && mattOnlyTEST()) {  // Why does this do nothing?
 	// because this causes a lot of extra conflict resolution work
 	$mods = withModificationFields(array('providerptr' => 0));
 	updateTable('tblappointment', $mods, tzAdjustedSql("$unassignfilter AND recurringpackage=1"), 1);
-	if(!staffOnlyTEST()) $numAffectedAppointments += mysql_affected_rows(); // MIS-REPORTS NUM ROWS CHANGED!
+	if(!staffOnlyTEST()) $numAffectedAppointments += mysqli_affected_rows(); // MIS-REPORTS NUM ROWS CHANGED!
 	
 	$mods = withModificationFields(array('providerptr' => 0, 'custom' => 1));
 	updateTable('tblappointment', $mods, tzAdjustedSql("$unassignfilter AND recurringpackage=0"), 1);
-	if(!staffOnlyTEST()) $numAffectedAppointments += mysql_affected_rows(); // MIS-REPORTS NUM ROWS CHANGED!
+	if(!staffOnlyTEST()) $numAffectedAppointments += mysqli_affected_rows(); // MIS-REPORTS NUM ROWS CHANGED!
 	
 	// Find the day's surcharges for the provider
 	if($timeOffDates && $wipelist) {
@@ -1114,10 +1114,10 @@ if($unwiped && mattOnlyTEST()) {  // Why does this do nothing?
 	logChange($provider, 'tblprovider', 'm', $note="$numAffectedAppointments unassigned (time off: $unassignfilter)");
 	foreach($clientVisitsUnassigned as $clientptr => $visitCount)
 		logChange($clientptr, 'tblclient', 'm', $note="$visitCount visits unassigned (time off: $pname)");
-//if(mattOnlyTEST()) echo print_r(fetchAssociations("SELECT * FROM tblappointment WHERE ".tzAdjustedSql($unassignfilter)),1);			
-//if(mattOnlyTEST()) replaceTable('tblpreference', array('property'=>'000TEST', 'value'=> print_r("SELECT * FROM tblappointment WHERE ".tzAdjustedSql($unassignfilter),1)), 1);			
-//if(mattOnlyTEST()) replaceTable('tblpreference', array('property'=>'000TEST', 'value'=> print_r(fetchAssociations("SELECT * FROM tblappointment WHERE ".tzAdjustedSql($unassignfilter)),1)), 1);			
-//if(mattOnlyTEST()) { echo tzAdjustedSql($unassignfilter).": <p>$numAffectedAppointments"; exit;}
+			
+			
+			
+}
 	if($_SESSION['surchargesenabled']) {
 		require_once "surcharge-fns.php";
 		updateAppointmentAutoSurchargesWhere($unassignfilter);
@@ -1215,13 +1215,13 @@ function updateTimeOffData($timeoffdata, $provider) {
 					|| $times[$cmd[0]]['timeofday'] != $vals['timeofday'])) {
 			$delta['changes'][] = $vals;
 			updateTable('tbltimeoff', $vals, "timeoffid = {$cmd[0]}", 0);
-			if(mysql_errno() && (mysql_errno() != 1022)) showSQLError("update tbltimeoff: ".print_r($vals, 1)," WHERE timeoffid = {$cmd[0]}");
+			if(mysqli_errno() && (mysqli_errno() != 1022)) showSQLError("update tbltimeoff: ".print_r($vals, 1)," WHERE timeoffid = {$cmd[0]}");
 		}
 		else if(!$cmd[0]) {
 			$vals['providerptr'] = $provider;
 			$delta['insertions'][] = $vals;
 			insertTable('tbltimeoff', $vals, 0);
-			if(mysql_errno() && (mysql_errno() != 1062)) showSQLError("insert tbltimeoff: ".print_r($vals, 1));
+			if(mysqli_errno() && (mysqli_errno() != 1062)) showSQLError("insert tbltimeoff: ".print_r($vals, 1));
 		}
 	}
 	return $delta;
@@ -1253,7 +1253,7 @@ function unassignAllAppointmentsForProvider($providerid, $clientptr=null) {
 					AND completed IS NULL $forClient
 					AND (date >= CURDATE() OR (date = CURDATE() AND starttime >= CURTIME()))");		
 	}
-//if(mattOnlyTEST()) {echo $sql.'<hr>'.print_r($surchargeappts,1);exit;}
+}
 	deleteTable('relwipedappointment', "providerptr = $providerid", 1);
 	$mods = withModificationFields(array('providerptr' => 0));
 	updateTable('tblappointment', $mods, 
@@ -1442,7 +1442,7 @@ function availableProviderSelectElementOptions($clientOrId, $date=null, $nullCho
 	if(TRUE || $_SESSION['preferences']['donotserveenabled']) {
 		$decliners = providerIdsWhoWillNotServeClient($clientid);
 		foreach($decliners as $providerptr) {
-//if(mattOnlyTEST()) print_r($activeProviders);			
+			
 			if(in_array($providerptr, $activeProviders))
 				unset($activeProviders[array_search($providerptr , $activeProviders)]);
 				foreach($activeProviders as $k => $group) {
@@ -1728,7 +1728,7 @@ function severProviderClientConnections($providerid, $clientptr) {
 	unassignAllServicesForProvider($providerid, $clientptr);
 	updateTable('tblclient', array('defaultproviderptr' => 0), 
 									"clientid = $clientptr AND defaultproviderptr = $providerid", 1);
-	if(mysql_affected_rows() > 0) 
+	if(mysqli_affected_rows() > 0) 
 		logChange($providerid, 'tblprovider', 'm', "Unassigned as default for $clientptr.");
 }
 	
@@ -1762,7 +1762,7 @@ function updateClientsDoNotAssignList($clientid, $entries, $severConnections=fal
 	foreach($entries as $k => $v)
 		if(strpos($k, 'dna_') === 0)
 			$newBlackList[] = substr($k, strlen('dna_'));
-//if(mattOnlyTEST()) echo "[".print_r($entries, 1)."]<p>";
+
 	foreach($oldBlacklist as $provid)
 		deleteTable('tblproviderpref', "providerptr = $provid AND property LIKE 'donotserve_$clientid'");
 		
@@ -1788,7 +1788,7 @@ function updateClientsDoNotAssignList($clientid, $entries, $severConnections=fal
 	}
 	if($blacklistedSitters) {
 		if($severConnections) foreach($blacklistedClients as $provid) severProviderClientConnections($provid, $clientid);
-//if(mattOnlyTEST()) echo "[".print_r($blacklistedSitters, 1)."]<p>";
+
 		$blacklistedSitterNames = 
 			join(', ', fetchCol0("SELECT CONCAT_WS(' ', fname, lname), 2 FROM tblprovider WHERE providerid IN (".join(',',$blacklistedSitters).")"));
 	}

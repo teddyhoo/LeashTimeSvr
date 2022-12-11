@@ -110,7 +110,7 @@ function runCrons() {
 			echo "JOB Run [{$biz['db']}] $jobName Local time: ".date('Y-m-d H:i')." ({$biz['timeZone']})\n";
 			if($db != $biz['db']) {
 				reconnectPetBizDB($biz['db'], $biz['dbhost'], $biz['dbuser'], $biz['dbpass'], $force=true);
-				if(mysql_error()) echo mysql_error();
+				if(mysqli_error()) echo mysqli_error();
 				$tables = fetchCol0("SHOW TABLES");
 			}
 			if($jobName == 'check-holidays') checkHolidays();
@@ -232,14 +232,14 @@ function cronGenerateBillables() {
 	$preferences = fetchPreferences();
 	// Note: for dev testing purposes ensure that database schema is up to date
 
-	$result = mysql_query("SHOW COLUMNS FROM tblservicepackage");
+	$result = mysqli_query("SHOW COLUMNS FROM tblservicepackage");
 	$ran = false;
 	if (!$result) {
-			echo 'Could not run query: ' . mysql_error();
+			echo 'Could not run query: ' . mysqli_error();
 			exit;
 	}
-	if (mysql_num_rows($result) > 0) {
-			while ($row = mysql_fetch_assoc($result)) {
+	if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_assoc($result)) {
 					if($row['Field'] == 'prepaid') {
 						billingCron($force=false);
 						$ran = true;

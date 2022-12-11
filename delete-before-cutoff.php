@@ -105,7 +105,7 @@ if($cutoff) {
 	function doDelete($objects, $table, $condition, $message) {
 		if($objects) {
 			deleteTable($table, $condition, 1);
-			echo '<br>'.mysql_affected_rows().$message;
+			echo '<br>'.mysqli_affected_rows().$message;
 		}
 	}
 
@@ -130,7 +130,7 @@ if($cutoff) {
 		doDelete($invoiceids, 'tblinvoice', "invoiceid IN (".join(',', $invoiceids).")", " invoices deleted.");
 
 		deleteTable('tblbillable', "itemtable = 'tblrecurringpackage' AND billabledate  < '$cutoff'", 1);
-		echo '<br>'.mysql_affected_rows()." tblrecurringpackage billables deleted.";
+		echo '<br>'.mysqli_affected_rows()." tblrecurringpackage billables deleted.";
 
 
 	}

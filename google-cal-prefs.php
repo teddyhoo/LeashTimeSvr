@@ -40,7 +40,7 @@ if($_POST) {
 	// STEP 1: Drop info
 	if($_POST['action'] == 'requestPermission') {
 		$token = getGoogleCalCredsTokenForGoogleUser($googleusername);
-//if(mattOnlyTEST()) { echo "[$token]"; exit;}
+}
 		saveGoogleCreds($_SESSION['auth_user_id'], $googleusername, $token); // may be NULL
 		if(!$token) { // don't invalidate previously set token for calendar
 			$googleDevClientID = $installationSettings['googleDevClientID'];

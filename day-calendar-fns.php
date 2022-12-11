@@ -154,7 +154,7 @@ function drawDayCalendar($objects, $timesOfDay, $timeOfDayKey, $dateKey, $object
 
 function getAppointmentCounts($objects) {
 	// return the number of appointments in each provider subsection
-//if(mattOnlyTEST()) print_r($objects);	
+	
 	$lastProvider = -999;
 	$lastTOD = -999;
 	$lastDate = -999;
@@ -378,7 +378,7 @@ function dumpOneLineWAGAppointment($appt) {
 			if($lastDayVisits[$appt['currentpackageptr']] != $appt['appointmentid']) $firstOrLast = '';
 			else $nonRecStartAndFinishAppts[$appt['currentpackageptr']]['last'] = $appt['appointmentid'];
 		}
-		//if(mattOnlyTEST()) echo "firstOrLastState: $firstOrLastState, firstOrLast: $firstOrLast S: [{$nonRecStartAndFinishAppts[$appt['currentpackageptr']]['first']}] F: [{$nonRecStartAndFinishAppts[$appt['currentpackageptr']]['last']}]<br>";
+		
 		
 	}
 	$charge = "$firstOrLast{$appt['chargelink']}"; // 'charge' includes 'adjustment'

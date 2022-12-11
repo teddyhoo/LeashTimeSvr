@@ -25,7 +25,7 @@ if($_POST) {
 	$request['x-subject'] = $actionLabel;
 	$request['note'] = "$actionLabel\n\n$note";
 	
-	if(!saveNewGenericRequest($request, $id)) $error = mysql_error();
+	if(!saveNewGenericRequest($request, $id)) $error = mysqli_error();
 	if($pop && !$error) {
 		echo "<script language='javascript'>if(window.opener.update) window.opener.showFrameMsg('Request has been sent.');window.close();</script>";
 		exit;

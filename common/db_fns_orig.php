@@ -31,35 +31,35 @@ function updateVals() {
 function doQuery($sql, $showErrors=1) {
 	if(strpos(strtoupper($sql), 'SLEEP(')) return array(); // block against a specific injection attack
 	if(strpos(strtoupper($sql), 'UNION ALL')) return array(); // block against a specific injection attack
-  $result = mysql_query ($sql);
+  $result = mysqli_query ($sql);
   if(!$result) {
-    if(mysql_error() && $showErrors) showSQLError($sql);
+    if(mysqli_error() && $showErrors) showSQLError($sql);
     return null;
   }
   return $result;
 }
 
 function sqlErrorCode($target=null) {
-	return mysql_errno();
+	return mysqli_errno();
 }
 
 function sqlErrorMessage($target=null) {
-	return mysql_error();
+	return mysqli_error();
 }
 
 
 function showSQLError($sql) {
 	global $db;
 	if($_SESSION['displayErrorsLoginSetting'])
-		echo "SQL: $sql<p><b>ERROR (".mysql_errno().")</b> ".mysql_error();
+		echo "SQL: $sql<p><b>ERROR (".mysqli_errno().")</b> ".mysqli_error();
 	else {
 		echo "Sorry, an error has occurred. [$db] [{$_SESSION['auth_user_id']}] ".date('m/d H:i:s');
 	}
-	if(!in_array(mysql_errno(), array(1045)) && (TRUE || mattOnlyTEST())) {
-		$textbagid = bagText($_SESSION['auth_user_id'].'|'.mysql_error().'|'.$sql, $referringtable='tblerrorlog');
+	if(!in_array(mysqli_errno(), array(1045)) && (TRUE || mattOnlyTEST())) {
+		$textbagid = bagText($_SESSION['auth_user_id'].'|'.mysqli_error().'|'.$sql, $referringtable='tblerrorlog');
 		logError($_SESSION['auth_user_id']."|tbag:$textbagid");
 	}
-	else logError($_SESSION['auth_user_id'].'|'.mysql_error().'|'.$sql);
+	else logError($_SESSION['auth_user_id'].'|'.mysqli_error().'|'.$sql);
 	exit;
 }
 
@@ -69,15 +69,15 @@ function bagText($body, $referringtable=null) {
 
 function fetchFirstAssoc($sql) {
   if(!($result = doQuery($sql))) return null;
-  return mysql_fetch_array($result, MYSQL_ASSOC);
+  return mysqli_fetch_array($result, MYSQL_ASSOC);
 }
 
 function fetchResultAssoc($result) {
-  return mysql_fetch_array($result, MYSQL_ASSOC);
+  return mysqli_fetch_array($result, MYSQL_ASSOC);
 }
 
 function resetResult($result) {
-  return mysql_data_seek($result, 0);
+  return mysqli_data_seek($result, 0);
 }
 
 function fetchCol0($sql) {
@@ -87,7 +87,7 @@ function fetchCol0($sql) {
 function fetchColN($sql, $n) {
   if(!($result = doQuery($sql))) return null;
   $assocs = array();
-  while($row = mysql_fetch_row($result))
+  while($row = mysqli_fetch_row($result))
    $assocs[] = $row[$n];
   return $assocs;
 }
@@ -95,7 +95,7 @@ function fetchColN($sql, $n) {
 function fetchRow0Col0($sql) {
   if(!($result = doQuery($sql))) return null;
   $assocs = array();
-  while($row = mysql_fetch_row($result))
+  while($row = mysqli_fetch_row($result))
    return $row[0];
   return null;
 }
@@ -103,7 +103,7 @@ function fetchRow0Col0($sql) {
 function fetchAssociations($sql) {
   if(!($result = doQuery($sql))) return null;
   $assocs = array();
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC))
    $assocs[] = $row;
   return $assocs;
 }
@@ -111,7 +111,7 @@ function fetchAssociations($sql) {
 function fetchKeyValuePairs($sql) {
   if(!($result = doQuery($sql))) return null;
   $assocs = array();
-  while($row = mysql_fetch_array($result, MYSQL_NUM))
+  while($row = mysqli_fetch_array($result, MYSQL_NUM))
     $assocs[$row[0]] = $row[1];
   return $assocs;
 }
@@ -119,7 +119,7 @@ function fetchKeyValuePairs($sql) {
 function fetchAssociationsKeyedBy($sql, $keyField) {
   if(!($result = doQuery($sql))) return null;
   $assocs = array();
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC))
     $assocs[$row[$keyField]] = $row;
   return $assocs;
 }
@@ -127,7 +127,7 @@ function fetchAssociationsKeyedBy($sql, $keyField) {
 function fetchAssociationsIntoHierarchy($sql, $keyFieldArray) { // Experimental.  See categorize, below
   if(!($result = doQuery($sql))) return null;
   $assocs = array();
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC))
   	categorize($assocs, $keyFieldArray, $row);
   return $assocs;
 }
@@ -153,7 +153,7 @@ foreach($pettypes as $type) categorize($arr, $indexArray, $type);
 function fetchAssociationsGroupedBy($sql, $keyField) {
   if(!($result = doQuery($sql))) return null;
   $assocs = array();
-  while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+  while($row = mysqli_fetch_array($result, MYSQL_ASSOC))
     $assocs[$row[$keyField]][] = $row;
   return $assocs;
 }
@@ -161,7 +161,7 @@ function fetchAssociationsGroupedBy($sql, $keyField) {
 function fetchRows($sql) {
   if(!($result = doQuery($sql))) return null;
   $rows = array();
-  while($row = mysql_fetch_array($result, MYSQL_NUM))
+  while($row = mysqli_fetch_array($result, MYSQL_NUM))
    $rows[] = $row;
   return $rows;
 }
@@ -169,40 +169,40 @@ function fetchRows($sql) {
 function fetchObjects($sql) {
   if(!($result = doQuery($sql))) return null;
   $assocs = array();
-  while($row = mysql_fetch_object($result))
+  while($row = mysqli_fetch_object($result))
    $assocs[] = $row;
   return $assocs;
 }
 
 function leashtime_next_row(&$result) {
-	return mysql_fetch_array($result, MYSQL_NUM);
+	return mysqli_fetch_array($result, MYSQL_NUM);
 }
 
 function leashtime_next_assoc(&$result) {
-	return mysql_fetch_array($result, MYSQL_ASSOC);
+	return mysqli_fetch_array($result, MYSQL_ASSOC);
 }
 
-function leashtime_real_escape_string($s) { // adapter for mysql --> PDO switch (mysql_real_escape_string)
-	return mysql_real_escape_string($s);
+function leashtime_real_escape_string($s) { // adapter for mysql --> PDO switch (mysqli_real_escape_string)
+	return mysqli_real_escape_string($s);
 }
 
 function leashtime_affected_rows() {
-	return mysql_affected_rows();
+	return mysqli_affected_rows();
 }
 
 function leashtime_num_rows($result=null) {
-	return $result ? mysql_num_rows($result) : mysql_num_rows();
+	return $result ? mysqli_num_rows($result) : mysqli_num_rows();
 }
 
 function kval($art_array, $key) {
-  if(array_key_exists($key, $art_array)) return "'".mysql_real_escape_string(stripslashes($art_array[$key]))."'";
+  if(array_key_exists($key, $art_array)) return "'".mysqli_real_escape_string(stripslashes($art_array[$key]))."'";
   return "NULL";
 }
 
 function val($val) {
   if(is_int($val)) return $val;
   if($val != null) {
-   return "'".mysql_real_escape_string(stripslashes($val))."'";
+   return "'".mysqli_real_escape_string(stripslashes($val))."'";
   }
   return "NULL";
 }
@@ -210,7 +210,7 @@ function val($val) {
 function noNullVal($val) {
   if($val !== null) {
    if(is_int($val)) return $val;
-   return "'".mysql_real_escape_string(stripslashes($val))."'";
+   return "'".mysqli_real_escape_string(stripslashes($val))."'";
   }
   return "''";
 }
@@ -260,14 +260,14 @@ function insertTable($table, $data, $showErrors=0) {
   $sql = "INSERT INTO $table  (".join(', ',array_keys($data)).") VALUES (";
   //$sql .= join(', ',array_map('val',$data)).")";
   $sql .= join(', ', $data).")";
-  if(doQuery($sql, $showErrors)) return mysql_insert_id(); 
+  if(doQuery($sql, $showErrors)) return mysqli_insert_id(); 
 }
 
 function insertTableMultipleRows($table, $rows, $showErrors=0) {
   $sql = "INSERT INTO $table  (".join(', ',array_keys($rows[0])).") VALUES (";
   foreach($rows as $row) $data[] = join(', ',array_map('val',$row));
   $sql .= join(', ', $data).")";
-  if(doQuery($sql, $showErrors)) return mysql_insert_id(); 
+  if(doQuery($sql, $showErrors)) return mysqli_insert_id(); 
 }
 
 function replaceTable($table, $data, $showErrors=0) {
@@ -278,8 +278,8 @@ function replaceTable($table, $data, $showErrors=0) {
   $sql = "REPLACE INTO $table  (".join(', ',array_keys($data)).") VALUES (";
   $sql .= join(', ', $data).")";  
   if(doQuery($sql, $showErrors)) 
-  	return mysql_insert_id() ? mysql_insert_id() 
-  					: mysql_affected_rows(); 
+  	return mysqli_insert_id() ? mysqli_insert_id() 
+  					: mysqli_affected_rows(); 
 }
 
 function tableExists($table) {
@@ -481,7 +481,7 @@ function reconnectPetBizDB($dbN=null, $dbhostN=null, $dbuserN=null, $dbpassN=nul
 
 		if(!$force && array_intersect($currentSettings, $newSettings) == $currentSettings)
 			return;
-		@mysql_close();
+		@mysqli_close();
 	}
 
 	if($dbhostN) $dbhost = $dbhostN;
@@ -491,14 +491,14 @@ function reconnectPetBizDB($dbN=null, $dbhostN=null, $dbuserN=null, $dbpassN=nul
 	//echo 	"dbhost: $dbhost, dbuser: $dbuser, dbpass: $dbpass, db: $db<p>";;
 
 	if(isset($dbhost) && isset($dbuser) && isset($dbpass) && isset($db)) {
-		$lnk = mysql_connect($dbhost, $dbuser, $dbpass);
+		$lnk = mysqli_connect($dbhost, $dbuser, $dbpass);
 
 		if ($lnk < 1) {
 			$errMessage ="Not able to connect: invalid database username and/or password.";
 			echo $errMessage;
 		}
 
-		if(!mysql_select_db($db)) echo "Failed to select [$db]: ".mysql_error();
+		if(!mysqli_select_db($db)) echo "Failed to select [$db]: ".mysqli_error();
 	}
 	else ;  // the session was shut down
 }
@@ -528,7 +528,7 @@ function getI18NProperties($country=null) {
 function getI18Property($prop, $default=null) {
 	global $NO_SESSION;
 	$props = $_SESSION ? getI18NProperties() : ($NO_SESSION ? $NO_SESSION['i18n'] : null);
-//if(mattOnlyTEST()) print_r($props);	
+	
 	if(strpos($prop, '|')) {
 		$prop = explode('|', $prop);
 		$val = $props[$prop[0]][$prop[1]];
@@ -831,7 +831,7 @@ function setUserActive($userid, $active) {
 	if($db != 'petcentral') list($dbhost1, $db1, $dbuser1, $dbpass1) = array($dbhost, $db, $dbuser, $dbpass);
 	require "common/init_db_common.php";
 	updateTable('tbluser', array('active'=>($active ? 1 : '0')), "userid = $userid", 1);
-	$numrows = mysql_affected_rows();
+	$numrows = mysqli_affected_rows();
 	if($db1) reconnectPetBizDB($db1, $dbhost1, $dbuser1, $dbpass1);
 	return $numrows;
 }
