@@ -131,22 +131,6 @@ foreach($allNames as $prov => $name) {
 		$visits .= " ".fauxLink('&#9776;', "apptTimeChart($prov, \"$dbOneDay\")", 1, 'View a chart (Staff Only for now)');
 		echo "";
 	}
-	/*$visits = ($upgradeTEST || $breakdown[$prov]['visits']) 
-		?  "<span id='visitcounts_$prov'>"
-			.visitCountDisplay($counts['visits'], $counts['completed'], $counts['unreported'], $omitRevenue)
-			."</span>"
-		: '';*/
-		
-/*
-$breakdown[$prov]['visits']." visit$plural)".($omitRevenue ? '' : ':') 
-		: '';
-if(staffOnlyTEST() || dbTEST('themonsterminders')) {
-	if($breakdown[$prov]['completed']) $visits .= " <span class='completedtask'>Completed: {$breakdown[$prov]['completed']}</span>";
-	if($breakdown[$prov]['unreported'])$visits .= " <span class='noncompletedtask'>Unreported: {$breakdown[$prov]['unreported']}</span>";
-}
-	if($visits) $visits .= 
-*/
-	
 	$link = fauxLink($name, "toggleProviderSection($prov, \"$dbOneDay\")", 1);
 	$dollarAmount = $omitRevenue ? '' : dollarAmount($breakdown[$prov]['rev']);
 	$rows[] = "<tr class='provrow_$prov' $showStyle><td>$link $visits</td><td id='provrev_$prov' $dollarCol>$dollarAmount</td></tr>";
@@ -158,7 +142,6 @@ if(staffOnlyTEST() || dbTEST('themonsterminders')) {
 	ob_end_clean();
 	
 	$rows[] = "<tr class='provrow_$prov' $showStyle><td colspan=2>$providerDiv</td></tr>";
-//if(mattOnlyTEST() && !$breakdown[$prov]) {echo htmlentities(print_r($rows, 1));exit;}
 }
 echo "<td colspan=2><table>";
 foreach((array)$rows as $row) echo $row;

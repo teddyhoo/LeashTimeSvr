@@ -587,7 +587,6 @@ function detectVisitCollision($appt, $provid) { // $appt may or may not exist in
 							LIMIT 1");
 		
 	}
-//if(mattOnlyTEST() && $result) {echo print_r($result, 1)."<hr>prov: $provid<p>".htmlentities($sql)." <p>existingExclusive: $existingExclusive<p>".print_r($appt, 1)."<p>codes: ".print_r($serviceCodes, 1);exit;}	
 	
 	return $result;
 }

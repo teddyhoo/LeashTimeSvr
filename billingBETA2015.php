@@ -560,12 +560,6 @@ if($goMinilog) {$t0 = $utime = microtime(1);}
 
 		}
 	}
-	//function tableFrom($columns, $data=null, $attributes=null, $class=null, $headerClass='sortableListHeader', $headerRowClass=null, $dataCellClass='sortableListCell', $columnSorts=null, $rowClasses=null, $colClasses=null, $sortClickAction=null) 
-	/*echo "<div style='position:relative;float:right;'>";
-	if($sortedInvoices) echoButton('','Generate & Mail Prepayment Invoices to Selected Clients','printSelectedInvoices()');
-	echo "</div>";
-	*/
-//if(mattOnlyTEST() && $prepayments) foreach($prepayments as $i => $pp) $prepayments[$i]['netdue'] .= " [{$pp['netdueraw']}]";
 	if(!$prepayments && $lookahead) echo "There are no $section clients to deal with in the time frame specified.";
 	else {
 		tableFrom($columns, $prepayments, "id='clientstable_$section' WIDTH=100% border=1 bordercolor=black", $class='clientstable', $headerClass='sortableListHeader', $headerRowClass=null, $dataCellClass='sortableListCell', $columnSorts=null, $rowClasses, $colClasses=null, $sortClickAction=null);
@@ -601,15 +595,7 @@ if($timingDebug) {$t0 = $utime = microtime(1); $methTimes = array();}
 		// 'owedprior' = amount owed (charge - paid) for all items before the start date
 		$creditValue = isset($availableCredits[$pp['clientid']]) ? max(0.0, $availableCredits[$pp['clientid']] - $pp['owedprior']) : 0.0;
 		$priorPayableAmount = min($availableCredits[$pp['clientid']], $pp['owedprior']);
-		$prepaymentValue = $pp['prepayment'] - $priorPayableAmount;  // NOTE: do not include prior incomplete visits/surcharges payable with existing credit
-
-//if($goMinilog && $index == 965) echo  "<br>prepaymentValue: $prepaymentValue = pp['prepayment']: {$pp['prepayment']} - priorPayableAmount: $priorPayableAmount;";
-//if($goMinilog && $index == 1237) echo  "client 1237 prepayment: {$pp['prepayment']} credits: {$availableCredits[$pp['clientid']]} owedprior: {$pp['owedprior']} priorPayableAmount: $priorPayableAmount";;	
-		// Payment Due = Subtotal of prior unpaid charges not marked with a [C] + Subtotal of ALL current charges
-//if($goMinilog && $index == 1225) print_r($availableCredits[$pp['clientid']]);
-//if($index == 930) screenLog("$index: prepayment {$pp['prepayment']} - priorPayableAmount: $priorPayableAmount = $prepaymentValue");
-		//$creditValue = isset($availableCredits[$pp['clientid']]) ? $credits[$pp['clientid']] : 0.0;
-	//if($goMinilog && $pp['clientid']==981)	screenLog("[[".isset($availableCredits[$pp['clientid']])."]]");
+		$prepaymentValue = $pp['prepayment'] - $priorPayableAmount;  
 		if(!$csv) {
 			$pp['clientname'] = prepaymentClientLink($pp, $nameOnly=true, $sortable=true);
 			if(dbTEST('leashtimecustomers')) {

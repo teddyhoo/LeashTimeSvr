@@ -648,11 +648,8 @@ function appointmentsSection() {  // this section is populated by client-schedul
 	$intervals = "  var intervals = {".join(',', $intervals)."};\n";
 	$initializationJavascript .= "setPrettynames('starting','Starting Date','ending', 'Ending Date');\n";
 	startAShrinkSection("Visits", 'appointments', false);
-	//if(mattOnlyTEST() && $_REQUEST['highlightAppt']) 
-	//	$highlightApptJS = "$('#apptrow{$_REQUEST['highlightAppt']} > td').css('background-color', 'orange');";
 
 $debug = staffOnlyTEST() ? 1 : 0;	
-//if($debug) $DDDBUG = "alert(value);";
 
   echo <<<JSCODE
 <div id='clientappts'></div>
@@ -935,13 +932,10 @@ function ePaymentTableRows($client) {
 		labeledRadioButton('Primary:', 'primarypaysource', 'CC', $selectedValue, $onClick='primaryClicked(this)', null, null, 'labelfirst');		
 		
 		echo "</td></tr>";
-		//checkboxRow('Primary', "activecc_CB", $cc['primarypaysource'], $labelClass=null, $inputClass=null, $rowId=null,  $rowStyle="display:$primarydisplay", "setPrimaryPaySource(this)", $rowClass=null);
 		echo "<tr><td colspan=2>".echoButton('', 'Edit Credit Card Info', 
 																"openConsoleWindow(\"cceditor\", \"cc-edit.php?client={$client['clientid']}\",500,600)", 
 																null, null, 1);
-		/*if(false && $cc) echo " ".echoButton('', 'Credit Card Refund', 
-																"openConsoleWindow(\"ccrefund\", \"cc-refund.php?client={$client['clientid']}\",420,410)", 
-																null, null, 1, "Issue a refund to this Credit Card.");*/
+
 
 		if(getPreference('gatewayOfferACH')) {
 			echo "<tr><td colspan=2><hr></td></tr>";
@@ -956,7 +950,6 @@ function ePaymentTableRows($client) {
 			echo "<tr style='display:$primarydisplay'><td>";
 			labeledRadioButton('Primary:', 'primarypaysource', 'ACH', $selectedValue, $onClick='primaryClicked(this)', null, null, 'labelfirst');		
 			echo "</td></tr>";
-			//checkboxRow('Primary', "activeach_CB", $ach['primarypaysource'], $labelClass=null, $inputClass=null, $rowId=null,  $rowStyle="display:$primarydisplay", "setPrimaryPaySource(this)", $rowClass=null);
 			echo "<tr><td colspan=2>".echoButton('', 'Edit ACH Info', 
 																	"openConsoleWindow(\"cceditor\", \"ach-edit.php?client={$client['clientid']}\",500,600)", 
 																	null, null, 1);
@@ -1026,9 +1019,6 @@ function dumpEmergencyTab($client) {
 
 function dumpClientBasicTab($client) {
 	global $id, $rawBasicCol1Fields, $rawBasicOtherFields, $requiredFields, $redStar;
-	// two column table, two row table
-	// first row: col1: names and address col2: phones, email, taxid, marital status
-	// second row: double wide TD: Notes and Emergency Contact
 	echo "<table width=100%>\n";
 	echo "<tr><td valign=top><table width=100%>\n"; // R1C1
 	$raw = explode(',', $rawBasicCol1Fields);
@@ -1076,15 +1066,7 @@ function dumpClientBasicTab($client) {
 				$pName =  providerShortName($selectProv);
 				$pName =  $pName ? $pName : "[{$val}]";
 				echo "<tr><td style='color:red;'colspan=2>This visit is assigned to $pName but should not be because $pName is inactive.</td></tr>";
-			}
-/*
-			$activeProviders = array_merge(array('--Select a Sitter--' => ''), getActiveProviderSelections(null, $client['zip']));
-			selectRow($label.':', $key, $val, $activeProviders);
-			if($val && !in_array($val, $activeProviders)) {
-				$oldProvider = fullname(getProvider($val));
-			  echo "<tr><td colspan=2 style='color:red;font-style:italic'>Sitter <b>$oldProvider</b> is not active.</td</tr>";
-			}
-*/			
+			}		
 		}
 		else inputRow($label.':', $key, $val);
 	}

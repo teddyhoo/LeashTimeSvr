@@ -154,7 +154,7 @@ RAWRESPONSEFIELDS;
 		if($otherData['transactionId']) 
 			$pairs['x_trans_id'] = $otherData['transactionId'];
 		
-		$usePostMethod = TRUE; //staffOnlyTEST(); // && dbTEST('doggiewalkerdotcom'); //mattOnlyTEST();  // TBD Switch to TRUE to activate
+		$usePostMethod = TRUE; 
 		foreach($cc as $key=>$value)
 			if(!isset($pairs[$key]) && strpos($key, 'x_') === 0 && $value)
 				$pairs[$key] = urlEncode(trim($value));

@@ -45,31 +45,16 @@ function getAllowedTypes() { return array('JPG','JPEG','PNG'); }
 function getAllowedTypesDescr() { return "JPEG (.jpg or .jpeg) or PNG image"; }
 
 function uploadPhoto($formFieldName, $destFileName, $makeDisplayVersion=true) {
-  /*
-  
-  $allowedTypes = getAllowedTypes();
-  $allowedTypesDescr = getAllowedTypesDescr();
-	$dot = strrpos($_FILES[$formFieldName]['name'], '.');
-	if($dot === FALSE) return "Uploaded file MUST be a $allowedTypesDescr.";
-	$originalName = $_FILES[$formFieldName]['name'];
-  $extension = strtoupper(substr($_FILES[$formFieldName]['name'], $dot+1));
-  if(!in_array($extension, $allowedTypes))
-    return "Photo Not uploaded!  Uploaded file MUST be a $allowedTypesDescr.<br>[$originalName] does not qualify.";
-	*/
+
 	$target_path = $destFileName;
-//if(mattOnlyTEST() && $failure) {echo $target_path;exit;}  
+
 
 	if($reason = invalidUpload($formFieldName, $target_path)) return "The file $originalName could not be used because $reason";
 	if(file_exists($target_path)) unlink($target_path);
-	ensureDirectory(dirname($target_path), 0775); // x is necessary for group
-//echo substr(sprintf('%o', fileperms(dirname($target_path))), -4);
+	ensureDirectory(dirname($target_path), 0775);
 	if(!move_uploaded_file($_FILES[$formFieldName]['tmp_name'], $target_path)) {
 		return "There was an error uploading the file, please try again!";
 	}
-	/*if($makeDisplayVersion)
-		makeDisplayImage($target_path);
-	outboardFile($target_path);*/
-
 	return null;
 }
 
@@ -91,17 +76,16 @@ function invalidUpload($formFieldName, $file) {
 	}
   else if(FALSE/*$extension == 'JPG' */) {
 		$extension = strtoupper(substr($_FILES[$formFieldName]['name'], strrpos($_FILES[$formFieldName]['name'], '.')+1));
-//if($_SERVER['REMOTE_ADDR'] == '68.225.89.173') { echo "NO PROBLEM: {$_FILES[$formFieldName]['tmp_name']}";echo "<br>NO PROBLEM: ".print_r(getimagesize($_FILES[$formFieldName]['tmp_name']),1); }		
+
 		$size = getimagesize($_FILES[$formFieldName]['tmp_name']);
 		$pixels = $size[0]*$size[1];
 		if($pixels > $maxPixels) {
 			$pixels = number_format($pixels);
 			
-		  $failure = "Photo dimensions are too big: ({$size[0]} X {$size[1]}) = $pixels pixels (Max: $maxPixels pixels, = approx. $maxDim X $maxDim)";
-//if($_SERVER['REMOTE_ADDR'] == '68.225.89.173') { echo "<p>FAILURE: $failure"; exit; }		
+		  $failure = "Photo dimensions are too big: ({$size[0]} X {$size[1]}) = $pixels pixels (Max: $maxPixels pixels, = approx. $maxDim X $maxDim)";		
 		}
     else {
-			//$allowedTypes = getAllowedImageTypes();
+
 			$allowedTypesDescr = getAllowedTypesDescr();
 			
 			if("IGNORE JPG WARNING") {  // for "recoverable error: Premature end of JPEG file"
@@ -137,7 +121,6 @@ function invalidUpload($formFieldName, $file) {
 		}
   }
   error_reporting($oldError);
-//if(mattOnlyTEST() && $failure) {echo $failure;exit;}  
   return $failure;
 }
 

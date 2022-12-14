@@ -245,7 +245,6 @@ function invalidUpload($formFieldName, $file) {
 		}
   }
   error_reporting($oldError);
-//if(mattOnlyTEST() && $failure) {echo $failure;exit;}  
   return $failure;
 }
 

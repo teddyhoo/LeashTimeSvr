@@ -149,16 +149,6 @@ if($showPackageCount) {
 		}
 	}
 	
-	if(mattOnlyTEST()) {
-		$visitResult = collectVisits($start, $days, $lastYear, $returnHandle=true, $canceledAlso=true);
-		//foreach($visits as $appt) {
-		while($appt = leashtime_next_assoc($visitResult)) {
-			$month = date('Y-m-01', strtotime($appt['date']));
-			if($appt['recurringpackage']) $stats[$yearKey]['recurring'][$month][$appt['clientptr']] = 1;
-			else $stats[$yearKey]['nonrecurring'][$month][$appt['clientptr']] = 1;
-		}
-	}
-	
 	foreach((array)($stats[$yearKey]['recurring']) as $month => $clients)
 		foreach($clients as $clientptr => $flag)
 			if($flag) $stats[$yearKey]['recurring']['total'][$clientptr] = 1;

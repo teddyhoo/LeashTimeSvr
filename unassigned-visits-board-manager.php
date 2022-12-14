@@ -127,25 +127,14 @@ foreach($unassignedVisits as $u) {
 	
 	$checked = $u['uvbid'] ? 'CHECKED' : '';
 	$cb = "<input class='uvcheckbox' type='checkbox' name='cb$id' id='cb$id' $checked>";
-	// build 3 rows:
-	// row 1: [checkbox] date | timeofday | client | service | pets..
-	// row 2 (optional): visit note
-	// row 3: uvb11bnote input
-	//
-	// or
-	//
-	// row 1: [checkbox] date time | uvb11bnote input
 	if($u['appointmentid']) 
 		$row = array('cb'=>$cb, 'date'=>shortDate(strtotime($date)), 'timeofday'=>$u['timeofday'], 'client'=>$u['client'], 'service'=>$u['service'], 'pets'=>$u['pets']);
 	else if($u['packageptr']) {
-		//$packageDescription = createPackageDescription($u['packageptr']);
-		//$row = array('#CUSTOM_ROW#'=>"<tr class ='$rowClass checkboxline'><td>$cb</td><td>$date</td><td colspan=4>$packageDescription</td></tr>");
 		$row = packageDescriptionAsVisit($u['packageptr']);
 		$u['note'] = $row['note'];
 		$row['date'] = shortDate(strtotime($row['date']));;
 		$row['cb'] = $cb;
-//print_r($u);		
-//$STOP = true;
+
 	}
 	else $row = array('#CUSTOM_ROW#'=>"<tr class ='$rowClass checkboxline'><td>$cb</td><td>$date</td><td colspan=4>{$u['uvbtod']}</td></tr>");
 	$rows[] = $row;
@@ -157,7 +146,7 @@ foreach($unassignedVisits as $u) {
 	}
 	$rows[] = array('#CUSTOM_ROW#'=>"<tr class ='$rowClass bottomline'><td style='font-size:1.2em;' colspan=6><b>Note:</b> $note</td></tr>");
 	$rowClasses[] = $rowClass;
-	//if($STOP && mattOnlyTEST()) break;
+
 }
 
 // #####################################################
@@ -175,7 +164,7 @@ include "frame.html";
 echo "<form name='mainform' method='POST'>";
 hiddenElement('newid', '');
 echo "<span class='fontSize1_3em boldfont'>";
-echoButton('', 'Publish Unassigned Visits', 'publish()'); // DON'T WORK: , $class='fontSize1_3em Button ', $downClass='ButtonDown fontSize1_3em'
+echoButton('', 'Publish Unassigned Visits', 'publish()'); 
 echo "</span>";
 ?>
 &nbsp;&nbsp;All checked visits will be published to sitters.  

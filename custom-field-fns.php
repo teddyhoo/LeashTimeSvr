@@ -285,9 +285,7 @@ function clientDocumentFileLink($id, $remotefileid, $clientid, $editable=false) 
 }
 
 function dumpCustomFieldJavascript($clientid) {
-	//$TEST = mattOnlyTEST() ?  "alert(objString);" : '';
 	echo <<<CUSTOMFIELDJS
-// Custom Field Javascript FNS
 function openDocument(elid) {
 	var remotefileid = document.getElementById(elid).value;
 	openConsoleWindow("fileviewer", "client-file-view.php?id="+remotefileid, 700, 700);

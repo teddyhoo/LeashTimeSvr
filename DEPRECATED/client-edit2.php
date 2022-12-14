@@ -191,7 +191,6 @@ if($_POST && isset($clientid)) {
 }		
 		saveNewClient();
 		$newClientId = mysqli_insert_id();
-if(mattOnlyTEST()) setClientPreference($newClientId, 'lastSaved', date('Y-m-d H:i:s')."|{$_SESSION['auth_username']}|{$_SESSION['auth_user_id']}");
 		logChange($newClientId, 'tblclient', 'c', 'Created');
 		saveClientKey($newClientId);
 		saveClientPets($newClientId);
@@ -784,8 +783,6 @@ function appointmentsSection() {  // this section is populated by client-schedul
 	$intervals = "  var intervals = {".join(',', $intervals)."};\n";
 	$initializationJavascript .= "setPrettynames('starting','Starting Date','ending', 'Ending Date');\n";
 	startAShrinkSection("Visits", 'appointments', false);
-	//if(mattOnlyTEST() && $_REQUEST['highlightAppt']) 
-	//	$highlightApptJS = "$('#apptrow{$_REQUEST['highlightAppt']} > td').css('background-color', 'orange');";
 
 $debug = staffOnlyTEST() ? 1 : 0;	
 //if($debug) $DDDBUG = "alert(value);";
@@ -1101,7 +1098,6 @@ function ePaymentTableRows($client) {
 
 			$autopay = $ach['autopay'] ? ' [auto]' : '';
 			$bankDisplay = $ach['bank'] ? $ach['bank'] : "Routing #{$ach['abacode']} /";
-			//if(!mattOnlyTEST() && $ach  && $_SESSION['preferences']['ccGateway'] != $ach['gateway']) {
 			if($ach['invalid']) {
 				$achDisp = "<font color=red>This ACH info is not valid for your gateway {$_SESSION['preferences']['ccgateway']}</font>";
 			}
@@ -1116,7 +1112,6 @@ function ePaymentTableRows($client) {
 			echo "<tr style='display:$primarydisplay'><td>";
 			labeledRadioButton('Primary:', 'primarypaysource', 'ACH', $selectedValue, $onClick='primaryClicked(this)', null, null, 'labelfirst');		
 			echo "</td></tr>";
-			//checkboxRow('Primary', "activeach_CB", $ach['primarypaysource'], $labelClass=null, $inputClass=null, $rowId=null,  $rowStyle="display:$primarydisplay", "setPrimaryPaySource(this)", $rowClass=null);
 			echo "<tr><td colspan=2>".echoButton('', 'Edit ACH Info', 
 																	"openConsoleWindow(\"cceditor\", \"ach-edit.php?client={$client['clientid']}\",500,600)", 
 																	null, null, 1);

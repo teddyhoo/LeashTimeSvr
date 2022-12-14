@@ -189,14 +189,6 @@ function displayVisitReportRequest($request, $updateList) {
 	if($sentMessage) {
 		$prettySent = longestDayAndDateAndTime(strtotime($sentMessage['datetime']));
 		echo "Sent to client $prettySent by: {$extraFields['x-sentby']}<br>";
-		if(mattOnlyTEST()) {
-			// lastReport, queued, slated
-			if($statDesc) echo "  $statDesc";
-			if($statusVars) {
-				foreach($statusVars as $k => $v) $statusVars[$k] = "[$k] $v";
-				echo " <i>[".date('H:i:s')."] ".join(' ', $statusVars)."</i><br>";
-			}
-		}
 		if(!$_REQUEST['edit']) 	{
 			echo "\n";
 			echoButton('editButton', 'Edit &amp; Send Again', 
@@ -857,18 +849,10 @@ function enhancedVisitReportEmailTemplate($includeValue=null, $visitPhotoURL=nul
 			'salutation'=>'', 'farewell'=>sqlVal("''"), 'active'=>1,
 			'body'=>standardEnhancedVisitReportEmailTemplateBody(),
 			'extratokens'=>'#SITTERFIRSTNAME#, #SITTERNICKNAME#.  (#SHORTPETS# in the Subject line)');
-	//global $petOwnerPortalVRTest;
 if(petOwnerPortalVRTest()) {
-	//$stageDir = "../html/wordpressmktg/sandbox/communications/visit-report";
 	$stageDir = "../html/wordpressmktg/sandbox-new/email/visit-reports";
 	
-	// for the benefit of delayed visit reports...
 	if(!$_SESSION) $stageDir = "/var/www/html/wordpressmktg/sandbox-new/email/visit-reports";
-	
-	// We are going to use the enhancedVisitReportEmailTemplate as a template for the
-	// sitter's note INSIDE the new enhanced visit report
-	// this will be accomplished in preprocessENHANCEDVRMessage using the #ENHANCED_REPORT_SITTER_NOTE# token
-	
 	$specificTemplate = "evr-mail-full.html";
 	if(TRUE) {
 		$yesPhoto = $includeValue["VISITPHOTOURL"] && $visitPhotoURL;

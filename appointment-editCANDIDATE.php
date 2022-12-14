@@ -56,7 +56,6 @@ if($_POST) {
 			$updateList = $updateList ? "'$updateList'" : 'null';
 		}
 		else $error = "Visit can not be deleted.";
-		//else $error = "Visit can not be deleted.".(mattOnlyTEST() ? "incomplete: [$incomplete], billableInvolved: [$billableInvolved], hasPaidPayables: [".hasPaidPayables($appointmentid).']' : '');
 	}
 	else if($appointmentid) {
 		$oldAndNew = updateAppointment(); // array('oldAppointment'=>$oldAppt, 'newAppointment'=>$appt);

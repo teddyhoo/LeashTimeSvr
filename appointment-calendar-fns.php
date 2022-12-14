@@ -60,14 +60,12 @@ function irregularPackageTable($packageid, $clientid, $primaryProvider) {
 // ################################################################################################################################
 
 function appointmentTable($appts, $packageDetails = null, $editable=false, $allowSurchargeEdit=true, $showStats=true, $includeApptLinks=true, $surcharges=null, $otherItems=null) {  // appts are ordered by date/starttime
-//if(!mattOnlyTEST()) return appointmentTableOLD($appts, $packageDetails, $editable, $allowSurchargeEdit, $showStats, $includeApptLinks, $surcharges);
 	global $undeletableAppointments, $undeletableSurcharges, $discounts;
 	if(!$appts && !$editable) return;
 	$dayLength = 24 * 60 * 60;
 	$scheduleStartsOn = "Schedule starts on";
 	$scheduleEndsOn = "and ends on";
 	
-//if(staffOnlyTEST()) echo "[[".print_r($packageDetails,1).']]';	
 	if(!$packageDetails && $appts) {
 		foreach($appts as $appt) {
 			if(!$firstAppt) $firstAppt = $appt;

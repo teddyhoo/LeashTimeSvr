@@ -1091,9 +1091,7 @@ function ePaymentTableRows($client) {
 		echo "<tr><td colspan=2>".echoButton('', 'Edit Credit Card Info', 
 																"openConsoleWindow(\"cceditor\", \"cc-edit.php?client={$client['clientid']}\",500,600)", 
 																null, null, 1);
-		/*if(false && $cc) echo " ".echoButton('', 'Credit Card Refund', 
-																"openConsoleWindow(\"ccrefund\", \"cc-refund.php?client={$client['clientid']}\",420,410)", 
-																null, null, 1, "Issue a refund to this Credit Card.");*/
+
 		if(getPreference('gatewayOfferACH')) {
 			echo "<tr><td colspan=2><hr></td></tr>";
 			echo "<tr><td style='font-weight:bold;font-size:1.25em;padding-top:10px;' colspan=3>E-check (ACH) Info</td></tr>";
@@ -1101,7 +1099,7 @@ function ePaymentTableRows($client) {
 
 			$autopay = $ach['autopay'] ? ' [auto]' : '';
 			$bankDisplay = $ach['bank'] ? $ach['bank'] : "Routing #{$ach['abacode']} /";
-			//if(!mattOnlyTEST() && $ach  && $_SESSION['preferences']['ccGateway'] != $ach['gateway']) {
+		
 			if($ach['invalid']) {
 				$achDisp = "<font color=red>This ACH info is not valid for your gateway {$_SESSION['preferences']['ccgateway']}</font>";
 			}
@@ -1116,7 +1114,6 @@ function ePaymentTableRows($client) {
 			echo "<tr style='display:$primarydisplay'><td>";
 			labeledRadioButton('Primary:', 'primarypaysource', 'ACH', $selectedValue, $onClick='primaryClicked(this)', null, null, 'labelfirst');		
 			echo "</td></tr>";
-			//checkboxRow('Primary', "activeach_CB", $ach['primarypaysource'], $labelClass=null, $inputClass=null, $rowId=null,  $rowStyle="display:$primarydisplay", "setPrimaryPaySource(this)", $rowClass=null);
 			echo "<tr><td colspan=2>".echoButton('', 'Edit ACH Info', 
 																	"openConsoleWindow(\"cceditor\", \"ach-edit.php?client={$client['clientid']}\",500,600)", 
 																	null, null, 1);

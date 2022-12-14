@@ -176,25 +176,11 @@ if(FALSE && staffOnlyTEST()) 		labelRow('BLAH', '', ($invoice->origbalancedue)."
 		$priorCharges = $invoice->priorUnpaidItemTotal($showOnlyCountableItems) - $invoice->priorDiscount['amount']; // does NOT include tax
 
 		labelRow('Prior Unpaid Charges', '', dollars($priorCharges), $labelClass=null, 'rightAlignedTD', '', '', 'raw');
-	//if(staffOnlyTEST()) screenLog("creditApplied: $creditApplied + credits: $credits");
-		//$creditValue = $creditApplied+$credits;
-
-	// DEFINITION:
-	// $currentPaymentsAndCredits in getBillingInvoice, the sum of all credits applied to lineitems
-	// $creditUnappliedToUnpaidItems in getBillingInvoice, the sum of all credits applied to partially or completely unpaid lineitems
-	// $credits =  in getBillingInvoice, getUnusedClientCreditTotal($clientid);
-	// $creditApplied = credits applied (distributed accrual)
-
 
 		$creditValue = /*$currentPaymentsAndCredits +*/  $invoice->creditApplied +  $invoice->credits - $invoice->creditUnappliedToUnpaidItems;
 	if(mattOnlyTEST()) echo "ZOOM2 	creditApplied: $creditApplied + credits: $credits - creditUnappliedToUnpaidItems: $creditUnappliedToUnpaidItems = creditValue: $creditValue<p>";
-		//if($showOnlyCountableItems) $creditValue -= priorUnpaidItemTotal($invoice) - priorUnpaidItemTotal($invoice, true);
+	
 		labelRow('Payments & Credits', '', dollars($creditValue), $labelClass=null, 'rightAlignedTD', '', '', 'raw');
-		//labelRow('Amount Due', '', dollars(max(0, $origbalancedue - $credits + $tax)), $labelClass=null, 'bigger-right', '', 'border: solid black 1px;');
-	//print_r($tax);
-		//$amountDue = $origbalancedue - $creditApplied + $tax - $credits - $totalDiscountAmount; // + priorUnpaidItemTotal($invoice);
-	//if(staffOnlyTEST()) echo ("creditApplied: $creditApplied + credits: $credits");
-		//$amountDue = $currentCharges + $priorCharges + $tax - $credits;
 		if(FALSE && mattOnlyTEST()) {		
 			echo "<tr><td>currentPaymentsAndCredits: $currentPaymentsAndCredits + credits: $credits";
 			echo "<tr><td>origbalancedue: $origbalancedue - creditApplied: $creditApplied  - credits: $credits - totalDiscountAmount: $totalDiscountAmount";

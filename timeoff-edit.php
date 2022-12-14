@@ -278,11 +278,10 @@ if($_POST) {
 			$extrafields .= "</extra>";
 		}
 		else  {
-			//mattOnlyTEST() || dbTEST('queeniespets,tonkatest')
+
 			if($_SESSION['preferences']['enableDeleteTimeOffLink']) if($xfaction == 'Added' || $xfaction == 'Updated') {
 				$reverseActionObjectId = $xfaction == 'Added' ? $changedObj['patternptr'] : $changedObj['timeoffid'];
 				$actionKey = $xfaction == 'Added' ? 'added_pattern' : 'updated_instance';
-				// ... but, added singleton timeoffs have no pattern (patternptr=0), so
 				if($reverseActionObjectId == 0) {
 					$actionKey = 'updated_instance';
 					$reverseActionObjectId = $changedObj['timeoffid'];
@@ -313,7 +312,6 @@ if($_POST) {
 
 		$extrafields .= "</extrafields>";
 
-	//echo htmlentities($extrafields);exit;
 
 		$request = array('extrafields'=>$extrafields, 'subject'=>"$subject for $sitterName");
 		saveNewTimeoffRequest($request, ($notify=userRole() == 'p'));
@@ -340,7 +338,7 @@ if($id) {
 			LEFT JOIN tblprovider ON providerid = providerptr
 			WHERE timeoffid = $id LIMIT 1");
 	$patternrow = getPatternForInstance($id);
-//print_r($patternrow);			
+	
 	$prov = $timeOff['providerptr'];
 	if($prov == getTimeOffBlackoutId()) $pname = 'BLACKOUT';
 	else $pname = $timeOff['pname'];
@@ -430,7 +428,6 @@ function weekdayChooser() {
 	$days = explode(',', 'Su,M,Tu,W,Th,F,Sa,x');
 	echo "<table class='weekdaytable'><tr>";
 	$eventtype = 'onclick'; // onclick onmouseup
-	//if(strpos(strtoupper($_SERVER["HTTP_USER_AGENT"]), 'FIREFOX') !== FALSE) $eventtype = 'onmouseup';
 	foreach($days as $i => $day) {
 		$style = $day == 'x' ? "style='color:red'" : '';
 		echo "<td w='$i' $eventtype='dayClicked(this)' $style>$day</td>";
@@ -466,14 +463,11 @@ function addTimeOff($args, $provOverride=null) {
 		$newPattern = $timeOff;
 		$newPattern['until'] = $until;
 		$newPattern['pattern'] = $monthlyselect ? $monthlyselect : $chosendays;
-		// save pattern
 		$timeOff['patternptr'] = insertTable('tbltimeoffpattern', $newPattern, 1);
-//echo "<p>[{$timeOff['date']}] [$until] []: ".print_r($newPattern, 1);exit;
 	}
 	
 	$results = array();
-	// save initial time off
-	//$newPrimaryTO = insertTable('tbltimeoffinstance', $timeOff, 1);
+
 	$newPrimaryTO = insertBlackoutSafeTimeOff($timeOff);
 	if(is_array($newPrimaryTO)) {
 		$results['errors'][] = "<span style=\"color:red;\">No time off added:</span> {$newPrimaryTO['error']}";
@@ -499,11 +493,9 @@ function addTimeOff($args, $provOverride=null) {
 				$added = insertBlackoutSafeTimeOff($timeOff);
 				if(is_array($added))
 					$results['errors'][] = $added['error'];
-				//insertTable('tbltimeoffinstance', $timeOff);
 			}
 			else if(!$days) {
 }
-				// pattern = dom | everyday | every | 1st | 2nd | 3rd | 4th | last  
 				if($pattern == 'everyday'
 					|| ($pattern == 'dom' && $dom == date('j', strtotime($day)))
 					|| ($pattern == 'every' && $dow == date('D', strtotime($day)))

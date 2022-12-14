@@ -197,12 +197,11 @@ function echoDayBox($day, $provid, $editableTimeOff=false) {
 	if($pastEditingAllowed || ($editable && $day >= date('Y-m-d')))
 		$addLink = fauxLink('<img src="art/ez-add.gif">', "editTimeOff(null, $provid, \"$day\")", true, "Add new time off.");
 	$content = allTimesAvailableThisDay($day, $provid, $editableTimeOff);
-	$showOvernights = FALSE; //$_SESSION['preferences']['overnightsontimeoffcalendar']; //staffOnlyTEST() || dbTEST('tonkapetsitters'); // 'overnightsontimeoffcalendar'
+	$showOvernights = FALSE;
 	if($showOvernights)	$content .= allOvernightsThisDay($day, $provid);
-	//$class = $content ? 'appday' : 'empty';
+
 	$class = 'appday';
 	$month = $_REQUEST['month']; // ugh.
-	// ERASES RIGHT BORDER -->if($month && (date('Y-m-d', strtotime($month)) == $day) && mattOnlyTEST()) $highlight .= "background:#F7FFA1;";
 	if(in_array($day, $unassignedDays)) $rbutton = reassignmentButton($day);
 	echo "<td class='$class' style='position:relative;$highlight' id='box_$day' valign='top'>
 		<div class='daytop'>

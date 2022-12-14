@@ -61,7 +61,6 @@ function appointmentsTableSimple($appointments) {
   foreach($appointments as $appt) {
 		$clientptr = $appt['clientptr'];
 		$packageIds[] = $appt['packageptr'];
-//if($appt['packageptr'] == 417 && mattOnlyTEST()) echo "Appt [[".print_r($appt, 1)."]]<br>"	;
 		$packs[$appt['packageptr']] = $appt['recurringpackage'];
 		$services[] = $appt['serviceptr'];
 		$row = array('timeofday'=>$appt['timeofday']);
@@ -79,7 +78,6 @@ function appointmentsTableSimple($appointments) {
 	require_once "service-fns.php";
 	foreach((array)$packs as $packageptr => $recurring) {
 		$currPack = findCurrentPackageVersion($packageptr, $clientptr, $recurring);
-//if(!$currPack && mattOnlyTEST()) echo "No current for [[".print_r($packageptr, 1)."]]"	;
 		if(!$currPack) continue;
 		$currPacks[$currPack] = getPackage($currPack, ($recurring ? 'R' : 'N'));
 	}

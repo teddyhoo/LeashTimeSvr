@@ -29,7 +29,7 @@ else {
 		// ASSUMPTION: DB is leashtimecustomers, $biz array is set
 		// SETS globals: $ltclientid, $goldstar,$ltclient, $ltClientDescription, $bizPrefs, $activated, $bizDescription, $managers, $totalDescription
 		// maint-biz-description-INCLUDE.php CALLED in maint-edit-biz.php, leashtime-customer-details.php
-		require_once "maint-biz-description-INCLUDE.php";
+		require_once "maint/maint-biz-description-INCLUDE.php";
 	}
 }
 

@@ -865,16 +865,6 @@ function loginidsOnlyTEST($names) {
 	return in_array(strtoupper($_SESSION["auth_login_id"]), $names);
 }
 
-function staffOnlyTEST() {
-	return $_SESSION['staffuser'];
-}
-
-function mattOnlyAddress() { return '68.225.89.173'; } // '68.225.89.173';
-function mattOnlyTEST() {
-	return $_SERVER['REMOTE_ADDR'] == mattOnlyAddress(); 
-	//return $_SERVER['REMOTE_ADDR'] == '174.54.85.228'; 
-	//  mom 174.54.85.228, birch st 68.225.89.173 hotel boheme 69.181.21.248
-}
 
 function mattBang($str) {
 	if(mattOnlyTEST()) {echo "<hr>BANG!<br>$str</hr>";exit;}

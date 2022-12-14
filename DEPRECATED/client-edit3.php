@@ -206,7 +206,6 @@ $utime = microtime(1);
 }		
 		saveNewClient();
 		$newClientId = mysqli_insert_id();
-if(mattOnlyTEST()) setClientPreference($newClientId, 'lastSaved', date('Y-m-d H:i:s')."|{$_SESSION['auth_username']}|{$_SESSION['auth_user_id']}");
 		logChange($newClientId, 'tblclient', 'c', 'Created');
 		saveClientKey($newClientId);
 		saveClientPets($newClientId);
@@ -1114,7 +1113,6 @@ function ePaymentTableRows($client) {
 
 			$autopay = $ach['autopay'] ? ' [auto]' : '';
 			$bankDisplay = $ach['bank'] ? $ach['bank'] : "Routing #{$ach['abacode']} /";
-			//if(!mattOnlyTEST() && $ach  && $_SESSION['preferences']['ccGateway'] != $ach['gateway']) {
 			if($ach['invalid']) {
 				$achDisp = "<font color=red>This ACH info is not valid for your gateway {$_SESSION['preferences']['ccgateway']}</font>";
 			}
@@ -1129,7 +1127,6 @@ function ePaymentTableRows($client) {
 			echo "<tr style='display:$primarydisplay'><td>";
 			labeledRadioButton('Primary:', 'primarypaysource', 'ACH', $selectedValue, $onClick='primaryClicked(this)', null, null, 'labelfirst');		
 			echo "</td></tr>";
-			//checkboxRow('Primary', "activeach_CB", $ach['primarypaysource'], $labelClass=null, $inputClass=null, $rowId=null,  $rowStyle="display:$primarydisplay", "setPrimaryPaySource(this)", $rowClass=null);
 			echo "<tr><td colspan=2>".echoButton('', 'Edit ACH Info', 
 																	"openConsoleWindow(\"cceditor\", \"ach-edit.php?client={$client['clientid']}\",500,600)", 
 																	null, null, 1);
@@ -1145,9 +1142,6 @@ function ePaymentTableRows($client) {
 function unusableFlag($paymentSource) {
 	if(!$paymentSource) return;
 	require_once "cc-processing-current.php";
-	//$nmiGateways = gatewayIsNMI($_SESSION['preferences']['ccGateway']) ? 1 : 0;
-	//$nmiGateways += gatewayIsNMI($paymentSource['gateway']) ? 1 : 0;
-	//if($nmiGateways == 1) // if one of the gateways is NMI and the other is not...
 	if(gatewayConflict($paymentSource))
 		return "<br><span style='color:red;font-variant:small-caps;'>Unusable: was set up for "
 					.($paymentSource['gateway'] ? $paymentSource['gateway'] : 'Another Gateway')."</span>";

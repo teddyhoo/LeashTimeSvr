@@ -382,9 +382,9 @@ $timings['SAVASFNR surch:'] += microtime(1) - $sqlTime;
 			$taxRate = $row['servicecode']
 					? $allTaxRates[$clientptr][$row['servicecode']]
 					: $standardTaxRate; //  <= should the default be zero?
-			if(noTaxBefore($row['date'])) $taxRate = 0; // consults "No Taxation Before" in LeashTime Staff Only prefs		
+			if(noTaxBefore($row['date'])) $taxRate = 0; 
 			$tax = round($taxRate * $row['charge']) / 100;
-//if(mattOnlyTEST() && $clientptr == 1268) echo "FOUND tax: [{$row['surchargeid']}] service: {$row['servicecode']} std tax: [$standardTaxRate] charge: \${$row['charge']}]   $tax<br>";
+
 			$prepayments[$clientptr]['prepayment'] += $row['charge'] + $tax;
 			$prepayments[$clientptr]['paid'] += $row['paid'];
 			if(strcmp($row['date'], $start) < 0 ) $priorClientFound = true;
@@ -522,7 +522,6 @@ function sumUnpaidBillables(&$prepayments, $clientTest, $firstDayDB, $lookaheadL
 			AND ((monthyear IS NOT NULL AND monthyear < '$firstMonth') 
 						OR (monthyear IS NULL AND itemdate < '$firstDayDB'))");
 
-//if(mattOnlyTEST() && strpos($clientTest, '1225')) print_r($sql);
   if(!($result = doQuery($sql))) return null;
   
   while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
@@ -1075,10 +1074,8 @@ function displayBillingInvoice($invoiceOrClientId, $firstDay, $lookahead, $first
 	$statementTitle = $_SESSION['preferences']['statementTitle'] ? $_SESSION['preferences']['statementTitle'] : 'STATEMENT';
 	echo "<p align=center><b>$statementTitle</b><p>";
 if(mattOnlyTEST()) {global $credits; echo "ZOOM2 CREDITS: $credits<hr>";}
-	//echo "<p align=center><b>STATEMENT</b><p>";
-	dumpAccountSummary($invoice, $client, $showOnlyCountableItems); // Customer #, Address, Prev Balance, Payments/Credits, Other Charges/Invoices, This Invoice Total Acct Balance due
+	dumpAccountSummary($invoice, $client, $showOnlyCountableItems); 
 	echo "<p>";
-	//dumpInvoiceCredits($client['clientid']);
 	global $credits, $decrementingCredits;
 	$decrementingCredits = $credits;
 //echo "CREDITS: $ 	$decrementingCredits<p>";
@@ -1441,32 +1438,16 @@ function dumpBalances($invoice, $clientid, $showOnlyCountableItems=false) {  // 
 	labelRow('Current Charges', '', dollars($currentCharges), $labelClass=null, 'rightAlignedTD', '', '', 'raw');
 	$taxLabel = $_SESSION['preferences']['taxLabel'] ? $_SESSION['preferences']['taxLabel'] : 'Tax';
 	labelRow($taxLabel, '', dollars($tax), $labelClass=null, 'rightAlignedTD', '', '', 'raw');
-	//$unusedCredits = fetchRow0Col0("SELECT sum(amount - ifnull(paid,0)) FROM tblcredit WHERE clientptr = $clientid");
-	
-	
-		// 'currentPostDiscountPreTaxSubtotal', 'currentTax', 'priorTax', 'priorPostDiscountPreTaxSubtotal'
 	$priorCharges = priorUnpaidItemTotal($invoice, $showOnlyCountableItems) - $priorDiscount['amount']; // does NOT include tax
 
 	labelRow('Prior Unpaid Charges', '', dollars($priorCharges), $labelClass=null, 'rightAlignedTD', '', '', 'raw');
-//if(staffOnlyTEST()) screenLog("creditApplied: $creditApplied + credits: $credits");
-	//$creditValue = $creditApplied+$credits;
-	
-// DEFINITION:
-// $currentPaymentsAndCredits in getBillingInvoice, the sum of all credits applied to lineitems
-// $creditUnappliedToUnpaidItems in getBillingInvoice, the sum of all credits applied to partially or completely unpaid lineitems
-// $credits =  in getBillingInvoice, getUnusedClientCreditTotal($clientid);
-// $creditApplied = credits applied (distributed accrual)
 	
 	
 	$creditValue = /*$currentPaymentsAndCredits +*/  $creditApplied +  $credits - $creditUnappliedToUnpaidItems;
 if(mattOnlyTEST()) echo "ZOOM2 	creditApplied: $creditApplied + credits: $credits - creditUnappliedToUnpaidItems: $creditUnappliedToUnpaidItems = creditValue: $creditValue<p>";
-	//if($showOnlyCountableItems) $creditValue -= priorUnpaidItemTotal($invoice) - priorUnpaidItemTotal($invoice, true);
+
 	labelRow('Payments & Credits', '', dollars($creditValue), $labelClass=null, 'rightAlignedTD', '', '', 'raw');
-	//labelRow('Amount Due', '', dollars(max(0, $origbalancedue - $credits + $tax)), $labelClass=null, 'bigger-right', '', 'border: solid black 1px;');
-//print_r($tax);
-	//$amountDue = $origbalancedue - $creditApplied + $tax - $credits - $totalDiscountAmount; // + priorUnpaidItemTotal($invoice);
-//if(staffOnlyTEST()) echo ("creditApplied: $creditApplied + credits: $credits");
-	//$amountDue = $currentCharges + $priorCharges + $tax - $credits;
+	
 	if(FALSE && mattOnlyTEST()) {		
 		echo "<tr><td>currentPaymentsAndCredits: $currentPaymentsAndCredits + credits: $credits";
 		echo "<tr><td>origbalancedue: $origbalancedue - creditApplied: $creditApplied  - credits: $credits - totalDiscountAmount: $totalDiscountAmount";
@@ -1801,12 +1782,6 @@ function dumpLeashTimeCustomerStats($invoice) {
 		dumpSectionBar("Activity in this period", "");
 		echo $itemNote['note'];
 	}
-	/*$rows = getProviderVisitCountForMonth($date);
-	foreach($rows as $row) $total += $row['visits'];
-	$rows = array_merge(array(array('name'=>'<b>Total ('.count($rows).')</b>', 'visits'=>$total)), $rows);
-	echo "</td></tr><tr><td>";
-	echo "</td></tr></table>";
-	*/
 }
 
 
@@ -1902,7 +1877,7 @@ function ccStatusDisplayForCC($cc) {
 
 function paymentLink($clientid, $amount, $section=null) {
 	$url = "prepayment-invoice-payment.php?client=$clientid&amount=$amount";
-//fauxLink($label, $onClick, $noEcho=false, $title=null, $id=null, $class=null, $style=null) {
+
 	return fauxLink('Pay', "openConsoleWindow(\"paymentwindow\", \"$url\",600,400)", 1, "Record a payment for this prepayment invoice.", "paylink_{$clientid}_$section");
 }
 
@@ -1910,8 +1885,7 @@ function historyLink($clientid, $repeatCustomers, $starting=null, $ending=null, 
 	if($lastDate = statementLastSent($clientid, $repeatCustomers, $starting, $ending)) {
 			$label = $lastDate ? "Last sent: ".shortDate(strtotime($lastDate)) : 'History'; //shortestDate
 	}
-	// return a link with an empty label if necessary, for later filling by ajax
-	//Parse error: syntax error, unexpected T_STRING in /var/www/prod/billing-fns.php on line 2079 
+
 	$class = $lastDate ? date('Y-m-d', strtotime($lastDate)) : '';
 	return fauxLink($label, "viewRecent($clientid)", 1, "View recent prepayment invoices", "viewRecent_{$clientid}_$section", $class);
 }
@@ -1920,8 +1894,7 @@ function historyLinkSimple($clientid, $repeatCustomers, $starting=null, $ending=
 	if($lastDate = statementLastSent($clientid, $repeatCustomers, $starting, $ending)) {
 			$label = $lastDate ? shortDate(strtotime($lastDate)) : 'History'; //shortestDate
 	}
-	// return a link with an empty label if necessary, for later filling by ajax
-	//Parse error: syntax error, unexpected T_STRING in /var/www/prod/billing-fns.php on line 2079 
+
 	$class = $lastDate ? date('Y-m-d', strtotime($lastDate)) : '';
 	return fauxLink($label, "viewRecent($clientid)", 1, "View recent prepayment invoices", "viewRecent_{$clientid}_$section", $class, 'cursor:pointer;');
 }
@@ -1936,7 +1909,6 @@ function statementLastSent($clientid, $repeatCustomers, $starting=null, $ending=
 function lastStatementSentDate($client, $starting=null, $ending=null) {
 	$startCondition = $starting ? "AND SUBSTR(datetime, 1, 10) >= '".date('Y-m-d', strtotime($starting))."'" : '';
 	$endCondition = $ending ? "AND SUBSTR(datetime, 1, 10) <= '".date('Y-m-d', strtotime($ending))."'" : '';
-	//$hideStatements = in_array(userRole(), array('o', 'd')) ? '' : "AND hidefromcorresp = 0";
 	$sql =
 			"SELECT datetime
 			 FROM tblmessage

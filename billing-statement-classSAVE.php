@@ -263,12 +263,7 @@ class BillingStatement
 
 
 			while($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {
-//if(mattOnlyTEST() && $row['date'] == '2015-10-16') echo "<hr>(10/16 1) IN getRowsForVisitsAndSurchargesInNRPackages<br>".print_r($this->lineitems,1);
-//if(mattOnlyTEST() && $row['date'] == '2015-10-16') echo "<hr>YINK!<br>";
 				if($this->prepareLineItemForAppt($row)) $this->lineitems[] = $row;
-//if(mattOnlyTEST() && $row['date'] == '10/16/2015') echo "<hr>YOINK!<br>";
-//if(mattOnlyTEST() && $row['date'] == '10/16/2015') echo "<hr>(10/16 2) IN getRowsForVisitsAndSurchargesInNRPackages<br>".print_r($this->lineitems,1);
-	//else if(mattOnlyTEST()) echo "No line for: ".print_r($row, 1)."<hr>";
 			}
 			mysqli_free_result($result);
 

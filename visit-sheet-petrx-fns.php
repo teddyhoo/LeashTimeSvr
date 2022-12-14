@@ -13,8 +13,7 @@ function dumpFieldsPtrx($fields, $thisdata=null, $force=false) {
 	foreach($fields as $field => $label) 
 		if($force || isset($thisdata[$field])) {
 			$val = $thisdata[$field];
-			$raw = true; //in_array($field, array('homeaddress', 'mailaddress', 'pets', 'emergency','neighbor', 'keydata'));
-			//$raw = in_array($field, array('homeaddress', 'mailaddress', 'pets', 'emergency','neighbor'));
+			$raw = true; 
 			if(strpos($field, 'phone')) $val = strippedPhoneNumber($val);
 			if($field == $primaryPhoneField) {
 				$raw = true;
@@ -25,7 +24,7 @@ function dumpFieldsPtrx($fields, $thisdata=null, $force=false) {
 }
 
 function dumpSomeCustomFieldRows($clientCustomFields, $petCustomFieldDescriptions) {
-	//$clientCustomFields = getClientCustomFields($client['clientid']);
+	
 	foreach($petCustomFieldDescriptions as $key => $descr) {
 		if(!isset($clientCustomFields[$key])) continue;  
 		if(!$descr[3]) continue;  // visitSheetOnly
@@ -50,9 +49,7 @@ function dumpPetPicture($pet) {
 	$displayphoto = "$dirName/display/$basename";
 	$dims = photoDimsToFitInside($displayphoto, $boxSize);
 	$src = "pet-photo.php?version=display&id={$pet['petid']}";
-	//require "pet-photo.php"; // sets $width, $height
-	//$dims = dimensionsScaledToFitInside($width, $height, $boxSize);
-	//$src = "pet-photo.php?id={$pet['petid']}";
+
 	$src = globalURL($src);
 	echo "<img src='$src' width={$dims[0]} height={$dims[1]}";
 }
@@ -66,7 +63,7 @@ function appointmentsTablePetrax($appointments) {
   foreach($appointments as $appt) {
 		$clientptr = $appt['clientptr'];
 		$packageIds[] = $appt['packageptr'];
-//if($appt['packageptr'] == 417 && mattOnlyTEST()) echo "Appt [[".print_r($appt, 1)."]]<br>"	;
+
 		$packs[$appt['packageptr']] = $appt['recurringpackage'];
 		$services[] = $appt['serviceptr'];
 		$row = array('timeofday'=>$appt['timeofday']);
@@ -84,7 +81,6 @@ function appointmentsTablePetrax($appointments) {
 	require_once "service-fns.php";
 	foreach((array)$packs as $packageptr => $recurring) {
 		$currPack = findCurrentPackageVersion($packageptr, $clientptr, $recurring);
-//if(!$currPack && mattOnlyTEST()) echo "No current for [[".print_r($packageptr, 1)."]]"	;
 		if(!$currPack) continue;
 		$currPacks[$currPack] = getPackage($currPack, ($recurring ? 'R' : 'N'));
 	}
