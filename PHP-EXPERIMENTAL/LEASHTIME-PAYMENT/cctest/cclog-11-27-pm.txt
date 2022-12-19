@@ -1,0 +1,24 @@
+SUCCESS: "ResponseCode=00&tranNr=004461169632&PostDate=2022-11-22T19:48:59.000&Amount=000000003500&AmtDueRemaining=0&CardBalance=&Auth=74363P&AVSCode=Y&CVV2Response=M&CAVVResultCode="
+GatewayID=9225483607&RegKey=HDDNQYXMDM4SQGPY&IndustryCode=2&AccountNumber=5396820022044400&CVV2=542&ExpirationDate=2503&Amount=3500&FullName=Nancy F Cole Cole&Address1=750 Prospect Hill Street&City=Canton&State=MI&Zip=48188&PhoneNumber=6092138080
+
+SUCCESS: "ResponseCode=46&tranNr=004462411112&PostDate=2022-11-23T05:39:40.000&Amount=000000003495&AmtDueRemaining=0&CardBalance=&Auth=&AVSCode=U&CVV2Response=N&CAVVResultCode="
+GatewayID=9242093875&RegKey=E33TXDB8AAT4ZHJ6&IndustryCode=2&AccountNumber=4003810379265359&CVV2=139&ExpirationDate=2511&Amount=3495&FullName=TLC Pro Pet Care Tina Anderson&Address1=1417 Appleton Circle&City=Medford&State=OR&Zip=97504&PhoneNumber=5033604011
+
+SUCCESS: "ResponseCode=46&tranNr=004462411982&PostDate=2022-11-23T05:40:22.000&Amount=000000003495&AmtDueRemaining=0&CardBalance=&Auth=&AVSCode=U&CVV2Response=N&CAVVResultCode="
+GatewayID=9242093875&RegKey=E33TXDB8AAT4ZHJ6&IndustryCode=2&AccountNumber=4003810379265359&CVV2=139&ExpirationDate=2511&Amount=3495&FullName=Tina Anderson&Address1=1417 Appleton Circle&City=Medford&State=OR&Zip=97504&PhoneNumber=5033604011
+
+SUCCESS: "ResponseCode=00&tranNr=004463617802&PostDate=2022-11-23T11:56:00.000&Amount=000000013200&AmtDueRemaining=0&CardBalance=&Auth=095514&AVSCode=Y&CVV2Response=M&CAVVResultCode="
+GatewayID=9225483607&RegKey=HDDNQYXMDM4SQGPY&IndustryCode=2&AccountNumber=4427550212431663&CVV2=793&ExpirationDate=2508&Amount=13200&FullName=Tasha  Lord&Address1=29620 6 Mile Rd.&City=Livonia&State=MI&Zip=48152&PhoneNumber=734-673-7368
+
+SUCCESS: "ResponseCode=00&tranNr=004466232212&PostDate=2022-11-24T16:34:42.000&Amount=000000019400&AmtDueRemaining=0&CardBalance=&Auth=024448&AVSCode=Y&CVV2Response=M&CAVVResultCode="
+GatewayID=9225483607&RegKey=HDDNQYXMDM4SQGPY&IndustryCode=2&AccountNumber=4270829072905752&CVV2=317&ExpirationDate=2309&Amount=19400&FullName=DENNIS M CAREY Carey&Address1=9614 Arden Street&City=Livonia&State=MI&Zip=48150&PhoneNumber=7346120298
+
+SUCCESS: "ResponseCode=00&tranNr=004468778772&PostDate=2022-11-25T13:58:25.000&Amount=000000009200&AmtDueRemaining=0&CardBalance=&Auth=40943D&AVSCode=Y&CVV2Response=M&CAVVResultCode="
+GatewayID=9225483607&RegKey=HDDNQYXMDM4SQGPY&IndustryCode=2&AccountNumber=4100390076052089&CVV2=830&ExpirationDate=2510&Amount=9200&FullName=Robin Maynard&Address1=1686 Heritage Dr.&City=Canton&State=MI&Zip=48188&PhoneNumber=5868019568
+
+SUCCESS: "ResponseCode=00&tranNr=004468900492&PostDate=2022-11-25T15:39:07.000&Amount=000000027400&AmtDueRemaining=0&CardBalance=&Auth=07233D&AVSCode=Y&CVV2Response=M&CAVVResultCode="
+GatewayID=9217308562&RegKey=9WKSGKLHTZFFY53T&IndustryCode=2&AccountNumber=4147202559327612&CVV2=987&ExpirationDate=2708&Amount=27400&FullName=Theresa Snider Snider&Address1=4444 Los Feliz Blvd #109&City=Los Angeles&State=CA&Zip=90027&PhoneNumber=937-244-7701
+
+SUCCESS: "ResponseCode=00&tranNr=004468900492&PostDate=2022-11-25T15:51:36.000&Amount=000000027400&Auth=07233D"
+GatewayID=9217308562&RegKey=9WKSGKLHTZFFY53T&tranNr=004468900492&Email=snider.theresa@gmail.com
+

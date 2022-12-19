@@ -1,0 +1,107 @@
+SUCCESS: <166515717891.1631.12571692476540588745@1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa>
+TIMESTAMP:    2022-10-07 11:39:39.804115
+SENT: Fri, 07 Oct 2022 11:39:39 -0400
+FROM:                notice@leashtime.com
+TO:                       ted@leashtime.com
+SUBJECT:         Pet Care Services Update
+
+<span style='font-size:1.2em'>Dear Jessica Allar,
+<br>
+<br>We have made changes to your service schedule.  Please review the schedule details for correctness.
+<br>
+<br>Please <a href='https://LeashTime.com/response.php?token=becftt'>Click here</a> to confirm the schedule or request changes.
+<br>
+<br>Sincerely,
+<br>
+<br></span><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+  <link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" />
+<p style='text-align:center'>
+<div style='background:white;width:500px;border: solid black 1px;padding:5px;'><b>Schedule Description:</b><p><b>EZ Schedule</b><p><b>Start Date: </b>09/09/2022 <b>End Date: </b>09/11/2022<p><table style='width:100%'></table><b>Services: </b>$ 80.00<br><b>Surcharges: </b><br><b>Discounts: </b>$ 0.00<br><b>Total: </b>$ 80.00<p></div>
+</p><p><style>
+ .previewcalendar { background:white;width:100%;border:solid black 2px;margin:5px; }
+
+ .previewcalendar td {border:solid black 1px;width:14.29%;}
+ .appday {border:solid black 1px;background:white;width:14.29%;vertical-align:top;height:<?= 100 ?>px;}
+ .apptable td {border:solid black 0px;}
+ .empty {border:solid black 1px;background:white;width:14.29%;vertical-align:top;height:<?= 100 ?>px;}
+
+ .month {border:solid black 1px;background:#E0FFFF;font-size:1.4em;font-weight:bold;text-align:center;height:40px;}
+
+ .dow {border:solid black 1px;background:white;font-size:1.2em;text-align:center;height:30px;}
+ .daynumber {font-size:1.5em;font-weight:bold;text-align:right;width:25px;}
+ .apptcontrols {cursor:pointer;float:left;margin-right:3px;height:10px;width:10px; border:solid darkgray 1px;}
+ .hiddentable {width:100%;border:solid black 0px;}
+ .hiddentable td {border:solid black 0px;}
+ .hiddentable td {border:solid black 0px;}
+ .italicized {font-style:italic;}
+	</style><table style='font-size:1.4em;width:100%;text-align:center;'>
+<tr><td colspan=3>
+Schedule starts on: <b>Friday, September 9</b> and ends on <b>Sunday, September 11</b> (3 days)  
+</td></tr>
+<tr><td>Visits: 4</td><td>Days without visits: 0</td><td>Price: .00<td></tr>
+</table><span id='undeletableAppointments' style='display:none'></span><span id='undeletableSurcharges' style='display:none'></span><table class='previewcalendar'  border=1 bordercolor=black><tr><td class='month' colspan=7>September 2022</td></tr>
+<tr><td class='dow'>Sunday</td><td class='dow'>Monday</td><td class='dow'>Tuesday</td><td class='dow'>Wednesday</td><td class='dow'>Thursday</td><td class='dow'>Friday</td><td class='dow'>Saturday</td></tr>
+<tr><td> </td><td> </td><td> </td><td> </td><td> </td><td class='appday' id='box_2022-09-09' valign='top'><div class='daynumber'>9</div><table class='apptable'><tr><td style='text-align:left;color:blue'>1 visit</td><td style='text-align:right'></td></tr><tr><td colspan=2><hr></td></tr><tr><td id='appt_261237' class='noncompletedtask appointment selectable' style='border: solid black 0px' colspan=2>7p-8:30p<br>Daily, vacation, nights & weekend visit<br>Abby Krugman</td></tr>
+</table></td><td class='appday' id='box_2022-09-10' valign='top'><div class='daynumber'>10</div><table class='apptable'><tr><td style='text-align:left;color:blue'>2 visits</td><td style='text-align:right'></td></tr><tr><td colspan=2><hr></td></tr><tr><td id='appt_261238' class='noncompletedtask appointment selectable' style='border: solid black 0px' colspan=2>7a-8a<br>Daily, vacation, nights & weekend visit<br>Abby Krugman</td></tr>
+<tr><td colspan=2><hr></td></tr><tr><td id='appt_261239' class='noncompletedtask appointment selectable' style='border: solid black 0px' colspan=2>7p-8:30p<br>Daily, vacation, nights & weekend visit<br>Abby Krugman</td></tr>
+</table></td></tr><tr><td class='appday' id='box_2022-09-11' valign='top'><div class='daynumber'>11</div><table class='apptable'><tr><td style='text-align:left;color:blue'>1 visit</td><td style='text-align:right'></td></tr><tr><td colspan=2><hr></td></tr><tr><td id='appt_261240' class='noncompletedtask appointment selectable' style='border: solid black 0px' colspan=2>7a-8a<br>Daily, vacation, nights & weekend visit<br>Abby Krugman</td></tr>
+</table></td></table>
+
+SUCCESS: <166515909926.1925.6759791855123433947@1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa>
+TIMESTAMP:    2022-10-07 12:11:40.099850
+SENT: Fri, 07 Oct 2022 12:11:39 -0400
+FROM:                notice@leashtime.com
+TO:                       hanadembe@gmail.com
+SUBJECT:         June Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_436/logo.jpg' ><br>			Dear Hana,<img src='https://LeashTime.com/appointment-photo.php?token=bbiwsk' width=500 style='float:right;padding-left:7px;'><br> <br>The visit for June has been completed by Nichelle Fagan. <br> <br>30 min walk (3-5)<br>------------------------------------<br>Arrived: 11:29 am<p> <br>June did excellent on  her walk today :) She went #1 and #2 but her poop was very watery. Otherwise June was a joy :) <p><p>
+
+SUCCESS: <166515998789.2013.3998512555163454058@1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa>
+TIMESTAMP:    2022-10-07 12:26:28.729424
+SENT: Fri, 07 Oct 2022 12:26:28 -0400
+FROM:                notice@leashtime.com
+TO:                       teddyhoo@hotmail.com
+SUBJECT:         TESTING THE EMAIL SUBJECT
+
+<HTML><P>testing the email body
+
+SUCCESS: <166516007387.2021.9346217119529428871@1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa>
+TIMESTAMP:    2022-10-07 12:27:54.572838
+SENT: Fri, 07 Oct 2022 12:27:53 -0400
+FROM:                notice@leashtime.com
+TO:                       teddyhoo@hotmail.com
+SUBJECT:         TESTING THE EMAIL SUBJECT
+
+<HTML><P>testing the email body
+
+SUCCESS: <166516010117.2026.9193684209589891422@1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa>
+TIMESTAMP:    2022-10-07 12:28:22.163523
+SENT: Fri, 07 Oct 2022 12:28:21 -0400
+FROM:                notice@leashtime.com
+TO:                       teddyhoo@hotmail.com
+SUBJECT:         TESTING THE EMAIL SUBJECT
+
+<HTML><P>testing the email body
+
+SUCCESS: <166516028602.2039.3170327864862384182@1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa>
+TIMESTAMP:    2022-10-07 12:31:26.703523
+SENT: Fri, 07 Oct 2022 12:31:26 -0400
+FROM:                notice@leashtime.com
+TO:                       teddyhoo@hotmail.com
+SUBJECT:         TESTING THE EMAIL SUBJECT
+
+[('Subject', 'TESTING THE EMAIL SUBJECT'), ('From', 'notice@leashtime.com'), ('Reply-to', '"Ted Hooban"'), ('To', 'teddyhoo@hotmail.com'), ('cc', 'ted@leashtime.com'), ('bcc', 'ted@leashtime.com'), ('Message-ID', '<166516028602.2039.3170327864862384182@1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa>'), ('Date', 'Fri, 07 Oct 2022 12:31:26 -0400'), ('Content-Type', 'text/html; charset="utf-8"'), ('Content-Transfer-Encoding', '7bit'), ('MIME-Version', '1.0')]
+
+<HTML><P>testing the email body
+
+SUCCESS: <166516030647.2043.11131538856170278314@1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa>
+TIMESTAMP:    2022-10-07 12:31:47.103412
+SENT: Fri, 07 Oct 2022 12:31:46 -0400
+FROM:                notice@leashtime.com
+TO:                       teddyhoo@hotmail.com
+SUBJECT:         TESTING THE EMAIL SUBJECT
+
+[('Subject', 'TESTING THE EMAIL SUBJECT'), ('From', 'notice@leashtime.com'), ('Reply-to', '"Ted Hooban"'), ('To', 'teddyhoo@hotmail.com'), ('cc', 'ted@leashtime.com'), ('bcc', 'ted@leashtime.com'), ('Message-ID', '<166516030647.2043.11131538856170278314@1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa>'), ('Date', 'Fri, 07 Oct 2022 12:31:46 -0400'), ('Content-Type', 'text/html; charset="utf-8"'), ('Content-Transfer-Encoding', '7bit'), ('MIME-Version', '1.0')]
+
+<HTML><P>testing the email body
+

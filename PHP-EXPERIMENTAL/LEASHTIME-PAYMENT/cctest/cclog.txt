@@ -1,0 +1,18 @@
+FAIL: 2|2|27|The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.|F8C82D|N|43779928667|||0.01|CC|auth_capture||Edwardq|AAAAAAAA||601 N Buchanan St|Arlington|VA|33333|USA|5713174584|||||||||||||||||M||||||||||||XXXX2198|MasterCard|||||||MDBWR6GX3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1124A 81||||||||||
+x_login=2D7Dn9Vjj&x_tran_key=4WZ7adDf8Dz53Q5u&x_type=AUTH_CAPTURE&x_relay_response=0&x_delim_data=1&x_delim_char=|&x_duplicate_window=120&x_amount=0.01&x_exp_date=05/2025&x_card_num=5268760045342198&x_card_code=665&x_first_name=Edwardq&x_last_name=AAAAAAAA&x_address=601+N+Buchanan+St&x_city=Arlington&x_state=VA&x_zip=33333&x_country=USA&x_phone=5713174584
+
+FAIL: 2|2|27|The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.|BF33DF|N|43780998447|||0.01|CC|auth_capture||Edwardq|AAAAAAAA||601 N Buchanan St|Arlington|VA|33333|USA|5713174584|||||||||||||||||M||||||||||||XXXX2198|MasterCard|||||||MDBL6S1TD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1125A 81||||||||||
+x_login=2D7Dn9Vjj&x_tran_key=4WZ7adDf8Dz53Q5u&x_type=AUTH_CAPTURE&x_relay_response=0&x_delim_data=1&x_delim_char=|&x_duplicate_window=120&x_amount=0.01&x_exp_date=05/2025&x_card_num=5268760045342198&x_card_code=665&x_first_name=Edwardq&x_last_name=AAAAAAAA&x_address=601+N+Buchanan+St&x_city=Arlington&x_state=VA&x_zip=33333&x_country=USA&x_phone=5713174584
+
+SUCCESS: 1|1|1|This transaction has been approved.|B27331|Y|43781000790|||0.01|CC|auth_capture||Edwardq|Hooban||601 N Buchanan St|Arlington|VA|22203|USA|5713174584|||||||||||||||||M||||||||||||XXXX2198|MasterCard|||||||MDBF9A98A &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1125A 81||||||||||
+x_login=2D7Dn9Vjj&x_tran_key=4WZ7adDf8Dz53Q5u&x_type=AUTH_CAPTURE&x_relay_response=0&x_delim_data=1&x_delim_char=|&x_duplicate_window=120&x_amount=0.01&x_exp_date=05/2025&x_card_num=5268760045342198&x_card_code=665&x_first_name=Edwardq&x_last_name=Hooban&x_address=601+N+Buchanan+St&x_city=Arlington&x_state=VA&x_zip=22203&x_country=USA&x_phone=5713174584
+
+SUCCESS: "ResponseCode=00&tranNr=004468164322&PostDate=2022-11-25T09:17:25.000&Amount=000000000100&AmtDueRemaining=0&CardBalance=&Auth=6F5536&AVSCode=Y&CVV2Response=M&CAVVResultCode="
+GatewayID=9242093875&RegKey=E33TXDB8AAT4ZHJ6&t&AccountNumber=5268760045342198&CVV2=665&ExpirationDate=2505&Amount=100&FullName=Edwardq Hooban&Address1=601 N Buchanan St&City=Arlington&State=VA&Zip=22203&PhoneNumber=5713174584
+
+SUCCESS: "ResponseCode=00&tranNr=004473116112&PostDate=2022-11-27T14:59:38.000&Amount=000000000100&AmtDueRemaining=0&CardBalance=&Auth=113DAB&AVSCode=Y&CVV2Response=M&CAVVResultCode="
+GatewayID=9242093875&RegKey=E33TXDB8AAT4ZHJ6&t&AccountNumber=5268760045342198&CVV2=665&ExpirationDate=2505&Amount=100&FullName=Edwardq Hooban&Address1=601 N Buchanan St&City=Arlington&State=VA&Zip=22203&PhoneNumber=5713174584
+
+SUCCESS: 1|1|1|This transaction has been approved.|DE5D47|Y|43785000198|||0.01|CC|auth_capture||Edwardq|Hooban||601 N Buchanan St|Arlington|VA|22203|USA|5713174584|||||||||||||||||M||||||||||||XXXX2198|MasterCard|||||||MDBNHZ0MY &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1127A 81||||||||||
+x_login=2D7Dn9Vjj&x_tran_key=4WZ7adDf8Dz53Q5u&x_type=AUTH_CAPTURE&x_relay_response=0&x_delim_data=1&x_delim_char=|&x_duplicate_window=120&x_amount=0.01&x_exp_date=05/2025&x_card_num=5268760045342198&x_card_code=665&x_first_name=Edwardq&x_last_name=Hooban&x_address=601+N+Buchanan+St&x_city=Arlington&x_state=VA&x_zip=22203&x_country=USA&x_phone=5713174584
+

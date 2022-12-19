@@ -1,0 +1,304 @@
+Certificate Directory Structure
+
+/etc/httpd/conf.d/
+	ssl.conf
+	php.conf
+
+/etc/httpd/conf/
+	httpd.conf
+ 
+/etc/pki/CA
+	/crl
+	/certs
+	/newcerts
+	/private
+/etc/pki/ca-trust/
+	-rw-r--r--   1 root root  980 May 16  2017 ca-legacy.conf
+	/extracted/
+		-r--r--r-- 1 root root 192481 Jun 11  2017 objsign-ca-bundle.pem
+		-r--r--r-- 1 root root 218221 Jun 11  2017 email-ca-bundle.pem
+		-r--r--r-- 1 root root 271040 Jun 11  2017 tls-ca-bundle.pem
+
+	/pem/
+		-r--r--r-- 1 root root 192481 Jun 11  2017 objsign-ca-bundle.pem
+		-r--r--r-- 1 root root 218221 Jun 11  2017 email-ca-bundle.pem
+		-r--r--r-- 1 root root 271040 Jun 11  2017 tls-ca-bundle.pem
+
+	/openssl/
+		-r--r--r-- 1 root root 356404 Jun 11  2017 ca-bundle.trust.crt
+/etc/pki/dovecot
+	-rw-r--r--   1 root root  496 Aug 25  2009 dovecot-openssl.cnf
+	/certs
+		-rw-------. 1 root root 847 Aug 22  2013 dovecot.pem
+	/private
+		-rw-------. 1 root root 916 Aug 22  2013 dovecot.pem
+/etc/pki/entitlement
+/etc/pki/java
+/etc/pki/nssdb
+	-rw-r--r--   1 root root   451 May 18  2017 pkcs11.txt
+	-rw-r--r--   1 root root 16384 Jan 12  2010 key3.db
+	-rw-r--r--   1 root root 11264 Jan 12  2010 key4.db
+	-rw-r--r--   1 root root  9216 Jan 12  2010 cert9.db
+	-rw-r--r--   1 root root 16384 Jan 12  2010 secmod.db
+	-rw-r--r--   1 root root 65536 Jan 12  2010 cert8.db
+/etc/pki/product
+	-rw-r--r--. 1 root root 2159 Aug 22  2013 69.pem
+/etc/pki/product-default
+	-rw-r--r-- 1 root root 2159 Jan  3  2019 69.pem
+/etc/pki/rpm-gpg
+	-rw-r--r-- 1 root root 1649 Nov  4  2012 RPM-GPG-KEY-EPEL-6
+	-rw-r--r-- 1 root root 3375 Jan  3  2019 RPM-GPG-KEY-redhat-beta
+	-rw-r--r-- 1 root root 1990 Jan  3  2019 RPM-GPG-KEY-redhat-legacy-former
+	-rw-r--r-- 1 root root 1164 Jan  3  2019 RPM-GPG-KEY-redhat-legacy-release
+	-rw-r--r-- 1 root root  885 Jan  3  2019 RPM-GPG-KEY-redhat-legacy-rhx
+	-rw-r--r-- 1 root root 3211 Jan  3  2019 RPM-GPG-KEY-redhat-release
+/etc/pki/rhui
+	-rw-------   1 root root 1781 Apr  6  2021 ca.crt
+	-rw-------   1 root root 1675 Apr  6  2021 key.pem
+	/product
+		-rw------- 1 root root 2057 Apr  6  2021 content.crt
+/etc/pki/rpm-gpg
+	-rw-r--r--   1 root root 3375 Jan  3  2019 RPM-GPG-KEY-redhat-beta
+	-rw-r--r--   1 root root 1990 Jan  3  2019 RPM-GPG-KEY-redhat-legacy-former
+	-rw-r--r--   1 root root 1164 Jan  3  2019 RPM-GPG-KEY-redhat-legacy-release
+	-rw-r--r--   1 root root  885 Jan  3  2019 RPM-GPG-KEY-redhat-legacy-rhx
+	-rw-r--r--   1 root root 3211 Jan  3  2019 RPM-GPG-KEY-redhat-release
+	-rw-r--r--   1 root root 1649 Nov  4  2012 RPM-GPG-KEY-EPEL-6
+/etc/pki/rsyslog
+/etc/pki/tls
+	/private
+		-rw-r--r--  1 root root 1675 Jul  7 22:37 2023-leashtime.com-new.key
+		-rw-------  1 root root 1675 Jul  7 21:18 2023-leashtime.com.key
+		-rw-r--r--  1 root root 1675 Jul  7  2021 2022-leashtime.com.key
+		-rw-r--r--  1 root root 1679 Jun  4  2019 2021-leashtime.com.key
+		-rw-------  1 root root 1675 Jul 10  2018 2019-leashtime.com.key
+		-rw-------  1 root root 1675 Jun 26  2016 2016-leashtime.com.key
+		-rw-------  1 root root 1675 Oct 17  2014 2014-leashtime.com.key
+		-rw-------  1 root root 1675 Aug 24  2013 2013-leashtime.com.key
+		-rw-------. 1 root root  887 Aug 22  2013 localhost.key
+	/certs
+		-rw-r--r--  1 root root    1704 Jul  7 22:36 2023-leashtime.com.ca-new.crt
+		-rw-r--r--  1 root root    2403 Jul  7 22:36 2023-leashtime.com-new.crt
+		-rw-r--r--  1 root root    3343 Jul  7 21:19 2023-leashtime.com.ca.crt
+		-rw-r--r--  1 root root    2386 Jul  7 21:18 2023-leashtime.com.crt
+		-rw-r--r--  1 root root    3481 Jul  7  2021 2022-leashtime.com.ca.crt
+		-rw-r--r--  1 root root    2334 Jul  7  2021 2022-leashtime.com.crt
+		-rw-r--r--  1 root root    1688 Jun  4  2019 2021-leashtime.com.ca.crt
+		-rw-r--r--  1 root root    2212 Jun  4  2019 2021-leashtime.com.crt
+		-rw-r--r--  1 root root    1688 Jul 10  2018 2019-leashtime.com.ca.crt
+		-rw-r--r--  1 root root    2045 Jul 10  2018 2019-leashtime.com.crt
+		-rw-r--r--  1 root root  885089 May 16  2017 ca-bundle.crt
+		-rw-r--r--  1 root root 1059069 May 16  2017 ca-bundle.trust.crt
+		-rwxr-xr-x  1 root root     610 Nov  9  2016 make-dummy-cert
+		-rw-r--r--  1 root root    2242 Nov  9  2016 Makefile
+		-rwxr-xr-x  1 root root     829 Nov  9  2016 renew-dummy-cert
+		-rw-r--r--  1 root root    1580 Jun 17  2016 2016-leashtime.com.ca.crt
+		-rw-r--r--  1 root root    2314 Jun 17  2016 2016-leashtime.com.crt
+		-rw-r--r--  1 root root    2766 Oct 22  2014 2014-leashtime.com.ca.crt
+		-rw-r--r--  1 root root    1663 Oct 17  2014 2014-leashtime.com.crt
+		-rw-r--r--  1 root root    2660 Aug 24  2013 2013-leashtime.com.ca.crt
+		-rw-r--r--  1 root root    1838 Aug 24  2013 2013-leashtime.com.crt
+		-rw-------. 1 root root    1188 Aug 22  2013 localhost.crt
+
+
+openssl.cnf
+
+HOME                    = .
+RANDFILE                = $ENV::HOME/.rnd
+
+# Extra OBJECT IDENTIFIER info:
+#oid_file               = $ENV::HOME/.oid
+oid_section             = new_oids
+
+[ new_oids ]
+tsa_policy1 = 1.2.3.4.1
+tsa_policy2 = 1.2.3.4.5.6
+tsa_policy3 = 1.2.3.4.5.7
+
+####################################################################
+[ ca ]
+default_ca      = CA_default            # The default ca section
+
+####################################################################
+[ CA_default ]
+
+dir             = /etc/pki/CA           # Where everything is kept
+certs           = $dir/certs            # Where the issued certs are kept
+crl_dir         = $dir/crl              # Where the issued crl are kept
+database        = $dir/index.txt        # database index file.
+#unique_subject = no                    # Set to 'no' to allow creation of
+                                        # several ctificates with same subject.
+new_certs_dir   = $dir/newcerts         # default place for new certs.
+
+certificate     = $dir/cacert.pem       # The CA certificate
+serial          = $dir/serial           # The current serial number
+crlnumber       = $dir/crlnumber        # the current crl number
+                                        # must be commented out to leave a V1 CRL
+crl             = $dir/crl.pem          # The current CRL
+private_key     = $dir/private/cakey.pem# The private key
+RANDFILE        = $dir/private/.rand    # private random number file
+
+x509_extensions = usr_cert              # The extentions to add to the cert
+
+# Comment out the following two lines for the "traditional"
+# (and highly broken) format.
+name_opt        = ca_default            # Subject Name options
+cert_opt        = ca_default            # Certificate field options
+
+default_days    = 365                   # how long to certify for
+default_crl_days= 30                    # how long before next CRL
+default_md      = default               # use public key default MD
+preserve        = no                    # keep passed DN ordering
+
+policy          = policy_match
+
+# For the CA policy
+[ policy_match ]
+countryName             = match
+stateOrProvinceName     = match
+organizationName        = match
+organizationalUnitName  = optional
+commonName              = supplied
+emailAddress            = optional
+
+# For the 'anything' policy
+# At this point in time, you must list all acceptable 'object'
+# types.
+[ policy_anything ]
+countryName             = optional
+stateOrProvinceName     = optional
+localityName            = optional
+organizationName        = optional
+organizationalUnitName  = optional
+commonName              = supplied
+emailAddress            = optional
+
+####################################################################
+[ req ]
+default_bits            = 2048
+default_md              = sha1
+default_keyfile         = privkey.pem
+distinguished_name      = req_distinguished_name
+attributes              = req_attributes
+x509_extensions = v3_ca # The extentions to add to the self signed cert
+
+string_mask = utf8only
+
+[ req_distinguished_name ]
+countryName                     = Country Name (2 letter code)
+countryName_default             = XX
+countryName_min                 = 2
+countryName_max                 = 2
+
+stateOrProvinceName             = State or Province Name (full name)
+
+localityName                    = Locality Name (eg, city)
+localityName_default    = Default City
+
+0.organizationName              = Organization Name (eg, company)
+0.organizationName_default      = Default Company Ltd
+
+organizationalUnitName          = Organizational Unit Name (eg, section)
+string_mask = utf8only
+
+[ req_distinguished_name ]
+countryName                     = Country Name (2 letter code)
+countryName_default             = XX
+countryName_min                 = 2
+countryName_max                 = 2
+
+stateOrProvinceName             = State or Province Name (full name)
+#stateOrProvinceName_default    = Default Province
+
+localityName                    = Locality Name (eg, city)
+localityName_default    = Default City
+
+0.organizationName              = Organization Name (eg, company)
+0.organizationName_default      = Default Company Ltd
+
+# we can do this but it is not needed normally :-)
+#1.organizationName             = Second Organization Name (eg, company)
+#1.organizationName_default     = World Wide Web Pty Ltd
+organizationalUnitName          = Organizational Unit Name (eg, section)
+#organizationalUnitName_default =
+
+commonName                      = Common Name (eg, your name or your server\'s hostname)
+commonName_max                  = 64
+
+emailAddress                    = Email Address
+emailAddress_max                = 64
+
+# SET-ex3                       = SET extension number 3
+
+[ req_attributes ]
+challengePassword               = A challenge password
+challengePassword_min           = 4
+challengePassword_max           = 20
+
+unstructuredName                = An optional company name
+
+[ usr_cert ]
+basicConstraints=CA:FALSE
+
+nsComment                       = "OpenSSL Generated Certificate"
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid,issuer
+[ v3_req ]
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+
+[ v3_ca ]
+
+
+# Extensions for a typical CA
+
+
+# PKIX recommendation.
+
+subjectKeyIdentifier=hash
+
+authorityKeyIdentifier=keyid:always,issuer
+basicConstraints = CA:true
+traints= critical, DER:30:03:01:01:FF
+
+[ crl_ext ]
+authorityKeyIdentifier=keyid:always
+
+[ proxy_cert_ext ]
+basicConstraints=CA:FALSE
+nsComment                       = "OpenSSL Generated Certificate"
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid,issuer
+proxyCertInfo=critical,language:id-ppl-anyLanguage,pathlen:3,policy:foo
+
+####################################################################
+[ tsa ]
+
+default_tsa = tsa_config1       # the default TSA section
+[ tsa_config1 ]
+
+# These are used by the TSA reply generation only.
+dir             = ./demoCA              # TSA root directory
+serial          = $dir/tsaserial        # The current serial number (mandatory)
+crypto_device   = builtin               # OpenSSL engine to use for signing
+signer_cert     = $dir/tsacert.pem      # The TSA signing certificate
+                                        # (optional)
+certs           = $dir/cacert.pem       # Certificate chain to include in reply
+                                        # (optional)
+signer_key      = $dir/private/tsakey.pem # The TSA private key (optional)
+
+default_policy  = tsa_policy1           # Policy if request did not specify it
+                                        # (optional)
+other_policies  = tsa_policy2, tsa_policy3      # acceptable policies (optional)
+digests         = md5, sha1             # Acceptable message digests (mandatory)
+accuracy        = secs:1, millisecs:500, microsecs:100  # (optional)
+clock_precision_digits  = 0     # number of digits after dot. (optional)
+ordering                = yes   # Is ordering defined for timestamps?
+                                # (optional, default: no)
+tsa_name                = yes   # Must the TSA name be included in the reply?
+                                # (optional, default: no)
+ess_cert_id_chain       = no    # Must the ESS cert id chain be included?
+                                # (optional, default: no)
+
+
+

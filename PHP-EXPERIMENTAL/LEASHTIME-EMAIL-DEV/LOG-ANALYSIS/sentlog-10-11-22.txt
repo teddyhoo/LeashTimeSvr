@@ -1,0 +1,2209 @@
+FAIL: <166542055374.24374.2961502227064363511@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 12:49:13.928914     SENT: Mon, 10 Oct 2022 12:49:13 -0400
+FROM:                email@carolinapetcare.com
+TO:                       Kristilyncole@gmail.com
+SUBJECT:         Pet Sitting InvoiceFAIL: <166542075059.25106.11726829062127306685@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 12:52:30.937268     SENT: Mon, 10 Oct 2022 12:52:30 -0400
+FROM:                email@carolinapetcare.com
+TO:                       luciar1901@gmail.com
+SUBJECT:         Paid Pet Sitting InvoiceSUCCESS: <166542084752.25193.2528208580686267017@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 12:54:08.130099
+SENT: Mon, 10 Oct 2022 12:54:07 -0400
+FROM:                notice@leashtime.com
+TO:                       marcyhhanson4@gmail.com
+SUBJECT:         Acknowledgment  of Service Request 10/21/22-10/23/22
+
+Hi Marcy,<p>We have received your request for service for 10/21/22-10/23/22.<p>We are working on getting this all set up for you and will send you a confirmation as soon as it is complete.<p>We look forward to taking care of Bella, Maui  and Silky.<p>Thank you,<p>
+
+SUCCESS: <166542092205.25332.14970698394659831856@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 12:55:22.952905
+SENT: Mon, 10 Oct 2022 12:55:22 -0400
+FROM:                jennifer@mobilemutts.com
+TO:                       jenna.redmond@gmail.com
+SUBJECT:         Mobile Mutts Schedule Update
+
+<span style='font-size:1.2em'>Hi Jenna,
+<br>
+<br>We have made changes to your service schedule.  Please review the schedule details to make sure all is correct.
+<br>
+<br>We will finalize staffing as we get closer, so your walker/sitter may change from what's listed below.
+<br>
+<br>Please check your account at http://leashtime.com/login-page.php?bizid=777 to view your full calendar.
+<br>
+<br>Cancellation Policy: On weekdays, for same day cancellations, the deadline for cancellations is 8am. You will be charged for the cost of the walk or visit for any cancellations made after that time on the day of your requested service. If you reach us before 8am on weekdays, you can cancel with no additional fee. 
+<br>
+<br>For weekends, the deadline for cancellations is 5:30pm on the Friday afternoon prior as we finalize weekend staffing and scheduling based on availability. As long as you reach us by 
+5:30pm on Friday afternoon, you will not be charged for your walk or visit. 
+<br>
+<br>Thank you
+<br>
+<br><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+ 
+  <link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" />
+<p style='text-align:center'>
+<div style='background:white;width:500px;border: solid black 1px;padding:5px;'><b>Schedule Description:</b><p><b>EZ Schedule</b><p><b>Start Date: </b>10/11/2022 <b>End Date: </b>10/14/2022<p><table style='width:100%'></table><b>Services: </b>$&nbsp;115.00<br><b>Surcharges: </b><br><b>Discounts: </b>$&nbsp;0.00<br><b>Tax: </b>$&nbsp;10.20<br><b>Total: </b>$&nbsp;125.20<p></div>
+</p><p><style>
+ .previewcalendar { background:white;width:100%;border:solid black 2px;margin:5px; }
+
+ .previewcalendar td {border:solid black 1px;width:14.29%;}
+ .appday {border:solid black 1px;background:white;width:14.29%;vertical-align:top;height:<?= 100 ?>px;}
+ .apptable td {border:solid black 0px;}
+ .empty {border:solid black 1px;background:white;width:14.29%;vertical-align:top;height:<?= 100 ?>px;}
+
+ .month {border:solid black 1px;background:#E0FFFF;font-size:1.4em;font-weight:bold;text-align:center;height:40px;}
+
+ .dow {border:solid black 1px;background:white;font-size:1.2em;text-align:center;height:30px;}
+ .daynumber {font-size:1.5em;font-weight:bold;text-align:right;width:25px;}
+ .apptcontrols {cursor:pointer;float:left;margin-right:3px;height:10px;width:10px; border:solid darkgray 1px;}
+ .hiddentable {width:100%;border:solid black 0px;}
+ .hiddentable td {border:solid black 0px;}
+ .hiddentable td {border:solid black 0px;}
+ .italicized {font-style:italic;}
+	</style><table style='font-size:1.4em;width:100%;text-align:center;'>
+<tr><td colspan=3>
+Schedule starts on: <b>Tuesday, October 11</b> and ends on <b>Friday, October 14</b> (4 days)  
+</td></tr>
+<tr><td>Visits: 5</td><td>Days without visits: 0</td><td>Price: $115.00<td></tr>
+</table><span id='undeletableAppointments' style='display:none'></span><span id='undeletableSurcharges' style='display:none'></span><table class='previewcalendar'  border=1 bordercolor=black><tr><td class='month' colspan=7>October 2022</td></tr>
+<tr><td class='dow'>Sunday</td><td class='dow'>Monday</td><td class='dow'>Tuesday</td><td class='dow'>Wednesday</td><td class='dow'>Thursday</td><td class='dow'>Friday</td><td class='dow'>Saturday</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td class='appday' id='box_2022-10-11' valign='top'><div class='daynumber'>11</div><table class='apptable'><tr><td style='text-align:left;color:blue'>2 visits</td><td style='text-align:right'></td></tr><tr><td colspan=2><hr></td></tr><tr><td id='appt_1051488' class='noncompletedtask appointment selectable' style='border: solid black 0px' colspan=2>12p-2p<br>Flex Group Walks<br>Grace Kim</td></tr>
+<tr><td colspan=2><hr></td></tr><tr><td id='appt_1051489' class='noncompletedtask appointment selectable' style='border: solid black 0px' colspan=2>4p-6p<br>Flex Group Walks<br>Grace Kim</td></tr>
+</table></td><td class='appday' id='box_2022-10-12' valign='top'><div class='daynumber'>12</div><table class='apptable'><tr><td style='text-align:left;color:blue'>1 visit</td><td style='text-align:right'></td></tr><tr><td colspan=2><hr></td></tr><tr><td id='appt_1051490' class='noncompletedtask appointment selectable' style='border: solid black 0px' colspan=2>12p-2p<br>Flex Group Walks<br>Grace Kim</td></tr>
+</table></td><td class='appday' id='box_2022-10-13' valign='top'><div class='daynumber'>13</div><table class='apptable'><tr><td style='text-align:left;color:blue'>1 visit</td><td style='text-align:right'></td></tr><tr><td colspan=2><hr></td></tr><tr><td id='appt_1051491' class='noncompletedtask appointment selectable' style='border: solid black 0px' colspan=2>12p-2p<br>Flex Group Walks<br>Grace Kim</td></tr>
+</table></td><td class='appday' id='box_2022-10-14' valign='top'><div class='daynumber'>14</div><table class='apptable'><tr><td style='text-align:left;color:blue'>1 visit</td><td style='text-align:right'></td></tr><tr><td colspan=2><hr></td></tr><tr><td id='appt_1051492' class='noncompletedtask appointment selectable' style='border: solid black 0px' colspan=2>12p-2p<br>Flex Group Walks<br>Grace Kim</td></tr>
+</table></td><td>&nbsp;</td></tr></table></span>
+
+SUCCESS: <166542098862.25462.8947502283430118336@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 12:56:29.213820
+SENT: Mon, 10 Oct 2022 12:56:28 -0400
+FROM:                notice@leashtime.com
+TO:                       hodson.ed@gmail.com
+SUBJECT:         HouseBroken Receipt
+
+Hi Ed,<p>Here is your receipt for services performed through 10/09/2022. Thank you for your payment. No additional payment is due at this time.<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=40133%7C1210&amp;amount=0&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Ed Hodson<br>1030 Carroll Street<br>Apt. 4E<br>Brooklyn, NY 11225</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 1210</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Ed Hodson<br>1030 Carroll Street<br>Apt. 
+4E<br>Brooklyn, NY 11225</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 150.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 13.30</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 163.30</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 0.00</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/26/2022</td><td class = 'sortableListCell'>11:00 am-1:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>11:00 am-1:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/28/2022</td><td class = 'sortableListCell'>11:00 am-1:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/29/2022</td><td class = 'sortableListCell'>11:00 am-1:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/30/2022</td><td class = 'sortableListCell'>11:00 am-1:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>11:00 am-1:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>11:00 am-1:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>11:00 am-1:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>11:00 am-1:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/07/2022</td><td class = 'sortableListCell'>11:00 am-1:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 150.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 2737 (Visa)</td><td class = 'sortableListCell'>&amp;#36; 163.30</td>
+</tr>
+<tr  >
+<td class = 'sortableListCell'>10/10/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 2737 (Visa)</td><td class = 'sortableListCell'>&amp;#36; 163.30</td>
+</tr>
+
+</table>
+<p></div>
+
+SUCCESS: <166542100861.25476.13328381326821296895@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 12:56:49.192238
+SENT: Mon, 10 Oct 2022 12:56:48 -0400
+FROM:                notice@leashtime.com
+TO:                       anthonyhird@gmail.com
+SUBJECT:         HouseBroken Receipt
+
+Hi Anthony,<p>Here is your receipt for services performed through 10/09/2022. Thank you for your payment. No additional payment is due at this time.<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=41326%7C1549&amp;amount=0&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Anthony Hird<br>75 Greene Avenue<br>Apt. 1B<br>Brooklyn, NY 11238</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 1549</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Anthony Hird<br>75 Greene Avenue<br>Apt. 
+1B<br>Brooklyn, NY 11238</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 160.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 14.24</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 174.24</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 0.00</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/26/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/28/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/29/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/30/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 160.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>10/10/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 7743 (Visa)</td><td class = 'sortableListCell'>&amp;#36; 174.24</td>
+</tr>
+
+</table>
+<p></div>
+
+SUCCESS: <166542106505.25619.8098498162133094719@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 12:57:45.649520
+SENT: Mon, 10 Oct 2022 12:57:45 -0400
+FROM:                notice@leashtime.com
+TO:                       Victrola@verizon.net
+SUBJECT:         HouseBroken Receipt
+
+Hi Victoria,<p>Here is your receipt for services performed through 10/09/2022. Thank you for your payment. No additional payment is due at this time.<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=80617%7C2062&amp;amount=0&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Victoria Spencer<br>266 Prospect Place <br>Garden Apt. <br>Brooklyn, NY 11238</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 2062</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Victoria Spencer<br>266 Prospect Place 
+<br>Garden Apt. <br>Brooklyn, NY 11238</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 120.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 10.68</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 130.68</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 0.00</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/26/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/29/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 120.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>10/10/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 7129 (Visa)</td><td class = 'sortableListCell'>&amp;#36; 130.68</td>
+</tr>
+
+</table>
+<p></div>
+
+SUCCESS: <166542108345.25637.11104790889656028362@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 12:58:04.068149
+SENT: Mon, 10 Oct 2022 12:58:03 -0400
+FROM:                notice@leashtime.com
+TO:                       viju.soma@gmail.com
+SUBJECT:         HouseBroken Receipt
+
+Hi Viju,<p>Here is your receipt for services performed through 10/09/2022. Thank you for your payment. No additional payment is due at this time.<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=110442%7C2361&amp;amount=0&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Viju Soma<br>195 Willoughby Avenue<br>Apt. 218<br>Brooklyn, NY 11205</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 2361</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Viju Soma<br>195 Willoughby Avenue<br>Apt. 
+218<br>Brooklyn, NY 11205</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 120.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 10.64</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 130.64</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 0.00</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/28/2022</td><td class = 'sortableListCell'>12:00 pm-3:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/29/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/30/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>12:00 pm-3:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>12:00 pm-3:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>12:00 pm-3:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/07/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 120.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>10/10/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 5100 (Visa)</td><td class = 'sortableListCell'>&amp;#36; 130.64</td>
+</tr>
+
+</table>
+<p></div>
+
+SUCCESS: <166542111207.25659.4744822472818549379@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 12:58:34.287383
+SENT: Mon, 10 Oct 2022 12:58:32 -0400
+FROM:                info@tlcpetsitter.com
+TO:                       Quinntollefson@verizon.net
+SUBJECT:         Sophie  and Tiger  Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_128/logo.jpg' ><br>			Dear Kathleen,<img src='https://LeashTime.com/appointment-photo.php?token=bfnuxv' width=500 style='float:right;padding-left:7px;'><br> <br>The visit for Sophie  and Tiger  has been completed by Kimberly Payne. <br> <br>Cat/Small Animal 15<br>------------------------------------<br>Arrived: 8:03 am<br>Completed: 8:20 am<br> <br>When I arrived this morning Tiger was at the top of stairs. Not sure where Sophie hides but she always comes out. Cleaned up their bowls from yesterday. Set out their daily meal. Also, set out a couple of treats for each of them. Scooped out the litter box. Safe travels. <p><p><a href='https://LeashTime.com/visit-map.php?id=117753'>Visit Map</a>
+
+SUCCESS: <166542113140.25673.7416076117121957897@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 12:58:52.045880
+SENT: Mon, 10 Oct 2022 12:58:51 -0400
+FROM:                notice@leashtime.com
+TO:                       Vanessa.quesada.vq@gmail.com
+SUBJECT:         Fwd: Your schedule for the week starting Monday, 10/10/2022
+
+.<hr><hr><b>Forwarding:</b><hr>
+<table border=0 style='padding-left:0px;'>
+<tr  >
+  <td ><label for='mgrname'>From:</label></td><td id='mgrname'>System</td></tr>
+<tr  >
+  <td >To Sitter:</td><td id=''>Vanessa Quesada</td></tr>
+<tr  >
+  <td >Date:</td><td id=''>Mon October 10, 2022 6:05 am</td></tr>
+<tr  >
+  <td ><label for='correspaddr'>Email:</label></td><td id='correspaddr'>To:Vanessa.quesada.vq@gmail.com</td></tr>
+<tr  >
+  <td ><label for='subject'>Subject:</label></td><td id='subject'>Your schedule for the week starting Monday, 10/10/2022</td></tr>
+<tr  >
+  <td >Message:</td><td id=''><img src="art/spacer.gif" width=400 height=1></td></tr>
+</table>
+<div style='padding-left:10px;padding-top:10px;'>
+Dear Vanessa,<p><a href='https://LeashTime.com/app.php' target='_blank'>Go to LeashTime</a><style>
+ .completedtask {
+	background: lightgreen;
+}
+
+ .completedtaskEVEN {
+	background: #CDFECD;
+}
+
+ .noncompletedtask {
+	background: #FEFF99;
+}
+
+ .noncompletedtaskEVEN {
+	background: #FEFFB5;
+}
+
+ .canceledtask {
+	background: #FFC0CB;
+}
+
+ .canceledtaskEVEN {
+	background: #FF93A5;
+}
+
+ .futuretask {
+	background: white;
+}
+
+ .futuretaskEVEN {
+	background: #EEE5FF;/* #FFE3E3; rose*/ /* #F6E5F7 lilac*/ /* #EEEEFF VERY light blue */
+}
+ .daycalendardaterow { /* daycalendar td which displays date */
+	background:lightblue;
+	text-align:center;
+	border: solid black 1px;
+	font-weight:bold;
+}
+ .highprioritytask {
+	border: solid red 2px;
+}
+
+
+</style><h2>Your visits for the week starting Monday, October 10, 2022</h2>4 <font color=red>CANCELED</font> visits. 23 active visits. <p><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Client</th><th class='sortableListHeader'>Phone</th><th class='sortableListHeader'>Address</th><th class='sortableListHeader'>Time Window</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Pay</th></tr></thead><tbody>
+<tr><td class='daycalendardaterow' colspan=6>Monday, October 10</td></tr>
+<tr class='futuretaskEVEN' id='apptrow311358'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=715",700,500)'>Stella (Leighton) </a> </td><td class = 'sortableListCell'>natacha 323 449-5857</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=2258+Kenilworth+ave%2C+Los+Angeles+90039'>2258 Kenilworth ave, ...</a></td><td class = 'sortableListCell'>7:00 am-11:00 am</td><td class = 'sortableListCell'>*60 min dog hike </td><td class='dollaramountcell'>19.00</td>
+</tr>
+<tr class='futuretaskEVEN' style='display:none'><td id='editor_311358' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretaskEVEN'><td colspan=6 style='padding-top:0px;padding-bottom:5px;'>(Reassigned from: Giselle Gradvohl )</td></tr>
+<tr class='canceledtask' id='apptrow318668'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1821",700,500)'>Juniper (Meyer) </a> </td><td class = 'sortableListCell'>831-234-7098</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=2420+Ivanhoe+Drive%2C+Los+Angeles+90039'>2420 Ivanhoe Drive, L...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>*60 min dog hike </td><td class='dollaramountcell'><span style='color:red;font-weight:bold;text-decoration:underline;'>CANCELED</span></td>
+</tr>
+<tr class='canceledtask' style='display:none'><td id='editor_318668' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='canceledtask'><td colspan=6 style='padding-top:0px;padding-bottom:5px;'>(Reassigned from: Giselle Gradvohl )</td></tr>
+<tr class='futuretaskEVEN' id='apptrow326284'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>Solo</td><td class='dollaramountcell'>3.00</td>
+</tr>
+<tr class='futuretaskEVEN' style='display:none'><td id='editor_326284' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretask' id='apptrow326283'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>Meds</td><td class='dollaramountcell'>1.00</td>
+</tr>
+<tr class='futuretask' style='display:none'><td id='editor_326283' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretaskEVEN' id='apptrow326235'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>*60 min. dog walk </td><td class='dollaramountcell'>12.00</td>
+</tr>
+<tr class='futuretaskEVEN' style='display:none'><td id='editor_326235' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretaskEVEN'><td colspan=6 style='padding-top:0px;padding-bottom:5px;'><font color='red'>  Note: $5 extra for indigenous people day</font></td></tr>
+<tr class='futuretask' id='apptrow326959'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1830",700,500)'>Veil (Johns) </a> </td><td class = 'sortableListCell'>347-413-1675</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=1325+Sutherland+Street%2C+Apt+2%2C+LOS+ANGELES+90026'>1325 Sutherland Stree...</a></td><td class = 'sortableListCell'>11:00 am-2:00 pm</td><td class = 'sortableListCell'>Solo walk</td><td class='dollaramountcell'>3.00</td>
+</tr>
+<tr class='futuretask' style='display:none'><td id='editor_326959' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretaskEVEN' id='apptrow326958'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1830",700,500)'>Veil (Johns) </a> </td><td class = 'sortableListCell'>347-413-1675</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=1325+Sutherland+Street%2C+Apt+2%2C+LOS+ANGELES+90026'>1325 Sutherland Stree...</a></td><td class = 'sortableListCell'>11:00 am-2:00 pm</td><td class = 'sortableListCell'>*30 min. dog walk </td><td class='dollaramountcell'>12.00</td>
+</tr>
+<tr class='futuretaskEVEN' style='display:none'><td id='editor_326958' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr><td class='daycalendardaterow' colspan=6>Tuesday, October 11</td></tr>
+<tr class='futuretask' id='apptrow326424'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>Solo</td><td class='dollaramountcell'>3.00</td>
+</tr>
+<tr class='futuretask' style='display:none'><td id='editor_326424' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretaskEVEN' id='apptrow326425'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>Meds</td><td class='dollaramountcell'>1.00</td>
+</tr>
+<tr class='futuretaskEVEN' style='display:none'><td id='editor_326425' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretask' id='apptrow326423'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>*60 min. dog walk </td><td class='dollaramountcell'>17.00</td>
+</tr>
+<tr class='futuretask' style='display:none'><td id='editor_326423' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='canceledtaskEVEN' id='apptrow309679'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1705",700,500)'>Georgia (Badalich) </a> </td><td class = 'sortableListCell'>Savannah 917-708-2664</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=4316+1%2F2+Normal+Ave.%2C+LOS+ANGELES+90029'>4316 1/2 Normal Ave.,...</a></td><td class = 'sortableListCell'>9:00 am-12:00 pm</td><td class = 'sortableListCell'>*60 min. dog walk </td><td class='dollaramountcell'><span style='color:red;font-weight:bold;text-decoration:underline;'>CANCELED</span></td>
+</tr>
+<tr class='canceledtaskEVEN' style='display:none'><td id='editor_309679' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='canceledtaskEVEN'><td colspan=6 style='padding-top:0px;padding-bottom:5px;'>(Reassigned from: Giselle Gradvohl )</td></tr>
+<tr class='futuretask' id='apptrow332128'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1796",700,500)'>Misha (Hawkes) </a> </td><td class = 'sortableListCell'>Amber 323-369-7529</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=4243+Los+Nietos+Dr%2C+Los+Angeles+90027'>4243 Los Nietos Dr, L...</a></td><td class = 'sortableListCell'>9:00 am-12:00 pm</td><td class = 'sortableListCell'>*60 min dog hike </td><td class='dollaramountcell'>19.00</td>
+</tr>
+<tr class='futuretask' style='display:none'><td id='editor_332128' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretaskEVEN' id='apptrow333114'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=442",700,500)'>Hugo (Stewart) </a> </td><td class = 'sortableListCell'>310 415-1041</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=2342+Hillhurst%2C+Los+Angeles+90027'>2342 Hillhurst, Los A...</a></td><td class = 'sortableListCell'>9:00 am-12:00 pm</td><td class = 'sortableListCell'>*60 min dog hike </td><td class='dollaramountcell'>19.00</td>
+</tr>
+<tr class='futuretaskEVEN' style='display:none'><td id='editor_333114' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretask' id='apptrow326961'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1830",700,500)'>Veil (Johns) </a> </td><td class = 'sortableListCell'>347-413-1675</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=1325+Sutherland+Street%2C+Apt+2%2C+LOS+ANGELES+90026'>1325 Sutherland Stree...</a></td><td class = 'sortableListCell'>11:00 am-2:00 pm</td><td class = 'sortableListCell'>Solo walk</td><td class='dollaramountcell'>3.00</td>
+</tr>
+<tr class='futuretask' style='display:none'><td id='editor_326961' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretaskEVEN' id='apptrow326960'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1830",700,500)'>Veil (Johns) </a> </td><td class = 'sortableListCell'>347-413-1675</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=1325+Sutherland+Street%2C+Apt+2%2C+LOS+ANGELES+90026'>1325 Sutherland Stree...</a></td><td class = 'sortableListCell'>11:00 am-2:00 pm</td><td class = 'sortableListCell'>*30 min. dog walk </td><td class='dollaramountcell'>12.00</td>
+</tr>
+<tr class='futuretaskEVEN' style='display:none'><td id='editor_326960' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr><td class='daycalendardaterow' colspan=6>Thursday, October 13</td></tr>
+<tr class='canceledtask' id='apptrow309680'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1705",700,500)'>Georgia (Badalich) </a> </td><td class = 'sortableListCell'>Savannah 917-708-2664</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=4316+1%2F2+Normal+Ave.%2C+LOS+ANGELES+90029'>4316 1/2 Normal Ave.,...</a></td><td class = 'sortableListCell'>9:00 am-12:00 pm</td><td class = 'sortableListCell'>*60 min. dog walk </td><td class='dollaramountcell'><span style='color:red;font-weight:bold;text-decoration:underline;'>CANCELED</span></td>
+</tr>
+<tr class='canceledtask' style='display:none'><td id='editor_309680' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='canceledtask'><td colspan=6 style='padding-top:0px;padding-bottom:5px;'>(Reassigned from: Giselle Gradvohl )</td></tr>
+<tr><td class='daycalendardaterow' colspan=6>Friday, October 14</td></tr>
+<tr class='futuretaskEVEN' id='apptrow311360'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=715",700,500)'>Stella (Leighton) </a> </td><td class = 'sortableListCell'>natacha 323 449-5857</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=2258+Kenilworth+ave%2C+Los+Angeles+90039'>2258 Kenilworth ave, ...</a></td><td class = 'sortableListCell'>7:00 am-11:00 am</td><td class = 'sortableListCell'>*60 min dog hike </td><td class='dollaramountcell'>19.00</td>
+</tr>
+<tr class='futuretaskEVEN' style='display:none'><td id='editor_311360' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretaskEVEN'><td colspan=6 style='padding-top:0px;padding-bottom:5px;'>(Reassigned from: Giselle Gradvohl )</td></tr>
+<tr class='futuretask' id='apptrow326288'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>Solo</td><td class='dollaramountcell'>3.00</td>
+</tr>
+<tr class='futuretask' style='display:none'><td id='editor_326288' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='canceledtaskEVEN' id='apptrow318670'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1821",700,500)'>Juniper (Meyer) </a> </td><td class = 'sortableListCell'>831-234-7098</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=2420+Ivanhoe+Drive%2C+Los+Angeles+90039'>2420 Ivanhoe Drive, L...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>*60 min dog hike </td><td class='dollaramountcell'><span style='color:red;font-weight:bold;text-decoration:underline;'>CANCELED</span></td>
+</tr>
+<tr class='canceledtaskEVEN' style='display:none'><td id='editor_318670' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='canceledtaskEVEN'><td colspan=6 style='padding-top:0px;padding-bottom:5px;'>(Reassigned from: Giselle Gradvohl )</td></tr>
+<tr class='futuretask' id='apptrow326287'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>Meds</td><td class='dollaramountcell'>1.00</td>
+</tr>
+<tr class='futuretask' style='display:none'><td id='editor_326287' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretaskEVEN' id='apptrow326239'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>*60 min. dog walk </td><td class='dollaramountcell'>17.00</td>
+</tr>
+<tr class='futuretaskEVEN' style='display:none'><td id='editor_326239' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr><td class='daycalendardaterow' colspan=6>Saturday, October 15</td></tr>
+<tr class='futuretask' id='apptrow326335'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>Solo</td><td class='dollaramountcell'>3.00</td>
+</tr>
+<tr class='futuretask' style='display:none'><td id='editor_326335' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretaskEVEN' id='apptrow326334'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>Meds</td><td class='dollaramountcell'>1.00</td>
+</tr>
+<tr class='futuretaskEVEN' style='display:none'><td id='editor_326334' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretask' id='apptrow326333'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>*60 min dog hike </td><td class='dollaramountcell'>19.00</td>
+</tr>
+<tr class='futuretask' style='display:none'><td id='editor_326333' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr><td class='daycalendardaterow' colspan=6>Sunday, October 16</td></tr>
+<tr class='futuretaskEVEN' id='apptrow326338'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>Meds</td><td class='dollaramountcell'>1.00</td>
+</tr>
+<tr class='futuretaskEVEN' style='display:none'><td id='editor_326338' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretask' id='apptrow326336'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>*60 min dog hike </td><td class='dollaramountcell'>19.00</td>
+</tr>
+<tr class='futuretask' style='display:none'><td id='editor_326336' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr class='futuretaskEVEN' id='apptrow326337'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=1834",700,500)'>Helo (Sawyer) </a> </td><td class = 'sortableListCell'>Mike 310-595-5330</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=816+Waterloo+Street%2C+Los+Angeles+90026'>816 Waterloo Street, ...</a></td><td class = 'sortableListCell'>8:00 am-11:00 am</td><td class = 'sortableListCell'>Solo</td><td class='dollaramountcell'>3.00</td>
+</tr>
+<tr class='futuretaskEVEN' style='display:none'><td id='editor_326337' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+
+</table>
+</div>
+
+SUCCESS: <166542114918.25693.14163942648015411746@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 12:59:09.782931
+SENT: Mon, 10 Oct 2022 12:59:09 -0400
+FROM:                notice@leashtime.com
+TO:                       karinasanders08@gmail.com
+SUBJECT:         Fwd: Your schedule for the week starting Monday, 10/10/2022
+
+.<hr><hr><b>Forwarding:</b><hr>
+<table border=0 style='padding-left:0px;'>
+<tr  >
+  <td ><label for='mgrname'>From:</label></td><td id='mgrname'>System</td></tr>
+<tr  >
+  <td >To Sitter:</td><td id=''>Karina Sanders</td></tr>
+<tr  >
+  <td >Date:</td><td id=''>Mon October 10, 2022 6:05 am</td></tr>
+<tr  >
+  <td ><label for='correspaddr'>Email:</label></td><td id='correspaddr'>To:karinasanders08@gmail.com</td></tr>
+<tr  >
+  <td ><label for='subject'>Subject:</label></td><td id='subject'>Your schedule for the week starting Monday, 10/10/2022</td></tr>
+<tr  >
+  <td >Message:</td><td id=''><img src="art/spacer.gif" width=400 height=1></td></tr>
+</table>
+<div style='padding-left:10px;padding-top:10px;'>
+Dear Karina Sanders,<p><a href='https://LeashTime.com/app.php' target='_blank'>Go to LeashTime</a><style>
+ .completedtask {
+	background: lightgreen;
+}
+
+ .completedtaskEVEN {
+	background: #CDFECD;
+}
+
+ .noncompletedtask {
+	background: #FEFF99;
+}
+
+ .noncompletedtaskEVEN {
+	background: #FEFFB5;
+}
+
+ .canceledtask {
+	background: #FFC0CB;
+}
+
+ .canceledtaskEVEN {
+	background: #FF93A5;
+}
+
+ .futuretask {
+	background: white;
+}
+
+ .futuretaskEVEN {
+	background: #EEE5FF;/* #FFE3E3; rose*/ /* #F6E5F7 lilac*/ /* #EEEEFF VERY light blue */
+}
+ .daycalendardaterow { /* daycalendar td which displays date */
+	background:lightblue;
+	text-align:center;
+	border: solid black 1px;
+	font-weight:bold;
+}
+ .highprioritytask {
+	border: solid red 2px;
+}
+
+
+</style><h2>Your visits for the week starting Monday, October 10, 2022</h2>2 active visits. <p><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Client</th><th class='sortableListHeader'>Phone</th><th class='sortableListHeader'>Address</th><th class='sortableListHeader'>Time Window</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Pay</th></tr></thead><tbody>
+<tr><td class='daycalendardaterow' colspan=6>Monday, October 10</td></tr>
+<tr class='futuretaskEVEN' id='apptrow319742'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=555",700,500)'> (DCLA) </a> </td><td class = 'sortableListCell'>213 590-8369</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=1421+Westerly+Terrace%2C+LOS+ANGELES+90026'>1421 Westerly Terrace...</a></td><td class = 'sortableListCell'>9:30 am-6:30 pm</td><td class = 'sortableListCell'>Liaison day</td><td class='dollaramountcell'>168.00</td>
+</tr>
+<tr class='futuretaskEVEN' style='display:none'><td id='editor_319742' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+<tr><td class='daycalendardaterow' colspan=6>Tuesday, October 11</td></tr>
+<tr class='futuretask' id='apptrow319743'>
+<td class = 'sortableListCell'><a class='fauxlink'
+	       onClick='openConsoleWindow("viewclient", "client-view.php?id=555",700,500)'> (DCLA) </a> </td><td class = 'sortableListCell'>213 590-8369</td><td class = 'sortableListCell'><a href='http://maps.google.com/maps?t=m&amp;q=1421+Westerly+Terrace%2C+LOS+ANGELES+90026'>1421 Westerly Terrace...</a></td><td class = 'sortableListCell'>9:30 am-6:30 pm</td><td class = 'sortableListCell'>Liaison day</td><td class='dollaramountcell'>168.00</td>
+</tr>
+<tr class='futuretask' style='display:none'><td id='editor_319743' colspan=6 style='padding-top:0px;padding-bottom:5px;'></td></tr>
+
+</table>
+</div>
+
+SUCCESS: <166542125766.26387.240217350007367942@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:00:59.478353
+SENT: Mon, 10 Oct 2022 13:00:57 -0400
+FROM:                info@4pawspetsitting.com
+TO:                       michellejpender@gmail.com
+SUBJECT:         Chickens and Inky Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_490/logo.jpg' ><br>			Dear Michelle,<img src='https://LeashTime.com/appointment-photo.php?token=oichv' width=500 style='float:right;padding-left:7px;'><br> <br>The visit for Chickens and Inky has been completed by Jamie Balint. <br> <br>Pet Visit<br>------------------------------------<p><br> <br>good afternoon from everyone! inky was so excited for some company and had so much to say today! she enjoyed her night finishing her food and got to spend time this morning gazing out the window while laying in the sun before I arrived. she absolutely loves her little chair by the window and loves to get face rubs while she people watches on this beautiful day. the chickens were doing great as well and enjoyed getting a refill of water and food while they talked as I brought in their eggs. inky wanted to go with me outside and help but I told her she 
+had to stay in and finish her food while I was out back. she had a lot to say about that but I have her lots of rubs and loves for being so understanding. inky loves to rub her face in my hands and we had a great time hanging out today. she even gave me some kisses on my hand too! we all hope you are also having a great day and wonderful start to the week. inky is going to enjoy her fresh food and clean litter box later while she watches over the house until I arrive back tomorrow. I can't wait to see her then!! <p><p> 
+
+SUCCESS: <166542133685.26483.15777428442844292148@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:02:17.503307
+SENT: Mon, 10 Oct 2022 13:02:16 -0400
+FROM:                notice@leashtime.com
+TO:                       amybill@msn.com
+SUBJECT:         The information you requested.
+
+Your temporary password is <span style='background:yellow;font-family: Times New Roman, Times, serif'>wzkzk</span> .
+
+<p>You may use it one time to login, and you will be required to set a new password before you can use the system.
+
+<p>If you fail to set your password or forget your new password, you can request a new temporary password again.
+
+SUCCESS: <166542138638.26518.16553454142158784309@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:03:07.822308
+SENT: Mon, 10 Oct 2022 13:03:06 -0400
+FROM:                info@fivepawsdelco.com
+TO:                       justintocci75@gmail.com
+SUBJECT:         Five Paws - Schedule Update (10/13)
+
+<span style='font-size:1.2em'><img src='https://leashtime.com/bizfiles/biz_633/logo.jpg' >
+<br>
+<br>Dear Justin,
+<br>
+<br>Per your request, we have made changes to your service schedule (10/13).  Please review the schedule details for correctness. Thank you!
+<br>
+<br>Please <a href='https://LeashTime.com/response.php?token=ogktm'>Click here</a> to confirm the schedule or request changes.
+<br>
+<br>Have a wonderful day :)
+<br>
+<br>Warmly,
+<br>Five Paws of Delco.</span><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+  <link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" />
+<p style='text-align:center'>
+<div style='background:white;width:500px;border: solid black 1px;padding:5px;'><b>Schedule Description:</b><p><b>EZ Schedule</b><p><b>Start Date: </b>10/13/2022 <b>End Date: </b>10/13/2022<p><table style='width:100%'></table><b>Services: </b>$&nbsp;50.00<br><b>Surcharges: </b><br><b>Discounts: </b>$&nbsp;0.00<br><b>Total: </b>$&nbsp;50.00<p></div>
+</p><p><style>
+ .previewcalendar { background:white;width:100%;border:solid black 2px;margin:5px; }
+
+ .previewcalendar td {border:solid black 1px;width:14.29%;}
+ .appday {border:solid black 1px;background:white;width:14.29%;vertical-align:top;height:<?= 100 ?>px;}
+ .apptable td {border:solid black 0px;}
+ .empty {border:solid black 1px;background:white;width:14.29%;vertical-align:top;height:<?= 100 ?>px;}
+
+ .month {border:solid black 1px;background:#E0FFFF;font-size:1.4em;font-weight:bold;text-align:center;height:40px;}
+
+ .dow {border:solid black 1px;background:white;font-size:1.2em;text-align:center;height:30px;}
+ .daynumber {font-size:1.5em;font-weight:bold;text-align:right;width:25px;}
+ .apptcontrols {cursor:pointer;float:left;margin-right:3px;height:10px;width:10px; border:solid darkgray 1px;}
+ .hiddentable {width:100%;border:solid black 0px;}
+ .hiddentable td {border:solid black 0px;}
+ .hiddentable td {border:solid black 0px;}
+ .italicized {font-style:italic;}
+	</style><table style='font-size:1.4em;width:100%;text-align:center;'>
+<tr><td colspan=3>
+Schedule starts on: <b>Thursday, October 13</b> and ends on <b>Thursday, October 13</b> (1 day)  
+</td></tr>
+<tr><td>Visits: 2</td><td>Days without visits: 0</td><td>Price: $50.00<td></tr>
+</table><span id='undeletableAppointments' style='display:none'></span><span id='undeletableSurcharges' style='display:none'></span><table class='previewcalendar'  border=1 bordercolor=black><tr><td class='month' colspan=7>October 2022</td></tr>
+<tr><td class='dow'>Sunday</td><td class='dow'>Monday</td><td class='dow'>Tuesday</td><td class='dow'>Wednesday</td><td class='dow'>Thursday</td><td class='dow'>Friday</td><td class='dow'>Saturday</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td class='appday' id='box_2022-10-13' valign='top'><div class='daynumber'>13</div><table class='apptable'><tr><td style='text-align:left;color:blue'>2 visits</td><td style='text-align:right'></td></tr><tr><td colspan=2><hr></td></tr><tr><td id='appt_368215' class='noncompletedtask appointment selectable' style='border: solid black 0px' colspan=2>9a-11a<br>Dog Walk/Pet Sit (30 mns)<br>Eileen</td></tr>
+<tr><td colspan=2><hr></td></tr><tr><td id='appt_368216' class='noncompletedtask appointment selectable' style='border: solid black 0px' colspan=2>1p-3p<br>Dog Walk/Pet Sit (30 mns)<br>Emily</td></tr>
+</table></td><td>&nbsp;</td><td>&nbsp;</td></tr></table>
+
+SUCCESS: <166542140979.26523.485699398108783830@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:03:30.396378
+SENT: Mon, 10 Oct 2022 13:03:29 -0400
+FROM:                notice@leashtime.com
+TO:                       caprice.roberts@gmail.com
+SUBJECT:         Bodhi Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_2/logo.png' ><br>			Dear Caprice,<img src='https://LeashTime.com/appointment-photo.php?token=baducy' width=500 style='float:right;padding-left:7px;'><br> <br>The visit for Bodhi has been completed by Robbyn Ellis. <br> <br>30 Min Flex Visit - 1 dog<br>------------------------------------<br>Arrived: 11:52 am<br>Completed: 12:37 pm<br> <br>Hello! <p>After a quick drink, I got Bodie out for a quiet walk. He enjoyed the sun and did plenty of sniffing and #1s. When we got back, I settled him into his crate with two treats. Before he could even enjoy them, he threw up all over his crate, twice. <p>I got him out and cleaned it up. It was all of his breakfast and a lot of water. This morning he had bitten off some of the berries/seeds off some of the decorative grass everyone has all over. I thought I&rsquo;d gotten him to spit them all out, but there 
+were 2-3 in his vomit. I&rsquo;m not sure if they&rsquo;re what made him sick. <p>I left his dirty crate liner on top of his crate, and I put down the blanket that had been on top of the crate. I hope Bodhi is feeling better by the time you get home. If you need us to run over and check on him before you do, please let us know asap. <p>Robbyn <p><img src='https://LeashTime.com/art/mood-happy.png' title='happy' alt='happy' width=40  style='padding-left:7px'><img src='https://LeashTime.com/art/mood-pee.png' title='pee' alt='pee' width=40  style='padding-left:7px'><img src='https://LeashTime.com/art/mood-sick.png' title='sick' alt='sick' width=40  style='padding-left:7px'><p> 
+
+SUCCESS: <166542143776.26544.5772220067138010679@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:03:58.357876
+SENT: Mon, 10 Oct 2022 13:03:57 -0400
+FROM:                notice@leashtime.com
+TO:                       vivir2013@gmail.com
+SUBJECT:         HouseBroken Receipt
+
+Hi Cesar,<p>Here is your receipt for services performed through 10/09/2022. Thank you for your payment. No additional payment is due at this time.<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=46526%7C1607&amp;amount=0&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Cesar Recio<br>207 Midwood Street<br>Brooklyn, NY 11225</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 1607</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Cesar Recio<br>207 Midwood Street<br>Brooklyn, NY 
+11225</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 303.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 26.93</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 329.93</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 0.00</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/26/2022</td><td class = 'sortableListCell'>9:30 am-11:30 am</td><td class = 'sortableListCell'>Client Not Home or Cancelled Too Late</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/28/2022</td><td class = 'sortableListCell'>9:30 am-11:30 am</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/28/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/29/2022</td><td class = 'sortableListCell'>9:30 am-11:30 am</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/29/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/30/2022</td><td class = 'sortableListCell'>9:30 am-11:30 am</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/30/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>9:30 am-11:30 am</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>9:30 am-11:30 am</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>9:30 am-11:30 am</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>9:30 am-11:30 am</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/07/2022</td><td class = 'sortableListCell'>9:30 am-11:30 am</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/07/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;18.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 303.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>10/10/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 7852 (MasterCard)</td><td class = 'sortableListCell'>&amp;#36; 329.93</td>
+</tr>
+
+</table>
+<p></div>
+
+SUCCESS: <166542145623.26562.10733784024374534455@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:04:16.864108
+SENT: Mon, 10 Oct 2022 13:04:16 -0400
+FROM:                notice@leashtime.com
+TO:                       carolyn.s.purcell@gmail.com
+SUBJECT:         HouseBroken Receipt
+
+Hi Carolyn,<p>Here is your receipt for services performed through 10/09/2022. Thank you for your payment. No additional payment is due at this time.<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=61983%7C1841&amp;amount=0&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Carolyn Purcell<br>299 Adelphi Street <br>Apt. 309<br>Brooklyn, NY 11205</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 1841</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Carolyn Purcell<br>299 Adelphi Street 
+<br>Apt. 309<br>Brooklyn, NY 11205</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 160.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 14.24</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 174.24</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 0.00</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>12:00 pm-3:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/28/2022</td><td class = 'sortableListCell'>12:00 pm-3:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/29/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/30/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>12:00 pm-3:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>12:00 pm-3:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/07/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 160.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>10/10/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 9223 (Visa)</td><td class = 'sortableListCell'>&amp;#36; 174.24</td>
+</tr>
+
+</table>
+<p></div>
+
+SUCCESS: <166542149072.26603.8280682767973567916@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:04:51.328245
+SENT: Mon, 10 Oct 2022 13:04:50 -0400
+FROM:                notice@leashtime.com
+TO:                       mckee.greene@gmail.com
+SUBJECT:         Callie, Phoebe Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_2/logo.png' ><br>			Dear Carolyn,Completed: 12:31 pm<br> <br>The visit for Callie, Phoebe has been completed by Kayla Claussen. <br> <br>Monthly 30 Min Visit - 2 dog<br>------------------------------------<br>Arrived: 12:01 pm<br>Completed: 12:31 pm<br> <br>Happy Monday! It was great seeing Callie and Phoebe today! They heard me come in and came racing to the door. They were so excited and started jumping up and down. I gave them some pets, and then grabbed their leashes and headed out the door. Callie and Phoebe had a good walk. They loved to explore new spots today and were very interested in some work being done in the neighborhood. They both went #1&rsquo;s and Phoebe went #2 as well. <p><img src='https://LeashTime.com/art/mood-happy.png' title='happy' alt='happy' width=40  style='padding-left:7px'><img 
+src='https://LeashTime.com/art/mood-pee.png' title='pee' alt='pee' width=40  style='padding-left:7px'><img src='https://LeashTime.com/art/mood-poo.png' title='poo' alt='poo' width=40  style='padding-left:7px'><p> 
+
+SUCCESS: <166542150524.26705.13351920502190087662@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:05:05.874623
+SENT: Mon, 10 Oct 2022 13:05:05 -0400
+FROM:                notice@leashtime.com
+TO:                       ted.lattis@gmail.com
+SUBJECT:         HouseBroken Receipt
+
+Hi Ted,<p>Here is your receipt for services performed through 10/09/2022. Thank you for your payment. No additional payment is due at this time.<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=70006%7C1963&amp;amount=0&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Ted Lattis<br>601 St. Marks Avenue<br>Apt. 1 (Garden Level)<br>Brooklyn, NY 11216</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 1963</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Ted Lattis<br>601 St. Marks 
+Avenue<br>Apt. 1 (Garden Level)<br>Brooklyn, NY 11216</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 201.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 17.88</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 218.88</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 0.00</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>4:00 pm-6:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/28/2022</td><td class = 'sortableListCell'>4:00 pm-6:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/29/2022</td><td class = 'sortableListCell'>4:00 pm-6:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/30/2022</td><td class = 'sortableListCell'>4:00 pm-6:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/01/2022</td><td class = 'sortableListCell'>&amp;nbsp;</td><td class = 'sortableListCell'>Surcharge: Weekend</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;6.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/01/2022</td><td class = 'sortableListCell'>4:00 pm-6:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>4:00 pm-6:00 pm</td><td class = 'sortableListCell'>15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>4:00 pm-6:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>4:00 pm-6:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>4:00 pm-6:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/07/2022</td><td class = 'sortableListCell'>4:00 pm-6:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 201.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>10/10/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 1144 (MasterCard)</td><td class = 'sortableListCell'>&amp;#36; 218.88</td>
+</tr>
+
+</table>
+<p></div>
+
+SUCCESS: <166542150930.26707.15796339990209948076@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:05:10.863469
+SENT: Mon, 10 Oct 2022 13:05:09 -0400
+FROM:                info@fivepawsdelco.com
+TO:                       c.curtin@eclatchocolate.com
+SUBJECT:         Five Paws - Schedule Confirmation/Invoice
+
+<img src='https://leashtime.com/bizfiles/biz_633/logo.jpg' ><p>Dear Christopher,<p>Hello! Below you will find your latest invoice and a confirmation of the upcoming visits. Please review it carefully and let us know if any changes are needed!<p>Thank you and have a wonderful day :)<p>Sincerely,<br>Five Paws of Delco.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_633/logo.jpg'><br>20 Millridge Drive |  | Aston | PA  | 19014<br>Phone: 484-598-3259 - info@fivepawsdelco.com - http://www.fivepawsdelco.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 66.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=187411%7C2381&amp;amount=66&amp;note=Five+Paws+-+Schedule+Confirmation%2FInvoice'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Christopher Curtin<br>22 Applebough Lane<br>Rose Valley, PA 19063</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 2381</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Christopher Curtin<br>22 Applebough 
+Lane<br>Rose Valley, PA 19063</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 88.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 22.00</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 66.00</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td >Date Due</td><td id=''>Upon Receipt</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/24/2022</td><td class = 'sortableListCell'>5:00 pm-7:00 pm</td><td class = 'sortableListCell'>Cat Visit</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;22.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/25/2022</td><td class = 'sortableListCell'>7:00 am-9:00 am</td><td class = 'sortableListCell'>Cat Visit</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;22.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/25/2022</td><td class = 'sortableListCell'>5:00 pm-7:00 pm</td><td class = 'sortableListCell'>Cat Visit</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;22.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/26/2022</td><td class = 'sortableListCell'>7:00 am-9:00 am</td><td class = 'sortableListCell'>Cat Visit</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;22.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 88.00</td></tr><tr><td colspan=4 align=right><table><tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 66.00</td></tr>
+</table>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>09/16/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 3007 (American Express)</td><td class = 'sortableListCell'>&amp;#36; 396.00</td>
+</tr>
+
+</table>
+<p></div><br><span style='color:white;font-size:6pt'>format version: 2.0</span>
+
+SUCCESS: <166542151497.26723.16897406709936067614@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:05:15.562131
+SENT: Mon, 10 Oct 2022 13:05:14 -0400
+FROM:                notice@leashtime.com
+TO:                       Ldyanhanna@gmail.com
+SUBJECT:         Poppy Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_2/logo.png' ><br>			Dear Lisa,<img src='https://LeashTime.com/appointment-photo.php?token=bahtyi' width=500 style='float:right;padding-left:7px;'><br> <br>The visit for Poppy has been completed by Sandra Abucejo. <br> <br>Monthly 30 Min Visit - 1 dog<br>------------------------------------<br>Arrived: 12:22 pm<br>Completed: 12:52 pm<br> <br>poppy shot off, rocket style for her walk. she lead us all throughout the neighborhood and still had some leftover zoomies once we got home. i gave her a treat and lots of hugs. happy monday! <p><img src='https://LeashTime.com/art/mood-happy.png' title='happy' alt='happy' width=40  style='padding-left:7px'><img src='https://LeashTime.com/art/mood-pee.png' title='pee' alt='pee' width=40  style='padding-left:7px'><p>
+
+SUCCESS: <166542153495.26734.1033025624407571001@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:05:35.553290
+SENT: Mon, 10 Oct 2022 13:05:34 -0400
+FROM:                notice@leashtime.com
+TO:                       Mmkimball@gmail.com
+SUBJECT:         HouseBroken Receipt
+
+Hi Mary,<p>Here is your receipt for services performed through 10/09/2022. Thank you for your payment. No additional payment is due at this time.<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=112903%7C2389&amp;amount=0&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Mary Kimball<br>51 Madison Street<br>Garden Apt.<br>Brooklyn, NY 11238</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 2389</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Mary Kimball<br>51 Madison Street<br>Garden 
+Apt.<br>Brooklyn, NY 11238</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 126.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 11.19</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 137.19</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 0.00</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>2:00 pm-4:00 pm</td><td class = 'sortableListCell'>1-hour Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;33.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>2:00 pm-4:00 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;27.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>2:00 pm-4:00 pm</td><td class = 'sortableListCell'>1-hour Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;33.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>2:00 pm-4:00 pm</td><td class = 'sortableListCell'>1-hour Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;33.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 126.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>10/10/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 4554 (Visa)</td><td class = 'sortableListCell'>&amp;#36; 137.19</td>
+</tr>
+
+</table>
+<p></div>
+
+SUCCESS: <166542154287.26739.18133680558672453609@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:05:43.487167
+SENT: Mon, 10 Oct 2022 13:05:42 -0400
+FROM:                notice@leashtime.com
+TO:                       jturcottenh@gmail.com
+SUBJECT:         Daisy, Scout Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_2/logo.png' ><br>			Dear Jeff,Completed: 1:03 pm<br> <br>The visit for Daisy, Scout has been completed by Keith Robertson. <br> <br>30 Min Flex Visit - 2 dog<br>------------------------------------<br>Arrived: 12:34 pm<br>Completed: 1:03 pm<br> <br>The pups had a nice walk. Both went #1, and Scout went #2. <p><p>
+
+SUCCESS: <166542155846.26740.10339210667141875678@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:05:59.082221
+SENT: Mon, 10 Oct 2022 13:05:58 -0400
+FROM:                notice@leashtime.com
+TO:                       primoasher@gmail.com
+SUBJECT:         HouseBroken Receipt
+
+Hi Primo,<p>Here is your receipt for services performed through 10/09/2022. Thank you for your payment. No additional payment is due at this time.<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=161654%7C2875&amp;amount=0&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Primo Lasana<br>35 Crown Street<br>Apt. 5A<br>Brooklyn, NY 11225</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 2875</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Primo Lasana<br>35 Crown Street<br>Apt. 
+5A<br>Brooklyn, NY 11225</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 180.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 16.02</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 196.02</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 0.00</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>1:00 pm-3:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/28/2022</td><td class = 'sortableListCell'>1:00 pm-3:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/29/2022</td><td class = 'sortableListCell'>1:00 pm-3:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/30/2022</td><td class = 'sortableListCell'>1:00 pm-3:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>1:00 pm-3:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>1:00 pm-3:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>1:00 pm-3:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>1:00 pm-3:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/07/2022</td><td class = 'sortableListCell'>1:00 pm-3:00 pm</td><td class = 'sortableListCell'>30-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 180.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>10/10/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 2131 (Visa)</td><td class = 'sortableListCell'>&amp;#36; 196.02</td>
+</tr>
+
+</table>
+<p></div>
+
+SUCCESS: <166542158284.26851.15164088529594203597@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:06:23.578920
+SENT: Mon, 10 Oct 2022 13:06:22 -0400
+FROM:                notice@leashtime.com
+TO:                       dorilatman@gmail.com
+SUBJECT:         HouseBroken Receipt
+
+Hi Dori,<p>Here is your receipt for services performed through 10/09/2022. Thank you for your payment. No additional payment is due at this time.<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=129766%7C2570&amp;amount=0&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Dori Latman<br>200 East 18th Street<br>Apt. 6B<br>Brooklyn, NY 11226</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 2570</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Dori Latman<br>200 East 18th Street<br>Apt. 
+6B<br>Brooklyn, NY 11226</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 135.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 11.97</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 146.97</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 0.00</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>20-minute Puppy Visit (1 visit per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/28/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>20-minute Puppy Visit (1 visit per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/29/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>20-minute Puppy Visit (1 visit per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/30/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>20-minute Puppy Visit (1 visit per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>20-minute Puppy Visit (1 visit per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>20-minute Puppy Visit (1 visit per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>20-minute Puppy Visit (1 visit per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>20-minute Puppy Visit (1 visit per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/07/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>20-minute Puppy Visit (1 visit per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;15.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 135.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>10/10/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 5656 (MasterCard)</td><td class = 'sortableListCell'>&amp;#36; 146.97</td>
+</tr>
+
+</table>
+<p></div>
+
+SUCCESS: <166542161043.26895.12622123761490622451@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:06:51.052488
+SENT: Mon, 10 Oct 2022 13:06:50 -0400
+FROM:                notice@leashtime.com
+TO:                       coreysilbert@gmail.com
+SUBJECT:         HouseBroken Receipt
+
+Hi Corey,<p>Here is your receipt for services performed through 10/09/2022. Thank you for your payment. No additional payment is due at this time.<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=167767%7C2937&amp;amount=0&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Corey Silbert<br>658 Bergen Street<br>Apt. 1E<br>Brooklyn, NY 11238</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 2937</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Corey Silbert<br>658 Bergen Street<br>Apt. 
+1E<br>Brooklyn, NY 11238</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 430.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 38.18</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 468.18</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 0.00</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/26/2022</td><td class = 'sortableListCell'>9:30 am-10:30 am</td><td class = 'sortableListCell'>45-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;25.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/26/2022</td><td class = 'sortableListCell'>3:00 pm-4:00 pm</td><td class = 'sortableListCell'>45-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;25.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>9:30 am-10:30 am</td><td class = 'sortableListCell'>45-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;25.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>3:00 pm-4:00 pm</td><td class = 'sortableListCell'>45-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;25.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>9:30 am-10:30 am</td><td class = 'sortableListCell'>45-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;25.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>3:00 pm-4:00 pm</td><td class = 'sortableListCell'>45-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;25.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>9:30 am-10:30 am</td><td class = 'sortableListCell'>45-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;25.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>3:00 pm-4:00 pm</td><td class = 'sortableListCell'>45-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;25.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>11:00 am-12:00 pm</td><td class = 'sortableListCell'>45-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;25.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>3:30 pm-4:30 pm</td><td class = 'sortableListCell'>45-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;25.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/07/2022</td><td class = 'sortableListCell'>2:00 pm-4:00 pm</td><td class = 'sortableListCell'>Overnight Dog Sitting (Standard Rate)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;90.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/08/2022</td><td class = 'sortableListCell'>2:00 pm-4:00 pm</td><td class = 'sortableListCell'>Overnight Dog Sitting (Standard Rate)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;90.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/09/2022</td><td class = 'sortableListCell'>2:00 pm-4:00 pm</td><td class = 'sortableListCell'>Overnight Dog Sitting (Standard Rate)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;0.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 430.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>10/10/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 7037 (Visa)</td><td class = 'sortableListCell'>&amp;#36; 468.18</td>
+</tr>
+
+</table>
+<p></div>
+
+SUCCESS: <166542167386.26970.3067037152375045686@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:07:54.457718
+SENT: Mon, 10 Oct 2022 13:07:53 -0400
+FROM:                notice@leashtime.com
+TO:                       gabriela.tejada@gmail.com
+SUBJECT:         HouseBroken Credit Card Error - PAYMENT DUE
+
+Hi Gabriela,<p>Here is your latest invoice for services performed through 10/09/2022. We were unable to process your credit card on file and received the following error:<p>ERROR: This transaction has been declined. Five digit ZIP matches, Address (Street) does not match.<p>Please login to your account to update your credit card information.<p>Thank you for using our services!<p>The HouseBroken team<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 147.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=181451%7C3064&amp;amount=147&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Gabriela Tejada<br>915 Washington Avenue<br>Apt. 3B<br>Brooklyn, NY 11225</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 3064</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Gabriela Tejada<br>915 Washington 
+Avenue<br>Apt. 3B<br>Brooklyn, NY 11225</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 135.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 12.00</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 147.00</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td >Date Due</td><td id=''>Upon Receipt</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/26/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>Client Not Home or Cancelled Too Late</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;0.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;27.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;27.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;27.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;27.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/07/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;27.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 135.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div>No payments or credits since 09/26/2022.<p></div>
+
+SUCCESS: <166542170767.27009.3065429692549586624@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:08:28.292250
+SENT: Mon, 10 Oct 2022 13:08:27 -0400
+FROM:                notice@leashtime.com
+TO:                       charmaine.koskinen@gmail.com
+SUBJECT:         HouseBroken Receipt
+
+Hi Charmaine,<p>Here is your receipt for services performed through 10/09/2022. Thank you for your payment. No additional payment is due at this time.<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=181094%7C3060&amp;amount=0&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Charmaine Koskinen<br>324 Park Place<br>Apt. B<br>Brooklyn, NY 11238</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 3060</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Charmaine Koskinen<br>324 Park Place<br>Apt. 
+B<br>Brooklyn, NY 11238</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 82.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 7.28</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 89.28</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 0.00</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>1-hour Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;41.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>12:00 pm-2:00 pm</td><td class = 'sortableListCell'>1-hour Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;41.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 82.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>10/10/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 7505 (Visa)</td><td class = 'sortableListCell'>&amp;#36; 89.28</td>
+</tr>
+
+</table>
+<p></div>
+
+SUCCESS: <166542171385.27010.11036750678761540734@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:08:34.458716
+SENT: Mon, 10 Oct 2022 13:08:33 -0400
+FROM:                Notice@leashtime.com
+TO:                       mundyjos@gmail.com
+SUBJECT:         Getting to know us
+
+<img src='https://leashtime.com/bizfiles/biz_390/logo.jpg' ><p>Dear Joe,<p>Thank you for contacting us. We would LOVE to help you with your pets.<p>If you are inquiring about specific dates for pet care, we may have openings at this moment, however, that can change at any time.  All reservations are on a first come first served basis. No reservations can be accepted until you have a completed profile with all required steps. Once complete, then you can make a reservation 24 hours after and if we can fit you in our schedule, you will receive an email confirmation.<p>If we can not fit you in our schedule at this time, you will be ready the next time your need pet care!<p>I just sent you an informational email and started you on our "Getting to know us" email series. <p>Subject line reads - Thank you! <p>Make sure to look in ALL FOLDERS.  Sometimes an email program will put our emails in 
+tabs for Promotional, Social, Trash, etc.  <p>If you have checked ALL Tabs and Folders and still have NOT received the informational email mentioned above, please let me know and I will RESEND. <p>We have two programs that our emails come from and want to ensure you receive everything.<br>Please make sure to have our email Addresses in your address book - <p>Dori@profpetsit.com, Profpetsit@aol.com and Profpetsitting@gmail.com<p>BE AWARE - OPTING OUT OF EMAILS WILL MAKE YOUR FILE WITH US INACTIVE<p>COMCAST emails - we are not responsible for any lost or not received emails going to a comcast email address due to the known problem with sporadic lost/disappearing emails.  <p>If you have not received the above email, please check your other folders and spam, you may have your filters set high.  We have alot of great information and do not want you to miss out.  <p>Thank you for choosing the 
+Animal Care Center of NH and Professional Pet Sitting Etc. for all your pet care needs,<p>Dori<br>Dorinne Whynott, Owner<br>Prof. Pet Sitting Etc.                                                <br>Animal Care Center of NH<p>Facility Address - <br>257 Daniel Webster Highway<br>Merrimack, NH 03054<p>Mailing Address - <br>PO Box 402<br>Hudson, NH 03051<p>Phone Number - <br>603-888-8088 
+
+SUCCESS: <166542173651.27042.7664617618685234669@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:08:57.123445
+SENT: Mon, 10 Oct 2022 13:08:56 -0400
+FROM:                Notice@leashtime.com
+TO:                       mundyjos@gmail.com
+SUBJECT:         Enrichment Play Daycare Info
+
+<img src='https://leashtime.com/bizfiles/biz_390/logo.jpg' ><p>Dear Joe,<p>You indicated interest in our Enrichment Play Daycare Program<p>Our Enrichment Play Daycare is an exclusive program for owners who want more for their dogs.<p>We have an exclusive Facebook group for our clients, where we post 100-250 photos a day along with videos.  Many clients have stated that they sit down as a family after dinner to look at the fun and activities their beloved canine did.  They say it is the best part of their day!<p>Limited Openings<p>Our Enrichment Play Daycare program is NOT like any other program in New Hampshire.<p>There are a couple of daycares who may do a few things that we do, like bubbles or ball pits, but NO program is exactly like ours.<p>We intersperse positive play with obedience and sensory work which gives your dog extremely more benefit mentally and physically rather than just 
+putting in a group all day. This creates a happier dog not just an exhausted dog.  This requires more work on our part, but worth it.  <p>Here is a few Articles on our exclusive amazing program to learn more. <br> <br>If links are not active, please copy and paste in your browser<p>Watch our video on our Enrichment Play Daycare Program<p>     https://www.youtube.com/watch?v=srPvHy20pFo<p>Why we chose an Enrichment Play Program - <p>     https://profpetsit.com/enrichment-play-day-care/<p><br>What is our Enrichment Play Program - <p>     https://profpetsit.com/what-is-enrichment-play-daycare/<p><br>Requirements<p>     https://profpetsit.com/requirements-for-services/<p><br>Dogs that will not do well in our program -<br>Read more in the above article, What is Enrichment Play Daycare<p>Leash Reactive Dogs<br>Resource Guarders<br>Food Aggressive<br>Dogs that can not be crated<p>Other 
+Dismissal Reasons - <p>https://profpetsit.com/dismissal-reasons/<p>Please know - <p>ALL dogs will go through our Assessments.  This may take one day or many visits. Dogs need to get used to the environment and some dogs take just one day, others take many days.<p>Our goal is to have pets in our care happy, relaxed and enjoying their time with us. <p>A group setting is not for all dogs.  <p>Sometimes dogs act differently or are okay in a group setting with owners or better without owners. <p>If at our facility, it seems that your dog is very uncomfortable, defensive, aggressive, disruptive, etc, we may recommend that your dog is not happy in our program. <p>Let me know if you would like to register and complete your personal pet care profile.<p>I will send your username and password to you  <p>Thank you, <p>Dori<br> 
+
+SUCCESS: <166542184666.27677.655005036591997843@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:10:47.275632
+SENT: Mon, 10 Oct 2022 13:10:46 -0400
+FROM:                notice@leashtime.com
+TO:                       patwyoming@gmail.com
+SUBJECT:         HouseBroken Receipt
+
+Hi Pat,<p>Here is your receipt for services performed through 10/09/2022. Thank you for your payment. No additional payment is due at this time.<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=46663%7C1609&amp;amount=0&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Pat Cremins<br>1234 Dean Street<br>Garden Apt. <br>Brooklyn, NY 11216</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 1609</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Pat Cremins<br>1234 Dean Street<br>Garden Apt. 
+<br>Brooklyn, NY 11216</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 192.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 17.04</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 209.04</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 0.00</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/26/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>30-minute Solo Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;32.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>30-minute Solo Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;32.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/28/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>30-minute Solo Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;32.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>30-minute Solo Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;32.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>30-minute Solo Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;32.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>30-minute Solo Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;32.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 192.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>10/10/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 5430 (Visa)</td><td class = 'sortableListCell'>&amp;#36; 209.04</td>
+</tr>
+
+</table>
+<p></div>
+
+SUCCESS: <166542187943.27783.495916514440059961@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:11:20.099168
+SENT: Mon, 10 Oct 2022 13:11:19 -0400
+FROM:                notice@leashtime.com
+TO:                       arlington@doggywalker.com
+SUBJECT:         Cooper, Daisy, Milo Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_933/logo.png' ><br>			Dear Christie,Completed: 11:00 am<br> <br>The visit for Cooper, Daisy, Milo has been completed by Mark Alyea. <br> <br>Monthly 30 Min Visit - 3 Dogs<br>------------------------------------<br>Arrived: 10:29 am<br>Completed: 11:00 am<br> <br>All the pups were happy the weather was so nice! Everyone one peed and Daisy was the big winner of the poop trophy. Good job Daisy! <p><p><a href='https://LeashTime.com/visit-map.php?id=160369'>Visit Map</a>
+
+SUCCESS: <166542189077.27793.10320515944008190515@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:11:31.382431
+SENT: Mon, 10 Oct 2022 13:11:30 -0400
+FROM:                notice@leashtime.com
+TO:                       arlington@doggywalker.com
+SUBJECT:         Bob Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_933/logo.png' ><br>			Dear Allison,Completed: 11:22 am<br> <br>The visit for Bob has been completed by Chris Rowe. <br> <br>Dog Visit 20 min - 1 dog<br>------------------------------------<br>Arrived: 11:00 am<br>Completed: 11:22 am<br> <br>Love spending time with The Boy. I&rsquo;m sure he&rsquo;ll be ecstatic to see the fam later today. Hope to see Bobby soon. <br>BR#1<br>Chris <p><p><a href='https://LeashTime.com/appointment-map.php?token=lmcpr'>Visit Map</a>
+
+SUCCESS: <166542190010.27809.14282475337969215362@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:11:40.740143
+SENT: Mon, 10 Oct 2022 13:11:40 -0400
+FROM:                notice@leashtime.com
+TO:                       arlington@doggywalker.com
+SUBJECT:         Daisy Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_933/logo.png' ><br>			Dear Barbara,Completed: 12:29 pm<br> <br>The visit for Daisy has been completed by Mark Alyea. <br> <br>Visit Pack 20 min - 1 dog<br>------------------------------------<br>Arrived: 11:04 am<br>Completed: 12:29 pm<br> <br>Daisy was a sweet pup as usual. She did not poop today. Only peed. Enjoy your day off! <p><p><a href='https://LeashTime.com/visit-map.php?id=160365'>Visit Map</a>
+
+SUCCESS: <166542191436.27810.17826761719220803531@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:11:54.989774
+SENT: Mon, 10 Oct 2022 13:11:54 -0400
+FROM:                notice@leashtime.com
+TO:                       arlington@doggywalker.com
+SUBJECT:         Magnum, Olaf and Remin... Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_933/logo.png' ><br>			Dear Hollie,Completed: 11:33 am<br> <br>The visit for Magnum, Olaf and Remington has been completed by Leah Nevares. <br> <br>Monthly 30 Min Visit - 2 Dogs<br>------------------------------------<br>Arrived: 11:00 am<br>Completed: 11:33 am<br> <br>Client was home but working.<p>The boys did great on their walk today. It was a very relaxing walk today lol.<p>Mags did 1 and 2.<p>Remy did 1.<p>Both dogs got two treats each.<p>Leah. <p><p><a href='https://LeashTime.com/visit-map.php?id=160372'>Visit Map</a>
+
+SUCCESS: <166542192119.27811.94807400433759093@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:12:02.851146
+SENT: Mon, 10 Oct 2022 13:12:01 -0400
+FROM:                info@tlcpetsitter.com
+TO:                       lkzell@gmail.com
+SUBJECT:         Stella Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_128/logo.jpg' ><br>			Dear Laura,Completed: 10:11 am<br> <br>The visit for Stella has been completed by Diane  Dent. <br> <br>Cat/Small Animal 30<br>------------------------------------<br>Arrived: 9:41 am<br>Completed: 10:11 am<br> <br>Sent text/photo <p><p><a href='https://LeashTime.com/visit-map.php?id=120177'>Visit Map</a>
+
+SUCCESS: <166542193052.27891.15549414142507088072@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:12:11.176936
+SENT: Mon, 10 Oct 2022 13:12:10 -0400
+FROM:                notice@leashtime.com
+TO:                       arlington@doggywalker.com
+SUBJECT:         Scout Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_933/logo.png' ><br>			Dear Catherine,<img src='https://LeashTime.com/appointment-photo.php?token=bcghwb' width=500 style='float:right;padding-left:7px;'><br> <br>The visit for Scout has been completed by Chris Rowe. <br> <br>Monthly 30 Min Visit - 1 Dog<br>------------------------------------<br>Arrived: 11:36 am<br>Completed: 12:06 pm<br> <br>Scout taking a cool grass break. I&rsquo;ll keep an eye on her poops for the rest of the week. <br>BR#1<br>Chris <p><p><a href='https://LeashTime.com/visit-map.php?id=163274'>Visit Map</a>
+
+SUCCESS: <166542193892.27942.2119296602355296866@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:12:19.631162
+SENT: Mon, 10 Oct 2022 13:12:18 -0400
+FROM:                notice@leashtime.com
+TO:                       arlington@doggywalker.com
+SUBJECT:         Howdy Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_933/logo.png' ><br>			Dear Pam,<img src='https://LeashTime.com/appointment-photo.php?token=sgmgg' width=500 style='float:right;padding-left:7px;'><br> <br>The visit for Howdy has been completed by Malgorzata Khabiyeva. <br> <br>Monthly 30 Min Visit - 1 Dog<br>------------------------------------<br>Arrived: 12:00 pm<br>Completed: 12:31 pm<br> <br>Here we go again ...<br>2 poops. <p><p><a href='https://LeashTime.com/appointment-map.php?token=beaiyk'>Visit Map</a>
+
+SUCCESS: <166542200750.27994.13311116364615728197@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:13:28.089996
+SENT: Mon, 10 Oct 2022 13:13:27 -0400
+FROM:                notice@leashtime.com
+TO:                       cheryl.j.clements@gmail.com
+SUBJECT:         HouseBroken Receipt
+
+Hi Cheryl,<p>Here is your receipt for services performed through 10/09/2022. Thank you for your payment. No additional payment is due at this time.<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=126613%7C2532&amp;amount=1.1368683772162E-13&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Cheryl Clements<br>858 Lincoln Place<br>Brooklyn, NY 11216</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 2532</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Cheryl Clements<br>858 Lincoln 
+Place<br>Brooklyn, NY 11216</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 689.12</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 61.20</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 750.32</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td >Date Due</td><td id=''>Upon Receipt</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/26/2022</td><td class = 'sortableListCell'>10:00 am-12:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/26/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>10:00 am-12:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/27/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/28/2022</td><td class = 'sortableListCell'>10:00 am-12:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/28/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/29/2022</td><td class = 'sortableListCell'>10:00 am-12:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/29/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/30/2022</td><td class = 'sortableListCell'>10:00 am-12:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/30/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>10:00 am-12:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>10:00 am-12:00 pm</td><td class = 'sortableListCell'>[D] 15-minute Relief Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>10:00 am-12:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>10:00 am-12:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/07/2022</td><td class = 'sortableListCell'>10:00 am-12:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/07/2022</td><td class = 'sortableListCell'>3:00 pm-5:00 pm</td><td class = 'sortableListCell'>[D] 30-minute Dog Walk (2 visits per day)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;20.50</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/07/2022</td><td class = 'sortableListCell'>4:00 pm-6:00 pm</td><td class = 'sortableListCell'>Overnight Dog Sitting (Standard Rate)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;100.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/08/2022</td><td class = 'sortableListCell'>10:00 am-12:00 pm</td><td class = 'sortableListCell'>Overnight Dog Sitting (Standard Rate)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;100.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/09/2022</td><td class = 'sortableListCell'>10:00 am-12:00 pm</td><td class = 'sortableListCell'>Overnight Dog Sitting (Standard Rate)</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;100.00</td>
+</tr>
+<tr class='futuretaskEVEN'><td colspan=3 style=''><b>Discount Applied: </b>5%</td><td class='rightAlignedTD'>(&amp;#36;&amp;nbsp;20.38)</td><tr><tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 689.12</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div><style>.leftheader {font-size: 1.05em; padding-bottom: 5px; border-collapse: collapse; text-align: left;}</style><table WIDTH=90% >
+<thead><tr >
+<th class='leftheader'>Date</th><th class='leftheader'>Type</th><th class='leftheader'>Reason</th><th class='leftheader'>Amount</th></tr></thead><tbody>
+<tr  >
+<td class = 'sortableListCell'>10/10/2022</td><td class = 'sortableListCell'>payment</td><td class = 'sortableListCell'>Payment via CC# **** **** **** 1000 (American Express)</td><td class = 'sortableListCell'>&amp;#36; 750.32</td>
+</tr>
+
+</table>
+<p></div>
+
+SUCCESS: <166542230788.28374.8588757063066844148@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:18:28.497138
+SENT: Mon, 10 Oct 2022 13:18:27 -0400
+FROM:                notice@leashtime.com
+TO:                       skippylun@aol.com
+SUBJECT:         Service confirmation with Walking The Dogs
+
+Hi Andrea &amp; Joe Portera,<p>Here is your latest invoice. <p>We also accept credit cards for payment.  Please email the office if you are interested in this payment option. <p>We will provide you with a log in for our system, you may then input your information via our secure system.  You may also choose to add a tip amount if desired, just let us our office know the amount you would like to be added to your charge.<p>If we have a credit card on file, please note we will bill the balance due to your credit card as listed in this invoice, unless instructed not to do so. <p>Daily dog walking service canceled by on the same day by 9 AM or earlier will be credited to your next billing cycle.<p>Another option for payment is to put Walking The Dogs in your bill pay.  The address for this is:<br> <br>Walking The Dogs<br>PO Box 151<br>Burke, VA 22009<p><br>A reminder: Payment for daily walking 
+clients are due the BEGINNING of each week or the first service day of each month. <p>Payment for vacation services are to be left in your home the first day of service.  Walking The Dogs, LLC is a pay in advance service. <p>A $10 fee for any late payments will be assessed per week. <p>If you wish to add a tip to your bill for your dog walker,or pet sitter, it may either be added to your credit card charge, or left in your check (with a note of the memo section of how much to apply for tip please)<p><br>Thank you, we look forward to serving your pet care needs!<p><br>Walking The Dogs, LLC<br>PO Box 151<br>Burke, VA 22009<p>Felicia<br>Walking The Dogs, LLC<br>www.walkingdogsva.com<br>http://www.facebook.com/pages/Walking-the-Dogs/120657287995171<p><hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+ 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_59/logo.jpg'>
+<br>PO Box 151
+<br>Burke, VA 22009
+<br>Phone: 703-473-9768 -   http://walkingdogsva.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 98.00</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'></td></tr></table></td></tr><tr><td>Andrea &amp; Joe Portera<br>6520 Ryanlynn Drive<br>Fairfax Station, VA 22039-1518</td><td align=right></td></tr></table><p align=center>Please detach here and return with payment.<p><hr><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 242</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Andrea &amp; Joe Portera<br>6520 Ryanlynn Drive<br>Fairfax Station, VA 22039-1518</td><td align=right><table width=60%><tr  >
+  <td >Current Charges</td><td id=''>&amp;#36; 98.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 98.00</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td >Date Due</td><td id=''>Upon Receipt</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><center>No Prior Unpaid Charges Found.</center></td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Sitter</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/12/2022</td><td class = 'sortableListCell'>5:00 pm-6:00 pm</td><td class = 'sortableListCell'>Dog Vacation Visit</td><td class = 'sortableListCell'>Victoria C</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;24.50</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/12/2022</td><td class = 'sortableListCell'>8:30 pm-9:30 pm</td><td class = 'sortableListCell'>Dog Vacation Visit</td><td class = 'sortableListCell'>Victoria C</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;24.50</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/13/2022</td><td class = 'sortableListCell'>7:00 am-8:30 am</td><td class = 'sortableListCell'>Dog Vacation Visit</td><td class = 'sortableListCell'>Victoria C</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;24.50</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/13/2022</td><td class = 'sortableListCell'>12:00 pm-1:00 pm</td><td class = 'sortableListCell'>Dog Vacation Visit</td><td class = 'sortableListCell'>Victoria C</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;24.50</td>
+</tr>
+<tr><td colspan=5 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 98.00</td></tr><tr><td colspan=5 align=right><table><tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 98.00</td></tr>
+</table><tr><td colspan=4 style='text-align:left;vertical-align:top;'>
+																						<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																						Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div>No payments or credits since 10/12/2022.<p></div><br><span style='color:white;font-size:6pt'>format version: 2.0</span>
+
+SUCCESS: <166542235624.28409.10474985975410008615@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:19:16.850076
+SENT: Mon, 10 Oct 2022 13:19:16 -0400
+FROM:                notice@leashtime.com
+TO:                       Allysonhayden1@gmail.com
+SUBJECT:         HouseBroken Invoice - PAYMENT DUE
+
+Hi Allyson,<p>Here is your latest invoice for services performed through 10/09/2022.  <p>Payment can be made via Zelle (info@housebrokenny.com) or Venmo (@vivian-villegas-3).<p>Thank you for using our services!<p>The HouseBroken team<p>P.S. Happy with our services?  Please Yelp! all about it.<hr style='page-break-after:always;'><link rel="stylesheet" href="https://leashtime.com/style.css" type="text/css" /> 
+<link rel="stylesheet" href="https://leashtime.com/pet.css" type="text/css" /> 
+<style> body {background-image: none;}</style>
+	
+	<style>
+	.right {text-align:right;  font-size: 1.05em;}
+	.bigger-right {font-size:1.3em;text-align:right;}
+	.bigger-left {font-size:1.3em;text-align:left;}
+	.sortableListHeader {
+		font-size: 1.05em;
+		padding-bottom: 5px; 
+		border-collapse: collapse;
+	}
+
+	.sortableListCell {
+		font-size: 1.05em; 
+		padding-bottom: 4px; 
+		border-collapse: collapse;
+		vertical-align: top;
+	}
+	</style><table width='95%' border=0 bordercolor=red><tr><td style='padding-bottom:8px'><img src='https://LeashTime.com/bizfiles/biz_469/logo.jpg'><br>850 Lincoln Place |  | Brooklyn  | New York | 11216<br>Phone: 718-622-0600 - Pets@HouseBrokenNY.com - http://www.HouseBrokenNY.com</td><td align=right><table width=290><tr  >
+  <td >Invoice Date:</td><td id=''>10/10/2022</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='fontSize1_8em'><img height=16 width=20 src='https://leashtime.com/art/redarrowright.png'>Amount Due:</td><td id=''>&amp;#36; 439.90</td></tr>
+<tr><td id='paynowcell' colspan=2 style='text-align:right;'><a target='payleashtime' href='https://LeashTime.com/client-cc-pay.php?rcip=90468%7C2154&amp;amount=439.9&amp;note=HouseBroken+Invoice+-+PAYMENT+DUE'><img style='text-align:right;' src='https://LeashTime.com/art/payonlinebutton.png' alt='Click here to Pay Online' title='Click here to Pay Online with your credit card.'></a></td></tr></table></td></tr><tr><td>Allyson Hayden<br>925 Sterling Place <br>Brooklyn, NY 11216</td><td align=right></td></tr></table><p align=center><b>STATEMENT</b><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Account Summary</span><span style='float:right;'>Customer Number: 2154</span></div></td><tr><td style='text-align:left;vertical-align:top;'>Allyson Hayden<br>925 Sterling Place <br>Brooklyn, NY 
+11216</td><td align=right><table width=60%><tr  >
+ 
+  <td >Current Charges</td><td id=''>&amp;#36; 175.00</td></tr>
+<tr  >
+  <td >Tax</td><td id=''>&amp;#36; 35.90</td></tr>
+<tr  >
+  <td >Prior Unpaid Charges</td><td id=''>&amp;#36; 229.00</td></tr>
+<tr  >
+  <td >Payments &amp; Credits</td><td id=''>&amp;#36; 0.00</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td class='bigger-left'>Amount Due</td><td id=''>&amp;#36; 439.90</td></tr>
+<tr  style='border: solid black 1px;'>
+  <td >Date Due</td><td id=''>Upon Receipt</td></tr>
+</table></td></tr></table><p><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Prior Unpaid Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100%  >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/08/2022</td><td class = 'sortableListCell'>1:00 pm-2:30 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;27.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/09/2022</td><td class = 'sortableListCell'>1:00 pm-2:30 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;27.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/19/2022</td><td class = 'sortableListCell'>1:00 pm-2:30 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;35.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/20/2022</td><td class = 'sortableListCell'>1:00 pm-2:30 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;35.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/21/2022</td><td class = 'sortableListCell'>1:00 pm-2:30 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;35.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>09/22/2022</td><td class = 'sortableListCell'>1:00 pm-2:30 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;35.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>09/23/2022</td><td class = 'sortableListCell'>1:00 pm-2:30 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;35.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 229.00</td><tr>
+</table>
+</td></tr></table><table width='95%'><tr><td colspan=2><div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Current Charges</span><span style='float:right;'></span></div></td></tr><tr><td><table WIDTH=100% >
+<thead><tr >
+<th class='sortableListHeader'>Date</th><th class='sortableListHeader'>Time of Day</th><th class='sortableListHeader'>Service</th><th class='sortableListHeader'>Charge</th></tr></thead><tbody>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/03/2022</td><td class = 'sortableListCell'>1:00 pm-2:30 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;35.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/04/2022</td><td class = 'sortableListCell'>1:00 pm-2:30 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;35.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/05/2022</td><td class = 'sortableListCell'>1:00 pm-2:30 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;35.00</td>
+</tr>
+<tr class='futuretaskEVEN' >
+<td class = 'sortableListCell'>10/06/2022</td><td class = 'sortableListCell'>1:00 pm-2:30 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;35.00</td>
+</tr>
+<tr class='futuretask' >
+<td class = 'sortableListCell'>10/07/2022</td><td class = 'sortableListCell'>1:00 pm-2:30 pm</td><td class = 'sortableListCell'>45-minute Dog Walk</td><td class='rightAlignedTD'>&amp;#36;&amp;nbsp;35.00</td>
+</tr>
+<tr><td colspan=4 style='text-align:right;font-weight:bold'>Subtotal: &amp;#36; 175.00</td><tr><tr><td colspan=3 style='text-align:left;vertical-align:top;'>
+																					<b>If you would like to add a gratuity, please let us know how much you want to add.<br>
+																					Thanks for your continued business.</b></td></td><tr>
+</table>
+</td></tr></table><div style='width:95%'>
+<div style='width:100%;border:solid black 1px;font-weight:bold;background:lightblue;height:20px;'><span style='float:left;'>Recent Payments and Credits</span><span style='float:right;'></span></div>No payments or credits since 09/26/2022.<p></div>
+
+SUCCESS: <166542238864.28432.1303991437243081903@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:19:49.205667
+SENT: Mon, 10 Oct 2022 13:19:48 -0400
+FROM:                notice@leashtime.com
+TO:                       pav1262@comcast.net
+SUBJECT:         Ezra Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_925/logo.jpg' ><br>			Dear Stan,Completed: 10:14 am<br> <br>The visit for Ezra has been completed by Howard  Rabin. <br> <br>DogOn Fit 30<br>------------------------------------<p>Completed: 10:14 am<br> <br>Hi Stan this is Howard. Ezra had a very good walk today. The weather outside was sunny and cool out there. Ezra peed and no poop today. <br>Have a great day! <p><p>
+
+SUCCESS: <166542243503.29001.2070374632006124232@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:20:35.634817
+SENT: Mon, 10 Oct 2022 13:20:35 -0400
+FROM:                notice@leashtime.com
+TO:                       twodocsc@gmail.com
+SUBJECT:         Rory Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_925/logo.jpg' ><br>			Dear Chris,Completed: 1:19 pm<br> <br>The visit for Rory has been completed by Howard  Rabin. <br> <br>DogOn Fit 30<br>------------------------------------<p>Completed: 1:19 pm<br> <br>Hi Chris this is Howard. Rory had a very nice walk today. The weather outside was sunny and very comfortable out there. Rory Peed and no poop today. <br>Have a great day! <p><p>
+
+SUCCESS: <166542251896.29135.7816633054588248663@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:21:59.577544
+SENT: Mon, 10 Oct 2022 13:21:58 -0400
+FROM:                notice@leashtime.com
+TO:                       forresterbrett@gmail.com
+SUBJECT:         Client Login Credentials
+
+<img src='https://leashtime.com/bizfiles/biz_478/logo.jpg' ><p>Hi Brett,<p>Here are your username and password for logging in to view your account with . The password is temporary; the very next time you try to login (whether using this password or not), this password will be erased. If you login with this password, you will be asked to supply a new permanent password.<table cellspacing='10' align='center' bgcolor='lightblue'><tbody><tr><td>Username:</td><td bgcolor='white'><strong>forresterbrett@gmail.com</strong></td></tr><tr><td>Temp Password:</td><td bgcolor='white'><strong>password</strong></td></tr></tbody></table><p>If your login attempt is not successful for any reason, you can obtain a new temporary password at our login page: <a href='https://leashtime.com/login-page.php?bizid=478'>https://leashtime.com/login-page.php?bizid=478</a> using the forgotten password link. To obtain a 
+new password, you will need to supply your username (forresterbrett@gmail.com) and this email address (forresterbrett@gmail.com). Once you do, a new temporary password will be emailed immediately to that email address. Please contact us at fureverfriendsofhouston@yahoo.com or 713-201-7464 if you have any questions.<p>Thank you,<p>Julie Azud 
+
+SUCCESS: <166542263621.29217.835049746604926572@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:23:56.829545
+SENT: Mon, 10 Oct 2022 13:23:56 -0400
+FROM:                notice@leashtime.com
+TO:                       lisawest2008@gmail.com
+SUBJECT:         Dexter Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_2/logo.png' ><br>			Dear Lisa,Completed: 1:05 pm<br> <br>The visit for Dexter has been completed by Gabriella  Alcorta. <br> <br>Monthly 30 Min Visit - 1 dog<br>------------------------------------<br>Arrived: 12:35 pm<br>Completed: 1:05 pm<br> <br>Hello!<br>It was great to see Dexter after such a long time and to see his smiling face. He took me around the neighborhood and went #1 and #2. Back home, I gave him a treat and lots of TLC.<br>-Bella <p><img src='https://LeashTime.com/art/mood-happy.png' title='happy' alt='happy' width=40  style='padding-left:7px'><img src='https://LeashTime.com/art/mood-pee.png' title='pee' alt='pee' width=40  style='padding-left:7px'><img src='https://LeashTime.com/art/mood-poo.png' title='poo' alt='poo' width=40  style='padding-left:7px'><p>
+
+SUCCESS: <166542275229.29404.6778295264032578275@525552-web2.leashtime.com>
+TIMESTAMP:    2022-10-10 13:25:52.878267
+SENT: Mon, 10 Oct 2022 13:25:52 -0400
+FROM:                notice@leashtime.com
+TO:                       dabbers424@gmail.com
+SUBJECT:         Finn, Mac Visit Report
+
+<img src='https://leashtime.com/bizfiles/biz_2/logo.png' ><br>			Dear Donnelly,Completed: 1:10 pm<br> <br>The visit for Finn, Mac has been completed by Kate Reich. <br> <br>Monthly 30 Min Visit - 2 dog<br>------------------------------------<br>Arrived: 12:41 pm<br>Completed: 1:10 pm<br> <br>Finn and Mac got dressed quickly today, and we were out for a walk in the lovely weather! Both boys had number ones and lots of sniffs. There was some chit chat with some corgis who were in a car. Otherwise, it was just a nice casual walk! <p><img src='https://LeashTime.com/art/mood-pee.png' title='pee' alt='pee' width=40  style='padding-left:7px'><p>
+
