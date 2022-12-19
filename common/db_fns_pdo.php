@@ -782,11 +782,11 @@ function tzNowSQL($tzSymbol=null) { // unused 11/8/2010
 
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-function getLocalTime($tzSymbol=null) {  // called in appointment-fns.php, homepage_owner.php,incomplete-appts-section.php, menu-owner.html
-	return time();// + getLocalOffsetSeconds($tzSymbol);
+function getLocalTime($tzSymbol=null) {  
+	return time();
 }
 
-function getLocalOffsetSeconds($tzSymbol=null) { // private
+function getLocalOffsetSeconds($tzSymbol=null) { 
 	$offset = explode(':', getLocalOffset($tzSymbol));
 	return $offset[0] * 3600 + ($offset[1] * 60 * ($offset[0] < 0 ? -1 : 1));
 }
