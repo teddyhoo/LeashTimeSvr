@@ -1,5 +1,6 @@
 <? // abstract-merchant-gateway.php
 
+
 class AbstractMerchantGateway
 {
 	function ccValidationTests() {
